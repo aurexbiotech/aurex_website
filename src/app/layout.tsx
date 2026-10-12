@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Aboreto } from "next/font/google";
 import "./globals.css";
 import Navbar from '@/components/Navbar'
+import { defaultKeywords, organizationSchema, siteName, siteUrl } from '@/lib/seo'
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,14 +16,30 @@ const aboreto = Aboreto({
 });
 
 export const metadata: Metadata = {
-  title: "AnalyzeBiotech - Advanced Diagnostics Solutions",
-  description: "Leading the future of in vitro diagnostics with cutting-edge technology, precision instruments, and comprehensive solutions for laboratories worldwide.",
-  keywords: "biotech, diagnostics, laboratory, medical equipment, immunoassay, microbiology, clinical chemistry",
-  authors: [{ name: "AnalyzeBiotech" }],
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${siteName} | Diagnostic and Laboratory Equipment`,
+    template: `%s | ${siteName}`,
+  },
+  description: "Analyze Biotech supplies diagnostic equipment, laboratory equipment, biochemistry analyzers, and laboratory diagnostic solutions.",
+  keywords: defaultKeywords,
+  authors: [{ name: siteName }],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
-    title: "AnalyzeBiotech - Advanced Diagnostics Solutions",
-    description: "Leading the future of in vitro diagnostics with cutting-edge technology, precision instruments, and comprehensive solutions for laboratories worldwide.",
+    title: `${siteName} | Diagnostic and Laboratory Equipment`,
+    description: "Diagnostic equipment, laboratory equipment, biochemistry analyzers, and laboratory diagnostic solutions from Analyze Biotech.",
+    url: siteUrl,
+    siteName,
     type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: "/images/company-logo.png",
+        alt: `${siteName} logo`,
+      },
+    ],
   },
 };
 
@@ -34,6 +51,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${aboreto.variable} font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <Navbar />
         {children}
       </body>

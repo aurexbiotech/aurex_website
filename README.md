@@ -3,14 +3,13 @@
 A modern, professional biotech company website built with Next.js 15, TypeScript, and Tailwind CSS.
 
 ## 🚀 Features
-
-- **Modern Design**: Clean, professional UI inspired by industry leaders like Autobio
 - **Responsive Layout**: Mobile-first design that works on all devices
 - **Smooth Animations**: Framer Motion animations for engaging user experience
 - **SEO Optimized**: Proper meta tags, structured data, and semantic HTML
 - **Fast Performance**: Next.js 15 with Turbopack for lightning-fast development
 - **TypeScript**: Full type safety throughout the application
 - **Modular Components**: Reusable, maintainable component architecture
+- - **Modern Design**: Clean, professional UI inspired by industry leaders like Autobio
 
 ## 🏗️ Architecture
 

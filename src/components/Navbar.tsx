@@ -35,9 +35,15 @@ const navItems = [
     icon: Microscope
   },
   {
-    name: 'Contact Us',
+    name: 'Support',
+    href: '/capabilities',
+    description: 'Service engineering, knowledge centre & technical support',
+    icon: PhoneCall
+  },
+  {
+    name: 'Contact',
     href: '/contact',
-    description: 'Inquiries, technical support & sales offices',
+    description: 'Direct inquiries, sales network & headquarters',
     icon: PhoneCall
   }
 ]

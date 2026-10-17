@@ -71,139 +71,113 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative h-full flex items-center justify-center overflow-hidden">
-      {/* Hero Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/graphic-illustration-light-blue-wallpaper-template-website-cover-background-design_545033-2371.jpg"
-          alt="Hero background"
-          fill
-          className="object-cover object-center"
-          priority
-          quality={75}
-          sizes="100vw"
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkrHw/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAhEQACAQIHAQAAAAAAAAAAAAABAgADBAUREiExQVFhkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT3k/VEfEU95P1QbqFhC0Dc8/npRWg+6WwA/dgWDGOSvB2kYwBAomwkjGWd6/5QEBZEZ7n6VQ7D5jW9pWy2rbqBvexKOMdK8M4Qhqy4Q4jvQ=="
-        />
-        {/* Subtle overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/10 z-10" />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 z-10">
+    <section className="relative h-full flex items-center justify-center overflow-hidden bg-white">
+      <div className="container max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 z-10 py-16 lg:py-0">
         {/* Animated Sub-Slide Content */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentView}
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
+            exit={{ opacity: 0, x: -40 }}
             transition={{ duration: 0.4, ease: 'easeOut' }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center px-4 sm:px-6 lg:px-16"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
           >
-            {/* Left Content */}
-            <div className="text-center lg:text-left order-2 lg:order-1">
-              {/* BIOTRA Branding - Always Visible */}
+            {/* Left Content Column (~48% width) */}
+            <div className="lg:col-span-6 text-center lg:text-left order-2 lg:order-1 space-y-4 sm:space-y-5">
+              {/* Category Eyebrow */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
-                className="flex flex-col items-center lg:items-start mb-3 sm:mb-4"
+                transition={{ duration: 0.3, delay: 0.1 }}
+                className="flex justify-center lg:justify-start"
+              >
+                <span className="inline-flex items-center px-3 py-1 rounded-md bg-[#F6F8FB] border border-[#BFBFBF]/40 text-xs font-semibold uppercase tracking-wider text-[#133C99]">
+                  Diagnostic Automation
+                </span>
+              </motion.div>
+
+              {/* BIOTRA Product Heading - Reduced font size with clamp */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
               >
                 <h1
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-aboreto font-extrabold mb-2"
-                  style={{ color: '#FFFFFF', fontFamily: 'var(--font-aboreto), cursive', letterSpacing: '2px' }}
+                  className="font-bold tracking-tight text-[#111827] leading-tight"
+                  style={{ fontSize: 'clamp(2.125rem, 4.5vw, 4rem)' }}
                 >
-                  BIOTRA
+                  {heroSlides[currentView].branding}
                 </h1>
               </motion.div>
 
-              {/* Main Title - BC Models with Aboreto Font */}
-              <motion.h2
-                initial={{ opacity: 0, y: 20 }}
+              {/* Product Model */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
-                className="font-bold mb-4 sm:mb-6 leading-tight text-center lg:text-left"
               >
-                <span 
-                  className={`block font-aboreto`}
-                  style={{
-                    color: '#333333',
-                    letterSpacing: '0.1em',
-                    fontWeight: '900',
-                    fontFamily: 'var(--font-aboreto), cursive',
-                    fontSize: '12px'
-                  }}
-                >
+                <span className="text-xl sm:text-2xl font-semibold text-[#133C99] tracking-wide block">
                   {heroSlides[currentView].title[0]}
                 </span>
-                {heroSlides[currentView].title[1] && (
-                  <span className={`block ${heroSlides[currentView].titleColors[1]}`}>
-                    {heroSlides[currentView].title[1]}
-                  </span>
-                )}
-                {heroSlides[currentView].title[2] && (
-                  <span className={`block ${heroSlides[currentView].titleColors[2]}`}>
-                    {heroSlides[currentView].title[2]}
-                  </span>
-                )}
-              </motion.h2>
+              </motion.div>
 
               {/* Description Text */}
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.25, ease: "easeOut" }}
-                className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6 text-center lg:text-left max-w-xl mx-auto lg:mx-0 px-2 sm:px-0"
+                className="text-base sm:text-lg text-[#64748B] leading-relaxed max-w-xl mx-auto lg:mx-0"
               >
                 {heroSlides[currentView].description}
               </motion.p>
 
-              {/* Learn More Button */}
+              {/* Learn More Button - Navy Blue with White Text */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
-                className="flex justify-center lg:justify-start"
+                className="flex justify-center lg:justify-start pt-2"
               >
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={() => router.push(heroSlides[currentView].link)}
-                  className="px-6 sm:px-8 py-3 sm:py-4 bg-[#1646AF] hover:bg-[#133C99] text-white font-semibold rounded-lg shadow-lg shadow-[#1646AF]/30 hover:shadow-xl transition-all duration-300 cursor-pointer text-sm sm:text-base border border-white/20"
+                  className="px-8 py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white font-medium rounded-lg shadow-sm hover:shadow transition-all duration-200 cursor-pointer text-base"
                 >
                   Learn More
                 </motion.button>
               </motion.div>
             </div>
-            {/* Right Content (Image) - Responsive Size */}
-            <div className="flex justify-center lg:justify-end items-center lg:pr-8 order-1 lg:order-2">
-              <Image
-                src={heroSlides[currentView].image}
-                alt={heroSlides[currentView].imageAlt}
-                width={900}
-                height={650}
-                className="rounded-xl object-contain w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[900px] transition-transform duration-300 hover:scale-105"
-                priority={currentView === 0}
-                loading={currentView === 0 ? 'eager' : 'lazy'}
-                quality={85}
-                sizes="(max-width: 640px) 300px, (max-width: 768px) 400px, (max-width: 1024px) 500px, 900px"
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkrHw/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAhEQACAQIHAQAAAAAAAAAAAAABAgADBAUREiExQVFhkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT3k/VEfEU95P1QbqFhC0Dc8/npRWg+6WwA/dgWDGOSvB2kYwBAomwkjGWd6/5QEBZEZ7n6VQ7D5jW9pWy2rbqBvexKOMdK8M4Qhqy4Q4jvQ=="
-              />
+
+            {/* Right Product Column (~52% width) */}
+            <div className="lg:col-span-6 flex justify-center items-center order-1 lg:order-2">
+              <div className="relative w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[560px] flex items-center justify-center p-2 sm:p-4">
+                <Image
+                  src={heroSlides[currentView].image}
+                  alt={heroSlides[currentView].imageAlt}
+                  width={720}
+                  height={540}
+                  className="object-contain max-h-[340px] sm:max-h-[420px] lg:max-h-[480px] w-auto h-auto transition-transform duration-300 hover:scale-102"
+                  priority={currentView === 0}
+                  loading={currentView === 0 ? 'eager' : 'lazy'}
+                  quality={90}
+                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 460px, 600px"
+                />
+              </div>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1646AF]/20 to-[#133C99]/20 blur-3xl -z-10 scale-110"></div>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Bottom Center - Page Indicator and Navigation */}
-      <div className="absolute bottom-8 sm:bottom-12 lg:bottom-16 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 sm:gap-3">
+      {/* Bottom Center - Slide Indicator and Navigation */}
+      <div className="absolute bottom-6 sm:bottom-10 lg:bottom-12 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2">
         {/* Page Indicator */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.3, ease: "easeOut" }}
-          className="text-xs sm:text-sm text-gray-300 font-semibold tracking-wider mb-1"
+          className="text-xs text-[#64748B] font-semibold tracking-wider"
         >
           {currentView + 1} / {heroSlides.length}
         </motion.div>
@@ -217,16 +191,16 @@ export const HeroSection: React.FC = () => {
         />
 
         {/* Progress Dots */}
-        <div className="flex space-x-2.5 mt-2">
+        <div className="flex space-x-2 mt-1">
           {heroSlides.map((slide, index) => (
             <button
               key={slide.id}
               onClick={() => setCurrentView(index)}
               className={`
-                h-2 rounded-full transition-all duration-300
+                h-2 rounded-full transition-all duration-300 cursor-pointer
                 ${index === currentView 
-                  ? 'w-8 bg-[#1646AF] shadow-lg shadow-[#1646AF]/50' 
-                  : 'w-2 bg-gray-500 hover:bg-gray-400'
+                  ? 'w-7 bg-[#133C99]' 
+                  : 'w-2 bg-[#BFBFBF] hover:bg-[#133C99]/60'
                 }
               `}
               aria-label={`Go to slide ${index + 1}`}

@@ -90,15 +90,17 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Transparent Floating Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+      {/* Premium White Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-xs">
         {/* Main Navigation with responsive padding */}
-        <nav className="w-full px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8">
-          <div className="flex justify-between items-center">
+        <nav className="w-full px-4 sm:px-6 md:px-8 py-3.5 sm:py-4 md:py-5">
+          <div className="flex justify-between items-center max-w-7xl mx-auto">
             {/* Logo with responsive sizing */}
             <Link href="/" className="flex items-center">
               <div className="text-left">
-                <h1 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-extrabold text-white drop-shadow-lg leading-tight tracking-wider">AUREX</h1>
+                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#111827] hover:text-[#133C99] transition-colors leading-tight tracking-wider">
+                  AUREX
+                </h1>
               </div>
             </Link>
 
@@ -106,10 +108,11 @@ const Navbar = () => {
             <div className="flex items-center">
               <button
                 onClick={toggleFullScreenMenu}
-                className="flex items-center justify-center space-x-1 sm:space-x-2 bg-slate-900/90 backdrop-blur-sm text-white px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-lg hover:bg-slate-800 transition-all duration-300 font-medium shadow-lg border border-slate-700/50 text-center"
+                aria-label="Toggle navigation menu"
+                className="flex items-center justify-center space-x-1.5 sm:space-x-2 bg-[#133C99] hover:bg-[#1646AF] text-white px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-lg transition-all duration-200 font-medium shadow-sm border border-transparent text-center cursor-pointer"
               >
-                <Menu size={16} className="sm:w-5 sm:h-5" />
-                <span className="text-xs sm:text-sm lg:text-base">Menu</span>
+                <Menu size={18} className="sm:w-5 sm:h-5" />
+                <span className="text-xs sm:text-sm lg:text-base font-semibold">Menu</span>
               </button>
             </div>
           </div>

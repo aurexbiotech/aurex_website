@@ -64,79 +64,59 @@ const TurnkeyProjectsSlide: React.FC = () => {
   const currentTopic = turnkeyTopics[activeTab]
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      {/* Background Layer - Deep Navy Blue with Blurred Architectural Image */}
-      <div className="absolute inset-0">
-        {/* Background Image with Blur */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('/images/background.jpg')`,
-            filter: 'blur(8px)',
-            transform: 'scale(1.1)'
-          }}
-        />
-        
-        {/* Deep Navy Blue Gradient Overlay - Matching Company Profile exactly */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B1528]/95 via-[#133C99]/85 to-[#0B1528]/95" />
-        
-        {/* Additional depth overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
-      </div>
-
+    <section className="relative min-h-screen w-full overflow-hidden bg-white">
       {/* Main Content Container */}
-      <div className="relative z-10 min-h-screen flex flex-col">
+      <div className="relative z-10 h-screen flex flex-col justify-between">
         
         {/* Top Context Label - "CAPABILITIES" */}
-        <div className="pt-24 pl-16">
-          <motion.p
-            initial={{ opacity: 0, y: -20 }}
+        <div className="pt-24 pl-8 sm:pl-16">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-sm uppercase tracking-[0.3em] text-gray-300 font-light"
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F6F8FB] border border-[#BFBFBF]/40 text-[#133C99] text-xs font-semibold tracking-wider uppercase"
           >
             Capabilities
-          </motion.p>
+          </motion.div>
         </div>
 
         {/* Main Content Area - Two Column Layout */}
-        <div className="flex-1 flex items-center px-16 pb-32">
-          <div className="w-full grid grid-cols-2 gap-12 items-center">
+        <div className="flex-1 flex items-center px-8 sm:px-16 pb-24">
+          <div className="w-full grid lg:grid-cols-2 gap-12 items-center">
             
             {/* Left Column - Main Text Content */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
                   className="space-y-6"
                 >
-                  {/* Main Title - Large Serif Font */}
-                  <h1 
-                    className="text-6xl lg:text-7xl font-serif font-bold text-white leading-tight"
-                    style={{ fontFamily: 'Georgia, serif' }}
+                  {/* Main Title */}
+                  <h2 
+                    className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111827] tracking-tight leading-tight"
                   >
                     {currentTopic.title}
-                  </h1>
+                  </h2>
 
                   {/* Description Text */}
-                  <p className="text-lg text-gray-300 leading-relaxed max-w-xl">
+                  <p className="text-base lg:text-lg text-[#64748B] leading-relaxed max-w-xl">
                     {currentTopic.description}
                   </p>
 
-                  {/* Action Button with Light Sky Blue Accent */}
+                  {/* Action Button with AUREX Navy Blue */}
                   <motion.button
                     onClick={() => router.push('/capabilities?section=turnkey-projects')}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group mt-8 flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white rounded-full font-semibold shadow-lg shadow-sky-500/30 transition-all duration-300"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group mt-4 inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white rounded-lg font-medium shadow-sm transition-all duration-300"
                   >
                     <span>Explore Solutions</span>
                     <ArrowRight 
-                      size={20} 
+                      size={18} 
                       className="group-hover:translate-x-1 transition-transform duration-300" 
                     />
                   </motion.button>
@@ -144,69 +124,55 @@ const TurnkeyProjectsSlide: React.FC = () => {
               </AnimatePresence>
             </div>
 
-            {/* Right Column - GIF Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="flex justify-center items-center"
-            >
-              <Image 
-                src={topicImages[activeTab]}
-                alt={`${currentTopic.title} Laboratory`}
-                width={800}
-                height={600}
-                className="w-full max-w-2xl rounded-2xl shadow-2xl"
-              />
-            </motion.div>
+            {/* Right Column - Image */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                className="relative h-[340px] lg:h-[420px] rounded-2xl overflow-hidden shadow-md border border-[#BFBFBF]/40 bg-[#F6F8FB]"
+              >
+                <Image 
+                  src={topicImages[activeTab]}
+                  alt={`${currentTopic.title} Laboratory`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
 
-        {/* Bottom Horizontal Navigation Bar - CRUCIAL Element */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
-          <div className="px-8 pb-6">
-            {/* Navigation Tabs Container */}
-            <div className="relative">
-              {/* Background blur panel */}
-              <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-md rounded-2xl border border-white/10" />
-              
-              {/* Tabs Row - Simplified for 4 primary links */}
-              <div className="relative flex items-center justify-between gap-4 px-6 py-4">
-                {turnkeyTopics.map((topic, index) => {
-                  const TabIcon = topic.icon
-                  return (
-                    <motion.button
-                      key={topic.id}
-                      onClick={() => setActiveTab(index)}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`
-                        relative flex-1 px-6 py-3 rounded-xl font-medium text-sm transition-all duration-300
-                        ${activeTab === index 
-                          ? 'bg-gradient-to-r from-sky-500 to-sky-600 text-white shadow-lg shadow-sky-500/30' 
-                          : 'bg-slate-800/50 text-gray-300 hover:bg-slate-700/70 hover:text-white'
-                        }
-                      `}
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        <TabIcon size={18} />
-                        <span className="whitespace-nowrap">
-                          {topic.name}
-                        </span>
-                      </div>
-                      
-                      {/* Active indicator */}
-                      {activeTab === index && (
-                        <motion.div
-                          layoutId="activeTurnkeyTab"
-                          className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-sky-400"
-                          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                        />
-                      )}
-                    </motion.button>
-                  )
-                })}
-              </div>
+        {/* Bottom Horizontal Navigation Bar */}
+        <div className="w-full z-20 pb-6 px-6 lg:px-16">
+          <div className="relative bg-white/95 backdrop-blur-md rounded-2xl border border-[#BFBFBF]/40 shadow-sm p-2">
+            {/* Tabs Row */}
+            <div className="flex items-center justify-between gap-2 overflow-x-auto scrollbar-none">
+              {turnkeyTopics.map((topic, index) => {
+                const TabIcon = topic.icon;
+                const isActive = activeTab === index;
+                return (
+                  <button
+                    key={topic.id}
+                    onClick={() => setActiveTab(index)}
+                    className={`
+                      relative flex-1 px-4 py-3 rounded-xl font-medium text-xs lg:text-sm transition-all duration-200 whitespace-nowrap
+                      ${isActive 
+                        ? 'bg-[#133C99] text-white shadow-xs' 
+                        : 'text-[#64748B] hover:text-[#111827] hover:bg-[#F6F8FB]'
+                      }
+                    `}
+                  >
+                    <div className="flex items-center justify-center gap-2">
+                      <TabIcon size={16} className={isActive ? 'text-white' : 'text-[#133C99]'} />
+                      <span>{topic.name}</span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>

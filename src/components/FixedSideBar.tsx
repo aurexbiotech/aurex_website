@@ -25,65 +25,73 @@ const XIcon: React.FC<{ className?: string }> = ({ className }) => (
 
 const FixedSideBar: React.FC = () => {
   return (
-    <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50">
-      <div className="bg-gray-100 rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+    <aside 
+      aria-label="Quick contact and social channels" 
+      className="fixed right-3 sm:right-6 top-1/2 transform -translate-y-1/2 z-40 hidden sm:block"
+    >
+      <div className="bg-white rounded-xl shadow-md border border-[#BFBFBF]/40 overflow-hidden">
         {/* Contact Tools Section */}
-        <div className="p-2 space-y-1">
+        <div className="p-1.5 space-y-1">
           {/* Chat */}
           <a
-            href="#"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
+            href="/contact"
+            aria-label="Live Chat & Customer Inquiry"
+            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
           >
             <MessageCircle 
-              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
             />
           </a>
 
           {/* WhatsApp */}
           <a
             href="tel:+919543910101"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
+            aria-label="Call AUREX via Phone"
+            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
           >
             <Phone 
-              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
             />
           </a>
 
           {/* Email */}
           <a
             href="mailto:info@aurexbiotech.com"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
+            aria-label="Send Email to AUREX"
+            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
           >
             <Mail 
-              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
             />
           </a>
 
           {/* Phone */}
           <a
-            href="tel:+919543910101"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
+            href="tel:+918144418046"
+            aria-label="Emergency Call Support"
+            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
           >
             <PhoneCall 
-              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
             />
           </a>
         </div>
 
         {/* Separator Line */}
-        <div className="px-4">
-          <div className="h-px bg-gray-300"></div>
+        <div className="px-3">
+          <div className="h-px bg-[#BFBFBF]/40"></div>
         </div>
 
         {/* Social Media Section */}
-        <div className="p-2 space-y-1">
+        <div className="p-1.5 space-y-1">
           {/* LinkedIn */}
           <a
             href="#"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
+            aria-label="AUREX LinkedIn Profile"
+            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
           >
             <Linkedin 
-              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
             />
           </a>
 
@@ -92,10 +100,11 @@ const FixedSideBar: React.FC = () => {
             href="https://www.youtube.com/@AnalyzeBiotechindia"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
+            aria-label="AUREX YouTube Channel"
+            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
           >
             <Youtube 
-              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
             />
           </a>
 
@@ -104,25 +113,27 @@ const FixedSideBar: React.FC = () => {
             href="https://www.facebook.com/AnalyzeBiotech/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
+            aria-label="AUREX Facebook Page"
+            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
           >
             <Facebook 
-              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
             />
           </a>
 
           {/* X (Twitter) */}
           <a
             href="#"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
+            aria-label="AUREX X Profile"
+            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
           >
             <XIcon 
-              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
             />
           </a>
         </div>
       </div>
-    </div>
+    </aside>
   );
 };
 

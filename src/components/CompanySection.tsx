@@ -160,73 +160,58 @@ const CompanySection: React.FC = () => {
   }
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
-      {/* Dynamic Background with Blur - Different image for each topic */}
-      <div className="absolute inset-0">
-        <div 
-          className="absolute inset-0 blur-md transition-all duration-500"
-          style={{
-            backgroundImage: `url(${backgroundImages[activeTab]})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
-        />
-        {/* Overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40" />
-      </div>
-
+    <section className="relative min-h-screen w-full overflow-hidden bg-white">
       {/* Main Content Container */}
-      <div className="relative z-10 h-screen flex flex-col">
-        {/* Top Section Label (like "Solution" in the reference) */}
-        <div className="pt-24 pl-16">
-          <motion.p
-            initial={{ opacity: 0, y: -20 }}
+      <div className="relative z-10 h-screen flex flex-col justify-between">
+        {/* Top Section Label */}
+        <div className="pt-24 pl-8 sm:pl-16">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-sm uppercase tracking-[0.3em] text-gray-300 font-light"
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F6F8FB] border border-[#BFBFBF]/40 text-[#133C99] text-xs font-semibold tracking-wider uppercase"
           >
-            Company
-          </motion.p>
+            Company Overview
+          </motion.div>
         </div>
 
         {/* Main Content Area - Two Column Layout */}
-        <div className="flex-1 flex items-center px-16 pb-32">
+        <div className="flex-1 flex items-center px-8 sm:px-16 pb-24">
           <div className="w-full grid lg:grid-cols-2 gap-12 items-center">
             
             {/* Main Text Content - Left Side */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
                   className="space-y-6"
                 >
-                  {/* Main Title - Large Serif Font */}
-                  <h1 
-                    className="text-6xl lg:text-7xl font-serif font-bold text-white leading-tight"
-                    style={{ fontFamily: 'Georgia, serif' }}
+                  {/* Main Title */}
+                  <h2 
+                    className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111827] tracking-tight leading-tight"
                   >
                     {currentTopic.title}
-                  </h1>
+                  </h2>
 
                   {/* Description Text */}
-                  <p className="text-lg text-gray-300 leading-relaxed max-w-xl">
+                  <p className="text-base lg:text-lg text-[#64748B] leading-relaxed max-w-xl">
                     {currentTopic.description}
                   </p>
 
-                  {/* More Info Button with AUREX Royal Blue Accent */}
+                  {/* More Info Button with AUREX Navy Blue Accent */}
                   <motion.button
                     onClick={() => router.push(topicRoutes[activeTab])}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group mt-8 flex items-center gap-3 px-8 py-4 bg-[#1646AF] hover:bg-[#133C99] text-white rounded-full font-semibold shadow-lg shadow-[#1646AF]/30 transition-all duration-300 border border-white/20"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group mt-4 inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white rounded-lg font-medium shadow-sm transition-all duration-300"
                   >
                     <span>More Info</span>
                     <ArrowRight 
-                      size={20} 
+                      size={18} 
                       className="group-hover:translate-x-1 transition-transform duration-300" 
                     />
                   </motion.button>
@@ -241,8 +226,8 @@ const CompanySection: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl"
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                className="relative h-[340px] lg:h-[420px] rounded-2xl overflow-hidden shadow-md border border-[#BFBFBF]/40 bg-[#F6F8FB]"
               >
                 <Image
                   src={backgroundImages[activeTab]}
@@ -253,57 +238,40 @@ const CompanySection: React.FC = () => {
                   priority={activeTab === 0}
                   loading={activeTab === 0 ? "eager" : "lazy"}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
 
-        {/* Bottom Horizontal Navigation Bar - CRUCIAL Element */}
-        <div className="absolute bottom-0 left-0 right-0 z-20">
-          <div className="px-8 pb-6">
-            {/* Navigation Tabs Container */}
-            <div className="relative">
-              {/* Background blur panel */}
-              <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-md rounded-2xl border border-white/10" />
-              
-              {/* Tabs Row */}
-              <div className="relative flex items-center justify-between gap-2 px-6 py-4">
-                {companyTopics.map((topic, index) => {
-                  const TabIcon = topic.icon
-                  return (
-                    <motion.button
-                      key={topic.id}
-                      onClick={() => setActiveTab(index)}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`
-                        relative flex-1 px-4 py-3 rounded-xl font-medium text-sm transition-all duration-300
-                        ${activeTab === index 
-                          ? 'bg-[#1646AF] text-white shadow-lg shadow-[#1646AF]/40 border border-white/20' 
-                          : 'bg-slate-800/50 text-gray-300 hover:bg-slate-700/70 hover:text-white'
-                        }
-                      `}
-                    >
-                      <div className="flex items-center justify-center gap-2">
-                        <TabIcon size={16} />
-                        <span className="hidden lg:inline whitespace-nowrap">
-                          {topic.name}
-                        </span>
-                      </div>
-                      
-                      {/* Active indicator */}
-                      {activeTab === index && (
-                        <motion.div
-                          layoutId="activeTab"
-                          className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-white"
-                          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                        />
-                      )}
-                    </motion.button>
-                  )
-                })}
-              </div>
+        {/* Bottom Horizontal Navigation Bar */}
+        <div className="w-full z-20 pb-6 px-6 lg:px-16">
+          <div className="relative bg-white/95 backdrop-blur-md rounded-2xl border border-[#BFBFBF]/40 shadow-sm p-2">
+            {/* Tabs Row */}
+            <div className="flex items-center justify-between gap-1 overflow-x-auto scrollbar-none">
+              {companyTopics.map((topic, index) => {
+                const TabIcon = topic.icon;
+                const isActive = activeTab === index;
+                return (
+                  <button
+                    key={topic.id}
+                    onClick={() => setActiveTab(index)}
+                    className={`
+                      relative flex-1 px-3 py-2.5 rounded-xl font-medium text-xs lg:text-sm transition-all duration-200 whitespace-nowrap
+                      ${isActive 
+                        ? 'bg-[#133C99] text-white shadow-xs' 
+                        : 'text-[#64748B] hover:text-[#111827] hover:bg-[#F6F8FB]'
+                      }
+                    `}
+                  >
+                    <div className="flex items-center justify-center gap-1.5">
+                      <TabIcon size={16} className={isActive ? 'text-white' : 'text-[#133C99]'} />
+                      <span className="hidden md:inline">
+                        {topic.name}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>

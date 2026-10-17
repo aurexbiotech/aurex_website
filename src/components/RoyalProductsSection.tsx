@@ -114,156 +114,109 @@ const RoyalProductsSection = () => {
   }
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      {/* Dynamic Background Image with Blur */}
-      <div className="absolute inset-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-md scale-110 transition-all duration-700"
-          style={{
-            backgroundImage: `url("${currentProduct.background}")`
-          }}
-        />
-        {/* Colored overlay matching product theme */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${currentProduct.color} opacity-30`} />
-        {/* Overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/20" />
-      </div>
-
+    <section className="relative min-h-screen overflow-hidden bg-[#F6F8FB]">
       {/* Main Content Container */}
-      <div className="relative z-10 h-screen flex items-center">
-        
+      <div className="relative z-10 h-screen flex items-center px-8 sm:px-16 pt-16 pb-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="w-full flex items-center"
+            transition={{ duration: 0.4 }}
+            className="w-full grid lg:grid-cols-2 gap-10 items-center"
           >
             {/* Left Column - Content */}
-            <div className="w-1/2 px-12 flex flex-col justify-center">
+            <div className="flex flex-col justify-center max-w-xl">
               <motion.div
-                initial={{ opacity: 0, x: -50 }}
+                initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className="max-w-lg mx-auto"
+                transition={{ duration: 0.5 }}
               >
-                {/* Main Title */}
-                <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-12 tracking-wider text-left"
-                  style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: '800' }}
-                >
+                {/* Eyebrow badge */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#BFBFBF]/40 text-[#133C99] text-xs font-semibold tracking-wider uppercase mb-4 shadow-xs">
+                  Diagnostic Systems
+                </div>
+
+                {/* Main Section Title */}
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111827] tracking-tight mb-3">
                   Products
-                </motion.h1>
+                </h1>
 
                 {/* Current Product Category */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="mb-8"
-                >
-                  <div className="mb-6">
-                    <h2 
-                      className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-wide text-left mb-4"
-                      style={{ fontFamily: 'Inter, system-ui, sans-serif', fontWeight: '700' }}
-                    >
-                      {currentProduct.name}
-                    </h2>
-                  </div>
-                  <p className="text-gray-200 text-lg lg:text-xl leading-relaxed max-w-2xl text-left">
-                    {currentProduct.description}
-                  </p>
-                </motion.div>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-[#133C99] tracking-tight mb-3">
+                  {currentProduct.name}
+                </h2>
+
+                <p className="text-base lg:text-lg text-[#64748B] leading-relaxed mb-6">
+                  {currentProduct.description}
+                </p>
 
                 {/* Clinical Diagnostics Subdivision Navigation */}
                 {showSubdivisions && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    className="mb-8"
-                  >
-                    <div className="bg-[#133C99]/90 border border-white/20 backdrop-blur-md rounded-lg p-4">
-                      <div className="flex items-center justify-around gap-4">
-                        {clinicalDiagnosticsModels.map((model) => (
-                          <button
-                            key={model.id}
-                            onClick={() => setSelectedModel(model.id)}
-                            className={`flex flex-col items-center gap-2 px-6 py-3 rounded-lg transition-all duration-300 ${
-                              selectedModel === model.id
-                                ? 'bg-white/25 shadow-lg ring-1 ring-white/50'
-                                : 'hover:bg-white/10'
-                            }`}
-                          >
-                            <div className="text-center">
-                              <div 
-                                className="font-aboreto font-semibold mb-1 text-white"
-                                style={{ fontFamily: 'var(--font-aboreto), cursive', fontSize: '14px' }}
-                              >
-                                {model.name}
-                              </div>
-                            </div>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
+                  <div className="bg-white border border-[#BFBFBF]/40 rounded-xl p-1.5 shadow-xs mb-6 inline-flex flex-wrap gap-1">
+                    {clinicalDiagnosticsModels.map((model) => (
+                      <button
+                        key={model.id}
+                        onClick={() => setSelectedModel(model.id)}
+                        className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
+                          selectedModel === model.id
+                            ? 'bg-[#133C99] text-white shadow-xs'
+                            : 'text-[#64748B] hover:text-[#111827] hover:bg-[#F6F8FB]'
+                        }`}
+                      >
+                        {model.name}
+                      </button>
+                    ))}
+                  </div>
                 )}
-              </motion.div>
-            </div>
 
-            {/* Right Column - Device Image */}
-            <div className="w-1/2 flex flex-col justify-center items-center px-12">
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="relative flex flex-col items-center"
-              >
-                {/* Analyzer Device Image */}
-                <div className="relative mb-8">
-                  <Image 
-                    src={currentProduct.image}
-                    alt={currentProduct.name}
-                    width={currentProduct.id === 'clinical-diagnostics' || currentProduct.id === 'advanced-andrology' ? 500 : 700}
-                    height={520}
-                    className={`${currentProduct.id === 'clinical-diagnostics' || currentProduct.id === 'advanced-andrology' ? 'w-[500px]' : 'w-[700px]'} h-auto ${currentProduct.id === 'sample-tracking' ? 'blur-[2px]' : ''}`}
-                    priority
-                  />
-                </div>
-
-                {/* Bottom Buttons */}
-                <div className="flex space-x-4 justify-center">
+                {/* Bottom CTA Buttons */}
+                <div className="flex flex-wrap items-center gap-3 mt-2">
                   <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-3 bg-[#1646AF] hover:bg-[#133C99] text-white rounded-full font-semibold transition-all shadow-lg shadow-[#1646AF]/40 border border-white/20"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-6 py-3 bg-[#133C99] hover:bg-[#1646AF] text-white rounded-lg font-medium shadow-sm transition-all duration-200"
                   >
                     Learn More
                   </motion.button>
                   <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-6 py-3 bg-white/15 hover:bg-white/25 text-white rounded-full font-semibold border border-white/30 backdrop-blur-sm transition-colors shadow-lg flex items-center space-x-2"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="px-6 py-3 bg-white hover:bg-[#F6F8FB] text-[#133C99] border border-[#BFBFBF]/60 rounded-lg font-medium transition-all duration-200 shadow-xs"
                   >
-                    <span>+</span>
-                    <span>Watch More</span>
+                    + Watch More
                   </motion.button>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right Column - Device Image */}
+            <div className="flex flex-col justify-center items-center">
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+                className="relative flex items-center justify-center p-6 sm:p-10 bg-white rounded-2xl border border-[#BFBFBF]/40 shadow-sm w-full max-w-lg aspect-4/3"
+              >
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Image 
+                    src={currentProduct.image}
+                    alt={currentProduct.name}
+                    width={560}
+                    height={420}
+                    className="max-h-[340px] w-auto object-contain drop-shadow-sm transition-transform duration-300 hover:scale-105"
+                    priority
+                  />
                 </div>
               </motion.div>
             </div>
           </motion.div>
         </AnimatePresence>
-
       </div>
 
       {/* Directional Navigation Buttons - Bottom Center */}
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-50">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50">
         <DirectionalNavButtons
           onPrevious={handlePrevious}
           onNext={handleNext}

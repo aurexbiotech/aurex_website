@@ -43,7 +43,7 @@ export default function DirectionalNavButtons({
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
-      className={`inline-flex items-center bg-black/70 backdrop-blur-md rounded-lg shadow-2xl border border-white/10 ${className}`}
+      className={`inline-flex items-center bg-white/95 backdrop-blur-md rounded-lg shadow-sm border border-[#BFBFBF]/40 ${className}`}
     >
       {/* Previous Button (Left Arrow) */}
       <motion.button
@@ -54,19 +54,19 @@ export default function DirectionalNavButtons({
         className={`
           group relative px-4 py-3 sm:px-6 sm:py-4 transition-all duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center
           ${disablePrevious 
-            ? 'opacity-40 cursor-not-allowed' 
-            : 'hover:bg-[#1646AF]/30 cursor-pointer active:bg-[#1646AF]/45'
+            ? 'opacity-30 cursor-not-allowed' 
+            : 'hover:bg-[#F6F8FB] cursor-pointer active:bg-[#F6F8FB]'
           }
         `}
-        aria-label="Previous"
+        aria-label="Previous slide"
         aria-disabled={disablePrevious}
       >
         <ChevronLeft
           className={`
             w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-200
             ${disablePrevious 
-              ? 'text-gray-500' 
-              : 'text-gray-200 group-hover:text-white'
+              ? 'text-gray-300' 
+              : 'text-[#133C99] group-hover:text-[#1646AF]'
             }
           `}
           strokeWidth={2.5}
@@ -74,7 +74,7 @@ export default function DirectionalNavButtons({
       </motion.button>
 
       {/* Vertical Separator */}
-      <div className="h-7 w-px bg-white/20" />
+      <div className="h-7 w-px bg-[#BFBFBF]/40" />
 
       {/* Next Button (Right Arrow) */}
       <motion.button
@@ -85,19 +85,19 @@ export default function DirectionalNavButtons({
         className={`
           group relative px-4 py-3 sm:px-6 sm:py-4 transition-all duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center
           ${disableNext 
-            ? 'opacity-40 cursor-not-allowed' 
-            : 'hover:bg-[#1646AF]/30 cursor-pointer active:bg-[#1646AF]/45'
+            ? 'opacity-30 cursor-not-allowed' 
+            : 'hover:bg-[#F6F8FB] cursor-pointer active:bg-[#F6F8FB]'
           }
         `}
-        aria-label="Next"
+        aria-label="Next slide"
         aria-disabled={disableNext}
       >
         <ChevronRight
           className={`
             w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-200
             ${disableNext 
-              ? 'text-gray-500' 
-              : 'text-gray-200 group-hover:text-white'
+              ? 'text-gray-300' 
+              : 'text-[#133C99] group-hover:text-[#1646AF]'
             }
           `}
           strokeWidth={2.5}

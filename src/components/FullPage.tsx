@@ -130,10 +130,10 @@ const FullPage: React.FC<FullPageProps> = ({
               key={index}
               onClick={() => navigateToSection(index)}
               className={`
-                w-3 h-3 rounded-full transition-all duration-300 ease-out
+                w-2.5 h-2.5 rounded-full transition-all duration-300 ease-out cursor-pointer
                 ${index === currentSectionIndex 
-                  ? 'bg-[#1646AF] scale-125 shadow-lg shadow-[#1646AF]/50 ring-2 ring-white' 
-                  : 'bg-white/60 hover:bg-[#1646AF] hover:scale-110 backdrop-blur-sm border border-white/20'
+                  ? 'bg-[#133C99] scale-125 ring-2 ring-[#133C99]/30' 
+                  : 'bg-[#BFBFBF] hover:bg-[#133C99] hover:scale-110'
                 }
               `}
               aria-label={`Go to ${sections[index].name} section`}
@@ -142,8 +142,8 @@ const FullPage: React.FC<FullPageProps> = ({
         </div>
         
         {/* Section Counter */}
-        <div className="mt-6 text-center">
-          <span className="text-sm font-semibold text-white drop-shadow-md">
+        <div className="mt-4 text-center">
+          <span className="text-xs font-semibold text-[#111827]">
             {String(currentSectionIndex + 1).padStart(2, '0')}/{String(sections.length).padStart(2, '0')}
           </span>
         </div>
@@ -174,15 +174,15 @@ const FullPage: React.FC<FullPageProps> = ({
       </div>
 
       {/* Progress Indicator */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40">
-        <div className="bg-slate-900/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-slate-700/50">
-          <div className="flex items-center space-x-2">
-            <span className="text-sm font-medium text-white">
+      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40">
+        <div className="bg-white/95 backdrop-blur-sm rounded-full px-4 py-1.5 shadow-md border border-[#BFBFBF]/40">
+          <div className="flex items-center space-x-2.5">
+            <span className="text-xs font-semibold text-[#111827]">
               {sections[currentSectionIndex].name}
             </span>
-            <div className="w-16 h-1 bg-slate-700 rounded-full overflow-hidden">
+            <div className="w-16 h-1 bg-slate-200 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-gradient-to-r from-[#1646AF] to-[#133C99] rounded-full transition-all duration-300 ease-out"
+                className="h-full bg-[#133C99] rounded-full transition-all duration-300 ease-out"
                 style={{ width: `${((currentSectionIndex + 1) / sections.length) * 100}%` }}
               />
             </div>

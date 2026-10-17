@@ -197,15 +197,15 @@ const RoyalProductsSection = () => {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.15 }}
-                className="relative flex items-center justify-center p-6 sm:p-10 bg-white rounded-2xl border border-[#BFBFBF]/40 shadow-sm w-full max-w-lg aspect-4/3"
+                className="relative flex items-center justify-center w-full max-w-lg"
               >
-                <div className="relative w-full h-full flex items-center justify-center">
+                <div className="relative w-full flex items-center justify-center">
                   <Image 
                     src={currentProduct.image}
                     alt={currentProduct.name}
                     width={560}
                     height={420}
-                    className="max-h-[340px] w-auto object-contain drop-shadow-sm transition-transform duration-300 hover:scale-105"
+                    className="max-h-[360px] w-auto object-contain transition-transform duration-300 hover:scale-105"
                     priority
                   />
                 </div>

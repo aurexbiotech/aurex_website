@@ -71,7 +71,7 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative h-full flex items-center justify-center overflow-hidden bg-[#F1F5F9]">
+    <section className="relative h-full flex items-center justify-center overflow-hidden bg-[#F6F8FB]">
       <div className="container max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 z-10 py-16 lg:py-0">
         {/* Animated Sub-Slide Content */}
         <AnimatePresence mode="wait">
@@ -92,7 +92,7 @@ export const HeroSection: React.FC = () => {
                 transition={{ duration: 0.3, delay: 0.1 }}
                 className="flex justify-center lg:justify-start"
               >
-                <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#BFBFBF]/50 text-xs font-semibold uppercase tracking-wider text-[#1646AF] shadow-xs">
+                <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/80 border border-[#BFBFBF]/40 text-xs font-semibold uppercase tracking-wider text-[#1646AF] shadow-xs">
                   Diagnostic Automation
                 </span>
               </motion.div>
@@ -150,19 +150,19 @@ export const HeroSection: React.FC = () => {
               </motion.div>
             </div>
 
-            {/* Right Product Column (~52% width) */}
+            {/* Right Product Column (~52% width) - Seamless display without artificial card */}
             <div className="lg:col-span-6 flex justify-center items-center order-1 lg:order-2">
-              <div className="relative w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[560px] flex items-center justify-center p-6 sm:p-8 bg-white rounded-2xl border border-[#BFBFBF]/40 shadow-sm aspect-4/3">
+              <div className="relative w-full max-w-[480px] sm:max-w-[540px] lg:max-w-[620px] flex items-center justify-center">
                 <Image
                   src={heroSlides[currentView].image}
                   alt={heroSlides[currentView].imageAlt}
                   width={720}
                   height={540}
-                  className="object-contain max-h-[300px] sm:max-h-[380px] lg:max-h-[420px] w-auto h-auto transition-transform duration-300 hover:scale-102"
+                  className="object-contain max-h-[340px] sm:max-h-[420px] lg:max-h-[480px] w-auto h-auto transition-transform duration-300 hover:scale-102"
                   priority={currentView === 0}
                   loading={currentView === 0 ? 'eager' : 'lazy'}
                   quality={90}
-                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 460px, 600px"
+                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 480px, 620px"
                 />
               </div>
             </div>

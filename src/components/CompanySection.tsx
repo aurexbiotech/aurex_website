@@ -160,7 +160,7 @@ const CompanySection: React.FC = () => {
   }
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[#F1F5F9]">
+    <section className="relative min-h-screen w-full overflow-hidden bg-[#F6F8FB]">
       {/* Main Content Container */}
       <div className="relative z-10 h-screen flex flex-col justify-between">
         {/* Top Section Label */}

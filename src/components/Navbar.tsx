@@ -91,7 +91,7 @@ const Navbar = () => {
   return (
     <>
       {/* Premium Corporate Gray Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#F1F5F9]/95 backdrop-blur-md border-b border-[#BFBFBF]/40 shadow-xs">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#F6F8FB]/95 backdrop-blur-md border-b border-[#BFBFBF]/40 shadow-xs">
         {/* Main Navigation with responsive padding */}
         <nav className="w-full px-4 sm:px-6 md:px-8 py-3.5 sm:py-4 md:py-5">
           <div className="flex justify-between items-center max-w-7xl mx-auto">

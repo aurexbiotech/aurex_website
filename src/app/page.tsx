@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { 
@@ -15,7 +16,8 @@ import {
   Workflow, 
   Activity,
   ArrowRight,
-  ChevronDown
+  Home,
+  MessageSquare
 } from 'lucide-react'
 
 // Verified SmarLumi™ FC-2100 specifications
@@ -335,8 +337,17 @@ export default function SmarLumiIntroductionPage() {
               </span>
             </motion.div>
 
-            {/* Explore AUREX Button (Navigates to main website) */}
+            {/* Action Buttons: Talk to Us & Explore AUREX */}
             <motion.div variants={childItemVariants} className="pt-2 flex flex-wrap items-center gap-3">
+              <Link
+                href="/contact"
+                aria-label="Talk to Us - Contact AUREX"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-white hover:bg-[#F6F8FB] text-[#133C99] hover:text-[#1646AF] font-bold text-sm sm:text-base rounded-xl border-2 border-[#133C99] hover:border-[#1646AF] shadow-xs hover:shadow-md transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer"
+              >
+                <MessageSquare size={17} className="text-[#133C99]" />
+                <span>Talk to Us</span>
+              </Link>
+
               <button
                 onClick={handleExploreAurex}
                 aria-label="Explore AUREX main website"
@@ -355,28 +366,20 @@ export default function SmarLumiIntroductionPage() {
         </div>
 
         {/* ============================================================
-            BOTTOM CENTER: LARGE CONTINUOUSLY ANIMATED DOWN ARROW
-            Guides visitor to enter the main website; clicks to navigate
+            BOTTOM CENTER: HOME ICON BUTTON (Navigates to Main BIOTRA Homepage)
             ============================================================ */}
         <div className="w-full flex flex-col items-center justify-center pt-2 pb-1 relative z-30">
           <button
             onClick={handleExploreAurex}
-            aria-label="Explore AUREX main website"
-            className="group flex flex-col items-center justify-center p-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133C99] cursor-pointer"
+            aria-label="Go to homepage"
+            title="Go to homepage"
+            className="group flex flex-col items-center justify-center p-2 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133C99] cursor-pointer"
           >
-            <motion.div
-              animate={prefersReducedMotion ? false : { y: [0, 8, 0] }}
-              transition={{
-                duration: 1.3,
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-white/90 border-2 border-[#133C99] text-[#133C99] group-hover:bg-[#133C99] group-hover:text-white flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300"
-            >
-              <ChevronDown size={26} className="stroke-[2.5] transition-colors" />
-            </motion.div>
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/90 border-2 border-[#133C99] text-[#133C99] group-hover:bg-[#133C99] group-hover:text-white flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
+              <Home size={22} className="stroke-[2.2] transition-colors" />
+            </div>
             <span className="text-[11px] font-bold text-[#133C99] tracking-wider uppercase mt-1.5 group-hover:text-[#1646AF] transition-colors">
-              Explore AUREX
+              Home
             </span>
           </button>
         </div>

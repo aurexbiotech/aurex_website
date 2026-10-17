@@ -16,9 +16,7 @@ import {
   Workflow, 
   Activity, 
   ChevronDown, 
-  ArrowRight,
-  ShieldCheck,
-  CheckCircle2
+  ArrowRight
 } from 'lucide-react'
 
 // Key specifications for SmarLumi FC-2100
@@ -242,70 +240,7 @@ export default function SmarLumiIntroductionPage() {
       </section>
 
       {/* ============================================================
-          SECTION 2: ABOUT AUREX SECTION
-          ============================================================ */}
-      <section className="py-16 sm:py-20 bg-[#F6F8FB] border-t border-[#BFBFBF]/30">
-        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#BFBFBF]/40 text-[#1646AF] text-xs font-semibold tracking-wider uppercase shadow-xs">
-                Company Introduction
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#111827]">
-                About AUREX
-              </h2>
-
-              <p className="text-base sm:text-lg text-[#111827] leading-relaxed font-medium">
-                &ldquo;AUREX is focused on presenting innovative biotechnology and laboratory automation solutions through a commitment to quality, precision, and dependable technology.&rdquo;
-              </p>
-
-              <p className="text-sm sm:text-base text-[#64748B] leading-relaxed">
-                Empowering healthcare institutions with advanced in vitro diagnostics, scalable laboratory workflow engineering, and dedicated service infrastructure that bridges the gap between scientific discovery and dependable patient care.
-              </p>
-
-              <div className="pt-2">
-                <Link
-                  href="/about"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-[#1646AF] hover:text-[#133C99] transition-colors group"
-                >
-                  <span>Learn More About AUREX</span>
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5">
-              <div className="p-4 bg-white rounded-xl border border-[#BFBFBF]/40 shadow-xs">
-                <div className="flex items-center gap-2.5 text-[#1646AF] font-bold text-sm mb-1">
-                  <ShieldCheck size={18} />
-                  <span>Precision Engineering</span>
-                </div>
-                <p className="text-xs text-[#64748B] leading-relaxed">
-                  Repeatable analytical performance engineered with CV ≤5% diagnostic fidelity.
-                </p>
-              </div>
-
-              <div className="p-4 bg-white rounded-xl border border-[#BFBFBF]/40 shadow-xs">
-                <div className="flex items-center gap-2.5 text-[#1646AF] font-bold text-sm mb-1">
-                  <CheckCircle2 size={18} />
-                  <span>Automated Workflow</span>
-                </div>
-                <p className="text-xs text-[#64748B] leading-relaxed">
-                  Seamless LIS connectivity, barcode sample identification, and automated dilution.
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* ============================================================
-          SECTION 3: CENTRAL SWIPE / SCROLL NAVIGATION CONTROL
+          CENTRAL SWIPE / SCROLL NAVIGATION CONTROL
           Navigates smoothly to the existing BIOTRA homepage
           ============================================================ */}
       <section className="py-10 bg-white border-t border-[#BFBFBF]/30 text-center">

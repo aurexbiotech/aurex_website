@@ -132,8 +132,8 @@ const FullPage: React.FC<FullPageProps> = ({
               className={`
                 w-3 h-3 rounded-full transition-all duration-300 ease-out
                 ${index === currentSectionIndex 
-                  ? 'bg-gradient-to-r from-teal-500 to-cyan-600 scale-125 shadow-lg shadow-teal-500/40' 
-                  : 'bg-white/60 hover:bg-teal-400 hover:scale-110 backdrop-blur-sm border border-white/20'
+                  ? 'bg-[#1646AF] scale-125 shadow-lg shadow-[#1646AF]/50 ring-2 ring-white' 
+                  : 'bg-white/60 hover:bg-[#1646AF] hover:scale-110 backdrop-blur-sm border border-white/20'
                 }
               `}
               aria-label={`Go to ${sections[index].name} section`}
@@ -182,7 +182,7 @@ const FullPage: React.FC<FullPageProps> = ({
             </span>
             <div className="w-16 h-1 bg-slate-700 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-gradient-to-r from-teal-500 to-cyan-600 rounded-full transition-all duration-300 ease-out"
+                className="h-full bg-gradient-to-r from-[#1646AF] to-[#133C99] rounded-full transition-all duration-300 ease-out"
                 style={{ width: `${((currentSectionIndex + 1) / sections.length) * 100}%` }}
               />
             </div>

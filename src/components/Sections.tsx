@@ -169,7 +169,7 @@ export const HeroSection: React.FC = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => router.push(heroSlides[currentView].link)}
-                  className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer text-sm sm:text-base"
+                  className="px-6 sm:px-8 py-3 sm:py-4 bg-[#1646AF] hover:bg-[#133C99] text-white font-semibold rounded-lg shadow-lg shadow-[#1646AF]/30 hover:shadow-xl transition-all duration-300 cursor-pointer text-sm sm:text-base border border-white/20"
                 >
                   Learn More
                 </motion.button>
@@ -191,7 +191,7 @@ export const HeroSection: React.FC = () => {
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkrHw/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAhEQACAQIHAQAAAAAAAAAAAAABAgADBAUREiExQVFhkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT3k/VEfEU95P1QbqFhC0Dc8/npRWg+6WwA/dgWDGOSvB2kYwBAomwkjGWd6/5QEBZEZ7n6VQ7D5jW9pWy2rbqBvexKOMdK8M4Qhqy4Q4jvQ=="
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 blur-3xl -z-10 scale-110"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1646AF]/20 to-[#133C99]/20 blur-3xl -z-10 scale-110"></div>
           </motion.div>
         </AnimatePresence>
       </div>
@@ -203,7 +203,7 @@ export const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.3, ease: "easeOut" }}
-          className="text-xs sm:text-sm text-gray-400 font-semibold tracking-wider mb-1"
+          className="text-xs sm:text-sm text-gray-300 font-semibold tracking-wider mb-1"
         >
           {currentView + 1} / {heroSlides.length}
         </motion.div>
@@ -225,7 +225,7 @@ export const HeroSection: React.FC = () => {
               className={`
                 h-2 rounded-full transition-all duration-300
                 ${index === currentView 
-                  ? 'w-8 bg-teal-400 shadow-lg shadow-teal-500/50' 
+                  ? 'w-8 bg-[#1646AF] shadow-lg shadow-[#1646AF]/50' 
                   : 'w-2 bg-gray-500 hover:bg-gray-400'
                 }
               `}

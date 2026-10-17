@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { createPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'About Analyze Biotech',
-  description: 'Learn about Analyze Biotech and its diagnostic and laboratory equipment solutions.',
+  title: 'About AUREX',
+  description: 'Learn about AUREX and our advanced diagnostic and clinical laboratory solutions.',
   path: '/about',
 })
 

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: `${siteName} | Diagnostic and Laboratory Equipment`,
     template: `%s | ${siteName}`,
   },
-  description: "Analyze Biotech supplies diagnostic equipment, laboratory equipment, biochemistry analyzers, and laboratory diagnostic solutions.",
+  description: "AUREX supplies precision diagnostic equipment, clinical laboratory instrumentation, biochemistry analyzers, and diagnostic automation solutions.",
   keywords: defaultKeywords,
   authors: [{ name: siteName }],
   alternates: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: `${siteName} | Diagnostic and Laboratory Equipment`,
-    description: "Diagnostic equipment, laboratory equipment, biochemistry analyzers, and laboratory diagnostic solutions from Analyze Biotech.",
+    description: "Precision diagnostic equipment, laboratory instruments, biochemistry analyzers, and diagnostic solutions from AUREX.",
     url: siteUrl,
     siteName,
     type: "website",

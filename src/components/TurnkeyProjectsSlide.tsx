@@ -78,7 +78,7 @@ const TurnkeyProjectsSlide: React.FC = () => {
         />
         
         {/* Deep Navy Blue Gradient Overlay - Matching Company Profile exactly */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1931]/95 via-[#1a2942]/90 to-slate-900/95" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0B1528]/95 via-[#133C99]/85 to-[#0B1528]/95" />
         
         {/* Additional depth overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />

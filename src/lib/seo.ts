@@ -1,14 +1,16 @@
 import type { Metadata } from 'next'
 
-export const siteUrl = 'https://www.analyzebiotech.in'
-export const siteName = 'Analyze Biotech'
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.aurexbiotech.com'
+export const siteName = 'AUREX'
 
 export const defaultKeywords = [
+  'AUREX',
   'diagnostic equipment supplier',
   'laboratory equipment supplier',
   'medical diagnostic equipment',
   'clinical laboratory equipment',
   'biochemistry analyzer',
+  'haematology analyzer',
   'laboratory diagnostic solutions',
 ]
 
@@ -57,7 +59,7 @@ export const organizationSchema = {
       name: siteName,
       url: siteUrl,
       logo: `${siteUrl}/images/company-logo.png`,
-      email: 'sales@analyzebiotech.in',
+      email: 'sales@aurexbiotech.com',
       telephone: '+91 9543910101',
       address: {
         '@type': 'PostalAddress',

@@ -13,7 +13,8 @@ import {
   Building2,
   Globe,
   Users,
-  MessageCircle
+  MessageCircle,
+  CheckCircle
 } from 'lucide-react'
 
 // Sub-navigation items for contact sections
@@ -29,7 +30,7 @@ const offices = [
     region: 'India Office',
     address: '1/51, Barathiyar Street, Mundiyampakkam, TamilNadu, India - 605601',
     phone: '+91 9543910101, +91 8144418046',
-    email: 'Sales@analyzebiotech.in',
+    email: 'sales@aurexbiotech.com',
     hours: 'Mon-Fri: 9:00 AM - 6:00 PM IST'
   }
 ]
@@ -46,7 +47,7 @@ const contactMethods = [
     icon: Mail,
     title: 'Email Support',
     description: 'Get detailed assistance via email',
-    contact: 'Sales@analyzebiotech.in',
+    contact: 'sales@aurexbiotech.com',
     action: 'Send Email'
   },
   {
@@ -71,10 +72,10 @@ const HeroBanner = () => {
     <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1931]/85 via-[#0A1931]/75 to-teal-900/85 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1528]/90 via-[#133C99]/85 to-[#1646AF]/85 z-10"></div>
         <Image
           src="/images/background.jpg"
-          alt="Contact AnalyzeBiotech"
+          alt="Contact AUREX"
           fill
           className="object-cover object-center"
           priority
@@ -90,11 +91,11 @@ const HeroBanner = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-gray-100 mb-8 tracking-tight">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 tracking-tight">
             Contact Us
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
-            Get in touch with our team of experts to learn how AnalyzeBiotech 
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl mx-auto">
+            Get in touch with our team of experts to learn how AUREX 
             can transform your laboratory operations.
           </p>
         </motion.div>
@@ -102,8 +103,8 @@ const HeroBanner = () => {
 
       {/* Floating Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-400 rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute bottom-32 right-16 w-3 h-3 bg-orange-500 rounded-full opacity-40 animate-bounce"></div>
+        <div className="absolute top-20 left-10 w-2 h-2 bg-[#1646AF] rounded-full opacity-60 animate-pulse"></div>
+        <div className="absolute bottom-32 right-16 w-3 h-3 bg-[#60A5FA] rounded-full opacity-40 animate-bounce"></div>
         <div className="absolute top-1/3 right-10 w-1 h-1 bg-white rounded-full opacity-80 animate-ping"></div>
       </div>
     </section>
@@ -116,7 +117,7 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
   setActiveSection: (section: string) => void 
 }) => {
   return (
-    <section className="sticky top-0 z-40 bg-gray-50/95 backdrop-blur-md border-b-2 border-gray-200 shadow-sm">
+    <section className="sticky top-0 z-40 bg-[#F6F8FB]/95 backdrop-blur-md border-b border-[#BFBFBF]/30 shadow-sm">
       <div className="container mx-auto px-6 py-4">
         <nav className="flex flex-wrap justify-center gap-2">
           {contactSubNavigation.map((item) => (
@@ -127,12 +128,12 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
               onClick={() => setActiveSection(item.id)}
               className={`relative px-4 py-3 font-semibold text-sm transition-all duration-300 rounded-t-lg overflow-hidden ${
                 activeSection === item.id
-                  ? 'text-[#0A1931] bg-white shadow-md'
-                  : 'text-gray-600 hover:text-[#0A1931] hover:bg-white/50'
+                  ? 'text-[#1646AF] bg-white shadow-md'
+                  : 'text-[#64748B] hover:text-[#1646AF] hover:bg-white/50'
               }`}
             >
               <span className="relative z-10">{item.name}</span>
-              {/* Gold/Bronze accent underline for active item */}
+              {/* Royal Blue accent underline for active item */}
               <motion.div
                 initial={false}
                 animate={{
@@ -140,7 +141,7 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
                   opacity: activeSection === item.id ? 1 : 0
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 origin-left"
+                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1646AF] to-[#133C99] origin-left"
               />
             </motion.button>
           ))}
@@ -152,6 +153,8 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
 
 export default function ContactPage() {
   const [activeSection, setActiveSection] = useState('contact-form')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -171,8 +174,20 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    alert('Thank you for your message. We will get back to you soon!')
+    setIsSubmitting(true)
+    setTimeout(() => {
+      setIsSubmitting(false)
+      setIsSubmitted(true)
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        subject: '',
+        message: '',
+        interest: 'general'
+      })
+    }, 600)
   }
 
   return (
@@ -203,6 +218,12 @@ export default function ContactPage() {
                 </div>
 
                 <div className="bg-white rounded-xl shadow-sm p-8 md:p-12">
+                  {isSubmitted && (
+                    <div className="mb-6 p-4 bg-emerald-50 border border-emerald-300 rounded-lg text-emerald-800 flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                      <span className="text-sm font-medium">Thank you for reaching out to AUREX! Your inquiry has been submitted successfully and our team will get back to you within 24 hours.</span>
+                    </div>
+                  )}
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
@@ -312,10 +333,11 @@ export default function ContactPage() {
 
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
+                      disabled={isSubmitting}
+                      className="w-full bg-[#1646AF] hover:bg-[#133C99] text-white py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg shadow-[#1646AF]/25 hover:shadow-xl disabled:opacity-75 cursor-pointer"
                     >
-                      <Send size={20} />
-                      <span>Send Message</span>
+                      <Send size={20} className={isSubmitting ? 'animate-pulse' : ''} />
+                      <span>{isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
                     </button>
                   </form>
                 </div>
@@ -407,13 +429,13 @@ export default function ContactPage() {
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       className="bg-white rounded-xl p-8 hover:shadow-lg transition-shadow group cursor-pointer"
                     >
-                      <div className="w-20 h-20 bg-blue-100 group-hover:bg-blue-200 rounded-full flex items-center justify-center mb-6 transition-colors">
-                        <method.icon className="text-blue-600" size={40} />
+                      <div className="w-20 h-20 bg-[#F6F8FB] border border-[#1646AF]/20 rounded-full flex items-center justify-center mb-6 transition-colors">
+                        <method.icon className="text-[#1646AF]" size={40} />
                       </div>
                       <h3 className="text-2xl font-bold text-gray-900 mb-3">{method.title}</h3>
-                      <p className="text-gray-600 mb-4 text-lg">{method.description}</p>
-                      <div className="text-blue-600 font-semibold mb-4 text-lg">{method.contact}</div>
-                      <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                      <p className="text-[#64748B] mb-4 text-lg">{method.description}</p>
+                      <div className="text-[#1646AF] font-semibold mb-4 text-lg">{method.contact}</div>
+                      <button className="w-full bg-[#1646AF] text-white py-3 rounded-lg font-semibold hover:bg-[#133C99] transition-colors shadow-sm">
                         {method.action}
                       </button>
                     </motion.div>
@@ -427,29 +449,29 @@ export default function ContactPage() {
               <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-12">
                   <h2 className="text-4xl font-bold text-gray-900 mb-4">24/7 Emergency Support</h2>
-                  <p className="text-xl text-gray-600">
+                  <p className="text-xl text-[#64748B]">
                     Critical support when you need it most
                   </p>
                 </div>
 
-                <div className="bg-gradient-to-br from-red-600 to-red-700 text-white rounded-2xl p-12 shadow-xl">
+                <div className="bg-[#133C99] text-white rounded-2xl p-12 shadow-xl border border-white/20">
                   <div className="text-center mb-8">
-                    <Phone className="mx-auto mb-6" size={64} />
-                    <h3 className="text-3xl font-bold mb-4">Emergency Hotline</h3>
-                    <p className="text-xl text-red-100 mb-8">
+                    <Phone className="mx-auto mb-6 text-white" size={64} />
+                    <h3 className="text-3xl font-bold mb-4 text-white">Emergency Hotline</h3>
+                    <p className="text-xl text-white/80 mb-8">
                       For critical system issues or urgent technical support needs, 
                       our emergency hotline is available around the clock.
                     </p>
-                    <div className="text-4xl font-bold mb-2">+91 9543910101</div>
-                    <div className="text-4xl font-bold mb-6">+91 8144418046</div>
-                    <button className="bg-white text-red-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-red-50 transition-colors">
+                    <div className="text-4xl font-bold mb-2 text-white">+91 9543910101</div>
+                    <div className="text-4xl font-bold mb-6 text-white">+91 8144418046</div>
+                    <a href="tel:+919543910101" className="inline-block bg-white text-[#1646AF] hover:bg-[#F6F8FB] hover:text-[#133C99] px-8 py-4 rounded-lg font-bold text-lg transition-colors shadow-sm">
                       Call Emergency Support
-                    </button>
+                    </a>
                   </div>
 
-                  <div className="border-t border-red-500 pt-8 mt-8">
-                    <h4 className="text-xl font-semibold mb-4">What qualifies as an emergency?</h4>
-                    <ul className="space-y-2 text-red-100">
+                  <div className="border-t border-white/20 pt-8 mt-8">
+                    <h4 className="text-xl font-semibold mb-4 text-white">What qualifies as an emergency?</h4>
+                    <ul className="space-y-2 text-white/80">
                       <li>• Complete system failure affecting patient care</li>
                       <li>• Critical diagnostic errors requiring immediate attention</li>
                       <li>• Safety-related equipment malfunction</li>
@@ -458,9 +480,9 @@ export default function ContactPage() {
                     </ul>
                   </div>
 
-                  <div className="border-t border-red-500 pt-8 mt-8">
-                    <h4 className="text-xl font-semibold mb-4">Response Time Guarantee</h4>
-                    <p className="text-red-100">
+                  <div className="border-t border-white/20 pt-8 mt-8">
+                    <h4 className="text-xl font-semibold mb-4 text-white">Response Time Guarantee</h4>
+                    <p className="text-white/80">
                       Emergency calls are answered within 2 minutes, 24/7/365. 
                       On-site support available within 4 hours for critical issues.
                     </p>
@@ -468,7 +490,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                  <div className="bg-blue-50 rounded-xl p-6">
+                  <div className="bg-[#F6F8FB] border border-[#BFBFBF]/40 rounded-xl p-6">
                     <h4 className="text-xl font-semibold text-gray-900 mb-3">Emergency Contact</h4>
                     <div className="space-y-2 text-gray-700">
                       <div><strong>Phone:</strong> +91 9543910101, +91 8144418046</div>
@@ -476,12 +498,12 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="bg-blue-50 rounded-xl p-6">
+                  <div className="bg-[#F6F8FB] border border-[#BFBFBF]/40 rounded-xl p-6">
                     <h4 className="text-xl font-semibold text-gray-900 mb-3">Email Emergency Support</h4>
                     <div className="space-y-2 text-gray-700">
                       <div><strong>Critical Issues:</strong></div>
-                      <div>Sales@analyzebiotech.in</div>
-                      <div className="text-sm text-gray-600 mt-2">
+                      <div>sales@aurexbiotech.com</div>
+                      <div className="text-sm text-[#64748B] mt-2">
                         Monitored 24/7 with 15-minute response time
                       </div>
                     </div>

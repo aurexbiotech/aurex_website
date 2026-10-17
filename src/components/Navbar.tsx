@@ -98,7 +98,7 @@ const Navbar = () => {
             {/* Logo with responsive sizing */}
             <Link href="/" className="flex items-center">
               <div className="text-left">
-                <h1 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold text-white drop-shadow-lg leading-tight">AnalyzeBiotech</h1>
+                <h1 className="text-lg sm:text-xl md:text-2xl lg:text-4xl font-extrabold text-white drop-shadow-lg leading-tight tracking-wider">AUREX</h1>
               </div>
             </Link>
 
@@ -116,7 +116,7 @@ const Navbar = () => {
         </nav>
       </header>
 
-      {/* Full-Screen Royal Business Menu Overlay */}
+      {/* Full-Screen AUREX Corporate Menu Overlay */}
       <AnimatePresence>
         {isFullScreenMenuOpen && (
           <motion.div
@@ -124,22 +124,23 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50"
-            style={{ backgroundColor: '#0077B5' }}
+            className="fixed inset-0 z-50 bg-[#133C99]/98"
           >
-            <div className="absolute inset-0 backdrop-blur-sm">
+            <div className="absolute inset-0 backdrop-blur-md">
               
               {/* Menu Header */}
-              <div className="flex justify-between items-center p-4 sm:p-6 md:p-8 border-b border-slate-700/50">
+              <div className="flex justify-between items-center p-4 sm:p-6 md:p-8 border-b border-white/15">
                 {/* Branding */}
                 <div>
-                  <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">AnalyzeBiotech</h1>
+                  <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-wider">AUREX</h1>
+                  <span className="text-xs text-white/70 tracking-widest uppercase">Advanced Diagnostic Solutions</span>
                 </div>
 
                 {/* Prominent Close Button */}
                 <button
                   onClick={toggleFullScreenMenu}
-                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 rounded-xl flex items-center justify-center text-slate-900 transition-all duration-300 hover:scale-105 shadow-lg shadow-amber-500/25"
+                  aria-label="Close navigation menu"
+                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-white text-[#1646AF] hover:bg-[#F6F8FB] hover:text-[#133C99] rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-lg shadow-black/10"
                 >
                   <X size={20} className="sm:w-6 sm:h-6 md:w-7 md:h-7 font-bold" />
                 </button>
@@ -158,16 +159,16 @@ const Navbar = () => {
                         transition={{ duration: 0.3, delay: Object.keys(menuData).indexOf(category) * 0.05, ease: "easeOut" }}
                         className="space-y-3 sm:space-y-4 md:space-y-6"
                       >
-                        {/* Category Header - Now a Link */}
+                        {/* Category Header - Link */}
                         <Link
                           href={categoryRoutes[category]}
                           onClick={toggleFullScreenMenu}
                           className="block"
                         >
-                          <h2 className="text-base sm:text-lg md:text-xl font-bold text-white hover:text-yellow-400 transition-colors duration-300 cursor-pointer border-b border-amber-500/30 pb-2 sm:pb-3 text-left tracking-wide group">
+                          <h2 className="text-base sm:text-lg md:text-xl font-bold text-white hover:text-white/90 transition-colors duration-300 cursor-pointer border-b border-white/20 pb-2 sm:pb-3 text-left tracking-wide group">
                             <span className="relative">
                               {category}
-                              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-amber-500 group-hover:w-full transition-all duration-300"></span>
+                              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
                             </span>
                           </h2>
                         </Link>
@@ -188,11 +189,11 @@ const Navbar = () => {
                               <Link
                                 href={`${categoryRoutes[category]}#${item.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`}
                                 onClick={toggleFullScreenMenu}
-                                className="block text-gray-300 hover:text-amber-400 hover:pl-2 sm:hover:pl-4 transition-all duration-300 text-sm sm:text-base font-medium leading-relaxed text-left group"
+                                className="block text-white/80 hover:text-white hover:pl-2 sm:hover:pl-4 transition-all duration-300 text-sm sm:text-base font-medium leading-relaxed text-left group"
                               >
                                 <span className="relative">
                                   {item}
-                                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 group-hover:w-full transition-all duration-300"></span>
+                                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white/60 group-hover:w-full transition-all duration-300"></span>
                                 </span>
                               </Link>
                             </motion.div>
@@ -207,26 +208,26 @@ const Navbar = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.6 }}
-                    className="mt-10 sm:mt-16 md:mt-20 pt-6 sm:pt-8 border-t border-amber-500/30"
+                    className="mt-10 sm:mt-16 md:mt-20 pt-6 sm:pt-8 border-t border-white/15"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center md:text-left">
                       <div className="flex flex-col space-y-2 sm:space-y-3">
                         <div className="flex items-center justify-center md:justify-start space-x-2 sm:space-x-3">
-                          <Phone className="text-yellow-400" size={18} />
-                          <span className="text-gray-300 font-medium text-sm sm:text-base">+91 9543910101</span>
+                          <Phone className="text-white/80" size={18} />
+                          <span className="text-white/90 font-medium text-sm sm:text-base">+91 9543910101</span>
                         </div>
                         <div className="flex items-center justify-center md:justify-start space-x-2 sm:space-x-3">
-                          <Phone className="text-yellow-400" size={18} />
-                          <span className="text-gray-300 font-medium text-sm sm:text-base">+91 8144418046</span>
+                          <Phone className="text-white/80" size={18} />
+                          <span className="text-white/90 font-medium text-sm sm:text-base">+91 8144418046</span>
                         </div>
                       </div>
                       <div className="flex items-center justify-center md:justify-start space-x-2 sm:space-x-3">
-                        <Mail className="text-yellow-400" size={18} />
-                        <span className="text-gray-300 font-medium text-sm sm:text-base break-all">Sales@analyzebiotech.in</span>
+                        <Mail className="text-white/80" size={18} />
+                        <span className="text-white/90 font-medium text-sm sm:text-base break-all">sales@aurexbiotech.com</span>
                       </div>
                       <div className="flex items-center justify-center md:justify-start space-x-2 sm:space-x-3">
-                        <MapPin className="text-yellow-400 flex-shrink-0" size={18} />
-                        <span className="text-gray-300 font-medium text-sm sm:text-base leading-relaxed">1/51, Barathiyar Street, Mundiyampakkam, TamilNadu, India - 605601</span>
+                        <MapPin className="text-white/80 flex-shrink-0" size={18} />
+                        <span className="text-white/90 font-medium text-sm sm:text-base leading-relaxed">1/51, Barathiyar Street, Mundiyampakkam, TamilNadu, India - 605601</span>
                       </div>
                     </div>
                   </motion.div>

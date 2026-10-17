@@ -19,7 +19,7 @@ const HeroBanner = () => {
   return (
     <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1931]/85 via-[#0A1931]/75 to-teal-900/85 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1528]/90 via-[#133C99]/85 to-[#1646AF]/85 z-10"></div>
         <Image
           src="/images/diagnostic_lab.png"
           alt="Medical Applications and Research"
@@ -64,8 +64,8 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
               onClick={() => setActiveSection(item.id)}
               className={`px-6 py-3 font-semibold text-sm transition-all duration-300 border-b-3 ${
                 activeSection === item.id
-                  ? 'text-[#0A1931] border-amber-500 bg-white shadow-sm'
-                  : 'text-gray-600 border-transparent hover:text-[#0A1931] hover:bg-white/50'
+                  ? 'text-[#1646AF] border-[#1646AF] bg-white shadow-sm'
+                  : 'text-[#64748B] border-transparent hover:text-[#1646AF] hover:bg-white/50'
               }`}
             >
               {item.name}
@@ -112,13 +112,13 @@ export default function ApplicationPage() {
             className="text-center mb-16"
           >
             <div className="flex items-center justify-center mb-6">
-              <Icon className="w-16 h-16 text-[#0A1931] mr-4" />
-              <h1 className="text-4xl md:text-5xl font-bold text-[#0A1931]">
+              <Icon className="w-16 h-16 text-[#1646AF] mr-4" />
+              <h1 className="text-4xl md:text-5xl font-bold text-[#0B1528]">
                 {getSectionTitle()}
               </h1>
             </div>
-            <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto mb-6"></div>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <div className="w-24 h-1 bg-gradient-to-r from-[#1646AF] to-[#133C99] mx-auto mb-6"></div>
+            <p className="text-lg text-[#64748B] max-w-3xl mx-auto leading-relaxed">
               Advanced solutions tailored for {getSectionTitle().toLowerCase()} applications, 
               designed to meet the highest standards of accuracy and reliability.
             </p>
@@ -131,12 +131,12 @@ export default function ApplicationPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: item * 0.1 }}
-                className="bg-white p-6 rounded-xl shadow-lg border border-gray-100"
+                className="bg-white p-6 rounded-xl shadow-lg border border-[#BFBFBF]/30 hover:border-[#1646AF]/40 transition-colors"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                  <Icon className="w-8 h-8 text-gray-600" />
+                <div className="w-16 h-16 bg-[#F6F8FB] border border-[#BFBFBF]/40 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                  <Icon className="w-8 h-8 text-[#1646AF]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#0A1931] mb-3 text-center">
+                <h3 className="text-xl font-bold text-[#0B1528] mb-3 text-center">
                   Solution {item}
                 </h3>
                 <p className="text-gray-600 text-center leading-relaxed">

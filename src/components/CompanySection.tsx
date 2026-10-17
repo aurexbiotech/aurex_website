@@ -44,12 +44,12 @@ const CompanySection: React.FC = () => {
       name: 'Company Profile',
       icon: Building2,
       title: 'Company Profile',
-      description: 'Analyze Biotech Private Limited is a leading solutions provider empowering healthcare through advanced automation, innovation, and reliable clinical technology. Established in 2011 and headquartered in Chennai, Tamil Nadu, we are committed to delivering world-class diagnostic instruments and Automations',
+      description: 'AUREX is a premier diagnostic solutions provider empowering healthcare through advanced automation, precision engineering, and reliable clinical technology. Committed to delivering world-class diagnostic instruments, laboratory automation, and dependable technical support.',
       image: '/images/company-profile.jpg', // Placeholder
       stats: [
-        { label: 'Founded', value: '1999' },
-        { label: 'Global Reach', value: '85+ Countries' },
-        { label: 'Employees', value: '2,500+' }
+        { label: 'Excellence', value: 'High Precision' },
+        { label: 'Support', value: '24/7 Dedicated' },
+        { label: 'Quality', value: 'Certified Standards' }
       ]
     },
     {
@@ -57,7 +57,7 @@ const CompanySection: React.FC = () => {
       name: 'Investor Opportunity',
       icon: TrendingUp,
       title: 'Investor Opportunity',
-      description: 'Join us in revolutionizing global healthcare. Analyze Biotech offers strong growth potential with a proven track record of innovation, market expansion, and sustainable financial performance.',
+      description: 'Join us in revolutionizing global healthcare. AUREX offers strong growth potential with a commitment to continuous innovation, market expansion, and sustainable healthcare impact.',
       image: '/images/investor.jpg',
       stats: [
         { label: 'Annual Growth', value: '18%' },
@@ -135,7 +135,7 @@ const CompanySection: React.FC = () => {
       name: 'Testimonials',
       icon: MessageSquare,
       title: 'Client Testimonials',
-      description: 'Hear from healthcare professionals worldwide who trust Analyze Biotech for their diagnostic needs. Our commitment to excellence has earned us partnerships with leading medical institutions globally.',
+      description: 'Hear from healthcare professionals worldwide who trust AUREX for their diagnostic needs. Our commitment to excellence has earned us partnerships with leading medical institutions globally.',
       image: '/images/testimonials.jpg',
       stats: [
         { label: 'Customer Rating', value: '4.9/5' },
@@ -217,12 +217,12 @@ const CompanySection: React.FC = () => {
                     {currentTopic.description}
                   </p>
 
-                  {/* More Info Button with Sky Blue Accent */}
+                  {/* More Info Button with AUREX Royal Blue Accent */}
                   <motion.button
                     onClick={() => router.push(topicRoutes[activeTab])}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group mt-8 flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white rounded-full font-semibold shadow-lg shadow-sky-500/30 transition-all duration-300"
+                    className="group mt-8 flex items-center gap-3 px-8 py-4 bg-[#1646AF] hover:bg-[#133C99] text-white rounded-full font-semibold shadow-lg shadow-[#1646AF]/30 transition-all duration-300 border border-white/20"
                   >
                     <span>More Info</span>
                     <ArrowRight 
@@ -280,7 +280,7 @@ const CompanySection: React.FC = () => {
                       className={`
                         relative flex-1 px-4 py-3 rounded-xl font-medium text-sm transition-all duration-300
                         ${activeTab === index 
-                          ? 'bg-gradient-to-r from-sky-500 to-sky-600 text-white shadow-lg shadow-sky-500/30' 
+                          ? 'bg-[#1646AF] text-white shadow-lg shadow-[#1646AF]/40 border border-white/20' 
                           : 'bg-slate-800/50 text-gray-300 hover:bg-slate-700/70 hover:text-white'
                         }
                       `}
@@ -296,7 +296,7 @@ const CompanySection: React.FC = () => {
                       {activeTab === index && (
                         <motion.div
                           layoutId="activeTab"
-                          className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-sky-400"
+                          className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-white"
                           transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                         />
                       )}

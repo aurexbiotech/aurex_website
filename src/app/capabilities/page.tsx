@@ -209,11 +209,11 @@ const capabilitiesContent = {
   'knowledge-centre': {
     title: 'Knowledge Centre',
     subtitle: 'Innovation, Education, and Collaboration Hub',
-    description: 'The Knowledge Centre at Analyze Biotech Private Limited is a dedicated hub for innovation, education, and collaboration, created to empower healthcare professionals, researchers, and clients with cutting-edge insights and practical expertise. It reflects our commitment to continuous learning, skill-building, and shaping the future of diagnostics.',
+    description: 'The Knowledge Centre at AUREX is a dedicated hub for innovation, education, and collaboration, created to empower healthcare professionals, researchers, and clients with cutting-edge insights and practical expertise. It reflects our commitment to continuous learning, skill-building, and shaping the future of diagnostics.',
     content: [
       {
         type: 'text',
-        data: 'The Knowledge Centre at Analyze Biotech Private Limited is a dedicated hub for innovation, education, and collaboration, created to empower healthcare professionals, researchers, and clients with cutting-edge insights and practical expertise. It reflects our commitment to continuous learning, skill-building, and shaping the future of diagnostics.'
+        data: 'The Knowledge Centre at AUREX is a dedicated hub for innovation, education, and collaboration, created to empower healthcare professionals, researchers, and clients with cutting-edge insights and practical expertise. It reflects our commitment to continuous learning, skill-building, and shaping the future of diagnostics.'
       },
       {
         type: 'text',
@@ -226,7 +226,7 @@ const capabilitiesContent = {
           'Training & Education - Hands-on workshops, live product demos, and interactive webinars designed for laboratory professionals, clinicians, and biomedical engineers. E-learning modules, video tutorials, and troubleshooting guides to help users master new technologies and boost efficiency',
           'Expert Support & Consultation - Direct access to technical advisors and subject-matter experts for workflow optimization and application support. Guidance on automation integration, regulatory compliance, and technology adoption strategies',
           'Innovation & Collaboration Space - A platform for joint research projects, idea incubation, and innovation forums. Partnerships with academic institutions, industry leaders, and healthcare providers to co-create next-gen diagnostic solutions',
-          'Industry Insights & Updates - Regular newsletters, blogs, and bulletins featuring global diagnostic trends, regulatory changes, and clinical best practices. Early access to new product launches, upgrades, and innovations from Analyze Biotech'
+          'Industry Insights & Updates - Regular newsletters, blogs, and bulletins featuring global diagnostic trends, regulatory changes, and clinical best practices. Early access to new product launches, upgrades, and innovations from AUREX'
         ]
       },
       {
@@ -242,11 +242,11 @@ const capabilitiesContent = {
   'digital-learning-platforms': {
     title: 'Digital Learning Platforms',
     subtitle: 'Interactive, Accessible, and Personalized Learning',
-    description: 'To empower users and cultivate a culture of continuous learning, the Analyze Biotech Knowledge Centre integrates cutting-edge digital education tools that deliver interactive, accessible, and personalized learning experiences for healthcare and diagnostics professionals.',
+    description: 'To empower users and cultivate a culture of continuous learning, the AUREX Knowledge Centre integrates cutting-edge digital education tools that deliver interactive, accessible, and personalized learning experiences for healthcare and diagnostics professionals.',
     content: [
       {
         type: 'text',
-        data: 'To empower users and cultivate a culture of continuous learning, the Analyze Biotech Knowledge Centre integrates cutting-edge digital education tools that deliver interactive, accessible, and personalized learning experiences for healthcare and diagnostics professionals.'
+        data: 'To empower users and cultivate a culture of continuous learning, the AUREX Knowledge Centre integrates cutting-edge digital education tools that deliver interactive, accessible, and personalized learning experiences for healthcare and diagnostics professionals.'
       },
       {
         type: 'text',
@@ -270,18 +270,18 @@ const capabilitiesContent = {
       },
       {
         type: 'text',
-        data: 'Through these advanced digital learning tools, the Analyze Biotech Knowledge Centre delivers smarter, faster, and more engaging training, empowering users to achieve diagnostic excellence, accelerate skill development, and stay ahead in a rapidly evolving healthcare ecosystem.'
+        data: 'Through these advanced digital learning tools, the AUREX Knowledge Centre delivers smarter, faster, and more engaging training, empowering users to achieve diagnostic excellence, accelerate skill development, and stay ahead in a rapidly evolving healthcare ecosystem.'
       }
     ]
   },
   'skill-centre': {
     title: 'Skill Centre',
     subtitle: 'Cutting-Edge Training and Development Hubs',
-    description: 'The Skill Centres of Analyze Biotech Private Limited are cutting-edge training and development hubs designed to bridge the gap between academic learning and real-world expertise. They empower biotechnology and diagnostics professionals with hands-on, industry-ready skills to excel in the fast-evolving healthcare and life sciences sector.',
+    description: 'The Skill Centres of AUREX are cutting-edge training and development hubs designed to bridge the gap between academic learning and real-world expertise. They empower biotechnology and diagnostics professionals with hands-on, industry-ready skills to excel in the fast-evolving healthcare and life sciences sector.',
     content: [
       {
         type: 'text',
-        data: 'The Skill Centres of Analyze Biotech Private Limited are cutting-edge training and development hubs designed to bridge the gap between academic learning and real-world expertise. They empower biotechnology and diagnostics professionals with hands-on, industry-ready skills to excel in the fast-evolving healthcare and life sciences sector.'
+        data: 'The Skill Centres of AUREX are cutting-edge training and development hubs designed to bridge the gap between academic learning and real-world expertise. They empower biotechnology and diagnostics professionals with hands-on, industry-ready skills to excel in the fast-evolving healthcare and life sciences sector.'
       },
       {
         type: 'text',
@@ -305,18 +305,18 @@ const capabilitiesContent = {
       },
       {
         type: 'text',
-        data: 'By combining practical training, digital learning, and industry mentorship, Analyze Biotech Skill Centres create a complete ecosystem for workforce transformation—equipping participants to drive innovation, meet industry challenges, and shape the future of diagnostics and life sciences.'
+        data: 'By combining practical training, digital learning, and industry mentorship, AUREX Skill Centres create a complete ecosystem for workforce transformation—equipping participants to drive innovation, meet industry challenges, and shape the future of diagnostics and life sciences.'
       }
     ]
   },
   'downloads': {
     title: 'Downloads',
     subtitle: 'Your One-Stop Resource Hub – Anytime, Anywhere',
-    description: 'The Analyze Biotech Download Centre is a centralized, user-friendly digital hub designed to give customers, partners, and professionals instant access to critical resources, documents, and updates. Built for speed, convenience, and reliability, it ensures you always have the latest tools and information at your fingertips.',
+    description: 'The AUREX Download Centre is a centralized, user-friendly digital hub designed to give customers, partners, and professionals instant access to critical resources, documents, and updates. Built for speed, convenience, and reliability, it ensures you always have the latest tools and information at your fingertips.',
     content: [
       {
         type: 'text',
-        data: 'The Analyze Biotech Download Centre is a centralized, user-friendly digital hub designed to give customers, partners, and professionals instant access to critical resources, documents, and updates. Built for speed, convenience, and reliability, it ensures you always have the latest tools and information at your fingertips.'
+        data: 'The AUREX Download Centre is a centralized, user-friendly digital hub designed to give customers, partners, and professionals instant access to critical resources, documents, and updates. Built for speed, convenience, and reliability, it ensures you always have the latest tools and information at your fingertips.'
       },
       {
         type: 'text',
@@ -359,11 +359,11 @@ const capabilitiesContent = {
   'workshops': {
     title: 'Workshops',
     subtitle: 'Hands-On Learning. Real-World Impact.',
-    description: 'At Analyze Biotech Private Limited, our specialized workshop programmes are designed to equip healthcare and biotechnology professionals with practical expertise, scientific insight, and exposure to the latest innovations in diagnostics and laboratory methodologies.',
+    description: 'At AUREX, our specialized workshop programmes are designed to equip healthcare and biotechnology professionals with practical expertise, scientific insight, and exposure to the latest innovations in diagnostics and laboratory methodologies.',
     content: [
       {
         type: 'text',
-        data: 'At Analyze Biotech Private Limited, our specialized workshop programmes are designed to equip healthcare and biotechnology professionals with practical expertise, scientific insight, and exposure to the latest innovations in diagnostics and laboratory methodologies.'
+        data: 'At AUREX, our specialized workshop programmes are designed to equip healthcare and biotechnology professionals with practical expertise, scientific insight, and exposure to the latest innovations in diagnostics and laboratory methodologies.'
       },
       {
         type: 'text',
@@ -420,11 +420,11 @@ const capabilitiesContent = {
   'media-centre': {
     title: 'Media Centre',
     subtitle: 'Your Gateway to News, Insights & Corporate Communications',
-    description: 'The Media Centre at Analyze Biotech serves as our central communication hub, designed to deliver timely, accurate, and engaging information to stakeholders, media professionals, partners, and customers. This dynamic platform offers a single point of access to corporate news, official statements, multimedia resources, and event updates—reinforcing our commitment to transparency, collaboration, and brand excellence.',
+    description: 'The Media Centre at AUREX serves as our central communication hub, designed to deliver timely, accurate, and engaging information to stakeholders, media professionals, partners, and customers. This dynamic platform offers a single point of access to corporate news, official statements, multimedia resources, and event updates—reinforcing our commitment to transparency, collaboration, and brand excellence.',
     content: [
       {
         type: 'text',
-        data: 'The Media Centre at Analyze Biotech serves as our central communication hub, designed to deliver timely, accurate, and engaging information to stakeholders, media professionals, partners, and customers. This dynamic platform offers a single point of access to corporate news, official statements, multimedia resources, and event updates—reinforcing our commitment to transparency, collaboration, and brand excellence.'
+        data: 'The Media Centre at AUREX serves as our central communication hub, designed to deliver timely, accurate, and engaging information to stakeholders, media professionals, partners, and customers. This dynamic platform offers a single point of access to corporate news, official statements, multimedia resources, and event updates—reinforcing our commitment to transparency, collaboration, and brand excellence.'
       },
       {
         type: 'text',
@@ -456,7 +456,7 @@ const capabilitiesContent = {
       },
       {
         type: 'text',
-        data: 'The Analyze Biotech Media Centre embodies our vision of proactive communication—building stronger relationships with stakeholders, partners, and the public through reliable, timely, and media-ready content.'
+        data: 'The AUREX Media Centre embodies our vision of proactive communication—building stronger relationships with stakeholders, partners, and the public through reliable, timely, and media-ready content.'
       }
     ]
   },
@@ -478,7 +478,7 @@ const capabilitiesContent = {
         data: [
           'Industry Insights - In-depth analysis of emerging trends in diagnostics, laboratory automation, and healthcare technologies. Articles on policy changes, regulatory updates, and global healthcare innovations',
           'Scientific & Technical Knowledge - Step-by-step guides and tutorials on laboratory techniques, clinical workflows, and research methodologies. Updates on cutting-edge technologies including molecular diagnostics, AI-driven healthcare solutions, and next-generation sequencing',
-          'Product & Solution Spotlights - Detailed explorations of Analyze Biotech instruments, automation solutions, and software innovations. Case studies demonstrating real-world applications, improved efficiency, and enhanced patient outcomes',
+          'Product & Solution Spotlights - Detailed explorations of AUREX instruments, automation solutions, and software innovations. Case studies demonstrating real-world applications, improved efficiency, and enhanced patient outcomes',
           'Thought Leadership & Expert Opinions - Perspectives from industry experts, researchers, and biotech professionals on healthcare challenges and innovations. Interviews, guest posts, and commentary on trends shaping the diagnostics ecosystem',
           'Educational Resources - Informative articles on laboratory best practices, quality management, and workflow optimization. Tips, e-learning content, and insights to enhance professional skills and knowledge'
         ]
@@ -498,7 +498,7 @@ const capabilitiesContent = {
       },
       {
         type: 'text',
-        data: 'The Analyze Biotech Blog serves as a knowledge-sharing hub, reflecting our commitment to continuous learning, scientific advancement, and empowering the healthcare community with actionable insights and thought leadership.'
+        data: 'The AUREX Blog serves as a knowledge-sharing hub, reflecting our commitment to continuous learning, scientific advancement, and empowering the healthcare community with actionable insights and thought leadership.'
       }
     ]
   }
@@ -546,7 +546,7 @@ const TurnkeyContent = ({ data }: {
     <div className="space-y-16">
       {/* Introduction */}
       <div className="animate-on-scroll">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#0A1931] mb-6">{data.intro.title}</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6">{data.intro.title}</h2>
         <p className="text-gray-700 leading-relaxed text-lg">{data.intro.text}</p>
       </div>
 
@@ -561,7 +561,7 @@ const TurnkeyContent = ({ data }: {
             <div className={`grid md:grid-cols-2 gap-8 items-start animate-on-scroll mb-8 ${isEven ? '' : 'md:grid-flow-dense'}`}>
               {/* Text Content */}
               <div className={isEven ? '' : 'md:col-start-2'}>
-                <h3 className="text-2xl md:text-3xl font-bold text-teal-700 mb-6 border-b-4 border-teal-500 pb-2">
+                <h3 className="text-2xl md:text-3xl font-bold text-[#133C99] mb-6 border-b-4 border-[#1646AF] pb-2">
                   {solution.title}
                 </h3>
 
@@ -569,8 +569,8 @@ const TurnkeyContent = ({ data }: {
                 <div className="space-y-6">
                   {solution.sections.map((section, sectionIndex) => (
                     <div key={sectionIndex} className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                      <h4 className="text-lg md:text-xl font-semibold text-[#0A1931] mb-3 flex items-center">
-                        <div className="w-2 h-2 bg-teal-500 rounded-full mr-3"></div>
+                      <h4 className="text-lg md:text-xl font-semibold text-[#0B1528] mb-3 flex items-center">
+                        <div className="w-2 h-2 bg-[#1646AF] rounded-full mr-3"></div>
                         {section.subtitle}
                       </h4>
                       
@@ -582,7 +582,7 @@ const TurnkeyContent = ({ data }: {
                         <ul className="space-y-2 ml-5">
                           {section.points.map((point, pointIndex) => (
                             <li key={pointIndex} className="flex items-start space-x-3 text-gray-700">
-                              <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                              <div className="w-1.5 h-1.5 bg-[#133C99] rounded-full mt-2 flex-shrink-0"></div>
                               <span>{point}</span>
                             </li>
                           ))}
@@ -602,10 +602,10 @@ const TurnkeyContent = ({ data }: {
                   className="object-cover hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A1931]/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1528]/60 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="bg-white/95 backdrop-blur-sm p-4 rounded-lg shadow-xl">
-                    <h4 className="text-[#0A1931] font-bold text-lg">{solution.title}</h4>
+                    <h4 className="text-[#0B1528] font-bold text-lg">{solution.title}</h4>
                     <p className="text-gray-600 text-sm mt-1">Comprehensive turnkey solution</p>
                   </div>
                 </div>
@@ -621,15 +621,15 @@ const TurnkeyContent = ({ data }: {
       })}
 
       {/* Key Benefits */}
-      <div className="animate-on-scroll bg-gradient-to-br from-teal-50 to-green-50 p-8 rounded-xl shadow-lg">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#0A1931] mb-6 flex items-center">
-          <Shield className="w-8 h-8 mr-3 text-teal-600" />
+      <div className="animate-on-scroll bg-[#F6F8FB] border border-gray-100 p-8 rounded-xl shadow-lg">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6 flex items-center">
+          <Shield className="w-8 h-8 mr-3 text-[#1646AF]" />
           Key Benefits
         </h2>
         <ul className="grid md:grid-cols-2 gap-4">
           {data.benefits.map((benefit, index) => (
-            <li key={index} className="flex items-start space-x-3 bg-white/80 p-4 rounded-lg">
-              <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+            <li key={index} className="flex items-start space-x-3 bg-white p-4 rounded-lg border border-gray-100">
+              <div className="w-2 h-2 bg-[#1646AF] rounded-full mt-2 flex-shrink-0"></div>
               <span className="text-gray-700 text-lg">{benefit}</span>
             </li>
           ))}
@@ -638,7 +638,7 @@ const TurnkeyContent = ({ data }: {
 
       {/* Impact Statement with Image */}
       <div className="grid md:grid-cols-2 gap-8 items-center animate-on-scroll">
-        <div className="bg-gradient-to-r from-[#0A1931] to-teal-800 text-white p-8 rounded-xl shadow-xl">
+        <div className="bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white p-8 rounded-xl shadow-xl">
           <h3 className="text-2xl md:text-3xl font-bold mb-4">{data.impact.title}</h3>
           <p className="leading-relaxed text-lg">{data.impact.text}</p>
         </div>
@@ -651,7 +651,7 @@ const TurnkeyContent = ({ data }: {
             className="object-cover hover:scale-105 transition-transform duration-500"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-teal-900/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B1528]/60 to-transparent"></div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white">
               <Globe className="w-16 h-16 mx-auto mb-4" />
@@ -671,10 +671,10 @@ const StatsContent = ({ stats }: { stats: { icon: React.ElementType; label: stri
         key={index}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="text-center bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl"
+        className="text-center bg-[#F6F8FB] border border-gray-100 p-6 rounded-xl"
       >
-        <stat.icon className="w-8 h-8 text-[#0A1931] mx-auto mb-4" />
-        <div className="text-3xl font-bold text-[#0A1931] mb-2">{stat.value}</div>
+        <stat.icon className="w-8 h-8 text-[#1646AF] mx-auto mb-4" />
+        <div className="text-3xl font-bold text-[#0B1528] mb-2">{stat.value}</div>
         <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
       </motion.div>
     ))}
@@ -688,9 +688,9 @@ const TimelineContent = ({ timeline }: { timeline: { year: string; event: string
         key={index}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="flex items-start space-x-4 bg-gray-50 p-6 rounded-lg"
+        className="flex items-start space-x-4 bg-[#F6F8FB] border border-gray-100 p-6 rounded-lg"
       >
-        <div className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center">
+        <div className="bg-[#1646AF] text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center shadow-sm">
           {item.year}
         </div>
         <p className="text-gray-700 text-lg flex-1">{item.event}</p>
@@ -708,11 +708,11 @@ const LeadershipContent = ({ leaders }: { leaders: { name: string; position: str
         transition={{ duration: 0.5, delay: index * 0.1 }}
         className="bg-white p-6 rounded-xl shadow-lg border border-gray-100"
       >
-        <div className="w-24 h-24 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
-          <Microscope className="w-12 h-12 text-gray-500" />
+        <div className="w-24 h-24 bg-[#F6F8FB] border border-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+          <Microscope className="w-12 h-12 text-[#1646AF]" />
         </div>
-        <h3 className="text-xl font-bold text-[#0A1931] mb-2 text-center">{leader.name}</h3>
-        <p className="text-amber-600 font-semibold text-center mb-4">{leader.position}</p>
+        <h3 className="text-xl font-bold text-[#0B1528] mb-2 text-center">{leader.name}</h3>
+        <p className="text-[#1646AF] font-semibold text-center mb-4">{leader.position}</p>
         <p className="text-gray-600 text-sm leading-relaxed text-center">{leader.bio}</p>
       </motion.div>
     ))}
@@ -726,9 +726,9 @@ const BenefitsContent = ({ benefits }: { benefits: string[] }) => (
         key={index}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="flex items-start space-x-3 bg-gradient-to-r from-blue-50 to-cyan-50 p-4 rounded-lg"
+        className="flex items-start space-x-3 bg-[#F6F8FB] border border-gray-100 p-4 rounded-lg"
       >
-        <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+        <div className="w-2 h-2 bg-[#1646AF] rounded-full mt-2 flex-shrink-0"></div>
         <p className="text-gray-700">{benefit}</p>
       </motion.div>
     ))}
@@ -742,11 +742,11 @@ const ServiceContent = () => {
       {/* ========== SECTION 1: GENERAL SERVICES ========== */}
       <section className="opacity-100">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0A1931] mb-6">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0B1528] mb-6">
             General Services
           </h2>
           <p className="text-lg text-[#2C3E50] max-w-4xl mx-auto leading-relaxed">
-            At Analyze Biotech, we provide <span className="font-bold">end-to-end support</span> for all laboratory instruments, 
+            At AUREX, we provide <span className="font-bold">end-to-end support</span> for all laboratory instruments, 
             ensuring reliability, accuracy, and longevity. Our services encompass professional maintenance, original parts supply, 
             certified reagents, and flexible service contracts tailored to your operational needs.
           </p>
@@ -758,7 +758,7 @@ const ServiceContent = () => {
         <div className="space-y-10">
           {/* Installation & Commissioning */}
           <div className="bg-[#F8F8F8] p-8 rounded-xl shadow-sm border border-gray-300">
-            <h3 className="text-2xl font-bold text-[#0A1931] mb-4 flex items-center">
+            <h3 className="text-2xl font-bold text-[#0B1528] mb-4 flex items-center">
               <Settings className="w-6 h-6 mr-3 text-[#4A90A4]" />
               Installation & Commissioning
             </h3>
@@ -788,7 +788,7 @@ const ServiceContent = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#ADD8E6]/80 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-[#ADD8E6]/90">
-              <p className="text-[#0A1931] font-bold text-lg">Professional On-Site Service</p>
+              <p className="text-[#0B1528] font-bold text-lg">Professional On-Site Service</p>
             </div>
           </motion.div>
 
@@ -798,7 +798,7 @@ const ServiceContent = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="bg-[#F8F8F8] p-8 rounded-xl shadow-sm border border-gray-300"
           >
-            <h3 className="text-2xl font-bold text-[#0A1931] mb-4 flex items-center">
+            <h3 className="text-2xl font-bold text-[#0B1528] mb-4 flex items-center">
               <Shield className="w-6 h-6 mr-3 text-[#4A90A4]" />
               Preventive & Corrective Maintenance
             </h3>
@@ -820,7 +820,7 @@ const ServiceContent = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="bg-[#F8F8F8] p-8 rounded-xl shadow-sm border border-gray-300"
           >
-            <h3 className="text-2xl font-bold text-[#0A1931] mb-4 flex items-center">
+            <h3 className="text-2xl font-bold text-[#0B1528] mb-4 flex items-center">
               <Cpu className="w-6 h-6 mr-3 text-[#4A90A4]" />
               Original Spare Parts
             </h3>
@@ -842,7 +842,7 @@ const ServiceContent = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="bg-[#F8F8F8] p-8 rounded-xl shadow-sm border border-gray-300"
           >
-            <h3 className="text-2xl font-bold text-[#0A1931] mb-4 flex items-center">
+            <h3 className="text-2xl font-bold text-[#0B1528] mb-4 flex items-center">
               <FileCheck className="w-6 h-6 mr-3 text-[#4A90A4]" />
               Original Reagents & Consumables
             </h3>
@@ -867,13 +867,13 @@ const ServiceContent = () => {
             transition={{ duration: 0.6 }}
             className="bg-gradient-to-br from-[#ADD8E6] to-[#B0E0E6] p-8 rounded-xl shadow-sm border-2 border-[#87CEEB]"
           >
-            <h3 className="text-2xl font-bold text-[#0A1931] mb-6">
+            <h3 className="text-2xl font-bold text-[#0B1528] mb-6">
               Service Contracts
             </h3>
 
             {/* AMC */}
             <div className="mb-8">
-              <h4 className="text-xl font-bold text-[#0A1931] mb-3 flex items-center">
+              <h4 className="text-xl font-bold text-[#0B1528] mb-3 flex items-center">
                 <FileText className="w-5 h-5 mr-2 text-[#2C5F77]" />
                 Annual Maintenance Contract (AMC)
               </h4>
@@ -881,7 +881,7 @@ const ServiceContent = () => {
                 Comprehensive and customized AMC options covering preventive maintenance, breakdown support, 
                 spare parts, and calibration.
               </p>
-              <p className="font-semibold text-[#0A1931] mb-2">Benefits:</p>
+              <p className="font-semibold text-[#0B1528] mb-2">Benefits:</p>
               <ul className="space-y-2 text-[#1A1A1A]">
                 <li className="flex items-start">
                   <span className="text-[#2C5F77] mr-3 mt-1 font-bold">✓</span>
@@ -900,7 +900,7 @@ const ServiceContent = () => {
 
             {/* CMC */}
             <div>
-              <h4 className="text-xl font-bold text-[#0A1931] mb-3 flex items-center">
+              <h4 className="text-xl font-bold text-[#0B1528] mb-3 flex items-center">
                 <FileText className="w-5 h-5 mr-2 text-[#2C5F77]" />
                 Comprehensive Maintenance Contract (CMC)
               </h4>
@@ -925,7 +925,7 @@ const ServiceContent = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#ADD8E6]/80 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-[#ADD8E6]/90">
-              <p className="text-[#0A1931] font-bold text-lg">Certified Reagents & Consumables</p>
+              <p className="text-[#0B1528] font-bold text-lg">Certified Reagents & Consumables</p>
             </div>
           </motion.div>
 
@@ -943,7 +943,7 @@ const ServiceContent = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#ADD8E6]/80 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-[#ADD8E6]/90">
-              <p className="text-[#0A1931] font-bold text-lg">Maximum Uptime & Workflow Continuity</p>
+              <p className="text-[#0B1528] font-bold text-lg">Maximum Uptime & Workflow Continuity</p>
             </div>
           </motion.div>
         </div>
@@ -955,44 +955,44 @@ const ServiceContent = () => {
         transition={{ duration: 0.6, delay: 0.6 }}
         className="bg-gradient-to-br from-[#87CEEB] to-[#B0E0E6] p-12 rounded-2xl shadow-xl border-2 border-[#4A90A4]"
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-[#0A1931]">
-          Why Choose Analyze Biotech for Instrument Care
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-[#0B1528]">
+          Why Choose AUREX for Instrument Care
         </h2>
         <ul className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           <li className="flex items-start space-x-3">
             <span className="text-[#2C5F77] text-xl mt-1 font-bold">✦</span>
             <div className="text-[#1A1A1A]">
-              <span className="font-bold text-[#0A1931]">Reliability</span> – Original parts and certified reagents ensure consistent, high-precision results.
+              <span className="font-bold text-[#0B1528]">Reliability</span> – Original parts and certified reagents ensure consistent, high-precision results.
             </div>
           </li>
           <li className="flex items-start space-x-3">
             <span className="text-[#2C5F77] text-xl mt-1 font-bold">✦</span>
             <div className="text-[#1A1A1A]">
-              <span className="font-bold text-[#0A1931]">Expert Support</span> – Skilled technicians provide on-site, remote, and emergency assistance.
+              <span className="font-bold text-[#0B1528]">Expert Support</span> – Skilled technicians provide on-site, remote, and emergency assistance.
             </div>
           </li>
           <li className="flex items-start space-x-3">
             <span className="text-[#2C5F77] text-xl mt-1 font-bold">✦</span>
             <div className="text-[#1A1A1A]">
-              <span className="font-bold text-[#0A1931]">Regulatory Compliance</span> – Maintenance and calibration in line with ISO, NABL, and other regulatory standards.
+              <span className="font-bold text-[#0B1528]">Regulatory Compliance</span> – Maintenance and calibration in line with ISO, NABL, and other regulatory standards.
             </div>
           </li>
           <li className="flex items-start space-x-3">
             <span className="text-[#2C5F77] text-xl mt-1 font-bold">✦</span>
             <div className="text-[#1A1A1A]">
-              <span className="font-bold text-[#0A1931]">Operational Continuity</span> – AMCs and CMCs safeguard your laboratory from unexpected downtime.
+              <span className="font-bold text-[#0B1528]">Operational Continuity</span> – AMCs and CMCs safeguard your laboratory from unexpected downtime.
             </div>
           </li>
           <li className="flex items-start space-x-3">
             <span className="text-[#2C5F77] text-xl mt-1 font-bold">✦</span>
             <div className="text-[#1A1A1A]">
-              <span className="font-bold text-[#0A1931]">Cost Efficiency</span> – Tailored service contracts optimize maintenance budgets and resource planning.
+              <span className="font-bold text-[#0B1528]">Cost Efficiency</span> – Tailored service contracts optimize maintenance budgets and resource planning.
             </div>
           </li>
         </ul>
         <p className="text-center mt-8 text-lg text-[#1A1A1A] max-w-4xl mx-auto">
-          With Analyze Biotech&apos;s instrument services, genuine spares, reagents, and flexible AMC/CMC contracts, 
-          laboratories can achieve <span className="font-bold text-[#0A1931]">uninterrupted workflow, maximum uptime, and reliable diagnostics</span>.
+          With AUREX&apos;s instrument services, genuine spares, reagents, and flexible AMC/CMC contracts, 
+          laboratories can achieve <span className="font-bold text-[#0B1528]">uninterrupted workflow, maximum uptime, and reliable diagnostics</span>.
         </p>
       </motion.div>
 
@@ -1001,7 +1001,7 @@ const ServiceContent = () => {
       {/* ========== SECTION 2: REGULATORY SUPPORT & CERTIFICATION ========== */}
       <section>
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0A1931] mb-6">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0B1528] mb-6">
             Regulatory Support & Certification
           </h2>
           <p className="text-lg text-[#2C3E50] max-w-4xl mx-auto leading-relaxed">
@@ -1021,7 +1021,7 @@ const ServiceContent = () => {
               transition={{ duration: 0.6 }}
               className="bg-gradient-to-br from-[#ADD8E6] to-[#B0E0E6] p-8 rounded-xl shadow-sm border-2 border-[#87CEEB]"
             >
-              <h3 className="text-2xl font-bold text-[#0A1931] mb-4 flex items-center">
+              <h3 className="text-2xl font-bold text-[#0B1528] mb-4 flex items-center">
                 <Award className="w-6 h-6 mr-3 text-[#2C5F77]" />
                 NABL (National Accreditation Board for Testing and Calibration Laboratories)
               </h3>
@@ -1047,7 +1047,7 @@ const ServiceContent = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="bg-[#F8F8F8] p-8 rounded-xl shadow-sm border border-gray-300"
             >
-              <h3 className="text-2xl font-bold text-[#0A1931] mb-4 flex items-center">
+              <h3 className="text-2xl font-bold text-[#0B1528] mb-4 flex items-center">
                 <Shield className="w-6 h-6 mr-3 text-[#4A90A4]" />
                 NABH (National Accreditation Board for Hospitals & Healthcare Providers)
               </h3>
@@ -1069,7 +1069,7 @@ const ServiceContent = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-[#F8F8F8] p-8 rounded-xl shadow-sm border border-gray-300"
             >
-              <h3 className="text-2xl font-bold text-[#0A1931] mb-4 flex items-center">
+              <h3 className="text-2xl font-bold text-[#0B1528] mb-4 flex items-center">
                 <FileCheck className="w-6 h-6 mr-3 text-[#4A90A4]" />
                 ISO Certifications (ISO 9001, ISO 13485, ISO 15189, etc.)
               </h3>
@@ -1102,7 +1102,7 @@ const ServiceContent = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#ADD8E6]/80 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-[#ADD8E6]/90">
-                <p className="text-[#0A1931] font-bold text-lg">Regulatory Certifications & Compliance</p>
+                <p className="text-[#0B1528] font-bold text-lg">Regulatory Certifications & Compliance</p>
               </div>
             </motion.div>
 
@@ -1112,7 +1112,7 @@ const ServiceContent = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="bg-[#F8F8F8] p-8 rounded-xl shadow-sm border border-gray-300"
             >
-              <h3 className="text-2xl font-bold text-[#0A1931] mb-4 flex items-center">
+              <h3 className="text-2xl font-bold text-[#0B1528] mb-4 flex items-center">
                 <Globe className="w-6 h-6 mr-3 text-[#4A90A4]" />
                 CE, FDA, and Other Global Certifications
               </h3>
@@ -1134,7 +1134,7 @@ const ServiceContent = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-[#F8F8F8] p-8 rounded-xl shadow-sm border border-gray-300"
             >
-              <h3 className="text-2xl font-bold text-[#0A1931] mb-4 flex items-center">
+              <h3 className="text-2xl font-bold text-[#0B1528] mb-4 flex items-center">
                 <Lightbulb className="w-6 h-6 mr-3 text-[#4A90A4]" />
                 Environmental, Health & Safety Certifications
               </h3>
@@ -1158,36 +1158,36 @@ const ServiceContent = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="bg-gradient-to-br from-[#87CEEB] to-[#B0E0E6] p-10 rounded-2xl shadow-xl border-2 border-[#4A90A4] mb-10"
         >
-          <h3 className="text-3xl font-bold text-[#0A1931] mb-6 text-center">Our Approach</h3>
+          <h3 className="text-3xl font-bold text-[#0B1528] mb-6 text-center">Our Approach</h3>
           <ul className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto text-[#1A1A1A]">
             <li className="flex items-start space-x-3">
               <span className="text-[#2C5F77] text-xl mt-1 font-bold">✓</span>
               <div>
-                <span className="font-bold text-[#0A1931]">Gap Analysis & Roadmap:</span> Identify compliance gaps and create a step-by-step plan to achieve certification.
+                <span className="font-bold text-[#0B1528]">Gap Analysis & Roadmap:</span> Identify compliance gaps and create a step-by-step plan to achieve certification.
               </div>
             </li>
             <li className="flex items-start space-x-3">
               <span className="text-[#2C5F77] text-xl mt-1 font-bold">✓</span>
               <div>
-                <span className="font-bold text-[#0A1931]">Documentation & SOP Development:</span> Prepare robust, audit-ready documentation.
+                <span className="font-bold text-[#0B1528]">Documentation & SOP Development:</span> Prepare robust, audit-ready documentation.
               </div>
             </li>
             <li className="flex items-start space-x-3">
               <span className="text-[#2C5F77] text-xl mt-1 font-bold">✓</span>
               <div>
-                <span className="font-bold text-[#0A1931]">Training & Awareness:</span> Equip staff with knowledge to maintain compliance long-term.
+                <span className="font-bold text-[#0B1528]">Training & Awareness:</span> Equip staff with knowledge to maintain compliance long-term.
               </div>
             </li>
             <li className="flex items-start space-x-3">
               <span className="text-[#2C5F77] text-xl mt-1 font-bold">✓</span>
               <div>
-                <span className="font-bold text-[#0A1931]">Audit & Liaison Support:</span> Coordinate with third-party auditors, provide pre-audit checks, and support during assessments.
+                <span className="font-bold text-[#0B1528]">Audit & Liaison Support:</span> Coordinate with third-party auditors, provide pre-audit checks, and support during assessments.
               </div>
             </li>
             <li className="flex items-start space-x-3">
               <span className="text-[#2C5F77] text-xl mt-1 font-bold">✓</span>
               <div>
-                <span className="font-bold text-[#0A1931]">Continuous Improvement:</span> Help clients maintain certification through periodic reviews and updates.
+                <span className="font-bold text-[#0B1528]">Continuous Improvement:</span> Help clients maintain certification through periodic reviews and updates.
               </div>
             </li>
           </ul>
@@ -1199,23 +1199,23 @@ const ServiceContent = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="bg-[#F8F8F8] border-2 border-[#D3D3D3] p-10 rounded-2xl shadow-sm"
         >
-          <h3 className="text-3xl font-bold text-[#0A1931] mb-6 text-center">Value to Our Clients</h3>
+          <h3 className="text-3xl font-bold text-[#0B1528] mb-6 text-center">Value to Our Clients</h3>
           <ul className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             <li className="flex items-center space-x-3 bg-gradient-to-r from-[#C6E5F5] to-[#D4EDF7] p-4 rounded-lg border border-[#87CEEB]">
               <span className="text-[#4A90A4] text-2xl font-bold">→</span>
-              <span className="font-bold text-[#0A1931]">Faster Certification Process</span>
+              <span className="font-bold text-[#0B1528]">Faster Certification Process</span>
             </li>
             <li className="flex items-center space-x-3 bg-gradient-to-r from-[#C6E5F5] to-[#D4EDF7] p-4 rounded-lg border border-[#87CEEB]">
               <span className="text-[#4A90A4] text-2xl font-bold">→</span>
-              <span className="font-bold text-[#0A1931]">Regulatory Confidence</span>
+              <span className="font-bold text-[#0B1528]">Regulatory Confidence</span>
             </li>
             <li className="flex items-center space-x-3 bg-gradient-to-r from-[#C6E5F5] to-[#D4EDF7] p-4 rounded-lg border border-[#87CEEB]">
               <span className="text-[#4A90A4] text-2xl font-bold">→</span>
-              <span className="font-bold text-[#0A1931]">Enhanced Credibility</span>
+              <span className="font-bold text-[#0B1528]">Enhanced Credibility</span>
             </li>
             <li className="flex items-center space-x-3 bg-gradient-to-r from-[#C6E5F5] to-[#D4EDF7] p-4 rounded-lg border border-[#87CEEB]">
               <span className="text-[#4A90A4] text-2xl font-bold">→</span>
-              <span className="font-bold text-[#0A1931]">Business Growth Enablement</span>
+              <span className="font-bold text-[#0B1528]">Business Growth Enablement</span>
             </li>
           </ul>
         </motion.div>
@@ -1224,11 +1224,11 @@ const ServiceContent = () => {
       {/* ========== SECTION 3: KNOWLEDGE CENTRE ========== */}
       <section>
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0A1931] mb-6">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0B1528] mb-6">
             Knowledge Centre
           </h2>
           <p className="text-lg text-[#2C3E50] max-w-4xl mx-auto leading-relaxed">
-            The Knowledge Centre at Analyze Biotech Private Limited is a dedicated hub for <span className="font-bold">innovation, education, and collaboration</span>, 
+            The Knowledge Centre at AUREX is a dedicated hub for <span className="font-bold">innovation, education, and collaboration</span>, 
             created to empower healthcare professionals, researchers, and clients with cutting-edge insights and practical expertise. 
             It reflects our commitment to continuous learning, skill-building, and shaping the future of diagnostics.
           </p>
@@ -1245,7 +1245,7 @@ const ServiceContent = () => {
             <div className="flex items-center justify-center mb-6">
               <BookOpen className="w-12 h-12 text-[#2C5F77]" />
             </div>
-            <h3 className="text-2xl font-bold text-[#0A1931] mb-4 text-center">Resource Library</h3>
+            <h3 className="text-2xl font-bold text-[#0B1528] mb-4 text-center">Resource Library</h3>
             <ul className="space-y-3 text-[#1A1A1A]">
               <li className="flex items-start">
                 <span className="text-[#2C5F77] mr-3 mt-1 font-bold">•</span>
@@ -1267,7 +1267,7 @@ const ServiceContent = () => {
             <div className="flex items-center justify-center mb-6">
               <GraduationCap className="w-12 h-12 text-[#4A90A4]" />
             </div>
-            <h3 className="text-2xl font-bold text-[#0A1931] mb-4 text-center">Training & Education</h3>
+            <h3 className="text-2xl font-bold text-[#0B1528] mb-4 text-center">Training & Education</h3>
             <ul className="space-y-3 text-[#2C3E50]">
               <li className="flex items-start">
                 <span className="text-[#4A90A4] mr-3 mt-1 font-bold">•</span>
@@ -1289,7 +1289,7 @@ const ServiceContent = () => {
             <div className="flex items-center justify-center mb-6">
               <Headphones className="w-12 h-12 text-[#4A90A4]" />
             </div>
-            <h3 className="text-2xl font-bold text-[#0A1931] mb-4 text-center">Expert Support & Consultation</h3>
+            <h3 className="text-2xl font-bold text-[#0B1528] mb-4 text-center">Expert Support & Consultation</h3>
             <ul className="space-y-3 text-[#2C3E50]">
               <li className="flex items-start">
                 <span className="text-[#4A90A4] mr-3 mt-1 font-bold">•</span>
@@ -1311,7 +1311,7 @@ const ServiceContent = () => {
             <div className="flex items-center justify-center mb-6">
               <Lightbulb className="w-12 h-12 text-[#4A90A4]" />
             </div>
-            <h3 className="text-2xl font-bold text-[#0A1931] mb-4 text-center">Innovation & Collaboration Space</h3>
+            <h3 className="text-2xl font-bold text-[#0B1528] mb-4 text-center">Innovation & Collaboration Space</h3>
             <ul className="space-y-3 text-[#2C3E50]">
               <li className="flex items-start">
                 <span className="text-[#4A90A4] mr-3 mt-1 font-bold">•</span>
@@ -1333,7 +1333,7 @@ const ServiceContent = () => {
             <div className="flex items-center justify-center mb-6">
               <FileText className="w-12 h-12 text-[#4A90A4]" />
             </div>
-            <h3 className="text-2xl font-bold text-[#0A1931] mb-4 text-center">Industry Insights & Updates</h3>
+            <h3 className="text-2xl font-bold text-[#0B1528] mb-4 text-center">Industry Insights & Updates</h3>
             <ul className="space-y-3 text-[#2C3E50]">
               <li className="flex items-start">
                 <span className="text-[#4A90A4] mr-3 mt-1 font-bold">•</span>
@@ -1363,7 +1363,7 @@ const ServiceContent = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#ADD8E6]/80 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-[#ADD8E6]/90">
-              <p className="text-[#0A1931] font-bold text-lg">Training & Workshops</p>
+              <p className="text-[#0B1528] font-bold text-lg">Training & Workshops</p>
             </div>
           </motion.div>
 
@@ -1381,7 +1381,7 @@ const ServiceContent = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#ADD8E6]/80 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-[#ADD8E6]/90">
-              <p className="text-[#0A1931] font-bold text-lg">Resource Library</p>
+              <p className="text-[#0B1528] font-bold text-lg">Resource Library</p>
             </div>
           </motion.div>
 
@@ -1399,7 +1399,7 @@ const ServiceContent = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#ADD8E6]/80 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-[#ADD8E6]/90">
-              <p className="text-[#0A1931] font-bold text-lg">Field Service Excellence</p>
+              <p className="text-[#0B1528] font-bold text-lg">Field Service Excellence</p>
             </div>
           </motion.div>
         </div>
@@ -1410,9 +1410,9 @@ const ServiceContent = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="bg-gradient-to-br from-[#87CEEB] to-[#B0E0E6] p-10 rounded-2xl shadow-xl border-2 border-[#4A90A4] text-center"
-        > <h3 className="text-3xl font-bold text-[#0A1931] mb-6">Who Benefits</h3>
+        > <h3 className="text-3xl font-bold text-[#0B1528] mb-6">Who Benefits</h3>
           <p className="text-lg text-[#1A1A1A] max-w-4xl mx-auto leading-relaxed">
-            The Knowledge Centre serves <span className="font-bold text-[#0A1931]">healthcare professionals, researchers, students, and clients</span>, 
+            The Knowledge Centre serves <span className="font-bold text-[#0B1528]">healthcare professionals, researchers, students, and clients</span>, 
             enabling them to stay ahead in an evolving diagnostics landscape. It is a collaborative platform designed to inspire innovation, 
             share expertise, and build a stronger, more informed diagnostics community.
           </p>
@@ -1519,7 +1519,7 @@ const HeroBanner = ({ activeSection }: { activeSection: string }) => {
   return (
     <section className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1931]/85 via-[#0A1931]/75 to-teal-900/85 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1528]/90 via-[#133C99]/85 to-[#1646AF]/85 z-10"></div>
         <Image
           src={content.image}
           alt={content.title}
@@ -1552,7 +1552,7 @@ const HeroBanner = ({ activeSection }: { activeSection: string }) => {
   )
 }
 
-// Sub Navigation Component - Enhanced with Gold/Bronze accent styling
+// Sub Navigation Component - Enhanced with AUREX Royal Blue accent styling
 const SubNavigation = ({ activeSection, setActiveSection }: { 
   activeSection: string, 
   setActiveSection: (section: string) => void 
@@ -1569,12 +1569,12 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
               onClick={() => setActiveSection(item.id)}
               className={`relative px-2 sm:px-3 md:px-4 py-2 md:py-3 font-semibold text-xs sm:text-sm transition-all duration-300 rounded-t-lg overflow-hidden whitespace-nowrap ${
                 activeSection === item.id
-                  ? 'text-[#0A1931] bg-white shadow-md'
-                  : 'text-gray-600 hover:text-[#0A1931] hover:bg-white/50'
+                  ? 'text-[#1646AF] bg-white shadow-md'
+                  : 'text-slate-600 hover:text-[#1646AF] hover:bg-white/50'
               }`}
             >
               <span className="relative z-10">{item.name}</span>
-              {/* Gold/Bronze accent underline for active item */}
+              {/* Royal Blue accent underline for active item */}
               <motion.div
                 initial={false}
                 animate={{
@@ -1582,7 +1582,7 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
                   opacity: activeSection === item.id ? 1 : 0
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 origin-left"
+                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1646AF] to-[#133C99] origin-left"
               />
               {/* Hover effect underline */}
               <motion.div
@@ -1596,7 +1596,7 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
                   opacity: activeSection === item.id ? 0 : 0.6
                 }}
                 transition={{ duration: 0.2 }}
-                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-amber-300 to-yellow-400 origin-center"
+                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-[#1646AF] to-[#133C99] origin-center"
                 style={{ width: '80%' }}
               />
             </motion.button>
@@ -1715,10 +1715,10 @@ export default function CapabilitiesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-8 sm:mb-12 md:mb-16"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0A1931] mb-4 md:mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B1528] mb-4 md:mb-6">
               {currentContent.title}
             </h1>
-            <div className="w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto mb-4 md:mb-6"></div>
+            <div className="w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-[#1646AF] to-[#133C99] mx-auto mb-4 md:mb-6"></div>
             <h2 className="text-lg sm:text-xl md:text-2xl text-gray-700 font-semibold mb-3 md:mb-4 px-2">
               {currentContent.subtitle}
             </h2>
@@ -1854,7 +1854,7 @@ export default function CapabilitiesPage() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-[#0A1931] to-teal-800 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-[#0A1931]/90 hover:to-teal-700 transition-all duration-300 shadow-lg"
+              className="bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300 shadow-lg shadow-[#1646AF]/25"
             >
               {activeSection === 'turnkey-projects' ? 'Start Your Project' : 
                activeSection === 'downloads' ? 'Access Downloads' : 

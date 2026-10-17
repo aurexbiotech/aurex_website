@@ -133,7 +133,7 @@ const BiochemistryPageContent = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner - Changes for each product */}
-      <section className="relative bg-[#0077B5] text-white py-20">
+      <section className="relative bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white py-20">
         {/* Back Arrow Button */}
         <Link href="/products" className="absolute top-6 left-1/2 transform -translate-x-1/2 z-50 text-white hover:text-gray-200 transition-colors">
           <ArrowLeft size={32} />
@@ -832,8 +832,8 @@ const BiochemistryPageContent = () => {
 
                   {/* Accurate */}
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#1646AF]/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#1646AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                       </svg>
                     </div>
@@ -3316,7 +3316,7 @@ const BiochemistryPageContent = () => {
       {selectedModel === 'electrosis' && (
         <>
           {/* Hero Section with Image and Title */}
-          <section className="bg-gradient-to-r from-purple-50 to-blue-50 py-16">
+          <section className="bg-gradient-to-r from-[#F6F8FB] to-white py-16">
             <div className="container mx-auto px-6">
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 {/* Left - Title and Description */}
@@ -3370,8 +3370,8 @@ const BiochemistryPageContent = () => {
 
                   {/* Multi-Parameter Detection */}
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#1646AF]/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#1646AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                       </svg>
                     </div>
@@ -3383,8 +3383,8 @@ const BiochemistryPageContent = () => {
 
                   {/* Fast Turnaround Time */}
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#1646AF]/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#1646AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     </div>
@@ -3396,8 +3396,8 @@ const BiochemistryPageContent = () => {
 
                   {/* Low Sample Volume */}
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#1646AF]/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#1646AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                       </svg>
                     </div>
@@ -3409,8 +3409,8 @@ const BiochemistryPageContent = () => {
 
                   {/* Auto Calibration */}
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-6 h-6 text-purple-600" />
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#1646AF]/10 rounded-full flex items-center justify-center">
+                      <CheckCircle className="w-6 h-6 text-[#1646AF]" />
                     </div>
                     <div>
                       <h4 className="text-xl font-bold text-gray-900 mb-2">Auto Calibration</h4>
@@ -3420,8 +3420,8 @@ const BiochemistryPageContent = () => {
 
                   {/* Large Touchscreen Interface */}
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#1646AF]/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#1646AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
@@ -3433,8 +3433,8 @@ const BiochemistryPageContent = () => {
 
                   {/* Sample Types */}
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#1646AF]/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#1646AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                       </svg>
                     </div>
@@ -3465,7 +3465,7 @@ const BiochemistryPageContent = () => {
           </section>
 
           {/* Additional Features Section - Image Left (Zigzag) */}
-          <section className="py-16 bg-gradient-to-br from-gray-50 to-purple-50">
+          <section className="py-16 bg-gradient-to-br from-[#F6F8FB] to-white">
             <div className="container mx-auto px-6">
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 {/* Left - Image */}
@@ -3492,8 +3492,8 @@ const BiochemistryPageContent = () => {
                   className="space-y-6"
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#1646AF]/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#1646AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                       </svg>
                     </div>
@@ -3506,8 +3506,8 @@ const BiochemistryPageContent = () => {
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="flex-shrink-0 w-12 h-12 bg-[#1646AF]/10 rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-[#1646AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                       </svg>
                     </div>
@@ -3538,42 +3538,42 @@ const BiochemistryPageContent = () => {
                 
                 <div className="overflow-x-auto">
                   <table className="w-full border-collapse bg-white shadow-lg rounded-xl overflow-hidden">
-                    <thead className="bg-gradient-to-r from-purple-600 to-blue-600">
+                    <thead className="bg-gradient-to-r from-[#133C99] to-[#1646AF]">
                       <tr>
                         <th className="px-6 py-4 text-left text-white font-bold text-lg">Parameter</th>
                         <th className="px-6 py-4 text-left text-white font-bold text-lg">Specification</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200">
-                      <tr className="hover:bg-purple-50 transition-colors">
+                      <tr className="hover:bg-[#F6F8FB] transition-colors">
                         <td className="px-6 py-4 font-semibold text-gray-900">Measurement Method</td>
                         <td className="px-6 py-4 text-gray-700">Ion-Selective Electrode (ISE)</td>
                       </tr>
-                      <tr className="hover:bg-purple-50 transition-colors">
+                      <tr className="hover:bg-[#F6F8FB] transition-colors">
                         <td className="px-6 py-4 font-semibold text-gray-900">Throughput</td>
                         <td className="px-6 py-4 text-gray-700">Up to 60 samples/hour</td>
                       </tr>
-                      <tr className="hover:bg-purple-50 transition-colors">
+                      <tr className="hover:bg-[#F6F8FB] transition-colors">
                         <td className="px-6 py-4 font-semibold text-gray-900">Display</td>
                         <td className="px-6 py-4 text-gray-700">7–10&quot; Full-Color LCD Touchscreen</td>
                       </tr>
-                      <tr className="hover:bg-purple-50 transition-colors">
+                      <tr className="hover:bg-[#F6F8FB] transition-colors">
                         <td className="px-6 py-4 font-semibold text-gray-900">Storage</td>
                         <td className="px-6 py-4 text-gray-700">Up to 100,000 patient records</td>
                       </tr>
-                      <tr className="hover:bg-purple-50 transition-colors">
+                      <tr className="hover:bg-[#F6F8FB] transition-colors">
                         <td className="px-6 py-4 font-semibold text-gray-900">Calibration</td>
                         <td className="px-6 py-4 text-gray-700">Fully Automatic / On-Demand</td>
                       </tr>
-                      <tr className="hover:bg-purple-50 transition-colors">
+                      <tr className="hover:bg-[#F6F8FB] transition-colors">
                         <td className="px-6 py-4 font-semibold text-gray-900">Maintenance</td>
                         <td className="px-6 py-4 text-gray-700">Low maintenance design, auto-clean cycle</td>
                       </tr>
-                      <tr className="hover:bg-purple-50 transition-colors">
+                      <tr className="hover:bg-[#F6F8FB] transition-colors">
                         <td className="px-6 py-4 font-semibold text-gray-900">Sample Volume</td>
                         <td className="px-6 py-4 text-gray-700">60–100 µL</td>
                       </tr>
-                      <tr className="hover:bg-purple-50 transition-colors">
+                      <tr className="hover:bg-[#F6F8FB] transition-colors">
                         <td className="px-6 py-4 font-semibold text-gray-900">Power Supply</td>
                         <td className="px-6 py-4 text-gray-700">AC 100–240 V, 50/60 Hz</td>
                       </tr>
@@ -3585,7 +3585,7 @@ const BiochemistryPageContent = () => {
           </section>
 
           {/* Why Choose Electrosis Section - Image Right */}
-          <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+          <section className="py-16 bg-gradient-to-br from-[#F6F8FB] to-white">
             <div className="container mx-auto px-6">
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 {/* Left - Content */}
@@ -3599,24 +3599,24 @@ const BiochemistryPageContent = () => {
 
                   <div className="space-y-4">
                     <div className="flex items-start space-x-3">
-                      <CheckCircle className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-[#1646AF] flex-shrink-0 mt-1" />
                       <p className="text-gray-700 text-lg">Trusted precision for critical care and general diagnostics</p>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <CheckCircle className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-[#1646AF] flex-shrink-0 mt-1" />
                       <p className="text-gray-700 text-lg">Compact footprint ideal for space-limited labs</p>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <CheckCircle className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-[#1646AF] flex-shrink-0 mt-1" />
                       <p className="text-gray-700 text-lg">Easy-to-use interface for high-throughput workflows</p>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <CheckCircle className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
+                      <CheckCircle className="w-6 h-6 text-[#1646AF] flex-shrink-0 mt-1" />
                       <p className="text-gray-700 text-lg">Reliable performance with minimal downtime</p>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <CheckCircle className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
-                      <p className="text-gray-700 text-lg">Backed by strong service & support from Analyze Biotech Private Limited</p>
+                      <CheckCircle className="w-6 h-6 text-[#1646AF] flex-shrink-0 mt-1" />
+                      <p className="text-gray-700 text-lg">Backed by strong service & support from AUREX</p>
                     </div>
                   </div>
                 </motion.div>
@@ -3654,45 +3654,45 @@ const BiochemistryPageContent = () => {
                 </h3>
                 
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-xl shadow-md">
+                  <div className="bg-gradient-to-br from-[#F6F8FB] to-white p-6 rounded-xl shadow-md">
                     <div className="flex items-center space-x-3">
-                      <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-8 h-8 text-[#1646AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                       </svg>
                       <h4 className="text-xl font-bold text-gray-900">Clinical Laboratories</h4>
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-xl shadow-md">
+                  <div className="bg-gradient-to-br from-[#F6F8FB] to-white p-6 rounded-xl shadow-md">
                     <div className="flex items-center space-x-3">
-                      <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-8 h-8 text-[#1646AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                       </svg>
                       <h4 className="text-xl font-bold text-gray-900">Hospitals & ICUs</h4>
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-xl shadow-md">
+                  <div className="bg-gradient-to-br from-[#F6F8FB] to-white p-6 rounded-xl shadow-md">
                     <div className="flex items-center space-x-3">
-                      <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-8 h-8 text-[#1646AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                       </svg>
                       <h4 className="text-xl font-bold text-gray-900">Dialysis Centers</h4>
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-xl shadow-md">
+                  <div className="bg-gradient-to-br from-[#F6F8FB] to-white p-6 rounded-xl shadow-md">
                     <div className="flex items-center space-x-3">
-                      <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-8 h-8 text-[#1646AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                       </svg>
                       <h4 className="text-xl font-bold text-gray-900">Veterinary Diagnostics</h4>
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-xl shadow-md col-span-2">
+                  <div className="bg-gradient-to-br from-[#F6F8FB] to-white p-6 rounded-xl shadow-md col-span-2">
                     <div className="flex items-center space-x-3 justify-center">
-                      <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-8 h-8 text-[#1646AF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
                       <h4 className="text-xl font-bold text-gray-900">Research Institutions</h4>
@@ -3704,7 +3704,7 @@ const BiochemistryPageContent = () => {
           </section>
 
           {/* Technical Excellence Section */}
-          <section className="py-16 bg-gradient-to-br from-gray-900 to-purple-900">
+          <section className="py-16 bg-gradient-to-br from-[#0B1528] to-[#133C99]">
             <div className="container mx-auto px-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -3717,13 +3717,13 @@ const BiochemistryPageContent = () => {
                 </h3>
                 <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl">
                   <p className="text-lg text-white leading-relaxed mb-6">
-                    Electrosis is a <span className="font-bold text-purple-300">next-generation, fully automated electrolyte analyzer</span>, engineered to deliver high-precision, clinically reproducible results in real time. Incorporating advanced <span className="font-bold text-purple-300">Ion-Selective Electrode (ISE) technology</span>, the system ensures rapid and accurate quantification of key electrolytes—<span className="font-bold">sodium (Na⁺), potassium (K⁺), chloride (Cl⁻), calcium (Ca²⁺), and lithium (Li⁺)</span>—from diverse biological matrices including whole blood, serum, plasma, and urine.
+                    Electrosis is a <span className="font-bold text-blue-200">next-generation, fully automated electrolyte analyzer</span>, engineered to deliver high-precision, clinically reproducible results in real time. Incorporating advanced <span className="font-bold text-blue-200">Ion-Selective Electrode (ISE) technology</span>, the system ensures rapid and accurate quantification of key electrolytes—<span className="font-bold">sodium (Na⁺), potassium (K⁺), chloride (Cl⁻), calcium (Ca²⁺), and lithium (Li⁺)</span>—from diverse biological matrices including whole blood, serum, plasma, and urine.
                   </p>
                   <p className="text-lg text-white leading-relaxed mb-6">
-                    Designed for <span className="font-bold text-purple-300">minimal operator dependency</span> and streamlined workflow integration, Electrosis is ideally suited for high-throughput diagnostic environments, including critical care units (CCUs), emergency departments, and clinical core laboratories. Its robust analytical algorithms and automated calibration systems minimize drift, ensuring consistent analytical fidelity, even under intensive usage.
+                    Designed for <span className="font-bold text-blue-200">minimal operator dependency</span> and streamlined workflow integration, Electrosis is ideally suited for high-throughput diagnostic environments, including critical care units (CCUs), emergency departments, and clinical core laboratories. Its robust analytical algorithms and automated calibration systems minimize drift, ensuring consistent analytical fidelity, even under intensive usage.
                   </p>
                   <p className="text-lg text-white leading-relaxed">
-                    The analyzer&apos;s <span className="font-bold text-purple-300">micro-volume sampling capabilities</span>, intuitive touchscreen interface, and maintenance-free reagent pack system make it an optimal solution for modern laboratories that prioritize efficiency, traceability, and diagnostic accuracy.
+                    The analyzer&apos;s <span className="font-bold text-blue-200">micro-volume sampling capabilities</span>, intuitive touchscreen interface, and maintenance-free reagent pack system make it an optimal solution for modern laboratories that prioritize efficiency, traceability, and diagnostic accuracy.
                   </p>
                 </div>
               </motion.div>
@@ -3731,7 +3731,7 @@ const BiochemistryPageContent = () => {
           </section>
 
           {/* Download Brochure Section */}
-          <section className="py-16 bg-gradient-to-br from-purple-600 to-blue-600">
+          <section className="py-16 bg-gradient-to-br from-[#133C99] to-[#1646AF]">
             <div className="container mx-auto px-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -3742,16 +3742,16 @@ const BiochemistryPageContent = () => {
                 <h3 className="text-3xl font-bold text-white mb-4">
                   FOR MORE INFORMATION
                 </h3>
-                <p className="text-xl text-purple-50 mb-8">
+                <p className="text-xl text-blue-100 mb-8">
                   Download the complete ELECTROSIS product brochure with detailed specifications, features, and technical information.
                 </p>
-                <button className="group bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transform transition-all duration-300 flex items-center justify-center mx-auto space-x-3">
+                <button className="group bg-white text-[#1646AF] px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transform transition-all duration-300 flex items-center justify-center mx-auto space-x-3">
                   <svg className="w-6 h-6 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                   <span>Download Product Brochure</span>
                 </button>
-                <p className="text-purple-100 mt-4 text-sm">
+                <p className="text-blue-200 mt-4 text-sm">
                   PDF Format • Comprehensive Specifications • Ready to Print
                 </p>
               </motion.div>

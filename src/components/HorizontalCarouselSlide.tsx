@@ -28,7 +28,7 @@ const HorizontalCarouselSlide: React.FC = () => {
       id: 'global',
       title: 'Global Network & Support',
       subtitle: 'Worldwide Presence & Service',
-      content: 'With operations spanning six continents, Analyze Biotech provides comprehensive support to healthcare facilities globally. Our network ensures rapid deployment, local expertise, and 24/7 technical assistance wherever you need us.',
+      content: 'With operations spanning six continents, AUREX provides comprehensive support to healthcare facilities globally. Our network ensures rapid deployment, local expertise, and 24/7 technical assistance wherever you need us.',
       icon: Globe,
       stats: [
         { label: 'Countries Served', value: '120+' },
@@ -98,11 +98,11 @@ const HorizontalCarouselSlide: React.FC = () => {
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-amber-400 to-yellow-600 rounded-2xl shadow-2xl"
+                  className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#1646AF] to-[#133C99] rounded-2xl shadow-2xl border border-white/20"
                 >
                   {React.createElement(pages[currentPage].icon, {
                     size: 40,
-                    className: 'text-slate-900'
+                    className: 'text-white'
                   })}
                 </motion.div>
 
@@ -147,7 +147,7 @@ const HorizontalCarouselSlide: React.FC = () => {
                   >
                     {pages[currentPage].stats.map((stat, index) => (
                       <div key={index} className="text-center">
-                        <div className="text-3xl lg:text-4xl font-bold text-amber-400 mb-2">
+                        <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
                           {stat.value}
                         </div>
                         <div className="text-sm text-gray-400 font-medium">
@@ -218,12 +218,12 @@ const HorizontalCarouselSlide: React.FC = () => {
                             <motion.div
                               animate={{ scale: [1, 2, 1], opacity: [0.5, 0, 0.5] }}
                               transition={{ duration: 2, repeat: Infinity }}
-                              className="absolute -inset-3 bg-amber-400 rounded-full"
+                              className="absolute -inset-3 bg-[#1646AF] rounded-full"
                             />
                           )}
-                          <MapPin size={24} className="text-amber-400 relative z-10" />
+                          <MapPin size={24} className="text-[#60A5FA] relative z-10" />
                           <div className="absolute top-full mt-1 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                            <span className="text-xs text-gray-400 font-medium">
+                            <span className="text-xs text-gray-300 font-medium">
                               {location.name}
                             </span>
                           </div>
@@ -234,8 +234,8 @@ const HorizontalCarouselSlide: React.FC = () => {
                       <svg className="absolute inset-0 w-full h-full pointer-events-none">
                         <defs>
                           <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="rgb(251, 191, 36)" stopOpacity="0.2" />
-                            <stop offset="100%" stopColor="rgb(251, 191, 36)" stopOpacity="0.8" />
+                            <stop offset="0%" stopColor="rgb(22, 70, 175)" stopOpacity="0.2" />
+                            <stop offset="100%" stopColor="rgb(96, 165, 250)" stopOpacity="0.8" />
                           </linearGradient>
                         </defs>
                         {globalLocations.slice(0, -1).map((location, i) => {
@@ -276,7 +276,7 @@ const HorizontalCarouselSlide: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="text-sm text-gray-400 font-semibold tracking-wider mb-2"
+          className="text-sm text-gray-300 font-semibold tracking-wider mb-2"
         >
           {currentPage + 1} / {pages.length}
         </motion.div>
@@ -298,7 +298,7 @@ const HorizontalCarouselSlide: React.FC = () => {
               className={`
                 h-2 rounded-full transition-all duration-300
                 ${index === currentPage 
-                  ? 'w-8 bg-amber-400 shadow-lg shadow-amber-500/50' 
+                  ? 'w-8 bg-[#1646AF] shadow-lg shadow-[#1646AF]/50' 
                   : 'w-2 bg-gray-500 hover:bg-gray-400'
                 }
               `}
@@ -309,9 +309,9 @@ const HorizontalCarouselSlide: React.FC = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-1/4 left-12 w-32 h-32 bg-amber-400/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/3 right-16 w-40 h-40 bg-blue-400/10 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-cyan-400/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-12 w-32 h-32 bg-[#1646AF]/15 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/3 right-16 w-40 h-40 bg-[#133C99]/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-[#1646AF]/10 rounded-full blur-3xl" />
     </section>
   )
 }

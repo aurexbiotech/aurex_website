@@ -56,16 +56,16 @@ const AboutSection = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="h-1 w-12 bg-blue-600"></div>
-            <span className="text-blue-600 font-medium">About AnalyzeBiotech</span>
-            <div className="h-1 w-12 bg-blue-600"></div>
+            <div className="h-1 w-12 bg-[#1646AF]"></div>
+            <span className="text-[#1646AF] font-bold tracking-wider uppercase text-sm">About AUREX</span>
+            <div className="h-1 w-12 bg-[#1646AF]"></div>
           </div>
           
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
             Committed to Excellence in Healthcare
           </h2>
           
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-[#64748B] max-w-4xl mx-auto leading-relaxed">
             We uphold the tenet of &ldquo;committed to the advancement and improvement of medical laboratory 
             technology, serving human health&rdquo; and strive to provide both cost-efficient and high-quality 
             products to medical laboratories worldwide.
@@ -81,10 +81,10 @@ const AboutSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group text-center p-8 bg-gray-50 rounded-2xl hover:bg-blue-50 transition-all duration-300"
+              className="group text-center p-8 bg-[#F6F8FB] border border-[#BFBFBF]/40 rounded-2xl hover:border-[#1646AF]/40 hover:shadow-lg transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-blue-100 group-hover:bg-blue-200 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors">
-                <stat.icon className="text-blue-600" size={32} />
+              <div className="w-16 h-16 bg-white border border-[#1646AF]/20 shadow-sm rounded-full flex items-center justify-center mx-auto mb-4 transition-colors">
+                <stat.icon className="text-[#1646AF]" size={32} />
               </div>
               
               <motion.div
@@ -98,7 +98,7 @@ const AboutSection = () => {
               </motion.div>
               
               <h3 className="text-xl font-semibold text-gray-800 mb-2">{stat.label}</h3>
-              <p className="text-gray-600">{stat.description}</p>
+              <p className="text-[#64748B]">{stat.description}</p>
             </motion.div>
           ))}
         </div>
@@ -119,7 +119,7 @@ const AboutSection = () => {
             
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Since our founding, AnalyzeBiotech has been at the forefront of diagnostic innovation, 
+                Since our founding, AUREX has been at the forefront of diagnostic innovation, 
                 developing cutting-edge solutions that transform healthcare delivery worldwide.
               </p>
               
@@ -210,13 +210,13 @@ const AboutSection = () => {
             <motion.div
               animate={{ y: [-10, 10, -10] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full opacity-20"
+              className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-[#1646AF]/20 to-[#133C99]/20 rounded-full blur-xl"
             ></motion.div>
             
             <motion.div
               animate={{ y: [10, -10, 10] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full opacity-20"
+              className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-[#133C99]/20 to-[#1646AF]/20 rounded-full blur-xl"
             ></motion.div>
           </div>
         </motion.div>

@@ -30,7 +30,7 @@ const productSlides = [
     description: 'Fully automated clinical diagnostic systems delivering rapid, accurate results with minimal human intervention for enhanced laboratory efficiency',
     image: '/images/bc120-plus.png',
     background: '/images/diagnostic_lab.png',
-    color: 'from-blue-500 to-cyan-600',
+    color: 'from-[#1646AF] to-[#133C99]',
     hasSubdivisions: true
   },
   {
@@ -40,7 +40,7 @@ const productSlides = [
     description: 'Advanced imaging technologies integrating AI-powered analysis for precise visualization and interpretation of medical specimens',
     image: '/images/medical-imaging.webp',
     background: '/images/background.jpg',
-    color: 'from-purple-500 to-indigo-600'
+    color: 'from-[#133C99] to-[#0E2A6C]'
   },
   {
     id: 'advanced-andrology',
@@ -49,7 +49,7 @@ const productSlides = [
     description: 'Specialized systems for comprehensive male reproductive health analysis including sperm quality assessment and fertility diagnostics',
     image: '/images/advanced-andrology.png',
     background: '/images/corporate-background.jpg',
-    color: 'from-teal-500 to-emerald-600'
+    color: 'from-[#1646AF] to-[#0E2A6C]'
   },
   {
     id: 'transfusion-medicine',
@@ -58,7 +58,7 @@ const productSlides = [
     description: 'State-of-the-art blood typing, crossmatching, and antibody screening systems ensuring safe and compatible transfusions',
     image: '/images/transfusion-medicine-hero.jpg',
     background: '/images/hero-background.jpg',
-    color: 'from-red-500 to-rose-600'
+    color: 'from-[#133C99] to-[#1646AF]'
   },
   {
     id: 'stemcell-research',
@@ -67,7 +67,7 @@ const productSlides = [
     description: 'Cutting-edge platforms for stem cell isolation, characterization, and therapeutic applications in regenerative medicine',
     image: '/images/stemcell-research.avif',
     background: '/images/analyzer-device.jpg',
-    color: 'from-green-500 to-lime-600'
+    color: 'from-[#0E2A6C] to-[#1646AF]'
   },
   {
     id: 'critical-care',
@@ -76,7 +76,7 @@ const productSlides = [
     description: 'Rapid point-of-care testing systems providing critical diagnostic information for immediate clinical decision-making',
     image: '/images/critical-care.jpg',
     background: '/images/bc410-features.png',
-    color: 'from-orange-500 to-amber-600'
+    color: 'from-[#1646AF] to-[#0E2A6C]'
   },
   {
     id: 'sample-tracking',
@@ -85,7 +85,7 @@ const productSlides = [
     description: 'Intelligent barcode and RFID-based sample management systems ensuring complete traceability and chain of custody',
     image: '/images/sample-tracking.jpg',
     background: '/images/3915891.jpg',
-    color: 'from-cyan-500 to-sky-600'
+    color: 'from-[#133C99] to-[#1646AF]'
   },
   {
     id: 'analytical-laboratory',
@@ -94,7 +94,7 @@ const productSlides = [
     description: 'Comprehensive laboratory automation solutions integrating robotics, AI, and advanced analytics for maximum throughput and accuracy',
     image: '/images/analytical-laboratory.png',
     background: '/images/graphic-illustration-light-blue-wallpaper-template-website-cover-background-design_545033-2371.jpg',
-    color: 'from-violet-500 to-fuchsia-600'
+    color: 'from-[#1646AF] to-[#133C99]'
   }
 ]
 
@@ -188,7 +188,7 @@ const RoyalProductsSection = () => {
                     transition={{ duration: 0.6, delay: 0.5 }}
                     className="mb-8"
                   >
-                    <div className="bg-gradient-to-r from-blue-600/90 to-cyan-600/90 rounded-lg p-4">
+                    <div className="bg-[#133C99]/90 border border-white/20 backdrop-blur-md rounded-lg p-4">
                       <div className="flex items-center justify-around gap-4">
                         {clinicalDiagnosticsModels.map((model) => (
                           <button
@@ -196,7 +196,7 @@ const RoyalProductsSection = () => {
                             onClick={() => setSelectedModel(model.id)}
                             className={`flex flex-col items-center gap-2 px-6 py-3 rounded-lg transition-all duration-300 ${
                               selectedModel === model.id
-                                ? 'bg-white/20 shadow-lg'
+                                ? 'bg-white/25 shadow-lg ring-1 ring-white/50'
                                 : 'hover:bg-white/10'
                             }`}
                           >
@@ -242,14 +242,14 @@ const RoyalProductsSection = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`px-8 py-3 bg-gradient-to-r ${currentProduct.color} text-white rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg`}
+                    className="px-8 py-3 bg-[#1646AF] hover:bg-[#133C99] text-white rounded-full font-semibold transition-all shadow-lg shadow-[#1646AF]/40 border border-white/20"
                   >
                     Learn More
                   </motion.button>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-6 py-3 bg-gray-600 text-white rounded-full font-semibold hover:bg-gray-700 transition-colors shadow-lg flex items-center space-x-2"
+                    className="px-6 py-3 bg-white/15 hover:bg-white/25 text-white rounded-full font-semibold border border-white/30 backdrop-blur-sm transition-colors shadow-lg flex items-center space-x-2"
                   >
                     <span>+</span>
                     <span>Watch More</span>

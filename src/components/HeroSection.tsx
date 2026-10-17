@@ -106,8 +106,8 @@ const HeroSection = () => {
               transition={{ duration: 0.6 }}
               className="mb-8"
             >
-              <h1 className="text-3xl lg:text-4xl font-bold text-blue-900">Analyze Biotech</h1>
-              <p className="text-blue-600 font-medium">Advanced Diagnostic Solutions</p>
+              <h1 className="text-3xl lg:text-4xl font-extrabold text-[#1646AF] tracking-wider">AUREX</h1>
+              <p className="text-[#133C99] font-medium tracking-wide">Advanced Diagnostic Solutions</p>
             </motion.div>
 
             {/* Main Headline */}
@@ -119,7 +119,7 @@ const HeroSection = () => {
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
                 Advancing with Innovation
                 <br />
-                <span className="text-blue-600">and Intelligence</span>
+                <span className="text-[#1646AF]">and Intelligence</span>
               </h2>
             </motion.div>
 
@@ -157,28 +157,28 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="grid grid-cols-1 md:grid-cols-3 gap-6"
             >
-              <div className="flex flex-col items-center text-center p-4">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <Cpu className="text-blue-600" size={32} />
+              <div className="flex flex-col items-center text-center p-4 rounded-xl bg-[#F6F8FB] border border-[#BFBFBF]/40">
+                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm border border-[#1646AF]/20">
+                  <Cpu className="text-[#1646AF]" size={28} />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Smart Control</h3>
-                <p className="text-sm text-gray-600">Intelligent automation for precise results</p>
+                <h3 className="font-semibold text-gray-900 mb-1">Smart Control</h3>
+                <p className="text-xs text-[#64748B]">Intelligent automation for precise results</p>
               </div>
               
-              <div className="flex flex-col items-center text-center p-4">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                  <Zap className="text-green-600" size={32} />
+              <div className="flex flex-col items-center text-center p-4 rounded-xl bg-[#F6F8FB] border border-[#BFBFBF]/40">
+                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm border border-[#1646AF]/20">
+                  <Zap className="text-[#1646AF]" size={28} />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Intelligent Interaction</h3>
-                <p className="text-sm text-gray-600">Seamless user experience and interface</p>
+                <h3 className="font-semibold text-gray-900 mb-1">Intelligent Interaction</h3>
+                <p className="text-xs text-[#64748B]">Seamless user experience and interface</p>
               </div>
               
-              <div className="flex flex-col items-center text-center p-4">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                  <Database className="text-purple-600" size={32} />
+              <div className="flex flex-col items-center text-center p-4 rounded-xl bg-[#F6F8FB] border border-[#BFBFBF]/40">
+                <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm border border-[#133C99]/20">
+                  <Database className="text-[#133C99]" size={28} />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Rapid Database Match</h3>
-                <p className="text-sm text-gray-600">Lightning-fast data processing and analysis</p>
+                <h3 className="font-semibold text-gray-900 mb-1">Rapid Database Match</h3>
+                <p className="text-xs text-[#64748B]">Lightning-fast data processing and analysis</p>
               </div>
             </motion.div>
           </div>
@@ -193,29 +193,29 @@ const HeroSection = () => {
             {/* Main Product Container */}
             <div className="relative w-full max-w-md">
               {/* 3D Product Mockup */}
-              <div className="relative bg-gradient-to-br from-white to-gray-100 rounded-3xl p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+              <div className="relative bg-gradient-to-br from-white to-[#F6F8FB] rounded-3xl p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 border border-[#BFBFBF]/30">
                 {/* Product Display */}
-                <div className="bg-gray-900 rounded-2xl p-6 mb-6 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20"></div>
+                <div className="bg-[#0B1528] rounded-2xl p-6 mb-6 relative overflow-hidden border border-white/10">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1646AF]/20 to-[#133C99]/20"></div>
                   <div className="relative">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex space-x-2">
                         <div className="w-3 h-3 bg-red-400 rounded-full"></div>
                         <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                        <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                        <div className="w-3 h-3 bg-[#1646AF] rounded-full"></div>
                       </div>
-                      <div className="text-green-400 text-xs font-mono">ONLINE</div>
+                      <div className="text-blue-300 text-xs font-mono tracking-wider">ONLINE</div>
                     </div>
                     
                     {/* Analysis Display */}
                     <div className="space-y-3">
                       <div className="flex justify-between items-center">
-                        <span className="text-blue-400 text-sm">Sample Analysis</span>
-                        <span className="text-green-400 text-sm">✓ Complete</span>
+                        <span className="text-blue-300 text-sm">Sample Analysis</span>
+                        <span className="text-blue-200 text-sm font-medium">✓ Complete</span>
                       </div>
-                      <div className="w-full bg-gray-700 rounded-full h-2">
+                      <div className="w-full bg-slate-800 rounded-full h-2">
                         <motion.div 
-                          className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full"
+                          className="bg-gradient-to-r from-[#1646AF] to-[#60A5FA] h-2 rounded-full"
                           initial={{ width: 0 }}
                           animate={{ width: "85%" }}
                           transition={{ duration: 2, delay: 1 }}
@@ -224,11 +224,11 @@ const HeroSection = () => {
                       <div className="grid grid-cols-2 gap-4 text-xs">
                         <div>
                           <div className="text-gray-400">Accuracy</div>
-                          <div className="text-green-400 font-bold">99.7%</div>
+                          <div className="text-white font-bold">99.7%</div>
                         </div>
                         <div>
                           <div className="text-gray-400">Speed</div>
-                          <div className="text-blue-400 font-bold">2.3s</div>
+                          <div className="text-[#60A5FA] font-bold">2.3s</div>
                         </div>
                       </div>
                     </div>
@@ -237,11 +237,11 @@ const HeroSection = () => {
                 
                 {/* Product Info */}
                 <div className="text-center">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">AutoLumo A6200</h3>
-                  <p className="text-gray-600 text-sm mb-4">Next-Gen Diagnostic Analyzer</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">AutoLumo A6200</h3>
+                  <p className="text-[#64748B] text-sm mb-4">Next-Gen Diagnostic Analyzer</p>
                   <div className="flex justify-center space-x-4 text-xs">
-                    <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded">High Precision</span>
-                    <span className="bg-green-100 text-green-800 px-2 py-1 rounded">AI-Powered</span>
+                    <span className="bg-[#F6F8FB] text-[#1646AF] border border-[#1646AF]/30 px-3 py-1 rounded-full font-medium">High Precision</span>
+                    <span className="bg-[#F6F8FB] text-[#133C99] border border-[#133C99]/30 px-3 py-1 rounded-full font-medium">AI-Powered</span>
                   </div>
                 </div>
               </div>
@@ -257,7 +257,7 @@ const HeroSection = () => {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full opacity-80 shadow-lg"
+                className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-br from-[#1646AF] to-[#133C99] rounded-full opacity-80 shadow-lg"
               />
               
               <motion.div

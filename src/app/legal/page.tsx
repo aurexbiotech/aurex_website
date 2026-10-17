@@ -38,11 +38,11 @@ const legalContent = {
   'our-sales-policy': {
     title: 'Our Sales Policy',
     subtitle: 'Client-Focused, Transparent, and Reliable',
-    description: 'At Analyze Biotech Private Limited, we are committed to a client-first approach. Our sales policies ensure transparency, efficiency, and long-term partnerships by providing clear processes, customized solutions, and dedicated support for all healthcare and research requirements.',
+    description: 'At AUREX, we are committed to a client-first approach. Our sales policies ensure transparency, efficiency, and long-term partnerships by providing clear processes, customized solutions, and dedicated support for all healthcare and research requirements.',
     content: [
       {
         type: 'text',
-        data: 'At Analyze Biotech Private Limited, we are committed to a client-first approach. Our sales policies ensure transparency, efficiency, and long-term partnerships by providing clear processes, customized solutions, and dedicated support for all healthcare and research requirements.'
+        data: 'At AUREX, we are committed to a client-first approach. Our sales policies ensure transparency, efficiency, and long-term partnerships by providing clear processes, customized solutions, and dedicated support for all healthcare and research requirements.'
       },
       {
         type: 'text',
@@ -71,7 +71,7 @@ const legalContent = {
       },
       {
         type: 'text',
-        data: 'Why Clients Choose Analyze Biotech:'
+        data: 'Why Clients Choose AUREX:'
       },
       {
         type: 'benefits',
@@ -335,11 +335,11 @@ const legalContent = {
   'integrity-policy': {
     title: 'Integrity Policy',
     subtitle: 'Ethical Excellence, Transparency, and Accountability',
-    description: 'At Analyze Biotech, integrity is the foundation of everything we do. We are committed to conducting all operations with ethical excellence, transparency, and accountability, building trust with clients, partners, employees, and stakeholders worldwide.',
+    description: 'At AUREX, integrity is the foundation of everything we do. We are committed to conducting all operations with ethical excellence, transparency, and accountability, building trust with clients, partners, employees, and stakeholders worldwide.',
     content: [
       {
         type: 'text',
-        data: 'At Analyze Biotech, integrity is the foundation of everything we do. We are committed to conducting all operations with ethical excellence, transparency, and accountability, building trust with clients, partners, employees, and stakeholders worldwide.'
+        data: 'At AUREX, integrity is the foundation of everything we do. We are committed to conducting all operations with ethical excellence, transparency, and accountability, building trust with clients, partners, employees, and stakeholders worldwide.'
       },
       {
         type: 'text',
@@ -381,22 +381,22 @@ const legalContent = {
       },
       {
         type: 'text',
-        data: 'By making integrity the cornerstone of our work, Analyze Biotech Private Limited delivers reliable, ethical, and high-quality healthcare solutions, while earning the confidence and trust of all those we serve.'
+        data: 'By making integrity the cornerstone of our work, AUREX delivers reliable, ethical, and high-quality healthcare solutions, while earning the confidence and trust of all those we serve.'
       }
     ]
   },
   'declaimers': {
     title: 'Website Disclaimer',
-    subtitle: 'Analyze Biotech Private Limited',
-    description: 'The content, materials, and services provided on this website ("Site") by Analyze Biotech Private Limited ("we," "our," or "us") are intended for general informational and educational purposes only. By accessing or using this Site, you acknowledge and agree to this Disclaimer. If you do not agree, please refrain from using our Site.',
+    subtitle: 'AUREX',
+    description: 'The content, materials, and services provided on this website ("Site") by AUREX ("we," "our," or "us") are intended for general informational and educational purposes only. By accessing or using this Site, you acknowledge and agree to this Disclaimer. If you do not agree, please refrain from using our Site.',
     content: [
       {
         type: 'text',
-        data: 'Last Updated: November 7, 2025'
+        data: 'Last Updated: 2026'
       },
       {
         type: 'text',
-        data: 'The content, materials, and services provided on this website ("Site") by Analyze Biotech Private Limited ("we," "our," or "us") are intended for general informational and educational purposes only. By accessing or using this Site, you acknowledge and agree to this Disclaimer. If you do not agree, please refrain from using our Site.'
+        data: 'The content, materials, and services provided on this website ("Site") by AUREX ("we," "our," or "us") are intended for general informational and educational purposes only. By accessing or using this Site, you acknowledge and agree to this Disclaimer. If you do not agree, please refrain from using our Site.'
       },
       {
         type: 'text',
@@ -420,7 +420,7 @@ const legalContent = {
       },
       {
         type: 'text',
-        data: 'Analyze Biotech Private Limited, including its directors, employees, and affiliates, shall not be liable for any direct, indirect, incidental, consequential, or special damages arising from:'
+        data: 'AUREX, including its directors, employees, and affiliates, shall not be liable for any direct, indirect, incidental, consequential, or special damages arising from:'
       },
       {
         type: 'benefits',
@@ -445,7 +445,7 @@ const legalContent = {
       },
       {
         type: 'text',
-        data: 'All content on this Site—including text, graphics, logos, images, and downloadable materials—is the intellectual property of Analyze Biotech Private Limited, unless otherwise stated. Unauthorized use, reproduction, or distribution of any material is strictly prohibited.'
+        data: 'All content on this Site—including text, graphics, logos, images, and downloadable materials—is the intellectual property of AUREX, unless otherwise stated. Unauthorized use, reproduction, or distribution of any material is strictly prohibited.'
       },
       {
         type: 'text',
@@ -459,16 +459,16 @@ const legalContent = {
   },
   'cookies-policy': {
     title: 'Cookie Policy',
-    subtitle: 'Analyze Biotech Private Limited',
-    description: 'Analyze Biotech Private Limited ("we," "our," or "us") uses cookies and similar technologies on this website ("Site") to enhance your browsing experience, analyze site performance, and personalize content. This Cookie Policy explains what cookies are, how we use them, and how you can manage your preferences.',
+    subtitle: 'AUREX',
+    description: 'AUREX ("we," "our," or "us") uses cookies and similar technologies on this website ("Site") to enhance your browsing experience, analyze site performance, and personalize content. This Cookie Policy explains what cookies are, how we use them, and how you can manage your preferences.',
     content: [
       {
         type: 'text',
-        data: 'Last Updated: November 7, 2025'
+        data: 'Last Updated: 2026'
       },
       {
         type: 'text',
-        data: 'Analyze Biotech Private Limited ("we," "our," or "us") uses cookies and similar technologies on this website ("Site") to enhance your browsing experience, analyze site performance, and personalize content. This Cookie Policy explains what cookies are, how we use them, and how you can manage your preferences.'
+        data: 'AUREX ("we," "our," or "us") uses cookies and similar technologies on this website ("Site") to enhance your browsing experience, analyze site performance, and personalize content. This Cookie Policy explains what cookies are, how we use them, and how you can manage your preferences.'
       },
       {
         type: 'text',
@@ -563,11 +563,11 @@ const StatsContent = ({ stats }: { stats: StatItem[] }) => (
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="text-center bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl"
+        className="text-center bg-[#F6F8FB] border border-[#BFBFBF]/40 p-6 rounded-xl"
       >
-        <stat.icon className="w-8 h-8 text-[#0A1931] mx-auto mb-4" />
-        <div className="text-3xl font-bold text-[#0A1931] mb-2">{stat.value}</div>
-        <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+        <stat.icon className="w-8 h-8 text-[#1646AF] mx-auto mb-4" />
+        <div className="text-3xl font-bold text-[#0B1528] mb-2">{stat.value}</div>
+        <div className="text-sm text-[#64748B] font-medium">{stat.label}</div>
       </motion.div>
     ))}
   </div>
@@ -581,9 +581,9 @@ const TimelineContent = ({ timeline }: { timeline: TimelineItem[] }) => (
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="flex items-start space-x-4 bg-gray-50 p-6 rounded-lg"
+        className="flex items-start space-x-4 bg-[#F6F8FB] p-6 rounded-lg border border-gray-100"
       >
-        <div className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center">
+        <div className="bg-[#1646AF] text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center shadow-sm">
           {item.year}
         </div>
         <p className="text-gray-700 text-lg flex-1">{item.event}</p>
@@ -600,9 +600,9 @@ const BenefitsContent = ({ benefits }: { benefits: string[] }) => (
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="flex items-start space-x-3 bg-gradient-to-r from-red-50 to-pink-50 p-4 rounded-lg"
+        className="flex items-start space-x-3 bg-[#F6F8FB] p-4 rounded-lg border border-gray-100"
       >
-        <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+        <div className="w-2 h-2 bg-[#1646AF] rounded-full mt-2 flex-shrink-0"></div>
         <p className="text-gray-700">{benefit}</p>
       </motion.div>
     ))}
@@ -614,7 +614,7 @@ const HeroBanner = () => {
   return (
     <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A1931]/85 via-[#0A1931]/75 to-teal-900/85 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1528]/90 via-[#133C99]/85 to-[#1646AF]/85 z-10"></div>
         <Image
           src="/images/background.jpg"
           alt="Legal Documents and Policies"
@@ -642,7 +642,7 @@ const HeroBanner = () => {
   )
 }
 
-// Sub Navigation Component - Enhanced with Gold/Bronze accent styling
+// Sub Navigation Component - Enhanced with AUREX Brand styling
 const SubNavigation = ({ activeSection, setActiveSection }: { 
   activeSection: string, 
   setActiveSection: (section: string) => void 
@@ -659,12 +659,12 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
               onClick={() => setActiveSection(item.id)}
               className={`relative px-4 py-3 font-semibold text-sm transition-all duration-300 rounded-t-lg overflow-hidden ${
                 activeSection === item.id
-                  ? 'text-[#0A1931] bg-white shadow-md'
-                  : 'text-gray-600 hover:text-[#0A1931] hover:bg-white/50'
+                  ? 'text-[#1646AF] bg-white shadow-md'
+                  : 'text-gray-600 hover:text-[#1646AF] hover:bg-white/50'
               }`}
             >
               <span className="relative z-10">{item.name}</span>
-              {/* Gold/Bronze accent underline for active item */}
+              {/* AUREX Royal Blue accent underline for active item */}
               <motion.div
                 initial={false}
                 animate={{
@@ -672,7 +672,7 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
                   opacity: activeSection === item.id ? 1 : 0
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 origin-left"
+                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1646AF] to-[#133C99] origin-left"
               />
               {/* Hover effect underline */}
               <motion.div
@@ -686,7 +686,7 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
                   opacity: activeSection === item.id ? 0 : 0.6
                 }}
                 transition={{ duration: 0.2 }}
-                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-amber-300 to-yellow-400 origin-center"
+                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-[#1646AF] origin-center"
                 style={{ width: '80%' }}
               />
             </motion.button>
@@ -737,10 +737,10 @@ export default function LegalPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-[#0A1931] mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#0B1528] mb-6">
               {currentContent.title}
             </h1>
-            <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#1646AF] to-[#133C99] mx-auto mb-6 rounded-full"></div>
             <h2 className="text-2xl text-gray-700 font-semibold mb-4">
               {currentContent.subtitle}
             </h2>
@@ -773,7 +773,7 @@ export default function LegalPage() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-[#0A1931] to-teal-800 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-[#0A1931]/90 hover:to-teal-700 transition-all duration-300 shadow-lg"
+              className="bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300 shadow-lg"
             >
               {activeSection === 'our-sales-policy' ? 'View Sales Terms' : 
                activeSection === 'warranty-policy' ? 'Download Warranty Guide' : 

@@ -10,56 +10,56 @@ const solutionsData = [
     title: 'Endocrine Hormone',
     description: 'Comprehensive hormone analysis for thyroid, reproductive, and metabolic disorders with advanced chemiluminescent detection technology.',
     bodyPart: 'thyroid',
-    color: 'from-blue-600 to-purple-700'
+    color: 'from-[#1646AF] to-[#133C99]'
   },
   {
     id: 'women-children',
     title: 'Women & Children',
     description: 'Specialized diagnostic solutions for maternal health, pediatric care, and reproductive wellness with precision testing capabilities.',
     bodyPart: 'reproductive',
-    color: 'from-pink-600 to-rose-700'
+    color: 'from-[#133C99] to-[#0E2A6C]'
   },
   {
     id: 'infection',
     title: 'Infection',
     description: 'Rapid pathogen detection and antimicrobial resistance testing for bacterial, viral, and fungal infections with real-time monitoring.',
     bodyPart: 'lungs',
-    color: 'from-red-600 to-orange-700'
+    color: 'from-[#1646AF] to-[#0E2A6C]'
   },
   {
     id: 'tumor-markers',
     title: 'Tumor Markers',
     description: 'Early cancer detection and monitoring through comprehensive biomarker analysis with high sensitivity and specificity.',
     bodyPart: 'organs',
-    color: 'from-green-600 to-teal-700'
+    color: 'from-[#133C99] to-[#1646AF]'
   },
   {
     id: 'cardiovascular',
     title: 'Cardiovascular',
     description: 'Comprehensive cardiovascular diagnostics including troponin, BNP, and lipid analysis for heart disease management.',
     bodyPart: 'heart',
-    color: 'from-red-500 to-pink-600'
+    color: 'from-[#0E2A6C] to-[#1646AF]'
   },
   {
     id: 'chronic',
     title: 'Chronic',
     description: 'Long-term disease monitoring and management with specialized biomarker panels for chronic conditions.',
     bodyPart: 'immune',
-    color: 'from-purple-600 to-indigo-700'
+    color: 'from-[#1646AF] to-[#0E2A6C]'
   },
   {
     id: 'autoimmune',
     title: 'Autoimmune Diseases',
     description: 'Advanced autoimmune disorder diagnosis with comprehensive antibody and inflammatory marker analysis.',
     bodyPart: 'immune',
-    color: 'from-indigo-600 to-blue-700'
+    color: 'from-[#133C99] to-[#1646AF]'
   },
   {
     id: 'more-info',
     title: 'More Info',
     description: 'Discover additional diagnostic solutions and comprehensive testing capabilities for specialized medical applications.',
     bodyPart: 'organs',
-    color: 'from-teal-600 to-cyan-700'
+    color: 'from-[#1646AF] to-[#133C99]'
   }
 ]
 
@@ -121,8 +121,8 @@ const BodyVisualization = ({ bodyPart, isActive }: { bodyPart: string; isActive:
               transition={{ duration: 2.5, repeat: Infinity }}
               className="absolute top-18 left-1/2 transform -translate-x-1/2"
             >
-              <div className="w-6 h-12 bg-gradient-to-b from-orange-400 to-red-500 rounded-full blur-sm -mr-2" />
-              <div className="w-6 h-12 bg-gradient-to-b from-orange-400 to-red-500 rounded-full blur-sm ml-4 -mt-12" />
+              <div className="w-6 h-12 bg-gradient-to-b from-[#1646AF] to-[#133C99] rounded-full blur-sm -mr-2" />
+              <div className="w-6 h-12 bg-gradient-to-b from-[#1646AF] to-[#133C99] rounded-full blur-sm ml-4 -mt-12" />
             </motion.div>
           </div>
         )
@@ -137,7 +137,7 @@ const BodyVisualization = ({ bodyPart, isActive }: { bodyPart: string; isActive:
             <motion.div
               animate={{ opacity: isActive ? [0.4, 0.8, 0.4] : 0.2 }}
               transition={{ duration: 3, repeat: Infinity }}
-              className="absolute inset-0 bg-gradient-to-r from-teal-400/20 to-blue-500/20 rounded-full blur-lg"
+              className="absolute inset-0 bg-gradient-to-r from-[#1646AF]/25 to-[#133C99]/25 rounded-full blur-lg"
             />
           </div>
         )
@@ -265,7 +265,7 @@ const AutobioSolutionsSection = () => {
                     <div className="relative">
                       <BodyVisualization bodyPart={activeSolution.bodyPart} isActive={true} />
                       {/* Premium glow effect */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 blur-3xl scale-150 opacity-60" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#1646AF]/25 to-[#133C99]/25 blur-3xl scale-150 opacity-60" />
                     </div>
                   </motion.div>
                 </AnimatePresence>
@@ -277,8 +277,8 @@ const AutobioSolutionsSection = () => {
 
       {/* Bottom-Anchored Royal Business Navigation */}
       <div className="absolute bottom-0 left-0 right-0 z-20">
-        {/* Royal Business Navigation Container */}
-        <div className="bg-gradient-to-t from-slate-900/95 via-slate-800/90 to-slate-900/80 backdrop-blur-md border-t border-amber-500/20">
+        {/* AUREX Corporate Navigation Container */}
+        <div className="bg-gradient-to-t from-slate-900/95 via-slate-800/90 to-slate-900/80 backdrop-blur-md border-t border-white/10">
           <div className="container mx-auto px-8 py-6">
             
             {/* Horizontal Category Buttons */}
@@ -292,8 +292,8 @@ const AutobioSolutionsSection = () => {
                   className={`
                     px-6 py-3 rounded-lg font-medium text-sm transition-all duration-300 border whitespace-nowrap
                     ${currentSlide === index 
-                      ? 'bg-gradient-to-r from-amber-600 to-yellow-600 text-slate-900 border-amber-500 shadow-lg shadow-amber-500/30 font-semibold' 
-                      : 'bg-slate-800/60 text-gray-200 border-slate-600/50 hover:bg-gradient-to-r hover:from-amber-700/20 hover:to-yellow-700/20 hover:text-amber-200 hover:border-amber-500/40 hover:shadow-md'
+                      ? 'bg-[#1646AF] text-white border-white/30 shadow-lg shadow-[#1646AF]/40 font-semibold' 
+                      : 'bg-slate-800/60 text-gray-200 border-slate-600/50 hover:bg-[#1646AF]/25 hover:text-white hover:border-[#1646AF]/50 hover:shadow-md'
                     }
                   `}
                   style={{ 
@@ -311,13 +311,13 @@ const AutobioSolutionsSection = () => {
             {/* Elegant Selection Indicator */}
             <div className="flex justify-center">
               <motion.div 
-                className="flex items-center space-x-3 bg-slate-800/40 backdrop-blur-sm px-4 py-2 rounded-full border border-amber-500/30"
+                className="flex items-center space-x-3 bg-slate-800/40 backdrop-blur-sm px-4 py-2 rounded-full border border-white/15"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                <div className="w-2 h-2 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full animate-pulse"></div>
-                <span className="text-xs font-medium text-amber-200" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                <div className="w-2 h-2 bg-[#1646AF] rounded-full animate-pulse"></div>
+                <span className="text-xs font-medium text-white/80" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                   {activeSolution.title} • {solutionsData.findIndex(s => s.id === activeSolution.id) + 1} of {solutionsData.length}
                 </span>
               </motion.div>

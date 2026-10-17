@@ -20,7 +20,7 @@ const BiochemistryDetailsPage = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 to-cyan-600 text-white py-20">
+      <section className="relative bg-gradient-to-br from-[#133C99] to-[#1646AF] text-white py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h1
@@ -59,7 +59,7 @@ const BiochemistryDetailsPage = () => {
                 Cutting-Edge Biochemistry Automation
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                Analyze Biotech delivers cutting-edge fully automated Biochemistry solutions designed for faster turnaround, superior analytical accuracy, and complete workflow automation. Our systems are engineered to meet the demanding needs of modern clinical laboratories.
+                AUREX delivers cutting-edge fully automated Biochemistry solutions designed for faster turnaround, superior analytical accuracy, and complete workflow automation. Our systems are engineered to meet the demanding needs of modern clinical laboratories.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
                 From routine profiles to advanced assays — our systems ensure maximum reliability, and seamless scalability for every laboratory need.
@@ -97,9 +97,9 @@ const BiochemistryDetailsPage = () => {
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
+                  className="bg-[#F6F8FB] border border-[#BFBFBF]/40 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <feature.icon className="text-blue-600 mb-4" size={40} />
+                  <feature.icon className="text-[#1646AF] mb-4" size={40} />
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
                   <p className="text-gray-700">{feature.description}</p>
                 </div>
@@ -132,7 +132,7 @@ const BiochemistryDetailsPage = () => {
                     key={index}
                     className="flex items-start space-x-3 bg-white p-4 rounded-lg border border-gray-200"
                   >
-                    <CheckCircle className="text-green-600 flex-shrink-0 mt-1" size={20} />
+                    <CheckCircle className="text-[#1646AF] flex-shrink-0 mt-1" size={20} />
                     <p className="text-gray-700">{benefit}</p>
                   </div>
                 ))}
@@ -144,7 +144,7 @@ const BiochemistryDetailsPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-xl mb-16"
+              className="bg-[#F6F8FB] border border-[#BFBFBF]/40 p-8 rounded-xl mb-16"
             >
               <h2 className="text-3xl font-bold text-gray-900 mb-6">
                 Technical Specifications
@@ -176,7 +176,7 @@ const BiochemistryDetailsPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white p-12 rounded-xl"
+              className="text-center bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white p-12 rounded-xl"
             >
               <h2 className="text-3xl font-bold mb-4">
                 Ready to Transform Your Laboratory?
@@ -186,7 +186,7 @@ const BiochemistryDetailsPage = () => {
               </p>
               <div className="flex justify-center gap-4">
                 <Link href="/contact">
-                  <button className="px-8 py-3 bg-white text-blue-600 rounded-full font-bold hover:bg-blue-50 transition-colors shadow-lg">
+                  <button className="px-8 py-3 bg-white text-[#1646AF] rounded-full font-bold hover:bg-slate-100 transition-colors shadow-lg">
                     Contact Us
                   </button>
                 </Link>

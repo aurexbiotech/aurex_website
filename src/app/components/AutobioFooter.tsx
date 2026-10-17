@@ -5,7 +5,7 @@ import { Facebook, Twitter, Linkedin, Youtube, Phone, Mail, MapPin } from 'lucid
 
 const AutobioFooter: React.FC = () => {
   return (
-    <footer className="w-full text-white relative overflow-hidden" style={{ backgroundColor: '#0077B5' }}>
+    <footer className="w-full text-white relative overflow-hidden bg-[#133C99]">
       {/* Background pattern overlay */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -25,7 +25,8 @@ const AutobioFooter: React.FC = () => {
           
           {/* Company logo and tagline */}
           <div className="mb-8 lg:mb-0">
-            {/* Content removed */}
+            <h3 className="text-2xl lg:text-3xl font-extrabold tracking-wider text-white">AUREX</h3>
+            <p className="text-blue-200 text-sm mt-1">Advanced Diagnostic & Laboratory Solutions</p>
           </div>
 
           {/* Social media icons */}
@@ -154,7 +155,7 @@ const AutobioFooter: React.FC = () => {
               <li><a href="/legal#service-policy" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm hover:pl-2">Our Service Policy</a></li>
               <li><a href="/legal#warranty" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm hover:pl-2">Warranty Policy</a></li>
               <li><a href="/legal#integrity" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm hover:pl-2">Integrity Policy</a></li>
-              <li><a href="/legal#disclaimers" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm hover:pl-2">Declaimers</a></li>
+              <li><a href="/legal#disclaimers" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm hover:pl-2">Disclaimers</a></li>
               <li><a href="/legal#cookies" className="text-gray-300 hover:text-white transition-colors duration-200 text-sm hover:pl-2">Cookies Policy</a></li>
             </ul>
           </div>
@@ -167,26 +168,26 @@ const AutobioFooter: React.FC = () => {
             {/* Contact Information */}
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
               <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-teal-300" />
+                <MapPin className="w-4 h-4 text-white/80" />
                 <span className="text-sm text-gray-300">1/51, Barathiyar Street, Mundiyampakkam, TamilNadu, India - 605601</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-blue-300" />
+                <Phone className="w-4 h-4 text-white/80" />
                 <span className="text-sm text-gray-300">+91 9543910101</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-blue-300" />
+                <Phone className="w-4 h-4 text-white/80" />
                 <span className="text-sm text-gray-300">+91 8144418046</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-blue-300" />
-                <span className="text-sm text-gray-300">Sales@analyzebiotech.in</span>
+                <Mail className="w-4 h-4 text-white/80" />
+                <span className="text-sm text-gray-300">sales@aurexbiotech.com</span>
               </div>
             </div>
 
             {/* Copyright */}
             <div className="text-sm text-gray-300">
-              © 2025 AnalyzeBiotech Private Limited. All rights reserved.
+              © 2026 AUREX. All rights reserved.
             </div>
 
           </div>

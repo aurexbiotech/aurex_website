@@ -3,7 +3,7 @@ import { createPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Diagnostic Applications',
-  description: 'Explore diagnostic applications and laboratory workflows supported by Analyze Biotech solutions.',
+  description: 'Explore diagnostic applications and laboratory workflows supported by AUREX solutions.',
   path: '/application',
 })
 

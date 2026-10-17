@@ -32,40 +32,40 @@ const FixedSideBar: React.FC = () => {
           {/* Chat */}
           <a
             href="#"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-yellow-50 transition-all duration-300 hover:shadow-md"
+            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
           >
             <MessageCircle 
-              className="w-6 h-6 text-[#0A1931] group-hover:text-[#B8860B] transition-colors duration-300" 
+              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
             />
           </a>
 
           {/* WhatsApp */}
           <a
             href="tel:+919543910101"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-yellow-50 transition-all duration-300 hover:shadow-md"
+            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
           >
             <Phone 
-              className="w-6 h-6 text-[#0A1931] group-hover:text-[#B8860B] transition-colors duration-300" 
+              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
             />
           </a>
 
           {/* Email */}
           <a
-            href="mailto:info@analyzebiotech.in"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-yellow-50 transition-all duration-300 hover:shadow-md"
+            href="mailto:info@aurexbiotech.com"
+            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
           >
             <Mail 
-              className="w-6 h-6 text-[#0A1931] group-hover:text-[#B8860B] transition-colors duration-300" 
+              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
             />
           </a>
 
           {/* Phone */}
           <a
             href="tel:+919543910101"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-yellow-50 transition-all duration-300 hover:shadow-md"
+            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
           >
             <PhoneCall 
-              className="w-6 h-6 text-[#0A1931] group-hover:text-[#B8860B] transition-colors duration-300" 
+              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
             />
           </a>
         </div>
@@ -80,10 +80,10 @@ const FixedSideBar: React.FC = () => {
           {/* LinkedIn */}
           <a
             href="#"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-yellow-50 transition-all duration-300 hover:shadow-md"
+            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
           >
             <Linkedin 
-              className="w-6 h-6 text-[#0A1931] group-hover:text-[#B8860B] transition-colors duration-300" 
+              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
             />
           </a>
 
@@ -92,10 +92,10 @@ const FixedSideBar: React.FC = () => {
             href="https://www.youtube.com/@AnalyzeBiotechindia"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-yellow-50 transition-all duration-300 hover:shadow-md"
+            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
           >
             <Youtube 
-              className="w-6 h-6 text-[#0A1931] group-hover:text-[#B8860B] transition-colors duration-300" 
+              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
             />
           </a>
 
@@ -104,20 +104,20 @@ const FixedSideBar: React.FC = () => {
             href="https://www.facebook.com/AnalyzeBiotech/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-yellow-50 transition-all duration-300 hover:shadow-md"
+            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
           >
             <Facebook 
-              className="w-6 h-6 text-[#0A1931] group-hover:text-[#B8860B] transition-colors duration-300" 
+              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
             />
           </a>
 
           {/* X (Twitter) */}
           <a
             href="#"
-            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-yellow-50 transition-all duration-300 hover:shadow-md"
+            className="group flex items-center justify-center w-12 h-12 bg-white rounded-lg shadow-sm hover:bg-[#F6F8FB] transition-all duration-300 hover:shadow-md"
           >
             <XIcon 
-              className="w-6 h-6 text-[#0A1931] group-hover:text-[#B8860B] transition-colors duration-300" 
+              className="w-6 h-6 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-300" 
             />
           </a>
         </div>

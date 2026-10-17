@@ -311,7 +311,7 @@ const HeroSwiper = memo(({ currentSlide, setCurrentSlide }: {
       description: 'Fully automated clinical diagnostic systems delivering rapid, accurate results with minimal human intervention for enhanced laboratory efficiency',
       image: '/images/bc120-plus.png',
       background: '/images/diagnostic_lab.png',
-      color: 'from-blue-500 to-cyan-600',
+      color: 'from-[#1646AF] to-[#133C99]',
       models: [
         { id: 'biochemistry', name: 'Biochemistry' },
         { id: 'haematology', name: 'Haematology' },
@@ -326,7 +326,7 @@ const HeroSwiper = memo(({ currentSlide, setCurrentSlide }: {
       description: 'Advanced imaging technologies integrating AI-powered analysis for precise visualization and interpretation of medical specimens',
       image: '/images/medical-imaging.webp',
       background: '/images/background.jpg',
-      color: 'from-purple-500 to-indigo-600',
+      color: 'from-[#133C99] to-[#0E2A6C]',
       models: []
     },
     {
@@ -336,7 +336,7 @@ const HeroSwiper = memo(({ currentSlide, setCurrentSlide }: {
       description: 'Specialized systems for comprehensive male reproductive health analysis including sperm quality assessment and fertility diagnostics',
       image: '/images/advanced-andrology.png',
       background: '/images/corporate-background.jpg',
-      color: 'from-teal-500 to-emerald-600',
+      color: 'from-[#1646AF] to-[#0E2A6C]',
       models: []
     },
     {
@@ -346,7 +346,7 @@ const HeroSwiper = memo(({ currentSlide, setCurrentSlide }: {
       description: 'State-of-the-art blood typing, crossmatching, and antibody screening systems ensuring safe and compatible transfusions',
       image: '/images/transfusion-medicine-hero.jpg',
       background: '/images/hero-background.jpg',
-      color: 'from-red-500 to-rose-600',
+      color: 'from-[#1E3A8A] to-[#1646AF]',
       models: []
     },
     {
@@ -356,7 +356,7 @@ const HeroSwiper = memo(({ currentSlide, setCurrentSlide }: {
       description: 'Cutting-edge platforms for stem cell isolation, characterization, and therapeutic applications in regenerative medicine',
       image: '/images/stemcell-research.avif',
       background: '/images/analyzer-device.jpg',
-      color: 'from-green-500 to-lime-600',
+      color: 'from-[#133C99] to-[#1646AF]',
       models: []
     },
     {
@@ -366,7 +366,7 @@ const HeroSwiper = memo(({ currentSlide, setCurrentSlide }: {
       description: 'Rapid point-of-care testing systems providing critical diagnostic information for immediate clinical decision-making',
       image: '/images/critical-care.jpg',
       background: '/images/bc410-features.png',
-      color: 'from-orange-500 to-amber-600',
+      color: 'from-[#1646AF] to-[#133C99]',
       models: []
     },
     {
@@ -376,7 +376,7 @@ const HeroSwiper = memo(({ currentSlide, setCurrentSlide }: {
       description: 'Intelligent barcode and RFID-based sample management systems ensuring complete traceability and chain of custody',
       image: '/images/sample-tracking.jpg',
       background: '/images/3915891.jpg',
-      color: 'from-cyan-500 to-sky-600',
+      color: 'from-[#133C99] to-[#0E2A6C]',
       models: []
     },
     {
@@ -386,7 +386,7 @@ const HeroSwiper = memo(({ currentSlide, setCurrentSlide }: {
       description: 'Comprehensive laboratory automation solutions integrating robotics, AI, and advanced analytics for maximum throughput and accuracy',
       image: '/images/analytical-laboratory.png',
       background: '/images/graphic-illustration-light-blue-wallpaper-template-website-cover-background-design_545033-2371.jpg',
-      color: 'from-violet-500 to-fuchsia-600',
+      color: 'from-[#1646AF] to-[#0E2A6C]',
       models: []
     }
   ]
@@ -424,8 +424,8 @@ const HeroSwiper = memo(({ currentSlide, setCurrentSlide }: {
                 backgroundImage: `url("${currentCategory.background}")`
               }}
             />
-            {/* Deep Navy/Teal overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-cyan-900/70 to-slate-800/80" />
+            {/* AUREX Brand Deep Blue overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0B1528]/90 via-[#133C99]/80 to-[#1646AF]/80" />
             {/* Additional overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/20" />
           </motion.div>
@@ -597,7 +597,7 @@ const HeroBanner = memo(() => {
     <section className="relative h-[50vh] sm:h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
       {/* Background Image with Blur and Overlay */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-cyan-900/60 to-slate-800/70 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0B1528]/90 via-[#133C99]/85 to-[#1646AF]/85 z-10"></div>
         <Image
           src="/images/diagnostic_lab.png"
           alt="Advanced Medical Products and Diagnostic Solutions"
@@ -627,8 +627,8 @@ const HeroBanner = memo(() => {
 
       {/* Floating Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-400 rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute bottom-32 right-16 w-3 h-3 bg-orange-500 rounded-full opacity-40 animate-bounce"></div>
+        <div className="absolute top-20 left-10 w-2 h-2 bg-[#1646AF]/40 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-32 right-16 w-3 h-3 bg-[#133C99]/40 rounded-full animate-bounce"></div>
         <div className="absolute top-1/3 right-10 w-1 h-1 bg-white rounded-full opacity-80 animate-ping"></div>
       </div>
     </section>
@@ -662,12 +662,12 @@ const SubNavigation = memo(({ activeSection, setActiveSection, setCurrentSlide }
               onMouseEnter={() => handleMouseEnter(index)}
               className={`relative px-2 sm:px-3 md:px-4 py-2 md:py-3 font-semibold text-xs sm:text-sm transition-all duration-300 rounded-t-lg overflow-hidden whitespace-nowrap ${
                 activeSection === item.id
-                  ? 'text-[#0A1931] bg-white shadow-md'
-                  : 'text-gray-600 hover:text-[#0A1931] hover:bg-white/50'
+                  ? 'text-[#1646AF] bg-white shadow-md'
+                  : 'text-gray-600 hover:text-[#1646AF] hover:bg-white/50'
               }`}
             >
               <span className="relative z-10">{item.name}</span>
-              {/* Gold/Bronze accent underline for active item */}
+              {/* AUREX Royal Blue accent underline for active item */}
               <motion.div
                 initial={false}
                 animate={{
@@ -675,7 +675,7 @@ const SubNavigation = memo(({ activeSection, setActiveSection, setCurrentSlide }
                   opacity: activeSection === item.id ? 1 : 0
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-yellow-500 to-orange-500 origin-left"
+                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1646AF] to-[#133C99] origin-left"
               />
               {/* Hover effect underline */}
               <motion.div
@@ -689,7 +689,7 @@ const SubNavigation = memo(({ activeSection, setActiveSection, setCurrentSlide }
                   opacity: activeSection === item.id ? 0 : 0.6
                 }}
                 transition={{ duration: 0.2 }}
-                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-amber-300 to-yellow-400 origin-center"
+                className="absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-[#1646AF] origin-center"
                 style={{ width: '80%' }}
               />
             </motion.button>
@@ -723,9 +723,9 @@ const BenefitsContent = memo(({ benefits }: { benefits: string[] }) => (
     {benefits.map((benefit, index) => (
       <div
         key={index}
-        className="flex items-start space-x-4 bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-lg"
+        className="flex items-start space-x-4 bg-[#F6F8FB] border border-gray-100 p-6 rounded-lg"
       >
-        <div className="bg-gradient-to-r from-amber-400 to-orange-500 text-white p-2 rounded-full flex-shrink-0">
+        <div className="bg-[#1646AF] text-white p-2 rounded-full flex-shrink-0 shadow-sm">
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
           </svg>
@@ -748,10 +748,10 @@ const StatsContent = memo(({ stats }: { stats: StatItem[] }) => (
     {stats.map((stat, index) => (
       <div
         key={index}
-        className="text-center bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl"
+        className="text-center bg-[#F6F8FB] border border-gray-100 p-6 rounded-xl"
       >
-        <stat.icon className="w-8 h-8 text-[#0A1931] mx-auto mb-4" />
-        <div className="text-3xl font-bold text-[#0A1931] mb-2">{stat.value}</div>
+        <stat.icon className="w-8 h-8 text-[#1646AF] mx-auto mb-4" />
+        <div className="text-3xl font-bold text-[#0B1528] mb-2">{stat.value}</div>
         <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
       </div>
     ))}
@@ -768,9 +768,9 @@ const TimelineContent = memo(({ timeline }: { timeline: TimelineItem[] }) => (
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="flex items-start space-x-4 bg-gray-50 p-6 rounded-lg"
+        className="flex items-start space-x-4 bg-[#F6F8FB] border border-gray-100 p-6 rounded-lg"
       >
-        <div className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-4 py-2 rounded-lg font-bold min-w-[80px] text-center">
+        <div className="bg-[#1646AF] text-white px-4 py-2 rounded-lg font-bold min-w-[80px] text-center shadow-sm">
           {item.year}
         </div>
         <p className="text-gray-700 text-lg flex-1">{item.event}</p>
@@ -814,7 +814,7 @@ export default function ProductsPage() {
       
       {/* Clinical Diagnostics Subdivision Navigation */}
       {activeSection === 'clinical-diagnostics' && (
-        <section className="bg-gradient-to-r from-blue-600 to-cyan-600 py-3">
+        <section className="bg-gradient-to-r from-[#133C99] to-[#1646AF] py-3">
           <div className="container mx-auto px-6">
             <div className="flex items-center justify-center gap-4">
               {clinicalDiagnosticsModels.map((model) => (
@@ -860,11 +860,11 @@ export default function ProductsPage() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#0A1931] mb-6">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6">
                     Empower Diagnostics with Precision Chemistry
                   </h2>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    Analyze Biotech delivers cutting-edge fully automated Biochemistry solutions designed for faster turnaround, superior analytical accuracy, and complete workflow automation.
+                    AUREX delivers cutting-edge fully automated Biochemistry solutions designed for faster turnaround, superior analytical accuracy, and complete workflow automation.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-8">
                     From routine profiles to advanced assays — our systems ensure maximum reliability, and seamless scalability for every laboratory need.
@@ -875,7 +875,7 @@ export default function ProductsPage() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => router.push('/products/biochemistry')}
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+                    className="px-8 py-4 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300 cursor-pointer"
                   >
                     Learn More
                   </motion.button>
@@ -905,7 +905,7 @@ export default function ProductsPage() {
                       whileHover={{ scale: 1.1, x: -5 }}
                       whileTap={{ scale: 0.95 }}
                       style={{ backgroundColor: '#D3D3D3' }}
-                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-blue-600 hover:to-cyan-600 hover:text-white"
+                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-[#133C99] hover:to-[#1646AF] hover:text-white"
                       title="BC-15"
                     >
                       <span className="text-[9px] text-center leading-tight">BC-15</span>
@@ -916,7 +916,7 @@ export default function ProductsPage() {
                       whileHover={{ scale: 1.1, x: -5 }}
                       whileTap={{ scale: 0.95 }}
                       style={{ backgroundColor: '#D3D3D3' }}
-                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-blue-600 hover:to-cyan-600 hover:text-white"
+                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-[#133C99] hover:to-[#1646AF] hover:text-white"
                       title="BC-310"
                     >
                       <span className="text-[9px] text-center leading-tight">BC-310</span>
@@ -927,7 +927,7 @@ export default function ProductsPage() {
                       whileHover={{ scale: 1.1, x: -5 }}
                       whileTap={{ scale: 0.95 }}
                       style={{ backgroundColor: '#D3D3D3' }}
-                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-blue-600 hover:to-cyan-600 hover:text-white"
+                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-[#133C99] hover:to-[#1646AF] hover:text-white"
                       title="BC-410"
                     >
                       <span className="text-[9px] text-center leading-tight">BC-410</span>
@@ -938,7 +938,7 @@ export default function ProductsPage() {
                       whileHover={{ scale: 1.1, x: -5 }}
                       whileTap={{ scale: 0.95 }}
                       style={{ backgroundColor: '#D3D3D3' }}
-                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-blue-600 hover:to-cyan-600 hover:text-white"
+                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-[#133C99] hover:to-[#1646AF] hover:text-white"
                       title="BC-610"
                     >
                       <span className="text-[9px] text-center leading-tight">BC-610</span>
@@ -949,7 +949,7 @@ export default function ProductsPage() {
                       whileHover={{ scale: 1.1, x: -5 }}
                       whileTap={{ scale: 0.95 }}
                       style={{ backgroundColor: '#D3D3D3' }}
-                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-blue-600 hover:to-cyan-600 hover:text-white"
+                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-[#133C99] hover:to-[#1646AF] hover:text-white"
                       title="BC-810"
                     >
                       <span className="text-[9px] text-center leading-tight">BC-810</span>
@@ -960,7 +960,7 @@ export default function ProductsPage() {
                       whileHover={{ scale: 1.1, x: -5 }}
                       whileTap={{ scale: 0.95 }}
                       style={{ backgroundColor: '#D3D3D3' }}
-                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-blue-600 hover:to-cyan-600 hover:text-white"
+                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-[#133C99] hover:to-[#1646AF] hover:text-white"
                       title="BC-20"
                     >
                       <span className="text-[9px] text-center leading-tight">BC-20</span>
@@ -971,7 +971,7 @@ export default function ProductsPage() {
                       whileHover={{ scale: 1.1, x: -5 }}
                       whileTap={{ scale: 0.95 }}
                       style={{ backgroundColor: '#D3D3D3' }}
-                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-blue-600 hover:to-cyan-600 hover:text-white"
+                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-gray-700 hover:bg-gradient-to-br hover:from-[#133C99] hover:to-[#1646AF] hover:text-white"
                       title="SA-10"
                     >
                       <span className="text-[9px] text-center leading-tight">SA-10</span>
@@ -982,7 +982,7 @@ export default function ProductsPage() {
                       whileHover={{ scale: 1.1, x: -5 }}
                       whileTap={{ scale: 0.95 }}
                       style={{ backgroundColor: '#D3D3D3' }}
-                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-purple-700 hover:bg-gradient-to-br hover:from-purple-600 hover:to-blue-600 hover:text-white"
+                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-[#1646AF] hover:bg-[#1646AF] hover:text-white"
                       title="ELECTROSIS"
                     >
                       <span className="text-[8px] text-center leading-tight">ELEC</span>
@@ -1013,11 +1013,11 @@ export default function ProductsPage() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#0A1931] mb-6">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6">
                     Precision Haematology for Confident Clinical Decisions
                   </h2>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    Analyze Biotech offers advanced Hematology Analyzers engineered to deliver accurate, reliable, and fast Complete Blood Count (CBC) results. With smart flagging systems, low reagent consumption, and robust performance — our Analyzers ensure seamless workflow for routine and critical care testing.
+                    AUREX offers advanced Hematology Analyzers engineered to deliver accurate, reliable, and fast Complete Blood Count (CBC) results. With smart flagging systems, low reagent consumption, and robust performance — our Analyzers ensure seamless workflow for routine and critical care testing.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-8 font-semibold italic">
                     Empower your lab with technology that understands every cell
@@ -1028,7 +1028,7 @@ export default function ProductsPage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="px-8 py-4 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300"
                     >
                       Learn More
                     </motion.button>
@@ -1110,11 +1110,11 @@ export default function ProductsPage() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#0A1931] mb-6">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6">
                     Precision Immunology for Today&apos;s Diagnostics
                   </h2>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    Analyze Biotech brings advanced Immunology and Serology solutions designed to detect critical disease markers with unmatched sensitivity and reliability. From infectious diseases to autoimmune and hormonal disorders, our portfolio enables faster and more confident clinical decision-making.
+                    AUREX brings advanced Immunology and Serology solutions designed to detect critical disease markers with unmatched sensitivity and reliability. From infectious diseases to autoimmune and hormonal disorders, our portfolio enables faster and more confident clinical decision-making.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-8 font-semibold italic">
                     Where advanced science meets diagnostic accuracy
@@ -1122,7 +1122,7 @@ export default function ProductsPage() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="px-8 py-4 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300"
                   >
                     Learn More
                   </motion.button>
@@ -1165,11 +1165,11 @@ export default function ProductsPage() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#0A1931] mb-6">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6">
                     Strengthening Infection Control with Advanced Microbiology Solutions
                   </h2>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    Analyze Biotech delivers a complete range of microbiology systems and culture-based solutions that empower laboratories to accurately identify pathogens and guide effective treatment decisions. From routine bacterial analysis to critical AMR surveillance, our products are engineered to ensure the highest diagnostic confidence.
+                    AUREX delivers a complete range of microbiology systems and culture-based solutions that empower laboratories to accurately identify pathogens and guide effective treatment decisions. From routine bacterial analysis to critical AMR surveillance, our products are engineered to ensure the highest diagnostic confidence.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6 font-semibold italic">
                     Detect. Identify. Guide Therapy.
@@ -1180,7 +1180,7 @@ export default function ProductsPage() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="px-8 py-4 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300"
                   >
                     Learn More
                   </motion.button>
@@ -1223,11 +1223,11 @@ export default function ProductsPage() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#0A1931] mb-6">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6">
                     Redefining Disease Detection with Molecular Precision
                   </h2>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    Analyze Biotech brings innovative Molecular Diagnostics platforms that deliver unparalleled speed, accuracy, and sensitivity in detecting infectious and genetic diseases. Powered by advanced nucleic acid amplification technologies, our solutions enable early diagnosis and actionable results — critical for saving lives.
+                    AUREX brings innovative Molecular Diagnostics platforms that deliver unparalleled speed, accuracy, and sensitivity in detecting infectious and genetic diseases. Powered by advanced nucleic acid amplification technologies, our solutions enable early diagnosis and actionable results — critical for saving lives.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-8 font-semibold italic">
                     Precision You Can Trust. Results When They Matter Most.
@@ -1235,7 +1235,7 @@ export default function ProductsPage() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="px-8 py-4 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300"
                   >
                     Learn More
                   </motion.button>
@@ -1278,11 +1278,11 @@ export default function ProductsPage() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#0A1931] mb-6">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6">
                     Where Every Specimen Tells a Story — We Deliver the Clarity
                   </h2>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    Analyze Biotech empowers laboratories with advanced Pathology solutions that transform tissue and cellular specimens into accurate, actionable clinical insights. From routine cytology to complex onychopathology, our systems ensure precision in every diagnosis that shapes patient treatment pathways.
+                    AUREX empowers laboratories with advanced Pathology solutions that transform tissue and cellular specimens into accurate, actionable clinical insights. From routine cytology to complex onychopathology, our systems ensure precision in every diagnosis that shapes patient treatment pathways.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-8 font-semibold italic">
                     Stronger Diagnostics. Smarter Decisions. Better Lives.
@@ -1290,7 +1290,7 @@ export default function ProductsPage() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="px-8 py-4 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300"
                   >
                     Learn More
                   </motion.button>
@@ -1333,11 +1333,11 @@ export default function ProductsPage() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="space-y-6"
                 >
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#0A1931] mb-6">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6">
                     Unmatched Sensitivity. Unrivalled Diagnostic Power.
                   </h2>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    Analyze Biotech introduces advanced Immunoassay solutions powered by Chemiluminescence (CLIA), enabling laboratories to deliver faster, more precise analysis of critical biomarkers. Designed for superior reliability and high throughput, our systems support clinical decision-making across endocrinology, oncology, cardiology, fertility, and infectious diseases.
+                    AUREX introduces advanced Immunoassay solutions powered by Chemiluminescence (CLIA), enabling laboratories to deliver faster, more precise analysis of critical biomarkers. Designed for superior reliability and high throughput, our systems support clinical decision-making across endocrinology, oncology, cardiology, fertility, and infectious diseases.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-8 font-semibold italic">
                     Where Clinical Confidence Meets Cutting-Edge Detection.
@@ -1345,7 +1345,7 @@ export default function ProductsPage() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="px-8 py-4 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300"
                   >
                     Learn More
                   </motion.button>
@@ -1385,10 +1385,10 @@ export default function ProductsPage() {
               >
                 {/* Section Heading */}
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl md:text-5xl font-bold text-[#0A1931] mb-4">
+                  <h2 className="text-4xl md:text-5xl font-bold text-[#0B1528] mb-4">
                     Cytogenetics and Genetic Diagnostics
                   </h2>
-                  <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 mx-auto"></div>
+                  <div className="w-24 h-1 bg-gradient-to-r from-[#1646AF] to-[#133C99] mx-auto rounded-full"></div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -1398,11 +1398,11 @@ export default function ProductsPage() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="space-y-6"
                   >
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#0A1931] mb-6">
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6">
                       Transforming Genetic Insight into Clinical Precision
                     </h2>
                     <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                      Analyze Biotech offers a comprehensive portfolio of Cytogenetic and Genetic Diagnostic solutions that empower clinicians to detect chromosomal abnormalities and hereditary disease risks with confidence. From oncology to reproductive health, our technologies deliver deep genomic insights that guide personalized treatment decisions and improved patient outcomes.
+                      AUREX offers a comprehensive portfolio of Cytogenetic and Genetic Diagnostic solutions that empower clinicians to detect chromosomal abnormalities and hereditary disease risks with confidence. From oncology to reproductive health, our technologies deliver deep genomic insights that guide personalized treatment decisions and improved patient outcomes.
                     </p>
                     <p className="text-lg text-gray-700 leading-relaxed mb-8 font-semibold italic">
                       Where Chromosomes and Genes Reveal the Truth
@@ -1410,7 +1410,7 @@ export default function ProductsPage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="px-8 py-4 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300"
                     >
                       Learn More
                     </motion.button>
@@ -1446,10 +1446,10 @@ export default function ProductsPage() {
               >
                 {/* Section Heading */}
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl md:text-5xl font-bold text-[#0A1931] mb-4">
+                  <h2 className="text-4xl md:text-5xl font-bold text-[#0B1528] mb-4">
                     Clinical Microbiome and Infective Disease Diagnostics
                   </h2>
-                  <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 mx-auto"></div>
+                  <div className="w-24 h-1 bg-gradient-to-r from-[#1646AF] to-[#133C99] mx-auto rounded-full"></div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -1477,11 +1477,11 @@ export default function ProductsPage() {
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="space-y-6 order-1 md:order-2"
                   >
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#0A1931] mb-6">
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6">
                       Revealing Hidden Pathogens. Protecting Human Health.
                     </h2>
                     <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                      Analyze Biotech delivers advanced diagnostics focused on the rapidly evolving fields of infectious diseases and the human microbiome. Our innovative solutions detect pathogens with high sensitivity while providing insights into microbial community balance — critical for patient care, infection control, and public health surveillance.
+                      AUREX delivers advanced diagnostics focused on the rapidly evolving fields of infectious diseases and the human microbiome. Our innovative solutions detect pathogens with high sensitivity while providing insights into microbial community balance — critical for patient care, infection control, and public health surveillance.
                     </p>
                     <p className="text-lg text-gray-700 leading-relaxed mb-8 font-semibold italic">
                       Mapping Microbes. Managing Disease. Maximizing Clinical Impact.
@@ -1489,7 +1489,7 @@ export default function ProductsPage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="px-8 py-4 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300"
                     >
                       Learn More
                     </motion.button>
@@ -1509,10 +1509,10 @@ export default function ProductsPage() {
               >
                 {/* Section Heading */}
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl md:text-5xl font-bold text-[#0A1931] mb-4">
+                  <h2 className="text-4xl md:text-5xl font-bold text-[#0B1528] mb-4">
                     Toxicology Diagnostics
                   </h2>
-                  <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 mx-auto"></div>
+                  <div className="w-24 h-1 bg-gradient-to-r from-[#1646AF] to-[#133C99] mx-auto rounded-full"></div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -1522,11 +1522,11 @@ export default function ProductsPage() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="space-y-6"
                   >
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#0A1931] mb-6">
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6">
                       Safeguarding Lives Through Precision Toxicology
                     </h2>
                     <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                      Analyze Biotech offers advanced toxicology diagnostics designed to accurately detect, monitor, and manage exposure to drugs, poisons, and hazardous chemicals. With rapid turnaround and high analytical confidence, our solutions empower clinicians, forensic medicine, workplaces, and public health authorities to make critical decisions — faster.
+                      AUREX offers advanced toxicology diagnostics designed to accurately detect, monitor, and manage exposure to drugs, poisons, and hazardous chemicals. With rapid turnaround and high analytical confidence, our solutions empower clinicians, forensic medicine, workplaces, and public health authorities to make critical decisions — faster.
                     </p>
                     <p className="text-lg text-gray-700 leading-relaxed mb-8 font-semibold italic">
                       Detect. Analyze. Protect.
@@ -1534,7 +1534,7 @@ export default function ProductsPage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="px-8 py-4 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300"
                     >
                       Learn More
                     </motion.button>
@@ -1570,10 +1570,10 @@ export default function ProductsPage() {
               >
                 {/* Section Heading */}
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl md:text-5xl font-bold text-[#0A1931] mb-4">
+                  <h2 className="text-4xl md:text-5xl font-bold text-[#0B1528] mb-4">
                     Transfusion Medicine
                   </h2>
-                  <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-indigo-600 mx-auto"></div>
+                  <div className="w-24 h-1 bg-gradient-to-r from-[#1646AF] to-[#133C99] mx-auto rounded-full"></div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -1601,11 +1601,11 @@ export default function ProductsPage() {
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="space-y-6 order-1 md:order-2"
                   >
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#0A1931] mb-6">
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6">
                       Empowering Safe Blood. Saving Precious Lives.
                     </h2>
                     <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                      At Analyze Biotech, our Transfusion Medicine solutions are engineered to ensure the highest standards of blood safety, compatibility, and traceability. With state-of-the-art automation, advanced immunohematology assays, and a robust quality-first approach, we help healthcare providers deliver safe transfusions — every single time.
+                      At AUREX, our Transfusion Medicine solutions are engineered to ensure the highest standards of blood safety, compatibility, and traceability. With state-of-the-art automation, advanced immunohematology assays, and a robust quality-first approach, we help healthcare providers deliver safe transfusions — every single time.
                     </p>
                     <p className="text-lg text-gray-700 leading-relaxed mb-8 font-semibold italic">
                       Because every unit of blood carries the power to save a life.
@@ -1613,7 +1613,7 @@ export default function ProductsPage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="px-8 py-4 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300"
                     >
                       Learn More
                     </motion.button>
@@ -1645,10 +1645,10 @@ export default function ProductsPage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-16"
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-[#0A1931] mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-[#0B1528] mb-6">
                 {currentContent.title}
               </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto mb-6"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-[#1646AF] to-[#133C99] mx-auto mb-6 rounded-full"></div>
               <h2 className="text-2xl text-gray-700 font-semibold mb-4">
                 {currentContent.subtitle}
               </h2>

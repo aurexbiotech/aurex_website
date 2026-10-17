@@ -77,9 +77,9 @@ const HaematologyPageContent = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Banner - Changes for each product */}
-      <section className="relative text-white py-20" style={{ backgroundColor: '#D3D3D3' }}>
+      <section className="relative text-slate-900 py-20 bg-gradient-to-br from-[#F6F8FB] via-white to-[#F6F8FB] border-b border-[#BFBFBF]/40">
         {/* Back Arrow Button */}
-        <Link href="/products" className="absolute top-6 left-6 z-50 text-gray-700 hover:text-gray-900 transition-colors">
+        <Link href="/products" className="absolute top-6 left-6 z-50 text-slate-600 hover:text-[#1646AF] transition-colors">
           <ArrowLeft size={32} />
         </Link>
         
@@ -95,16 +95,16 @@ const HaematologyPageContent = () => {
             >
               {/* Left - Product Info */}
               <div>
-                <h1 className="text-6xl font-bold mb-4 text-gray-900">{currentBanner.title}</h1>
-                <p className="text-2xl text-gray-700 mb-6 font-bold">{currentBanner.subtitle}</p>
-                <p className="text-xl text-gray-800 mb-8">
+                <h1 className="text-6xl font-bold mb-4 text-[#0B1528]">{currentBanner.title}</h1>
+                <p className="text-2xl text-[#1646AF] mb-6 font-bold">{currentBanner.subtitle}</p>
+                <p className="text-xl text-slate-600 mb-8">
                   {currentBanner.description}
                 </p>
                 
                 {/* Feature Pills */}
                 <div className="flex flex-wrap gap-3 mb-8">
                   {currentBanner.features.map((feature, index) => (
-                    <span key={index} className="px-4 py-2 bg-gray-600 text-white rounded-full text-sm font-semibold">
+                    <span key={index} className="px-4 py-2 bg-[#133C99] text-white rounded-full text-sm font-semibold">
                       {feature}
                     </span>
                   ))}
@@ -128,12 +128,12 @@ const HaematologyPageContent = () => {
       </section>
 
       {/* Secondary Navigation Bar */}
-      <section className="sticky top-16 z-40 shadow-lg" style={{ backgroundColor: '#D3D3D3' }}>
+      <section className="sticky top-16 z-40 shadow-sm bg-[#F6F8FB] border-b border-[#BFBFBF]/40">
         <div className="container mx-auto px-6 py-4">
-          <nav className="flex justify-center gap-8 text-gray-700 font-medium">
-            <button onClick={() => setSelectedModel('hemotxpro')} className={`hover:text-gray-900 transition-colors ${selectedModel === 'hemotxpro' ? 'border-b-2 border-gray-700' : ''}`}>Hemotx Pro</button>
-            <button onClick={() => setSelectedModel('hemotxi5')} className={`hover:text-gray-900 transition-colors ${selectedModel === 'hemotxi5' ? 'border-b-2 border-gray-700' : ''}`}>Hemotx i5</button>
-            <button onClick={() => setSelectedModel('hemotxi')} className={`hover:text-gray-900 transition-colors ${selectedModel === 'hemotxi' ? 'border-b-2 border-gray-700' : ''}`}>Hemotx i</button>
+          <nav className="flex justify-center gap-8 text-slate-700 font-medium">
+            <button onClick={() => setSelectedModel('hemotxpro')} className={`transition-colors py-1 ${selectedModel === 'hemotxpro' ? 'text-[#1646AF] border-b-2 border-[#1646AF] font-bold' : 'text-slate-600 hover:text-[#1646AF]'}`}>Hemotx Pro</button>
+            <button onClick={() => setSelectedModel('hemotxi5')} className={`transition-colors py-1 ${selectedModel === 'hemotxi5' ? 'text-[#1646AF] border-b-2 border-[#1646AF] font-bold' : 'text-slate-600 hover:text-[#1646AF]'}`}>Hemotx i5</button>
+            <button onClick={() => setSelectedModel('hemotxi')} className={`transition-colors py-1 ${selectedModel === 'hemotxi' ? 'text-[#1646AF] border-b-2 border-[#1646AF] font-bold' : 'text-slate-600 hover:text-[#1646AF]'}`}>Hemotx i</button>
           </nav>
         </div>
       </section>
@@ -154,7 +154,7 @@ const HaematologyPageContent = () => {
                   {/* Overview Section */}
                   <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                      <h2 className="text-4xl font-bold text-[#0A1931] mb-6">Hemotx Pro Overview</h2>
+                      <h2 className="text-4xl font-bold text-[#0B1528] mb-6">Hemotx Pro Overview</h2>
                       <p className="text-lg text-gray-700 leading-relaxed mb-6">
                         Introducing Hemotx Pro, a compact and intelligent 3-Part Hematology Analyzer engineered to deliver high-precision CBC testing for clinical laboratories, diagnostic centers, and hospitals. Designed with advanced microfluidic technology and intelligent algorithms, Hemotx Pro ensures fast, accurate, and cost-effective results — every time.
                       </p>
@@ -202,7 +202,7 @@ const HaematologyPageContent = () => {
 
                   {/* Technical Specifications - Card Based Layout */}
                   <div>
-                    <h2 className="text-3xl font-bold text-[#0A1931] mb-8 text-center">Hemotx Pro Technical Specifications</h2>
+                    <h2 className="text-3xl font-bold text-[#0B1528] mb-8 text-center">Hemotx Pro Technical Specifications</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {/* Throughput */}
                       <motion.div
@@ -316,7 +316,7 @@ const HaematologyPageContent = () => {
 
                   {/* Clinical & Operational Advantages */}
                   <div>
-                    <h2 className="text-3xl font-bold text-[#0A1931] mb-8 text-center">Clinical & Operational Advantages</h2>
+                    <h2 className="text-3xl font-bold text-[#0B1528] mb-8 text-center">Clinical & Operational Advantages</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                       <motion.div
                         whileHover={{ y: -5 }}
@@ -388,8 +388,8 @@ const HaematologyPageContent = () => {
                   {/* Overview Section */}
                   <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                      <h2 className="text-4xl font-bold text-[#0A1931] mb-2">Hemotx-i5</h2>
-                      <h3 className="text-3xl font-bold text-[#0A1931] mb-6">5-Part Hematology Analyzer</h3>
+                      <h2 className="text-4xl font-bold text-[#0B1528] mb-2">Hemotx-i5</h2>
+                      <h3 className="text-3xl font-bold text-[#0B1528] mb-6">5-Part Hematology Analyzer</h3>
                       <h3 className="text-2xl font-semibold text-gray-700 mb-4">Precision Redefined for Advanced Diagnostics</h3>
                       <p className="text-lg text-gray-700 leading-relaxed mb-6">
                         Hemotx is a high-performance 5-part differential hematology analyzer engineered to deliver precise, detailed, and high-throughput Complete Blood Count (CBC) analysis. Designed for advanced diagnostic laboratories, multi-specialty hospitals, and research institutions, Hemotx provides in-depth WBC classification and a broad range of hematological parameters for superior clinical interpretation.
@@ -438,7 +438,7 @@ const HaematologyPageContent = () => {
 
                   {/* Technical Specifications */}
                   <div>
-                    <h2 className="text-3xl font-bold text-[#0A1931] mb-8 text-center">Hemotx i5 – Technical Overview</h2>
+                    <h2 className="text-3xl font-bold text-[#0B1528] mb-8 text-center">Hemotx i5 – Technical Overview</h2>
                     <p className="text-lg text-gray-700 text-center mb-8 max-w-4xl mx-auto">
                       The Hemotx is a fully automated, high-precision 5-part differential hematology analyzer, designed to meet the rigorous demands of modern clinical laboratories. It integrates flow cytometry with laser scattering, impedance analysis, and advanced algorithmic intelligence to deliver exceptionally accurate, reproducible, and detailed hematologic assessments.
                     </p>
@@ -546,7 +546,7 @@ const HaematologyPageContent = () => {
 
                   {/* Clinical & Operational Benefits */}
                   <div>
-                    <h2 className="text-3xl font-bold text-[#0A1931] mb-8 text-center">Clinical & Operational Benefits</h2>
+                    <h2 className="text-3xl font-bold text-[#0B1528] mb-8 text-center">Clinical & Operational Benefits</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                       <motion.div
                         whileHover={{ y: -5 }}
@@ -618,8 +618,8 @@ const HaematologyPageContent = () => {
                   {/* Overview Section */}
                   <div className="grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                      <h2 className="text-4xl font-bold text-[#0A1931] mb-2">Hemotx-i</h2>
-                      <h3 className="text-3xl font-bold text-[#0A1931] mb-6">5-Part Hematology Analyzer</h3>
+                      <h2 className="text-4xl font-bold text-[#0B1528] mb-2">Hemotx-i</h2>
+                      <h3 className="text-3xl font-bold text-[#0B1528] mb-6">5-Part Hematology Analyzer</h3>
                       <h3 className="text-2xl font-semibold text-gray-700 mb-4">Precision Redefined for Advanced Diagnostics</h3>
                       <p className="text-lg text-gray-700 leading-relaxed mb-6">
                         Hemotx is a high-performance 5-part differential hematology analyzer engineered to deliver precise, detailed, and high-throughput Complete Blood Count (CBC) analysis. Designed for advanced diagnostic laboratories, multi-specialty hospitals, and research institutions, Hemotx provides in-depth WBC classification and a broad range of hematological parameters for superior clinical interpretation.
@@ -668,7 +668,7 @@ const HaematologyPageContent = () => {
 
                   {/* Technical Specifications */}
                   <div>
-                    <h2 className="text-3xl font-bold text-[#0A1931] mb-8 text-center">Hemotx i – Technical Overview</h2>
+                    <h2 className="text-3xl font-bold text-[#0B1528] mb-8 text-center">Hemotx i – Technical Overview</h2>
                     <p className="text-lg text-gray-700 text-center mb-8 max-w-4xl mx-auto">
                       The Hemotx is a fully automated, high-precision 5-part differential hematology analyzer, designed to meet the rigorous demands of modern clinical laboratories. It integrates flow cytometry with laser scattering, impedance analysis, and advanced algorithmic intelligence to deliver exceptionally accurate, reproducible, and detailed hematologic assessments.
                     </p>
@@ -776,7 +776,7 @@ const HaematologyPageContent = () => {
 
                   {/* Clinical & Operational Benefits */}
                   <div>
-                    <h2 className="text-3xl font-bold text-[#0A1931] mb-8 text-center">Clinical & Operational Benefits</h2>
+                    <h2 className="text-3xl font-bold text-[#0B1528] mb-8 text-center">Clinical & Operational Benefits</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                       <motion.div
                         whileHover={{ y: -5 }}

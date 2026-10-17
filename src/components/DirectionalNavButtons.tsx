@@ -55,7 +55,7 @@ export default function DirectionalNavButtons({
           group relative px-4 py-3 sm:px-6 sm:py-4 transition-all duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center
           ${disablePrevious 
             ? 'opacity-40 cursor-not-allowed' 
-            : 'hover:bg-amber-400/20 cursor-pointer active:bg-amber-400/30'
+            : 'hover:bg-[#1646AF]/30 cursor-pointer active:bg-[#1646AF]/45'
           }
         `}
         aria-label="Previous"
@@ -66,7 +66,7 @@ export default function DirectionalNavButtons({
             w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-200
             ${disablePrevious 
               ? 'text-gray-500' 
-              : 'text-gray-300 group-hover:text-amber-400'
+              : 'text-gray-200 group-hover:text-white'
             }
           `}
           strokeWidth={2.5}
@@ -74,7 +74,7 @@ export default function DirectionalNavButtons({
       </motion.button>
 
       {/* Vertical Separator */}
-      <div className="h-7 w-px bg-gray-400/40" />
+      <div className="h-7 w-px bg-white/20" />
 
       {/* Next Button (Right Arrow) */}
       <motion.button
@@ -86,7 +86,7 @@ export default function DirectionalNavButtons({
           group relative px-4 py-3 sm:px-6 sm:py-4 transition-all duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center
           ${disableNext 
             ? 'opacity-40 cursor-not-allowed' 
-            : 'hover:bg-amber-400/20 cursor-pointer active:bg-amber-400/30'
+            : 'hover:bg-[#1646AF]/30 cursor-pointer active:bg-[#1646AF]/45'
           }
         `}
         aria-label="Next"
@@ -97,7 +97,7 @@ export default function DirectionalNavButtons({
             w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-200
             ${disableNext 
               ? 'text-gray-500' 
-              : 'text-gray-300 group-hover:text-amber-400'
+              : 'text-gray-200 group-hover:text-white'
             }
           `}
           strokeWidth={2.5}

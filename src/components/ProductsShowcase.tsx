@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, Award, Zap, Shield, Users } from 'lucide-react'
 
@@ -145,36 +146,36 @@ const ProductsShowcase = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
         >
-          <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Award className="text-blue-600" size={24} />
+          <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-[#BFBFBF]/30">
+            <div className="w-12 h-12 bg-[#F6F8FB] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#1646AF]/20">
+              <Award className="text-[#1646AF]" size={24} />
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">ISO Certified</h3>
-            <p className="text-gray-600 text-sm">Quality management systems certified to international standards</p>
+            <p className="text-[#64748B] text-sm">Quality management systems certified to international standards</p>
           </div>
 
-          <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Zap className="text-green-600" size={24} />
+          <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-[#BFBFBF]/30">
+            <div className="w-12 h-12 bg-[#F6F8FB] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#1646AF]/20">
+              <Zap className="text-[#1646AF]" size={24} />
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">High Performance</h3>
-            <p className="text-gray-600 text-sm">Advanced technology delivering superior accuracy and speed</p>
+            <p className="text-[#64748B] text-sm">Advanced technology delivering superior accuracy and speed</p>
           </div>
 
-          <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-            <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Shield className="text-purple-600" size={24} />
+          <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-[#BFBFBF]/30">
+            <div className="w-12 h-12 bg-[#F6F8FB] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#133C99]/20">
+              <Shield className="text-[#133C99]" size={24} />
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Reliable Support</h3>
-            <p className="text-gray-600 text-sm">24/7 technical support and comprehensive service network</p>
+            <p className="text-[#64748B] text-sm">24/7 technical support and comprehensive service network</p>
           </div>
 
-          <div className="text-center p-6 bg-white rounded-xl shadow-sm">
-            <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Users className="text-orange-600" size={24} />
+          <div className="text-center p-6 bg-white rounded-xl shadow-sm border border-[#BFBFBF]/30">
+            <div className="w-12 h-12 bg-[#F6F8FB] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#133C99]/20">
+              <Users className="text-[#133C99]" size={24} />
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Expert Training</h3>
-            <p className="text-gray-600 text-sm">Comprehensive training programs for optimal product utilization</p>
+            <p className="text-[#64748B] text-sm">Comprehensive training programs for optimal product utilization</p>
           </div>
         </motion.div>
 
@@ -184,19 +185,19 @@ const ProductsShowcase = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           viewport={{ once: true }}
-          className="text-center bg-blue-600 rounded-2xl p-8 text-white"
+          className="text-center bg-[#133C99] rounded-2xl p-8 text-white border border-white/20 shadow-xl"
         >
-          <h3 className="text-2xl font-bold mb-4">Ready to Transform Your Laboratory?</h3>
-          <p className="text-blue-100 mb-6">
+          <h3 className="text-2xl font-bold mb-4 text-white">Ready to Transform Your Laboratory?</h3>
+          <p className="text-white/80 mb-6 max-w-2xl mx-auto">
             Explore our complete product portfolio and find the perfect solution for your diagnostic needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors">
+            <Link href="/products" className="bg-white text-[#1646AF] px-8 py-3 rounded-lg font-medium hover:bg-[#F6F8FB] hover:text-[#133C99] transition-colors shadow-sm inline-block">
               View All Products
-            </button>
-            <button className="border-2 border-blue-300 text-blue-100 px-8 py-3 rounded-lg font-medium hover:bg-blue-300 hover:text-blue-900 transition-colors">
+            </Link>
+            <Link href="/contact" className="border border-white/60 text-white px-8 py-3 rounded-lg font-medium hover:bg-white/10 transition-colors inline-block">
               Request Demo
-            </button>
+            </Link>
           </div>
         </motion.div>
       </div>

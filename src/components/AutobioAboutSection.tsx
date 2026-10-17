@@ -116,7 +116,7 @@ const AutobioAboutSection: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h2 className="text-3xl font-light text-gray-500 mb-2">About</h2>
-            <h1 className="text-6xl font-bold text-blue-600">Analyze Biotech</h1>
+            <h1 className="text-6xl font-bold text-blue-600">AUREX</h1>
           </motion.div>
 
           {/* Company Description */}
@@ -127,7 +127,7 @@ const AutobioAboutSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              Founded in 2015, Analyze Biotech has emerged as a pioneering force in biotechnology 
+              Founded in 2015, AUREX has emerged as a pioneering force in biotechnology 
               innovation, developing cutting-edge diagnostic solutions that bridge the gap between 
               advanced science and practical healthcare applications.
             </p>

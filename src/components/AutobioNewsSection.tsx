@@ -59,7 +59,7 @@ const AutobioNewsSection: React.FC = () => {
   const newsItems: NewsItem[] = [
     {
       id: 1,
-      headline: 'Analyze Biotech Unveils New T-Series at ADLM 2025',
+      headline: 'AUREX Unveils New T-Series at ADLM 2025',
       description: 'Revolutionary diagnostic platform showcased at the Association for Diagnostics & Laboratory Medicine annual conference, featuring AI-powered analysis and 50% faster processing times.',
       date: 'October 8, 2025',
       category: 'Product Launch',
@@ -137,13 +137,13 @@ const AutobioNewsSection: React.FC = () => {
 
   const getCategoryColor = (category: string) => {
     const colors = {
-      'Product Launch': 'text-cyan-400 bg-cyan-400/20',
-      'Partnership': 'text-green-400 bg-green-400/20',
-      'Research': 'text-purple-400 bg-purple-400/20',
-      'Funding': 'text-yellow-400 bg-yellow-400/20',
-      'Regulatory': 'text-blue-400 bg-blue-400/20'
+      'Product Launch': 'text-white bg-[#1646AF]',
+      'Partnership': 'text-white bg-[#133C99]',
+      'Research': 'text-white bg-[#0E2A6C]',
+      'Funding': 'text-white bg-[#1646AF]',
+      'Regulatory': 'text-white bg-[#133C99]'
     };
-    return colors[category as keyof typeof colors] || 'text-gray-400 bg-gray-400/20';
+    return colors[category as keyof typeof colors] || 'text-white bg-[#1646AF]';
   };
 
   const getEventIcon = (type: string) => {
@@ -159,8 +159,8 @@ const AutobioNewsSection: React.FC = () => {
 
   return (
     <section className="relative h-full overflow-hidden">
-      {/* Dark Green/Teal Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-900 to-green-900" />
+      {/* AUREX Deep Blue Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0B1528] via-[#133C99] to-[#0E2A6C]" />
       
       {/* Blurred Lab Work Background */}
       <div className="absolute inset-0 opacity-20">
@@ -211,7 +211,7 @@ const AutobioNewsSection: React.FC = () => {
 
                 {/* Description */}
                 <motion.p
-                  className="text-xl text-emerald-100 mb-8 leading-relaxed max-w-4xl"
+                  className="text-xl text-white/90 mb-8 leading-relaxed max-w-4xl"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
@@ -226,12 +226,12 @@ const AutobioNewsSection: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
                 >
-                  <div className="flex items-center space-x-3 text-emerald-200">
-                    <Calendar className="w-5 h-5" />
+                  <div className="flex items-center space-x-3 text-white/80">
+                    <Calendar className="w-5 h-5 text-blue-300" />
                     <span className="font-medium">{currentNews.date}</span>
                   </div>
-                  <div className="flex items-center space-x-3 text-emerald-200">
-                    <Clock className="w-5 h-5" />
+                  <div className="flex items-center space-x-3 text-white/80">
+                    <Clock className="w-5 h-5 text-blue-300" />
                     <span className="font-medium">{currentNews.readTime}</span>
                   </div>
                 </motion.div>
@@ -242,7 +242,7 @@ const AutobioNewsSection: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
                 >
-                  <button className="group flex items-center space-x-3 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-2xl border border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                  <button className="group flex items-center space-x-3 bg-[#1646AF] hover:bg-[#133C99] text-white font-semibold px-8 py-4 rounded-2xl border border-white/20 transition-all duration-300 shadow-lg shadow-[#1646AF]/30 hover:shadow-xl hover:scale-105">
                     <span className="text-lg">Read Full Article</span>
                     <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                   </button>
@@ -260,7 +260,7 @@ const AutobioNewsSection: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
-                <Microscope className="w-6 h-6 mr-3 text-emerald-400" />
+                <Microscope className="w-6 h-6 mr-3 text-[#93C5FD]" />
                 Upcoming Events
               </h3>
 
@@ -275,31 +275,31 @@ const AutobioNewsSection: React.FC = () => {
                     whileHover={{ scale: 1.02, y: -2 }}
                   >
                     <div className="flex items-start space-x-3">
-                      <div className="flex-shrink-0 w-10 h-10 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-400">
+                      <div className="flex-shrink-0 w-10 h-10 bg-[#1646AF]/30 rounded-lg flex items-center justify-center text-[#93C5FD]">
                         {getEventIcon(event.type)}
                       </div>
                       
                       <div className="flex-1">
-                        <h4 className="font-semibold text-white mb-2 group-hover:text-emerald-300 transition-colors duration-300">
+                        <h4 className="font-semibold text-white mb-2 group-hover:text-blue-200 transition-colors duration-300">
                           {event.title}
                         </h4>
                         
-                        <div className="space-y-1 text-sm text-emerald-200">
+                        <div className="space-y-1 text-sm text-white/70">
                           <div className="flex items-center">
-                            <Calendar className="w-3 h-3 mr-2" />
+                            <Calendar className="w-3 h-3 mr-2 text-blue-300" />
                             {event.date}
                           </div>
                           
                           {event.time && (
                             <div className="flex items-center">
-                              <Clock className="w-3 h-3 mr-2" />
+                              <Clock className="w-3 h-3 mr-2 text-blue-300" />
                               {event.time}
                             </div>
                           )}
                           
                           {event.location && (
                             <div className="flex items-center">
-                              <ExternalLink className="w-3 h-3 mr-2" />
+                              <ExternalLink className="w-3 h-3 mr-2 text-blue-300" />
                               {event.location}
                             </div>
                           )}
@@ -312,7 +312,7 @@ const AutobioNewsSection: React.FC = () => {
 
               {/* View All Events Button */}
               <motion.button
-                className="w-full mt-6 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="w-full mt-6 bg-[#1646AF] hover:bg-[#133C99] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg shadow-[#1646AF]/30 hover:shadow-xl border border-white/20"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
@@ -331,7 +331,7 @@ const AutobioNewsSection: React.FC = () => {
             <div className="flex items-center justify-between">
               {/* Navigation Circles */}
               <div className="flex items-center space-x-4">
-                <span className="text-emerald-200 font-medium mr-4">News Articles:</span>
+                <span className="text-white/80 font-medium mr-4">News Articles:</span>
                 {newsItems.map((_, index) => (
                   <motion.button
                     key={index}
@@ -339,8 +339,8 @@ const AutobioNewsSection: React.FC = () => {
                     className={`
                       w-12 h-12 rounded-full font-bold transition-all duration-300 shadow-lg
                       ${index === currentNewsIndex 
-                        ? 'bg-emerald-500 text-white scale-110' 
-                        : 'bg-white/20 text-emerald-200 hover:bg-white/30 hover:scale-105'
+                        ? 'bg-[#1646AF] text-white scale-110 shadow-lg shadow-[#1646AF]/40 ring-2 ring-white' 
+                        : 'bg-white/15 text-white/80 hover:bg-white/25 hover:scale-105'
                       }
                     `}
                     whileHover={{ scale: index === currentNewsIndex ? 1.1 : 1.05 }}
@@ -355,11 +355,11 @@ const AutobioNewsSection: React.FC = () => {
               </div>
 
               {/* Auto-play Indicator */}
-              <div className="flex items-center space-x-3 text-emerald-200">
+              <div className="flex items-center space-x-3 text-white/80">
                 <div className="flex space-x-1">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+                  <div className="w-2 h-2 bg-[#1646AF] rounded-full animate-pulse" />
+                  <div className="w-2 h-2 bg-[#1646AF] rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
+                  <div className="w-2 h-2 bg-[#1646AF] rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
                 </div>
                 <span className="text-sm font-medium">Auto-rotating</span>
               </div>
@@ -369,9 +369,9 @@ const AutobioNewsSection: React.FC = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-1/4 left-8 w-32 h-32 bg-emerald-400/10 rounded-full blur-xl" />
-      <div className="absolute bottom-1/3 right-12 w-24 h-24 bg-teal-400/10 rounded-full blur-xl" />
-      <div className="absolute top-2/3 left-1/4 w-16 h-16 bg-green-400/10 rounded-full blur-xl" />
+      <div className="absolute top-1/4 left-8 w-32 h-32 bg-[#1646AF]/15 rounded-full blur-xl" />
+      <div className="absolute bottom-1/3 right-12 w-24 h-24 bg-[#133C99]/20 rounded-full blur-xl" />
+      <div className="absolute top-2/3 left-1/4 w-16 h-16 bg-[#1646AF]/10 rounded-full blur-xl" />
 
       {/* Directional Navigation Buttons - Bottom Center */}
       <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-50">

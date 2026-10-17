@@ -2,29 +2,42 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-  /* Black & Gold Theme Variables */
-  --gold: #d97706;
-  --gold-light: #fbbf24;
-  --black-bg: #0a0a0a;
+  --foreground: #0F172A;
+
+  /* Official AUREX 6-Color Brand System */
+  --aurex-primary: #1646AF;        /* Primary Royal Blue */
+  --aurex-primary-deep: #133C99;   /* Deep Blue */
+  --aurex-white: #FFFFFF;          /* Pure White */
+  --aurex-background: #F6F8FB;     /* Light Gray Section Surface */
+  --aurex-silver: #BFBFBF;         /* Silver Gray Border/Divider */
+  --aurex-text-secondary: #64748B; /* Text Gray */
+  --aurex-text-dark: #0F172A;      /* High-contrast Heading/Body */
+
+  /* Design Tokens: Spacing, Radius & Layout */
+  --aurex-radius-sm: 8px;
+  --aurex-radius-md: 14px;
+  --aurex-radius-lg: 20px;
+  --aurex-container-width: 1200px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-aboreto: var(--font-aboreto), cursive;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* AUREX Tailwind Color Utilities */
+  --color-aurex-primary: #1646AF;
+  --color-aurex-deep: #133C99;
+  --color-aurex-white: #FFFFFF;
+  --color-aurex-light: #F6F8FB;
+  --color-aurex-silver: #BFBFBF;
+  --color-aurex-gray: #64748B;
+  --color-aurex-dark: #0F172A;
 }
 
 /* ==============================================
-   SMOOTH SCROLL - Like Autobio Website
+   SMOOTH SCROLL - Professional Biotechnology UI
    ============================================== */
 html {
   scroll-behavior: smooth;
@@ -33,33 +46,11 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: var(--font-sans);
   overflow-x: hidden;
   /* Page fade-in on load */
   animation: pageLoad 0.6s ease-out;
 }
-
-@keyframes pageLoad {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Reduce overall font sizes across all components */
-.text-xs { font-size: 0.7rem; }
-.text-sm { font-size: 0.8rem; }
-.text-base { font-size: 0.9rem; }
-.text-lg { font-size: 1rem; }
-.text-xl { font-size: 1.15rem; }
-.text-2xl { font-size: 1.4rem; }
-.text-3xl { font-size: 1.7rem; }
-.text-4xl { font-size: 2rem; }
-.text-5xl { font-size: 2.5rem; }
-.text-6xl { font-size: 3rem; }
 
 /* ==============================================
    SCROLL ANIMATIONS - Fade & Slide In
@@ -132,30 +123,34 @@ body {
 
 /* ==============================================
    HEADER SCROLL EFFECT
-   Header gets blur and shadow on scroll
+   Header gets blur and subtle shadow on scroll
    ============================================== */
 header.scrolled {
-  background: rgba(10, 10, 10, 0.95) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(217, 119, 6, 0.1);
+  box-shadow: 0 2px 20px rgba(22, 70, 175, 0.08);
   transition: all 0.3s ease;
 }
 
 /* ==============================================
-   GOLD THEME - Hover Effects
+   AUREX THEME - Hover & Underline Effects
    ============================================== */
+.aurex-hover,
 .gold-hover {
   transition: color 0.3s ease;
 }
 
+.aurex-hover:hover,
 .gold-hover:hover {
-  color: var(--gold-light);
+  color: var(--aurex-primary);
 }
 
+.aurex-underline,
 .gold-underline {
   position: relative;
 }
 
+.aurex-underline::after,
 .gold-underline::after {
   content: '';
   position: absolute;
@@ -163,25 +158,27 @@ header.scrolled {
   height: 2px;
   bottom: -2px;
   left: 0;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  background: linear-gradient(90deg, var(--aurex-primary), var(--aurex-primary-deep));
   transition: width 0.3s ease;
 }
 
+.aurex-underline:hover::after,
 .gold-underline:hover::after {
   width: 100%;
 }
 
 /* ==============================================
    SCROLL PROGRESS BAR
-   Shows page reading progress
+   Shows page reading progress in Royal Blue
    ============================================== */
-#scroll-progress {
+#scroll-progress,
+#company-scroll-progress {
   position: fixed;
   top: 0;
   left: 0;
   width: 0%;
   height: 3px;
-  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  background: linear-gradient(90deg, var(--aurex-primary), var(--aurex-primary-deep));
   z-index: 9999;
   transition: width 0.1s ease;
 }
@@ -290,7 +287,7 @@ header.scrolled {
 
 /* Better focus states for accessibility */
 .focus-visible:focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--aurex-primary);
   outline-offset: 2px;
 }
 
@@ -319,7 +316,7 @@ header.scrolled {
 /* Scrollbar styling for webkit browsers */
 .scrollbar-thin {
   scrollbar-width: thin;
-  scrollbar-color: var(--gold) transparent;
+  scrollbar-color: var(--aurex-primary) transparent;
 }
 
 .scrollbar-thin::-webkit-scrollbar {
@@ -332,10 +329,63 @@ header.scrolled {
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background-color: var(--gold);
+  background-color: var(--aurex-primary);
   border-radius: 2px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background-color: var(--gold-light);
+  background-color: var(--aurex-primary-deep);
+}
+
+/* ==============================================
+   AUREX CORPORATE DESIGN UTILITIES
+   ============================================== */
+.aurex-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--aurex-primary);
+  color: var(--aurex-white);
+  font-weight: 500;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--aurex-radius-sm);
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 8px rgba(22, 70, 175, 0.2);
+}
+
+.aurex-btn-primary:hover {
+  background-color: var(--aurex-primary-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(19, 60, 153, 0.3);
+}
+
+.aurex-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--aurex-white);
+  color: var(--aurex-primary);
+  border: 1px solid var(--aurex-primary);
+  font-weight: 500;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--aurex-radius-sm);
+  transition: all 0.2s ease-in-out;
+}
+
+.aurex-btn-secondary:hover {
+  background-color: var(--aurex-background);
+  color: var(--aurex-primary-deep);
+}
+
+.aurex-card {
+  background-color: var(--aurex-white);
+  border: 1px solid rgba(191, 191, 191, 0.35);
+  border-radius: var(--aurex-radius-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.aurex-card:hover {
+  box-shadow: 0 10px 25px -5px rgba(22, 70, 175, 0.08);
+  border-color: rgba(22, 70, 175, 0.25);
 }

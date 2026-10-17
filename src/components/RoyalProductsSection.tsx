@@ -114,7 +114,7 @@ const RoyalProductsSection = () => {
   }
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#F6F8FB]">
+    <section className="relative min-h-screen overflow-hidden bg-[#F1F5F9]">
       {/* Main Content Container */}
       <div className="relative z-10 h-screen flex items-center px-8 sm:px-16 pt-16 pb-24">
         <AnimatePresence mode="wait">
@@ -134,7 +134,7 @@ const RoyalProductsSection = () => {
                 transition={{ duration: 0.5 }}
               >
                 {/* Eyebrow badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#BFBFBF]/40 text-[#133C99] text-xs font-semibold tracking-wider uppercase mb-4 shadow-xs">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#BFBFBF]/50 text-[#1646AF] text-xs font-semibold tracking-wider uppercase mb-4 shadow-xs">
                   Diagnostic Systems
                 </div>
 
@@ -144,7 +144,7 @@ const RoyalProductsSection = () => {
                 </h1>
 
                 {/* Current Product Category */}
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-[#133C99] tracking-tight mb-3">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1646AF] tracking-tight mb-3">
                   {currentProduct.name}
                 </h2>
 
@@ -161,8 +161,8 @@ const RoyalProductsSection = () => {
                         onClick={() => setSelectedModel(model.id)}
                         className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
                           selectedModel === model.id
-                            ? 'bg-[#133C99] text-white shadow-xs'
-                            : 'text-[#64748B] hover:text-[#111827] hover:bg-[#F6F8FB]'
+                            ? 'bg-[#1646AF] text-white shadow-xs'
+                            : 'text-[#64748B] hover:text-[#111827] hover:bg-[#F1F5F9]'
                         }`}
                       >
                         {model.name}
@@ -176,14 +176,14 @@ const RoyalProductsSection = () => {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-6 py-3 bg-[#133C99] hover:bg-[#1646AF] text-white rounded-lg font-medium shadow-sm transition-all duration-200"
+                    className="px-6 py-3 bg-[#1646AF] hover:bg-[#133C99] text-white rounded-lg font-medium shadow-sm transition-all duration-200"
                   >
                     Learn More
                   </motion.button>
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-6 py-3 bg-white hover:bg-[#F6F8FB] text-[#133C99] border border-[#BFBFBF]/60 rounded-lg font-medium transition-all duration-200 shadow-xs"
+                    className="px-6 py-3 bg-white hover:bg-[#F1F5F9] text-[#1646AF] border border-[#BFBFBF]/60 rounded-lg font-medium transition-all duration-200 shadow-xs"
                   >
                     + Watch More
                   </motion.button>

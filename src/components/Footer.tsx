@@ -22,8 +22,8 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4 sm:space-y-6 sm:col-span-2 lg:col-span-1">
             <div>
-              <h3 className="text-xl sm:text-2xl font-extrabold tracking-wider text-white">AUREX</h3>
-              <p className="text-sm text-white/75 mt-1 font-medium">Advanced Diagnostic & Laboratory Solutions</p>
+              <h3 className="text-xl sm:text-2xl font-black tracking-wider text-white leading-none">AUREX</h3>
+              <p className="text-xs text-blue-200 tracking-[0.24em] uppercase mt-1.5 font-semibold">BIOTECH AUTOMATION</p>
             </div>
             
             <p className="text-sm sm:text-base text-white/80 leading-relaxed">

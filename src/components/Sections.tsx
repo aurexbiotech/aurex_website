@@ -71,7 +71,7 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative h-full flex items-center justify-center overflow-hidden bg-white">
+    <section className="relative h-full flex items-center justify-center overflow-hidden bg-[#F1F5F9]">
       <div className="container max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 z-10 py-16 lg:py-0">
         {/* Animated Sub-Slide Content */}
         <AnimatePresence mode="wait">
@@ -92,7 +92,7 @@ export const HeroSection: React.FC = () => {
                 transition={{ duration: 0.3, delay: 0.1 }}
                 className="flex justify-center lg:justify-start"
               >
-                <span className="inline-flex items-center px-3 py-1 rounded-md bg-[#F6F8FB] border border-[#BFBFBF]/40 text-xs font-semibold uppercase tracking-wider text-[#133C99]">
+                <span className="inline-flex items-center px-3 py-1 rounded-full bg-white border border-[#BFBFBF]/50 text-xs font-semibold uppercase tracking-wider text-[#1646AF] shadow-xs">
                   Diagnostic Automation
                 </span>
               </motion.div>
@@ -117,7 +117,7 @@ export const HeroSection: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
               >
-                <span className="text-xl sm:text-2xl font-semibold text-[#133C99] tracking-wide block">
+                <span className="text-xl sm:text-2xl font-bold text-[#1646AF] tracking-wide block">
                   {heroSlides[currentView].title[0]}
                 </span>
               </motion.div>
@@ -132,7 +132,7 @@ export const HeroSection: React.FC = () => {
                 {heroSlides[currentView].description}
               </motion.p>
 
-              {/* Learn More Button - Navy Blue with White Text */}
+              {/* Learn More Button - AUREX Royal Blue with White Text */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -143,7 +143,7 @@ export const HeroSection: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => router.push(heroSlides[currentView].link)}
-                  className="px-8 py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white font-medium rounded-lg shadow-sm hover:shadow transition-all duration-200 cursor-pointer text-base"
+                  className="px-8 py-3.5 bg-[#1646AF] hover:bg-[#133C99] text-white font-medium rounded-lg shadow-sm hover:shadow transition-all duration-200 cursor-pointer text-base"
                 >
                   Learn More
                 </motion.button>
@@ -152,13 +152,13 @@ export const HeroSection: React.FC = () => {
 
             {/* Right Product Column (~52% width) */}
             <div className="lg:col-span-6 flex justify-center items-center order-1 lg:order-2">
-              <div className="relative w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[560px] flex items-center justify-center p-2 sm:p-4">
+              <div className="relative w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[560px] flex items-center justify-center p-6 sm:p-8 bg-white rounded-2xl border border-[#BFBFBF]/40 shadow-sm aspect-4/3">
                 <Image
                   src={heroSlides[currentView].image}
                   alt={heroSlides[currentView].imageAlt}
                   width={720}
                   height={540}
-                  className="object-contain max-h-[340px] sm:max-h-[420px] lg:max-h-[480px] w-auto h-auto transition-transform duration-300 hover:scale-102"
+                  className="object-contain max-h-[300px] sm:max-h-[380px] lg:max-h-[420px] w-auto h-auto transition-transform duration-300 hover:scale-102"
                   priority={currentView === 0}
                   loading={currentView === 0 ? 'eager' : 'lazy'}
                   quality={90}

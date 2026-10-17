@@ -50,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${aboreto.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${aboreto.variable} font-sans antialiased bg-[#F1F5F9] text-[#111827]`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

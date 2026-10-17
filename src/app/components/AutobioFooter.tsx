@@ -25,8 +25,8 @@ const AutobioFooter: React.FC = () => {
           
           {/* Company logo and tagline */}
           <div className="mb-8 lg:mb-0">
-            <h3 className="text-2xl lg:text-3xl font-extrabold tracking-wider text-white">AUREX</h3>
-            <p className="text-blue-200 text-sm mt-1">Advanced Diagnostic & Laboratory Solutions</p>
+            <h3 className="text-2xl lg:text-3xl font-black tracking-wider text-white leading-none">AUREX</h3>
+            <p className="text-blue-200 text-xs tracking-[0.24em] uppercase mt-1.5 font-semibold">BIOTECH AUTOMATION</p>
           </div>
 
           {/* Social media icons */}

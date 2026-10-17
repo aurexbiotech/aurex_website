@@ -64,7 +64,7 @@ const TurnkeyProjectsSlide: React.FC = () => {
   const currentTopic = turnkeyTopics[activeTab]
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-white">
+    <section className="relative min-h-screen w-full overflow-hidden bg-[#F1F5F9]">
       {/* Main Content Container */}
       <div className="relative z-10 h-screen flex flex-col justify-between">
         
@@ -74,7 +74,7 @@ const TurnkeyProjectsSlide: React.FC = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F6F8FB] border border-[#BFBFBF]/40 text-[#133C99] text-xs font-semibold tracking-wider uppercase"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#BFBFBF]/50 text-[#1646AF] text-xs font-semibold tracking-wider uppercase shadow-xs"
           >
             Capabilities
           </motion.div>
@@ -107,12 +107,12 @@ const TurnkeyProjectsSlide: React.FC = () => {
                     {currentTopic.description}
                   </p>
 
-                  {/* Action Button with AUREX Navy Blue */}
+                  {/* Action Button with AUREX Royal Blue */}
                   <motion.button
                     onClick={() => router.push('/capabilities?section=turnkey-projects')}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="group mt-4 inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white rounded-lg font-medium shadow-sm transition-all duration-300"
+                    className="group mt-4 inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#1646AF] hover:bg-[#133C99] text-white rounded-lg font-medium shadow-sm transition-all duration-300"
                   >
                     <span>Explore Solutions</span>
                     <ArrowRight 

@@ -160,7 +160,7 @@ const CompanySection: React.FC = () => {
   }
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-white">
+    <section className="relative min-h-screen w-full overflow-hidden bg-[#F1F5F9]">
       {/* Main Content Container */}
       <div className="relative z-10 h-screen flex flex-col justify-between">
         {/* Top Section Label */}
@@ -169,7 +169,7 @@ const CompanySection: React.FC = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F6F8FB] border border-[#BFBFBF]/40 text-[#133C99] text-xs font-semibold tracking-wider uppercase"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#BFBFBF]/50 text-[#1646AF] text-xs font-semibold tracking-wider uppercase shadow-xs"
           >
             Company Overview
           </motion.div>
@@ -202,12 +202,12 @@ const CompanySection: React.FC = () => {
                     {currentTopic.description}
                   </p>
 
-                  {/* More Info Button with AUREX Navy Blue Accent */}
+                  {/* More Info Button with AUREX Royal Blue Accent */}
                   <motion.button
                     onClick={() => router.push(topicRoutes[activeTab])}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="group mt-4 inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white rounded-lg font-medium shadow-sm transition-all duration-300"
+                    className="group mt-4 inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#1646AF] hover:bg-[#133C99] text-white rounded-lg font-medium shadow-sm transition-all duration-300"
                   >
                     <span>More Info</span>
                     <ArrowRight 

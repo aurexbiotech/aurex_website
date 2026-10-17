@@ -90,18 +90,19 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Premium White Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-xs">
+      {/* Premium Corporate Gray Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#F1F5F9]/95 backdrop-blur-md border-b border-[#BFBFBF]/40 shadow-xs">
         {/* Main Navigation with responsive padding */}
         <nav className="w-full px-4 sm:px-6 md:px-8 py-3.5 sm:py-4 md:py-5">
           <div className="flex justify-between items-center max-w-7xl mx-auto">
-            {/* Logo with responsive sizing */}
-            <Link href="/" className="flex items-center">
-              <div className="text-left">
-                <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#111827] hover:text-[#133C99] transition-colors leading-tight tracking-wider">
-                  AUREX
-                </h1>
-              </div>
+            {/* Logo with responsive sizing - Blue AUREX with BIOTECH AUTOMATION underneath */}
+            <Link href="/" className="flex flex-col items-start group">
+              <span className="text-2xl sm:text-3xl md:text-[34px] font-black text-[#1646AF] group-hover:text-[#133C99] transition-colors leading-none tracking-wider">
+                AUREX
+              </span>
+              <span className="text-[9px] sm:text-[10px] md:text-[11px] font-bold text-[#64748B] tracking-[0.24em] uppercase mt-1.5 leading-none">
+                BIOTECH AUTOMATION
+              </span>
             </Link>
 
             {/* Menu Button with responsive sizing */}
@@ -134,9 +135,9 @@ const Navbar = () => {
               {/* Menu Header */}
               <div className="flex justify-between items-center p-4 sm:p-6 md:p-8 border-b border-white/15">
                 {/* Branding */}
-                <div>
-                  <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-wider">AUREX</h1>
-                  <span className="text-xs text-white/70 tracking-widest uppercase">Advanced Diagnostic Solutions</span>
+                <div className="flex flex-col items-start">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-wider leading-none">AUREX</h1>
+                  <span className="text-[10px] sm:text-xs text-blue-200 tracking-[0.24em] uppercase font-semibold mt-1.5 leading-none">BIOTECH AUTOMATION</span>
                 </div>
 
                 {/* Prominent Close Button */}

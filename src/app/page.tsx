@@ -1,73 +1,72 @@
 'use client'
 
-import React, { useEffect, useRef, useState, useCallback } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { motion, useReducedMotion } from 'framer-motion'
-import FixedSideBar from '@/components/FixedSideBar'
 import { 
   Zap, 
   Clock, 
+  ShieldCheck, 
   FlaskConical, 
   Thermometer, 
   Radio, 
   Network, 
   Workflow, 
-  Activity, 
-  ChevronDown, 
-  ArrowRight
+  Activity,
+  ArrowRight,
+  ChevronDown
 } from 'lucide-react'
 
-// Key specifications for SmarLumi FC-2100
-const productSpecs = [
+// Verified SmarLumi™ FC-2100 specifications
+const primarySpecs = [
   {
     icon: Zap,
     label: 'Throughput',
-    value: 'Up to 200 tests/hour',
-    detail: 'High speed continuous operation'
+    value: 'Up to 200 tests/h',
+    sub: 'Continuous automation'
   },
   {
     icon: Clock,
     label: 'First Results',
-    value: 'Under 12 minutes',
-    detail: 'Rapid clinical turnaround'
+    value: '< 12 minutes',
+    sub: 'Rapid turnaround'
+  },
+  {
+    icon: ShieldCheck,
+    label: 'Precision',
+    value: 'CV ≤ 5%',
+    sub: 'High diagnostic fidelity'
   },
   {
     icon: FlaskConical,
     label: 'Sample Capacity',
-    value: 'Up to 60 samples',
-    detail: 'Flexible batch & STAT loading'
+    value: '60 samples',
+    sub: 'Flexible batch & STAT'
   },
   {
     icon: Thermometer,
     label: 'Reagent Cooling',
     value: '2–8°C on-board',
-    detail: 'Maintains reagent integrity 24/7'
+    sub: '24/7 reagent integrity'
   },
   {
     icon: Radio,
-    label: 'Reagent Management',
-    value: 'RFID Tracking',
-    detail: 'Automatic calibration & expiry log'
+    label: 'Reagent Tracking',
+    value: 'RFID automated',
+    sub: 'Auto calibration & expiry'
   },
   {
     icon: Network,
     label: 'Connectivity',
     value: 'Bidirectional LIS',
-    detail: 'Seamless laboratory networking'
+    sub: 'Seamless laboratory network'
   },
   {
     icon: Workflow,
     label: 'Workflow',
     value: 'STAT & Auto Dilution',
-    detail: 'Primary tubes with barcode support'
-  },
-  {
-    icon: Activity,
-    label: 'Testing Areas',
-    value: 'Multi-Panel Diagnostics',
-    detail: 'Cardiac, thyroid, tumor & infection'
+    sub: 'Primary tube & barcode'
   }
 ]
 
@@ -75,28 +74,26 @@ export default function SmarLumiIntroductionPage() {
   const router = useRouter()
   const prefersReducedMotion = useReducedMotion()
   const touchStartY = useRef<number | null>(null)
-  const [isNavigating, setIsNavigating] = useState(false)
+  const [isExiting, setIsExiting] = useState(false)
 
-  // Navigate to existing BIOTRA homepage
-  const navigateToBiotra = useCallback(() => {
-    if (isNavigating) return
-    setIsNavigating(true)
-    router.push('/biotra')
-  }, [isNavigating, router])
+  // Navigate to existing BIOTRA / AUREX main website
+  const handleExplore = useCallback(() => {
+    if (isExiting) return
+    setIsExiting(true)
+    setTimeout(() => {
+      router.push('/biotra')
+    }, prefersReducedMotion ? 0 : 350)
+  }, [isExiting, router, prefersReducedMotion])
 
-  // Handle Wheel Scroll (scroll down triggers smooth navigation to BIOTRA)
+  // Handle Wheel Scroll & Touch Swipe to smoothly explore
   useEffect(() => {
     let lastWheelTime = 0
+
     const handleWheel = (e: WheelEvent) => {
       const now = Date.now()
-      // Only trigger if scrolled downwards at bottom or intentional strong down scroll
-      if (e.deltaY > 60 && now - lastWheelTime > 1000) {
+      if (e.deltaY > 50 && now - lastWheelTime > 900) {
         lastWheelTime = now
-        // If near the bottom of the page or triggered
-        const scrollBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80
-        if (scrollBottom) {
-          navigateToBiotra()
-        }
+        handleExplore()
       }
     }
 
@@ -108,179 +105,243 @@ export default function SmarLumiIntroductionPage() {
       if (touchStartY.current === null) return
       const touchEndY = e.changedTouches[0].clientY
       const diffY = touchStartY.current - touchEndY
-      // Swipe up (scroll down) by at least 70px when at bottom
-      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100
-      if (diffY > 70 && isAtBottom) {
-        navigateToBiotra()
+      // Swipe up (scroll down) triggers exploration
+      if (diffY > 60) {
+        handleExplore()
       }
       touchStartY.current = null
+    }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+        handleExplore()
+      }
     }
 
     window.addEventListener('wheel', handleWheel, { passive: true })
     window.addEventListener('touchstart', handleTouchStart, { passive: true })
     window.addEventListener('touchend', handleTouchEnd, { passive: true })
+    window.addEventListener('keydown', handleKeyDown)
 
     return () => {
       window.removeEventListener('wheel', handleWheel)
       window.removeEventListener('touchstart', handleTouchStart)
       window.removeEventListener('touchend', handleTouchEnd)
+      window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [navigateToBiotra])
+  }, [handleExplore])
 
   return (
-    <main className="relative bg-white text-[#111827] min-h-screen selection:bg-[#1646AF] selection:text-white">
-      {/* Fixed Vertical Side Bar */}
-      <FixedSideBar />
+    <main 
+      className={`relative w-full min-h-screen lg:h-screen lg:max-h-screen bg-[#F6F8FB] text-[#111827] overflow-x-hidden selection:bg-[#1646AF] selection:text-white transition-opacity duration-300 ${
+        isExiting ? 'opacity-0 scale-[0.99] pointer-events-none' : 'opacity-100'
+      }`}
+      style={{
+        backgroundImage: 'radial-gradient(circle at 35% 45%, #FFFFFF 0%, #F6F8FB 70%)'
+      }}
+    >
+      {/* Background Decorative Ambient Radial Elements */}
+      <div 
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden" 
+        aria-hidden="true"
+      >
+        <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#1646AF]/5 blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[#133C99]/5 blur-3xl" />
+      </div>
 
-      {/* ============================================================
-          SECTION 1: SMARLUMI™ FC-2100 PRODUCT HERO
-          ============================================================ */}
-      <section className="relative min-h-[92vh] flex items-center pt-24 sm:pt-28 pb-12 sm:pb-16 bg-white overflow-hidden">
-        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Main Full-Viewport Container */}
+      <div className="relative z-10 w-full h-full min-h-screen lg:h-screen flex flex-col justify-between px-4 sm:px-6 lg:px-10 xl:px-14 py-6 sm:py-8 lg:py-6">
+        
+        {/* Subtle Top Indicator / Brand Cue (No Header, No Menu, No Nav Links) */}
+        <div className="w-full flex items-center justify-between pt-1">
+          <motion.div
+            initial={prefersReducedMotion ? false : { opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="flex items-center gap-2"
+          >
+            <span className="w-2 h-2 rounded-full bg-[#1646AF] animate-pulse" />
+            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.22em] text-[#1646AF]">
+              AUREX • Biotechnology & Laboratory Automation
+            </span>
+          </motion.div>
+
+          <motion.div
+            initial={prefersReducedMotion ? false : { opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+            className="hidden sm:flex items-center gap-2 text-xs text-[#64748B] font-medium"
+          >
+            <span>Product Showcase</span>
+            <span className="text-[#BFBFBF]">•</span>
+            <span className="text-[#133C99] font-semibold">SmarLumi™ Series</span>
+          </motion.div>
+        </div>
+
+        {/* Cinematic Two-Column Hero Composition */}
+        <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-12 items-center my-auto py-4 lg:py-0">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            {/* LEFT COLUMN: Large High-Resolution Product Image (~58% width on desktop) */}
+          {/* ============================================================
+              LEFT COLUMN: SmarLumi™ FC-2100 High-Res Image (~58% width)
+              ============================================================ */}
+          <motion.div
+            initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.95, x: -30 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex justify-center items-center relative order-1"
+          >
             <motion.div
-              initial={prefersReducedMotion ? false : { opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, ease: 'easeOut' }}
-              className="lg:col-span-7 flex justify-center items-center order-1"
+              animate={prefersReducedMotion ? false : { y: [-4, 4, -4] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+              className="relative w-full max-w-[620px] lg:max-w-[700px] xl:max-w-[780px] flex items-center justify-center"
             >
-              <div className="relative w-full max-w-[680px] lg:max-w-[780px] flex items-center justify-center">
-                <Image
-                  src="/images/smarlumi-fc-2100.jpg"
-                  alt="SmarLumi™ FC-2100 Fully Automated Chemiluminescence Immunoassay Analyzer"
-                  width={1400}
-                  height={1177}
-                  className="w-full h-auto object-contain max-h-[460px] sm:max-h-[520px] lg:max-h-[580px] transition-transform duration-500 hover:scale-[1.01]"
-                  priority
-                  quality={95}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 58vw"
-                />
-              </div>
+              <Image
+                src="/images/smarlumi-fc-2100.jpg"
+                alt="SmarLumi™ FC-2100 Fully Automated Chemiluminescence Immunoassay Analyzer"
+                width={1400}
+                height={1177}
+                className="w-full h-auto object-contain max-h-[380px] sm:max-h-[460px] lg:max-h-[520px] xl:max-h-[560px] drop-shadow-sm select-none"
+                priority
+                quality={95}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 58vw"
+              />
+            </motion.div>
+          </motion.div>
+
+          {/* ============================================================
+              RIGHT COLUMN: Product Content, Specifications & Explore CTA (~42% width)
+              ============================================================ */}
+          <div className="lg:col-span-5 flex flex-col justify-center order-2 text-left space-y-3.5 xl:space-y-4">
+            
+            {/* Eyebrow Label */}
+            <motion.div
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15, ease: 'easeOut' }}
+              className="inline-flex items-center gap-2"
+            >
+              <span className="px-2.5 py-1 rounded-md bg-[#1646AF]/10 text-[#1646AF] text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase border border-[#1646AF]/20">
+                AUREX PROUDLY INTRODUCES
+              </span>
             </motion.div>
 
-            {/* RIGHT COLUMN: Product Information & Specifications (~42% width) */}
+            {/* Main Title & Category */}
             <motion.div
-              initial={prefersReducedMotion ? false : { opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
-              className="lg:col-span-5 flex flex-col justify-center order-2 text-left"
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25, ease: 'easeOut' }}
+              className="space-y-1"
             >
-              {/* Small Eyebrow Label */}
-              <div className="inline-flex items-center gap-2 mb-3">
-                <span className="text-xs font-bold tracking-[0.22em] text-[#1646AF] uppercase">
-                  AUREX PROUDLY INTRODUCES
-                </span>
-              </div>
-
-              {/* Main Product Title */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-black tracking-tight text-[#111827] leading-tight mb-2">
+              <h1 className="text-3xl sm:text-4xl xl:text-[44px] font-black tracking-tight text-[#111827] leading-tight">
                 SmarLumi™ FC-2100
               </h1>
-
-              {/* Product Category Subtitle */}
-              <h2 className="text-base sm:text-lg font-semibold text-[#133C99] tracking-normal mb-4">
+              <h2 className="text-xs sm:text-sm xl:text-base font-semibold text-[#133C99] tracking-normal leading-snug">
                 Fully Automated Chemiluminescence Immunoassay Analyzer
               </h2>
+            </motion.div>
 
-              {/* Product Description */}
-              <p className="text-sm sm:text-base text-[#64748B] leading-relaxed mb-6">
-                SmarLumi™ FC-2100 is a compact, fully automated chemiluminescence immunoassay analyzer designed for laboratory testing. It delivers a throughput of up to 200 tests per hour, with first results in under 12 minutes, CV ≤5%, STAT capability, and automatic dilution.
-              </p>
+            {/* Short Product Description */}
+            <motion.p
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
+              className="text-xs sm:text-sm text-[#64748B] leading-relaxed max-w-xl"
+            >
+              SmarLumi™ FC-2100 is a compact, fully automated chemiluminescence immunoassay analyzer engineered for laboratories, combining high-speed throughput with precision testing and automated dilution.
+            </motion.p>
 
-              {/* Key Product Highlights Grid */}
-              <div className="grid grid-cols-2 gap-3 sm:gap-3.5 mb-6">
-                {productSpecs.map((spec, index) => {
-                  const SpecIcon = spec.icon
-                  return (
-                    <div 
-                      key={index}
-                      className="p-3 rounded-xl bg-[#F6F8FB] border border-[#BFBFBF]/30 flex items-start gap-2.5 transition-colors hover:border-[#1646AF]/40"
-                    >
-                      <div className="w-7 h-7 rounded-lg bg-white border border-[#BFBFBF]/40 flex items-center justify-center text-[#1646AF] shrink-0 mt-0.5">
-                        <SpecIcon size={15} />
+            {/* Compact Specifications Grid */}
+            <motion.div
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45, ease: 'easeOut' }}
+              className="grid grid-cols-2 gap-2 sm:gap-2.5 pt-1"
+            >
+              {primarySpecs.map((spec, index) => {
+                const SpecIcon = spec.icon
+                return (
+                  <div
+                    key={index}
+                    className="p-2 sm:p-2.5 rounded-lg bg-white/90 border border-[#BFBFBF]/40 shadow-xs flex items-center gap-2.5 transition-all duration-200 hover:border-[#1646AF]/50 hover:bg-white"
+                  >
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-md bg-[#F6F8FB] border border-[#BFBFBF]/30 flex items-center justify-center text-[#1646AF] shrink-0">
+                      <SpecIcon size={14} />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider leading-none">
+                        {spec.label}
                       </div>
-                      <div className="min-w-0">
-                        <span className="block text-[11px] font-bold text-[#64748B] uppercase tracking-wider">
-                          {spec.label}
-                        </span>
-                        <span className="block text-xs sm:text-[13px] font-bold text-[#111827] leading-snug">
-                          {spec.value}
-                        </span>
+                      <div className="text-xs sm:text-[13px] font-bold text-[#111827] leading-tight mt-0.5 truncate">
+                        {spec.value}
                       </div>
                     </div>
-                  )
-                })}
-              </div>
+                  </div>
+                )
+              })}
+            </motion.div>
 
-              {/* Compact Footprint Note & Direct CTAs */}
-              <div className="flex flex-wrap items-center gap-3 pt-1">
-                <Link
-                  href="/contact"
-                  className="px-6 py-3 bg-[#133C99] hover:bg-[#1646AF] text-white text-sm font-semibold rounded-lg shadow-sm transition-all duration-200"
-                >
-                  Request Specifications
-                </Link>
-                <button
-                  onClick={navigateToBiotra}
-                  className="px-5 py-3 bg-white hover:bg-[#F6F8FB] text-[#133C99] border border-[#BFBFBF]/60 text-sm font-semibold rounded-lg transition-all duration-200 inline-flex items-center gap-1.5 cursor-pointer"
-                >
-                  <span>Explore BIOTRA</span>
-                  <ArrowRight size={15} />
-                </button>
-              </div>
+            {/* Testing Areas Indicator Badge */}
+            <motion.div
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.55, ease: 'easeOut' }}
+              className="flex items-center gap-2 p-2 rounded-lg bg-white/80 border border-[#BFBFBF]/30 text-xs text-[#64748B]"
+            >
+              <Activity size={14} className="text-[#1646AF] shrink-0" />
+              <span className="font-semibold text-[#111827] text-[11px] sm:text-xs">Clinical Panels:</span>
+              <span className="text-[11px] sm:text-xs text-[#64748B] truncate">
+                Cardiac • Thyroid • Tumor • Infectious Disease
+              </span>
+            </motion.div>
 
+            {/* ============================================================
+                EXPLORE AUREX BUTTON — Seamless Transition to Main Website
+                ============================================================ */}
+            <motion.div
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.65, ease: 'easeOut' }}
+              className="pt-2 sm:pt-3 flex flex-wrap items-center gap-3 sm:gap-4"
+            >
+              <button
+                onClick={handleExplore}
+                aria-label="Explore AUREX main website"
+                className="group relative inline-flex items-center justify-center gap-3 px-7 sm:px-9 py-3 sm:py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer"
+              >
+                <span>Explore AUREX</span>
+                <ArrowRight 
+                  size={18} 
+                  className="transition-transform duration-300 group-hover:translate-x-1.5" 
+                />
+              </button>
+
+              <div className="flex items-center gap-1.5 text-xs text-[#64748B] font-medium">
+                <span>or scroll to discover</span>
+                <ChevronDown size={14} className="animate-bounce text-[#133C99]" />
+              </div>
             </motion.div>
 
           </div>
 
         </div>
-      </section>
 
-      {/* ============================================================
-          CENTRAL SWIPE / SCROLL NAVIGATION CONTROL
-          Navigates smoothly to the existing BIOTRA homepage
-          ============================================================ */}
-      <section className="py-10 bg-white border-t border-[#BFBFBF]/30 text-center">
-        <div className="container max-w-7xl mx-auto px-4 flex flex-col items-center justify-center">
-          
-          <button
-            onClick={navigateToBiotra}
-            aria-label="Navigate to BIOTRA Product Homepage"
-            className="group flex flex-col items-center justify-center p-3 sm:px-6 sm:py-3.5 rounded-full border-2 border-[#133C99] hover:bg-[#133C99] text-[#133C99] hover:text-white transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] cursor-pointer shadow-xs hover:shadow-md"
+        {/* Subtle Bottom Bar / Scroll Hint */}
+        <motion.div
+          initial={prefersReducedMotion ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="w-full flex items-center justify-between text-[11px] text-[#64748B] pt-2 border-t border-[#BFBFBF]/25"
+        >
+          <span>AUREX Diagnostic Technologies</span>
+          <button 
+            onClick={handleExplore}
+            className="hover:text-[#1646AF] transition-colors cursor-pointer"
           >
-            <div className="flex items-center gap-2">
-              <span className="text-xs sm:text-sm font-bold tracking-widest uppercase">
-                EXPLORE BIOTRA
-              </span>
-              <motion.div
-                animate={prefersReducedMotion ? false : { y: [0, 4, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-              >
-                <ChevronDown size={18} className="group-hover:translate-y-0.5 transition-transform" />
-              </motion.div>
-            </div>
+            Enter Main Website →
           </button>
+        </motion.div>
 
-          <span className="text-[11px] font-medium text-[#64748B] tracking-wide mt-2">
-            Scroll or click to discover more
-          </span>
-
-          {/* Secondary Direct Link */}
-          <div className="mt-3">
-            <Link
-              href="/biotra"
-              className="text-xs text-[#64748B] hover:text-[#1646AF] underline underline-offset-4 transition-colors"
-            >
-              Direct Link to BIOTRA Homepage
-            </Link>
-          </div>
-
-        </div>
-      </section>
-
+      </div>
     </main>
   )
 }

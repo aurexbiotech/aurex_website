@@ -97,6 +97,11 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(false)
   }, [pathname])
 
+  // Completely hide the header on the initial product introduction landing page
+  if (pathname === '/') {
+    return null
+  }
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-xs">
       <nav 
@@ -110,7 +115,7 @@ const Navbar: React.FC = () => {
             
             {/* LEFT: AUREX Brand Wordmark & Subtitle */}
             <Link 
-              href="/" 
+              href="/biotra" 
               className="flex flex-col items-start group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] rounded-md"
               aria-label="AUREX Biotech Automation Home"
             >

@@ -251,15 +251,14 @@ export default function SmarLumiIntroductionPage() {
             }}
             className="lg:col-span-7 flex justify-center items-center relative order-1 z-20"
           >
-            {/* The Machine Image is displayed DIRECTLY against the #F6F8FB background with NO white box */}
+            {/* The Machine Image is displayed DIRECTLY against the #F6F8FB background with true alpha transparency */}
             <div className="relative w-full max-w-[620px] lg:max-w-[700px] xl:max-w-[780px] flex items-center justify-center">
               <Image
-                src="/images/smarlumi-fc-2100.jpg"
+                src="/images/smarlumi-fc-2100.png"
                 alt="SmarLumi™ FC-2100 Fully Automated Chemiluminescence Immunoassay Analyzer"
                 width={1400}
                 height={1177}
-                className="w-full h-auto object-contain max-h-[380px] sm:max-h-[460px] lg:max-h-[520px] xl:max-h-[560px] select-none mix-blend-multiply"
-                style={{ mixBlendMode: 'multiply' }}
+                className="w-full h-auto object-contain max-h-[380px] sm:max-h-[460px] lg:max-h-[520px] xl:max-h-[560px] select-none"
                 priority
                 quality={95}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 58vw"

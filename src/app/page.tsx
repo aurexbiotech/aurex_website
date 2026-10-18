@@ -6,71 +6,10 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { 
-  Zap, 
-  Clock, 
-  ShieldCheck, 
-  FlaskConical, 
-  Thermometer, 
-  Radio, 
-  Network, 
-  Workflow, 
-  Activity,
   ArrowRight,
   Home,
   MessageSquare
 } from 'lucide-react'
-
-// Verified SmarLumi™ FC-2100 specifications
-const primarySpecs = [
-  {
-    icon: Zap,
-    label: 'Throughput',
-    value: 'Up to 200 tests/h',
-    sub: 'Continuous automation'
-  },
-  {
-    icon: Clock,
-    label: 'First Results',
-    value: '< 12 minutes',
-    sub: 'Rapid clinical turnaround'
-  },
-  {
-    icon: ShieldCheck,
-    label: 'Precision',
-    value: 'CV ≤ 5%',
-    sub: 'High diagnostic fidelity'
-  },
-  {
-    icon: FlaskConical,
-    label: 'Sample Capacity',
-    value: '60 samples',
-    sub: 'Flexible batch & STAT'
-  },
-  {
-    icon: Thermometer,
-    label: 'Reagent Cooling',
-    value: '2–8°C on-board',
-    sub: '24/7 reagent integrity'
-  },
-  {
-    icon: Radio,
-    label: 'Reagent Tracking',
-    value: 'RFID automated',
-    sub: 'Auto calibration & expiry'
-  },
-  {
-    icon: Network,
-    label: 'Connectivity',
-    value: 'Bidirectional LIS',
-    sub: 'Seamless laboratory network'
-  },
-  {
-    icon: Workflow,
-    label: 'Workflow',
-    value: 'STAT & Auto Dilution',
-    sub: 'Primary tube & barcode'
-  }
-]
 
 export default function SmarLumiIntroductionPage() {
   const router = useRouter()
@@ -167,14 +106,14 @@ export default function SmarLumiIntroductionPage() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.08,
+        staggerChildren: prefersReducedMotion ? 0 : 0.09,
         delayChildren: prefersReducedMotion ? 0 : 0.55 // Appears after machine movement is well underway
       }
     }
   }
 
   const childItemVariants: Variants = {
-    hidden: { opacity: 0, y: 14 },
+    hidden: { opacity: 0, y: 16 },
     visible: {
       opacity: 1,
       y: 0,
@@ -201,7 +140,7 @@ export default function SmarLumiIntroductionPage() {
           CINEMATIC FULL-SCREEN PRODUCT BANNER
           Features center-to-left machine animation and staggered text
           ============================================================ */}
-      <section className="relative z-10 w-full min-h-screen lg:h-screen lg:max-h-screen flex flex-col justify-between px-4 sm:px-6 lg:px-10 xl:px-14 py-5 sm:py-6 lg:py-5">
+      <section className="relative z-10 w-full min-h-screen lg:h-screen lg:max-h-screen flex flex-col justify-between px-4 sm:px-6 lg:px-10 xl:px-14 py-5 sm:py-6 lg:py-6">
         
         {/* Subtle Top Cue (Clean & minimal, NO header, NO menu, NO navigation items) */}
         <div className="w-full flex items-center justify-between pt-1">
@@ -230,7 +169,7 @@ export default function SmarLumiIntroductionPage() {
         </div>
 
         {/* Cinematic Hero Composition */}
-        <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-12 items-center my-auto py-4 lg:py-0">
+        <div className="flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center my-auto py-6 lg:py-0">
           
           {/* ============================================================
               LEFT COLUMN: Cinematic Machine Entrance Animation
@@ -254,13 +193,13 @@ export default function SmarLumiIntroductionPage() {
             className="lg:col-span-7 flex justify-center items-center relative order-1 z-20"
           >
             {/* The Machine Image is displayed DIRECTLY against the #F6F8FB background with true alpha transparency */}
-            <div className="relative w-full max-w-[620px] lg:max-w-[700px] xl:max-w-[780px] flex items-center justify-center">
+            <div className="relative w-full max-w-[620px] lg:max-w-[720px] xl:max-w-[800px] flex items-center justify-center">
               <Image
                 src="/images/smarlumi-fc-2100.png"
                 alt="SmarLumi™ FC-2100 Fully Automated Chemiluminescence Immunoassay Analyzer"
                 width={1400}
                 height={1177}
-                className="w-full h-auto object-contain max-h-[380px] sm:max-h-[460px] lg:max-h-[520px] xl:max-h-[560px] select-none"
+                className="w-full h-auto object-contain max-h-[380px] sm:max-h-[460px] lg:max-h-[520px] xl:max-h-[580px] select-none"
                 priority
                 quality={95}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 58vw"
@@ -269,76 +208,39 @@ export default function SmarLumiIntroductionPage() {
           </motion.div>
 
           {/* ============================================================
-              RIGHT COLUMN: Product Details Staggered Reveal
-              Reveals only after the machine has begun settling into position
+              RIGHT COLUMN: Product Information & Action Buttons
+              Clean, properly aligned layout revealing after the machine settles
               ============================================================ */}
           <motion.div
             variants={rightColumnContainerVariants}
             initial="hidden"
             animate={phase === 'settled' ? 'visible' : 'hidden'}
-            className="lg:col-span-5 flex flex-col justify-center order-2 text-left space-y-3 xl:space-y-3.5 z-10"
+            className="lg:col-span-5 flex flex-col justify-center order-2 text-left space-y-5 lg:space-y-6 z-10"
           >
             {/* Eyebrow Label */}
             <motion.div variants={childItemVariants} className="inline-flex items-center gap-2">
-              <span className="px-2.5 py-1 rounded-md bg-[#1646AF]/10 text-[#1646AF] text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase border border-[#1646AF]/20">
+              <span className="px-3 py-1 rounded-md bg-[#1646AF]/10 text-[#1646AF] text-xs font-bold tracking-[0.2em] uppercase border border-[#1646AF]/20">
                 AUREX PROUDLY INTRODUCES
               </span>
             </motion.div>
 
             {/* Main Title & Category */}
-            <motion.div variants={childItemVariants} className="space-y-1">
-              <h1 className="text-3xl sm:text-4xl xl:text-[42px] font-black tracking-tight text-[#111827] leading-tight">
+            <motion.div variants={childItemVariants} className="space-y-2">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#111827] leading-[1.15]">
                 SmarLumi™ FC-2100
               </h1>
-              <h2 className="text-xs sm:text-sm xl:text-base font-semibold text-[#133C99] tracking-normal leading-snug">
+              <h2 className="text-sm sm:text-base lg:text-lg font-semibold text-[#133C99] tracking-normal leading-snug">
                 Fully Automated Chemiluminescence Immunoassay Analyzer
               </h2>
             </motion.div>
 
-            {/* Short Product Description */}
-            <motion.p variants={childItemVariants} className="text-xs sm:text-sm text-[#64748B] leading-relaxed max-w-xl">
-              SmarLumi™ FC-2100 is a compact, benchtop chemiluminescence immunoassay analyzer engineered for clinical laboratories, delivering rapid results with uncompromised precision and automated workflow.
+            {/* Product Description */}
+            <motion.p variants={childItemVariants} className="text-sm sm:text-base text-[#64748B] leading-relaxed max-w-xl">
+              SmarLumi™ FC-2100 is a compact, benchtop chemiluminescence immunoassay analyzer engineered for clinical laboratories, delivering rapid diagnostic results with uncompromised precision and automated workflow.
             </motion.p>
 
-            {/* Compact Specifications Grid */}
-            <motion.div variants={childItemVariants} className="grid grid-cols-2 gap-2 sm:gap-2.5 pt-0.5">
-              {primarySpecs.map((spec, index) => {
-                const SpecIcon = spec.icon
-                return (
-                  <div
-                    key={index}
-                    className="p-2 sm:p-2.5 rounded-lg bg-white/90 border border-[#BFBFBF]/40 shadow-xs flex items-center gap-2.5 transition-all duration-200 hover:border-[#1646AF]/50 hover:bg-white"
-                  >
-                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-md bg-[#F6F8FB] border border-[#BFBFBF]/30 flex items-center justify-center text-[#1646AF] shrink-0">
-                      <SpecIcon size={14} />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-[10px] font-bold text-[#64748B] uppercase tracking-wider leading-none">
-                        {spec.label}
-                      </div>
-                      <div className="text-xs sm:text-[13px] font-bold text-[#111827] leading-tight mt-0.5 truncate">
-                        {spec.value}
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
-            </motion.div>
-
-            {/* Testing Areas Indicator Badge */}
-            <motion.div
-              variants={childItemVariants}
-              className="flex items-center gap-2 p-2 rounded-lg bg-white/80 border border-[#BFBFBF]/30 text-xs text-[#64748B]"
-            >
-              <Activity size={14} className="text-[#1646AF] shrink-0" />
-              <span className="font-semibold text-[#111827] text-[11px] sm:text-xs">Clinical Panels:</span>
-              <span className="text-[11px] sm:text-xs text-[#64748B] truncate">
-                Cardiac • Thyroid • Tumor • Infectious Disease
-              </span>
-            </motion.div>
-
             {/* Action Buttons: Talk to Us & Explore AUREX */}
-            <motion.div variants={childItemVariants} className="pt-2 flex flex-wrap items-center gap-3">
+            <motion.div variants={childItemVariants} className="pt-2 flex flex-wrap items-center gap-3.5">
               <Link
                 href="/contact"
                 aria-label="Talk to Us - Contact AUREX"

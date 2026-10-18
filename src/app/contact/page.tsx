@@ -9,13 +9,32 @@ import {
   Mail, 
   MapPin, 
   Clock, 
-  Send,
-  Building2,
-  Globe,
-  Users,
-  MessageCircle,
-  CheckCircle
+  Send, 
+  Building2, 
+  Globe, 
+  Users, 
+  MessageCircle, 
+  CheckCircle, 
+  AlertCircle,
+  ExternalLink,
+  RotateCcw
 } from 'lucide-react'
+
+// Official AUREX Business Contact Details
+const AUREX_WHATSAPP_NUMBER = '919543910101'
+const AUREX_EMAIL = 'aurexbiotech@gmail.com'
+
+// Area of Interest dropdown options requested in specification
+const AREA_OF_INTEREST_OPTIONS = [
+  'General Inquiry',
+  'Immunoassay Systems',
+  'Microbiology Solutions',
+  'Clinical Chemistry',
+  'Molecular Diagnostics',
+  'Quality Control',
+  'Technical Support',
+  'Partnership Opportunities'
+]
 
 // Sub-navigation items for contact sections
 const contactSubNavigation = [
@@ -30,52 +49,56 @@ const offices = [
     region: 'India Office',
     address: '1/51, Barathiyar Street, Mundiyampakkam, TamilNadu, India - 605601',
     phone: '+91 9543910101, +91 8144418046',
-    email: 'sales@aurexbiotech.com',
+    email: 'aurexbiotech@gmail.com',
     hours: 'Mon-Fri: 9:00 AM - 6:00 PM IST'
   }
 ]
 
 const contactMethods = [
   {
+    icon: MessageCircle,
+    title: 'WhatsApp Support',
+    description: 'Instant technical & sales enquiry on WhatsApp',
+    contact: '+91 9543910101',
+    action: 'Chat on WhatsApp',
+    href: 'https://wa.me/919543910101'
+  },
+  {
     icon: Phone,
     title: 'Phone Support',
-    description: '24/7 technical support available',
+    description: '24/7 technical assistance available',
     contact: '+91 9543910101, +91 8144418046',
-    action: 'Call Now'
+    action: 'Call Now',
+    href: 'tel:+919543910101'
   },
   {
     icon: Mail,
-    title: 'Email Support',
-    description: 'Get detailed assistance via email',
-    contact: 'sales@aurexbiotech.com',
-    action: 'Send Email'
-  },
-  {
-    icon: MessageCircle,
-    title: 'Live Chat',
-    description: 'Instant support during business hours',
-    contact: 'Chat with us',
-    action: 'Start Chat'
+    title: 'Email Inquiries',
+    description: 'Send detailed requirements directly',
+    contact: 'aurexbiotech@gmail.com',
+    action: 'Send Email',
+    href: 'mailto:aurexbiotech@gmail.com'
   },
   {
     icon: Users,
-    title: 'Schedule Meeting',
-    description: 'Book a consultation with our experts',
+    title: 'Schedule Consultation',
+    description: 'Book a session with diagnostic specialists',
     contact: 'Product specialists available',
-    action: 'Book Meeting'
+    action: 'Book Meeting',
+    href: '#contact-form'
   }
 ]
 
 // Hero Banner Component
 const HeroBanner = () => {
   return (
-    <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+    <section className="relative h-[60vh] sm:h-[65vh] flex items-center justify-center overflow-hidden">
+      {/* Background Image with Official Navy Blue Overlay */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1528]/90 via-[#133C99]/85 to-[#1646AF]/85 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1528]/95 via-[#133C99]/90 to-[#1646AF]/85 z-10" />
         <Image
           src="/images/background.jpg"
-          alt="Contact AUREX"
+          alt="Contact AUREX Biotech Automation"
           fill
           className="object-cover object-center"
           priority
@@ -91,59 +114,59 @@ const HeroBanner = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 tracking-tight">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-white text-xs font-semibold tracking-widest uppercase mb-4 border border-white/20">
+            AUREX BIOTECH AUTOMATION
+          </div>
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-white mb-6 tracking-tight">
             Contact Us
           </h1>
-          <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl mx-auto">
-            Get in touch with our team of experts to learn how AUREX 
-            can transform your laboratory operations.
+          <p className="text-base sm:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
+            Connect with our biotechnology engineering team to explore automated immunoassay, clinical chemistry, and laboratory diagnostics solutions.
           </p>
         </motion.div>
       </div>
 
       {/* Floating Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-[#1646AF] rounded-full opacity-60 animate-pulse"></div>
-        <div className="absolute bottom-32 right-16 w-3 h-3 bg-[#60A5FA] rounded-full opacity-40 animate-bounce"></div>
-        <div className="absolute top-1/3 right-10 w-1 h-1 bg-white rounded-full opacity-80 animate-ping"></div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="absolute top-20 left-10 w-2 h-2 bg-[#1646AF] rounded-full opacity-60 animate-pulse" />
+        <div className="absolute bottom-32 right-16 w-3 h-3 bg-[#60A5FA] rounded-full opacity-40 animate-bounce" />
+        <div className="absolute top-1/3 right-10 w-1 h-1 bg-white rounded-full opacity-80 animate-ping" />
       </div>
     </section>
   )
 }
 
 // Sub Navigation Component
-const SubNavigation = ({ activeSection, setActiveSection }: { 
-  activeSection: string, 
+const SubNavigation = ({ 
+  activeSection, 
+  setActiveSection 
+}: { 
+  activeSection: string
   setActiveSection: (section: string) => void 
 }) => {
   return (
-    <section className="sticky top-0 z-40 bg-[#F6F8FB]/95 backdrop-blur-md border-b border-[#BFBFBF]/30 shadow-sm">
-      <div className="container mx-auto px-6 py-4">
-        <nav className="flex flex-wrap justify-center gap-2">
+    <section className="sticky top-0 z-40 bg-[#F6F8FB]/95 backdrop-blur-md border-b border-[#BFBFBF]/30 shadow-xs">
+      <div className="container mx-auto px-6 py-3.5">
+        <nav className="flex flex-wrap justify-center gap-2" aria-label="Contact Section Navigation">
           {contactSubNavigation.map((item) => (
-            <motion.button
+            <button
               key={item.id}
-              whileHover={{ scale: 1.02, y: -1 }}
-              whileTap={{ scale: 0.98 }}
               onClick={() => setActiveSection(item.id)}
-              className={`relative px-4 py-3 font-semibold text-sm transition-all duration-300 rounded-t-lg overflow-hidden ${
+              className={`relative px-4 py-2.5 font-semibold text-xs sm:text-sm transition-all duration-200 rounded-lg cursor-pointer ${
                 activeSection === item.id
-                  ? 'text-[#1646AF] bg-white shadow-md'
-                  : 'text-[#64748B] hover:text-[#1646AF] hover:bg-white/50'
+                  ? 'text-[#1646AF] bg-white shadow-xs border border-[#BFBFBF]/40'
+                  : 'text-[#64748B] hover:text-[#1646AF] hover:bg-white/60'
               }`}
             >
-              <span className="relative z-10">{item.name}</span>
-              {/* Royal Blue accent underline for active item */}
-              <motion.div
-                initial={false}
-                animate={{
-                  scaleX: activeSection === item.id ? 1 : 0,
-                  opacity: activeSection === item.id ? 1 : 0
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1646AF] to-[#133C99] origin-left"
-              />
-            </motion.button>
+              <span>{item.name}</span>
+              {activeSection === item.id && (
+                <motion.div
+                  layoutId="activeContactSection"
+                  className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#1646AF] rounded-full"
+                  transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
+                />
+              )}
+            </button>
           ))}
         </nav>
       </div>
@@ -154,202 +177,632 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
 export default function ContactPage() {
   const [activeSection, setActiveSection] = useState('contact-form')
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  
+  // Form State
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
     phone: '',
+    interest: '',
     subject: '',
     message: '',
-    interest: 'general'
+    website: '' // Honeypot field for anti-spam bots
   })
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  // Validation Error State
+  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [touched, setTouched] = useState<Record<string, boolean>>({})
+
+  // Submission Result State
+  const [submitResult, setSubmitResult] = useState<{
+    submitted: boolean
+    emailStatus: 'success' | 'requires_config' | 'failed' | 'idle'
+    emailMessage?: string
+    whatsappUrl?: string
+    whatsappOpened?: boolean
+  }>({
+    submitted: false,
+    emailStatus: 'idle'
+  })
+
+  // Validation function
+  const validateField = (field: string, value: string): string => {
+    switch (field) {
+      case 'name':
+        if (!value.trim()) return 'Full Name is required.'
+        if (value.trim().length < 2) return 'Full Name must be at least 2 characters.'
+        return ''
+      case 'email':
+        if (!value.trim()) return 'Email Address is required.'
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())) return 'Please enter a valid email address.'
+        return ''
+      case 'interest':
+        if (!value) return 'Please select an area of interest.'
+        return ''
+      case 'subject':
+        if (!value.trim()) return 'Subject is required.'
+        if (value.trim().length < 3) return 'Subject must be at least 3 characters.'
+        return ''
+      case 'message':
+        if (!value.trim()) return 'Message is required.'
+        if (value.trim().length < 10) return 'Message must be at least 10 characters.'
+        return ''
+      case 'phone':
+        if (value.trim() && !/^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{3,6}$/.test(value.trim())) {
+          return 'Please enter a valid phone number or leave blank.'
+        }
+        return ''
+      default:
+        return ''
+    }
+  }
+
+  // Handle Input Change with validation
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+
+    if (touched[name]) {
+      const errorMsg = validateField(name, value)
+      setErrors(prev => ({ ...prev, [name]: errorMsg }))
+    }
+  }
+
+  // Handle Input Blur
+  const handleBlur = (field: string) => {
+    setTouched(prev => ({ ...prev, [field]: true }))
+    const errorMsg = validateField(field, formData[field as keyof typeof formData])
+    setErrors(prev => ({ ...prev, [field]: errorMsg }))
+  }
+
+  // Validate entire form before submission
+  const validateForm = (): boolean => {
+    const newErrors: Record<string, string> = {
+      name: validateField('name', formData.name),
+      email: validateField('email', formData.email),
+      interest: validateField('interest', formData.interest),
+      subject: validateField('subject', formData.subject),
+      message: validateField('message', formData.message),
+      phone: validateField('phone', formData.phone)
+    }
+
+    // Filter out empty errors
+    const activeErrors: Record<string, string> = {}
+    let isValid = true
+    Object.keys(newErrors).forEach(key => {
+      if (newErrors[key]) {
+        activeErrors[key] = newErrors[key]
+        isValid = false
+      }
+    })
+
+    setErrors(activeErrors)
+    setTouched({
+      name: true,
+      email: true,
+      interest: true,
+      subject: true,
+      message: true,
+      phone: true
+    })
+
+    return isValid
+  }
+
+  // Build the standardized WhatsApp message format
+  const generateWhatsAppMessage = () => {
+    return (
+      `NEW AUREX WEBSITE ENQUIRY\n` +
+      `Full Name: ${formData.name.trim()}\n` +
+      `Email Address: ${formData.email.trim()}\n` +
+      `Company: ${formData.company.trim() || 'Not provided'}\n` +
+      `Phone Number: ${formData.phone.trim() || 'Not provided'}\n` +
+      `Area of Interest: ${formData.interest}\n` +
+      `Subject: ${formData.subject.trim()}\n` +
+      `Message:\n${formData.message.trim()}`
+    )
+  }
+
+  // Submit Handler
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    // 1. Client-side Validation
+    if (!validateForm()) {
+      return
+    }
+
+    if (isSubmitting) return
+    setIsSubmitting(true)
+
+    // 2. Prepare WhatsApp URL with complete field encoding
+    const waText = generateWhatsAppMessage()
+    const whatsappUrl = `https://wa.me/${AUREX_WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`
+
+    // Open WhatsApp directly during the user click event to prevent browser popup blockers
+    let popupOpened = false
+    try {
+      const waWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
+      if (waWindow && !waWindow.closed && typeof waWindow.closed !== 'undefined') {
+        popupOpened = true
+      }
+    } catch {
+      popupOpened = false
+    }
+
+    // 3. Dispatch to Server-Side Email API
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+
+      const data = await res.json()
+
+      if (res.ok && data.success) {
+        if (data.emailDelivered) {
+          setSubmitResult({
+            submitted: true,
+            emailStatus: 'success',
+            emailMessage: data.message || `Your enquiry has been delivered to ${AUREX_EMAIL}.`,
+            whatsappUrl,
+            whatsappOpened: popupOpened
+          })
+        } else if (data.requiresEmailConfig) {
+          setSubmitResult({
+            submitted: true,
+            emailStatus: 'requires_config',
+            emailMessage: 'Enquiry processed. Server-side email requires SMTP or Resend credentials in .env.local.',
+            whatsappUrl,
+            whatsappOpened: popupOpened
+          })
+        }
+      } else {
+        setSubmitResult({
+          submitted: true,
+          emailStatus: 'failed',
+          emailMessage: data.error || 'Server email delivery failed. Please send your enquiry directly via WhatsApp.',
+          whatsappUrl,
+          whatsappOpened: popupOpened
+        })
+      }
+    } catch {
+      setSubmitResult({
+        submitted: true,
+        emailStatus: 'failed',
+        emailMessage: 'Network error communicating with the email server. Please use WhatsApp to deliver your enquiry.',
+        whatsappUrl,
+        whatsappOpened: popupOpened
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  // Reset form to submit another enquiry
+  const handleResetForm = () => {
     setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
+      name: '',
+      email: '',
+      company: '',
+      phone: '',
+      interest: '',
+      subject: '',
+      message: '',
+      website: ''
+    })
+    setErrors({})
+    setTouched({})
+    setSubmitResult({
+      submitted: false,
+      emailStatus: 'idle'
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSubmitted(true)
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        subject: '',
-        message: '',
-        interest: 'general'
-      })
-    }, 600)
-  }
-
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#F6F8FB] text-[#111827]">
       {/* Hero Banner */}
       <HeroBanner />
 
       {/* Sub Navigation */}
       <SubNavigation activeSection={activeSection} setActiveSection={setActiveSection} />
 
-      {/* Main Content */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-6">
+      {/* Main Content Sections */}
+      <section className="py-12 sm:py-16 bg-[#F6F8FB]">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             key={activeSection}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.4 }}
           >
-            {/* Contact Form Section */}
+            {/* ============================================================
+                CONTACT FORM SECTION
+                ============================================================ */}
             {activeSection === 'contact-form' && (
-              <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-12">
-                  <h2 className="text-4xl font-bold text-gray-900 mb-4">Send us a Message</h2>
-                  <p className="text-xl text-gray-600">
-                    Fill out the form below and our team will get back to you within 24 hours
+              <div id="contact-form" className="max-w-4xl mx-auto">
+                
+                {/* Header */}
+                <div className="text-center mb-8 sm:mb-10">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#BFBFBF]/40 text-[#1646AF] text-xs font-semibold tracking-wider uppercase mb-3 shadow-2xs">
+                    DIRECT INQUIRY
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl font-bold text-[#111827] tracking-tight mb-2">
+                    Send us a Message
+                  </h2>
+                  <p className="text-sm sm:text-base text-[#64748B] max-w-xl mx-auto">
+                    Submit your requirement below. Your enquiry will be prepared for WhatsApp and dispatched to our engineering team at <span className="font-semibold text-[#133C99]">{AUREX_EMAIL}</span>.
                   </p>
                 </div>
 
-                <div className="bg-white rounded-xl shadow-sm p-8 md:p-12">
-                  {isSubmitted && (
-                    <div className="mb-6 p-4 bg-emerald-50 border border-emerald-300 rounded-lg text-emerald-800 flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-emerald-600 flex-shrink-0" />
-                      <span className="text-sm font-medium">Thank you for reaching out to AUREX! Your inquiry has been submitted successfully and our team will get back to you within 24 hours.</span>
+                {/* Submission Dual-Delivery Status Card */}
+                {submitResult.submitted && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-8 p-6 rounded-2xl bg-white border border-[#BFBFBF]/40 shadow-sm space-y-4"
+                  >
+                    {/* Status Header */}
+                    <div className="flex items-center justify-between pb-3 border-b border-[#BFBFBF]/25">
+                      <div className="flex items-center gap-2.5">
+                        <CheckCircle className="w-5 h-5 text-emerald-600 shrink-0" />
+                        <h3 className="text-base font-bold text-[#111827]">
+                          Enquiry Ready & Processed
+                        </h3>
+                      </div>
+                      <button
+                        onClick={handleResetForm}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#64748B] hover:text-[#1646AF] transition-colors cursor-pointer"
+                      >
+                        <RotateCcw size={14} />
+                        <span>Submit New Enquiry</span>
+                      </button>
                     </div>
-                  )}
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                    {/* WhatsApp Status Section */}
+                    <div className="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Full Name *
+                        <div className="flex items-center gap-2 text-emerald-900 font-bold text-sm">
+                          <MessageCircle size={17} className="text-emerald-700" />
+                          <span>WhatsApp Channel (+91 {AUREX_WHATSAPP_NUMBER.slice(2)})</span>
+                        </div>
+                        <p className="text-xs text-emerald-800 mt-1 leading-relaxed">
+                          Your enquiry is ready in WhatsApp. Please press <strong>Send</strong> in WhatsApp to deliver it.
+                        </p>
+                      </div>
+
+                      {submitResult.whatsappUrl && (
+                        <a
+                          href={submitResult.whatsappUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors shrink-0 shadow-xs"
+                        >
+                          <span>Open in WhatsApp</span>
+                          <ExternalLink size={14} />
+                        </a>
+                      )}
+                    </div>
+
+                    {/* Email Status Section */}
+                    <div className={`p-4 rounded-xl border ${
+                      submitResult.emailStatus === 'success'
+                        ? 'bg-blue-50/70 border-blue-200'
+                        : submitResult.emailStatus === 'requires_config'
+                        ? 'bg-amber-50/80 border-amber-200'
+                        : 'bg-rose-50/70 border-rose-200'
+                    }`}>
+                      <div className="flex items-center gap-2 font-bold text-sm">
+                        {submitResult.emailStatus === 'success' ? (
+                          <>
+                            <Mail size={16} className="text-blue-700" />
+                            <span className="text-blue-900">Email Dispatch: Sent Successfully</span>
+                          </>
+                        ) : submitResult.emailStatus === 'requires_config' ? (
+                          <>
+                            <AlertCircle size={16} className="text-amber-700" />
+                            <span className="text-amber-900">Email Dispatch: Environment Setup Required</span>
+                          </>
+                        ) : (
+                          <>
+                            <AlertCircle size={16} className="text-rose-700" />
+                            <span className="text-rose-900">Email Dispatch: Delivery Notice</span>
+                          </>
+                        )}
+                      </div>
+                      <p className={`text-xs mt-1 leading-relaxed ${
+                        submitResult.emailStatus === 'success'
+                          ? 'text-blue-800'
+                          : submitResult.emailStatus === 'requires_config'
+                          ? 'text-amber-800'
+                          : 'text-rose-800'
+                      }`}>
+                        {submitResult.emailMessage}
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Form Card */}
+                <div className="bg-white rounded-2xl shadow-sm border border-[#BFBFBF]/40 p-6 sm:p-10">
+                  <form onSubmit={handleSubmit} noValidate className="space-y-5 sm:space-y-6">
+                    
+                    {/* Anti-spam Honeypot Field (invisible to users) */}
+                    <div className="hidden" aria-hidden="true">
+                      <input
+                        type="text"
+                        name="website"
+                        value={formData.website}
+                        onChange={handleInputChange}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
+
+                    {/* Row 1: Full Name & Email Address */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+                      {/* Full Name */}
+                      <div>
+                        <label 
+                          htmlFor="name" 
+                          className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
+                        >
+                          Full Name <span className="text-rose-600" aria-hidden="true">*</span>
                         </label>
                         <input
+                          id="name"
                           type="text"
                           name="name"
-                          required
                           value={formData.name}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          onBlur={() => handleBlur('name')}
+                          placeholder="e.g. Dr. Rajesh Kumar"
+                          aria-required="true"
+                          aria-invalid={Boolean(errors.name)}
+                          aria-describedby={errors.name ? 'name-error' : undefined}
+                          className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
+                            errors.name 
+                              ? 'border-rose-400 focus:ring-rose-200' 
+                              : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
+                          }`}
                         />
+                        {errors.name && (
+                          <p id="name-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
+                            <AlertCircle size={12} />
+                            <span>{errors.name}</span>
+                          </p>
+                        )}
                       </div>
+
+                      {/* Email Address */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Email Address *
+                        <label 
+                          htmlFor="email" 
+                          className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
+                        >
+                          Email Address <span className="text-rose-600" aria-hidden="true">*</span>
                         </label>
                         <input
+                          id="email"
                           type="email"
                           name="email"
-                          required
                           value={formData.email}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          onBlur={() => handleBlur('email')}
+                          placeholder="name@hospital.com"
+                          aria-required="true"
+                          aria-invalid={Boolean(errors.email)}
+                          aria-describedby={errors.email ? 'email-error' : undefined}
+                          className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
+                            errors.email 
+                              ? 'border-rose-400 focus:ring-rose-200' 
+                              : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
+                          }`}
                         />
+                        {errors.email && (
+                          <p id="email-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
+                            <AlertCircle size={12} />
+                            <span>{errors.email}</span>
+                          </p>
+                        )}
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* Row 2: Company & Phone Number (Both Optional) */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+                      {/* Company */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Company
+                        <label 
+                          htmlFor="company" 
+                          className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
+                        >
+                          Company / Institution <span className="text-[#64748B] font-normal text-xs">(optional)</span>
                         </label>
                         <input
+                          id="company"
                           type="text"
                           name="company"
                           value={formData.company}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          placeholder="e.g. Apollo Diagnostics"
+                          className="w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border border-[#BFBFBF]/50 text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:border-[#1646AF] focus:outline-none focus:ring-2 focus:ring-[#1646AF]/15"
                         />
                       </div>
+
+                      {/* Phone Number */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Phone Number
+                        <label 
+                          htmlFor="phone" 
+                          className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
+                        >
+                          Phone Number <span className="text-[#64748B] font-normal text-xs">(optional)</span>
                         </label>
                         <input
+                          id="phone"
                           type="tel"
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          onBlur={() => handleBlur('phone')}
+                          placeholder="+91 98765 43210"
+                          aria-invalid={Boolean(errors.phone)}
+                          aria-describedby={errors.phone ? 'phone-error' : undefined}
+                          className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
+                            errors.phone 
+                              ? 'border-rose-400 focus:ring-rose-200' 
+                              : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
+                          }`}
                         />
+                        {errors.phone && (
+                          <p id="phone-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
+                            <AlertCircle size={12} />
+                            <span>{errors.phone}</span>
+                          </p>
+                        )}
                       </div>
                     </div>
 
+                    {/* Row 3: Area of Interest (Dropdown with exact specified options) */}
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Area of Interest
+                      <label 
+                        htmlFor="interest" 
+                        className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
+                      >
+                        Area of Interest <span className="text-rose-600" aria-hidden="true">*</span>
                       </label>
                       <select
+                        id="interest"
                         name="interest"
                         value={formData.interest}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        onBlur={() => handleBlur('interest')}
+                        aria-required="true"
+                        aria-invalid={Boolean(errors.interest)}
+                        aria-describedby={errors.interest ? 'interest-error' : undefined}
+                        className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm transition-colors focus:bg-white focus:outline-none focus:ring-2 cursor-pointer ${
+                          !formData.interest ? 'text-[#64748B]' : 'text-[#111827]'
+                        } ${
+                          errors.interest 
+                            ? 'border-rose-400 focus:ring-rose-200' 
+                            : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
+                        }`}
                       >
-                        <option value="general">General Inquiry</option>
-                        <option value="immunoassay">Immunoassay Systems</option>
-                        <option value="microbiology">Microbiology Solutions</option>
-                        <option value="clinical-chemistry">Clinical Chemistry</option>
-                        <option value="molecular">Molecular Diagnostics</option>
-                        <option value="quality-control">Quality Control</option>
-                        <option value="support">Technical Support</option>
-                        <option value="partnership">Partnership Opportunities</option>
+                        <option value="" disabled>Select an area of interest</option>
+                        {AREA_OF_INTEREST_OPTIONS.map((option, idx) => (
+                          <option key={idx} value={option} className="text-[#111827]">
+                            {option}
+                          </option>
+                        ))}
                       </select>
+                      {errors.interest && (
+                        <p id="interest-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
+                          <AlertCircle size={12} />
+                          <span>{errors.interest}</span>
+                        </p>
+                      )}
                     </div>
 
+                    {/* Row 4: Subject */}
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Subject *
+                      <label 
+                        htmlFor="subject" 
+                        className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
+                      >
+                        Subject <span className="text-rose-600" aria-hidden="true">*</span>
                       </label>
                       <input
+                        id="subject"
                         type="text"
                         name="subject"
-                        required
                         value={formData.subject}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        onBlur={() => handleBlur('subject')}
+                        placeholder="e.g. Quotation Request for SmarLumi FC-2100"
+                        aria-required="true"
+                        aria-invalid={Boolean(errors.subject)}
+                        aria-describedby={errors.subject ? 'subject-error' : undefined}
+                        className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
+                          errors.subject 
+                            ? 'border-rose-400 focus:ring-rose-200' 
+                            : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
+                        }`}
                       />
+                      {errors.subject && (
+                        <p id="subject-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
+                          <AlertCircle size={12} />
+                          <span>{errors.subject}</span>
+                        </p>
+                      )}
                     </div>
 
+                    {/* Row 5: Message */}
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Message *
+                      <label 
+                        htmlFor="message" 
+                        className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
+                      >
+                        Message <span className="text-rose-600" aria-hidden="true">*</span>
                       </label>
                       <textarea
+                        id="message"
                         name="message"
-                        required
-                        rows={6}
+                        rows={5}
                         value={formData.message}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="Please describe your inquiry in detail..."
-                      ></textarea>
+                        onBlur={() => handleBlur('message')}
+                        placeholder="Please describe your inquiry, instrument capacity requirements, or testing panel questions..."
+                        aria-required="true"
+                        aria-invalid={Boolean(errors.message)}
+                        aria-describedby={errors.message ? 'message-error' : undefined}
+                        className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 resize-y ${
+                          errors.message 
+                            ? 'border-rose-400 focus:ring-rose-200' 
+                            : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
+                        }`}
+                      />
+                      {errors.message && (
+                        <p id="message-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
+                          <AlertCircle size={12} />
+                          <span>{errors.message}</span>
+                        </p>
+                      )}
                     </div>
 
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-[#1646AF] hover:bg-[#133C99] text-white py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg shadow-[#1646AF]/25 hover:shadow-xl disabled:opacity-75 cursor-pointer"
-                    >
-                      <Send size={20} className={isSubmitting ? 'animate-pulse' : ''} />
-                      <span>{isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
-                    </button>
+                    {/* Submit Button */}
+                    <div className="pt-2">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#133C99] hover:bg-[#1646AF] text-white font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer"
+                      >
+                        <Send size={18} className={isSubmitting ? 'animate-pulse' : ''} />
+                        <span>{isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
+                      </button>
+                    </div>
+
+                    {/* Privacy & WhatsApp Notice */}
+                    <p className="text-[11px] text-[#64748B] pt-2 border-t border-[#BFBFBF]/30 leading-relaxed">
+                      By submitting this form, your enquiry will be securely processed and dispatched to <span className="font-semibold text-[#111827]">{AUREX_EMAIL}</span>. Additionally, a pre-filled WhatsApp message will open for immediate direct conversation at <span className="font-semibold text-[#111827]">+91 9543910101</span>.
+                    </p>
+
                   </form>
                 </div>
+
               </div>
             )}
 
-            {/* Global Offices Section */}
+            {/* ============================================================
+                GLOBAL OFFICES SECTION
+                ============================================================ */}
             {activeSection === 'global-offices' && (
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl font-bold text-gray-900 mb-4">Global Offices</h2>
-                  <p className="text-xl text-gray-600">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-[#111827] mb-3">Global Offices</h2>
+                  <p className="text-base text-[#64748B]">
                     Visit us at one of our offices worldwide
                   </p>
                 </div>
@@ -361,33 +814,35 @@ export default function ContactPage() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="bg-white rounded-xl shadow-sm p-8 hover:shadow-lg transition-shadow"
+                      className="bg-white rounded-2xl shadow-xs border border-[#BFBFBF]/40 p-8 hover:shadow-md transition-shadow"
                     >
-                      <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                        <Building2 className="text-blue-600" size={32} />
+                      <div className="w-14 h-14 bg-[#F6F8FB] border border-[#1646AF]/20 rounded-xl flex items-center justify-center mb-6">
+                        <Building2 className="text-[#1646AF]" size={28} />
                       </div>
                       
-                      <h3 className="text-2xl font-bold text-gray-900 mb-4">{office.region}</h3>
+                      <h3 className="text-xl font-bold text-[#111827] mb-4">{office.region}</h3>
                       
-                      <div className="space-y-3">
+                      <div className="space-y-3 text-xs sm:text-sm">
                         <div className="flex items-start space-x-3">
-                          <MapPin className="text-gray-400 mt-1 flex-shrink-0" size={18} />
-                          <span className="text-gray-600">{office.address}</span>
+                          <MapPin className="text-[#64748B] mt-0.5 shrink-0" size={16} />
+                          <span className="text-[#64748B]">{office.address}</span>
                         </div>
                         
                         <div className="flex items-center space-x-3">
-                          <Phone className="text-gray-400 flex-shrink-0" size={18} />
-                          <span className="text-gray-600">{office.phone}</span>
+                          <Phone className="text-[#64748B] shrink-0" size={16} />
+                          <span className="text-[#64748B] font-medium">{office.phone}</span>
                         </div>
                         
                         <div className="flex items-center space-x-3">
-                          <Mail className="text-gray-400 flex-shrink-0" size={18} />
-                          <span className="text-gray-600 break-all">{office.email}</span>
+                          <Mail className="text-[#64748B] shrink-0" size={16} />
+                          <a href={`mailto:${office.email}`} className="text-[#1646AF] hover:underline break-all">
+                            {office.email}
+                          </a>
                         </div>
                         
                         <div className="flex items-center space-x-3">
-                          <Clock className="text-gray-400 flex-shrink-0" size={18} />
-                          <span className="text-gray-600">{office.hours}</span>
+                          <Clock className="text-[#64748B] shrink-0" size={16} />
+                          <span className="text-[#64748B]">{office.hours}</span>
                         </div>
                       </div>
                     </motion.div>
@@ -398,119 +853,102 @@ export default function ContactPage() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  className="mt-12 bg-gray-100 rounded-xl h-96 flex items-center justify-center"
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="mt-12 bg-white border border-[#BFBFBF]/40 rounded-2xl h-80 flex items-center justify-center shadow-xs"
                 >
                   <div className="text-center">
-                    <Globe className="text-gray-400 mx-auto mb-4" size={64} />
-                    <h3 className="text-xl font-semibold text-gray-600 mb-2">Global Presence</h3>
-                    <p className="text-gray-500">Interactive map coming soon</p>
+                    <Globe className="text-[#1646AF]/40 mx-auto mb-3" size={56} />
+                    <h3 className="text-lg font-semibold text-[#111827] mb-1">Global Presence</h3>
+                    <p className="text-xs text-[#64748B]">Headquartered in Tamil Nadu, India with pan-India distribution network</p>
                   </div>
                 </motion.div>
               </div>
             )}
 
-            {/* Support Channels Section */}
+            {/* ============================================================
+                SUPPORT CHANNELS SECTION
+                ============================================================ */}
             {activeSection === 'support-channels' && (
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl font-bold text-gray-900 mb-4">Multiple Ways to Reach Us</h2>
-                  <p className="text-xl text-gray-600">
-                    Choose the communication method that works best for you
+                  <h2 className="text-3xl sm:text-4xl font-bold text-[#111827] mb-3">Multiple Ways to Reach Us</h2>
+                  <p className="text-base text-[#64748B]">
+                    Choose the communication channel that works best for your clinical institution
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                   {contactMethods.map((method, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="bg-white rounded-xl p-8 hover:shadow-lg transition-shadow group cursor-pointer"
+                      className="bg-white rounded-2xl p-6 sm:p-8 border border-[#BFBFBF]/40 hover:shadow-md transition-shadow group flex flex-col justify-between"
                     >
-                      <div className="w-20 h-20 bg-[#F6F8FB] border border-[#1646AF]/20 rounded-full flex items-center justify-center mb-6 transition-colors">
-                        <method.icon className="text-[#1646AF]" size={40} />
+                      <div>
+                        <div className="w-14 h-14 bg-[#F6F8FB] border border-[#1646AF]/20 rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#1646AF] group-hover:text-white transition-colors text-[#1646AF]">
+                          <method.icon size={28} />
+                        </div>
+                        <h3 className="text-xl font-bold text-[#111827] mb-2">{method.title}</h3>
+                        <p className="text-[#64748B] mb-3 text-sm leading-relaxed">{method.description}</p>
+                        <div className="text-[#1646AF] font-bold text-base mb-6">{method.contact}</div>
                       </div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">{method.title}</h3>
-                      <p className="text-[#64748B] mb-4 text-lg">{method.description}</p>
-                      <div className="text-[#1646AF] font-semibold mb-4 text-lg">{method.contact}</div>
-                      <button className="w-full bg-[#1646AF] text-white py-3 rounded-lg font-semibold hover:bg-[#133C99] transition-colors shadow-sm">
-                        {method.action}
-                      </button>
+                      <a
+                        href={method.href}
+                        onClick={method.href === '#contact-form' ? () => setActiveSection('contact-form') : undefined}
+                        className="w-full inline-flex items-center justify-center gap-2 bg-[#133C99] hover:bg-[#1646AF] text-white py-3 rounded-xl font-semibold text-sm transition-colors shadow-xs"
+                      >
+                        <span>{method.action}</span>
+                      </a>
                     </motion.div>
                   ))}
                 </div>
               </div>
             )}
 
-            {/* Emergency Support Section */}
+            {/* ============================================================
+                EMERGENCY SUPPORT SECTION
+                ============================================================ */}
             {activeSection === 'emergency-support' && (
               <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl font-bold text-gray-900 mb-4">24/7 Emergency Support</h2>
-                  <p className="text-xl text-[#64748B]">
-                    Critical support when you need it most
+                  <h2 className="text-3xl sm:text-4xl font-bold text-[#111827] mb-3">24/7 Emergency Support</h2>
+                  <p className="text-base text-[#64748B]">
+                    Critical diagnostic instrument support when you need it most
                   </p>
                 </div>
 
-                <div className="bg-[#133C99] text-white rounded-2xl p-12 shadow-xl border border-white/20">
+                <div className="bg-[#133C99] text-white rounded-2xl p-8 sm:p-12 shadow-xl border border-white/20">
                   <div className="text-center mb-8">
-                    <Phone className="mx-auto mb-6 text-white" size={64} />
-                    <h3 className="text-3xl font-bold mb-4 text-white">Emergency Hotline</h3>
-                    <p className="text-xl text-white/80 mb-8">
-                      For critical system issues or urgent technical support needs, 
-                      our emergency hotline is available around the clock.
+                    <Phone className="mx-auto mb-5 text-white" size={56} />
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-white">Emergency Hotline</h3>
+                    <p className="text-sm sm:text-base text-white/80 mb-6 max-w-xl mx-auto">
+                      For critical diagnostic instrument failures or urgent laboratory workflow needs, our emergency engineering team is available 24/7.
                     </p>
-                    <div className="text-4xl font-bold mb-2 text-white">+91 9543910101</div>
-                    <div className="text-4xl font-bold mb-6 text-white">+91 8144418046</div>
-                    <a href="tel:+919543910101" className="inline-block bg-white text-[#1646AF] hover:bg-[#F6F8FB] hover:text-[#133C99] px-8 py-4 rounded-lg font-bold text-lg transition-colors shadow-sm">
+                    <div className="text-2xl sm:text-3xl font-bold mb-1 text-white">+91 9543910101</div>
+                    <div className="text-2xl sm:text-3xl font-bold mb-6 text-white">+91 8144418046</div>
+                    <a 
+                      href="tel:+919543910101" 
+                      className="inline-block bg-white text-[#1646AF] hover:bg-[#F6F8FB] hover:text-[#133C99] px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base transition-colors shadow-md"
+                    >
                       Call Emergency Support
                     </a>
                   </div>
 
-                  <div className="border-t border-white/20 pt-8 mt-8">
-                    <h4 className="text-xl font-semibold mb-4 text-white">What qualifies as an emergency?</h4>
-                    <ul className="space-y-2 text-white/80">
-                      <li>• Complete system failure affecting patient care</li>
-                      <li>• Critical diagnostic errors requiring immediate attention</li>
-                      <li>• Safety-related equipment malfunction</li>
-                      <li>• Data loss or corruption in critical systems</li>
-                      <li>• Urgent calibration or quality control issues</li>
+                  <div className="border-t border-white/20 pt-6 mt-6">
+                    <h4 className="text-base sm:text-lg font-bold mb-3 text-white">What qualifies as an emergency?</h4>
+                    <ul className="space-y-2 text-xs sm:text-sm text-white/80">
+                      <li>• Complete instrument failure impacting ongoing patient diagnostic batches</li>
+                      <li>• Critical diagnostic calibration discrepancy requiring immediate field service</li>
+                      <li>• Safety-related electromechanical analyzer malfunction</li>
+                      <li>• Bidirectional LIS connectivity disruption on emergency sample lines</li>
                     </ul>
-                  </div>
-
-                  <div className="border-t border-white/20 pt-8 mt-8">
-                    <h4 className="text-xl font-semibold mb-4 text-white">Response Time Guarantee</h4>
-                    <p className="text-white/80">
-                      Emergency calls are answered within 2 minutes, 24/7/365. 
-                      On-site support available within 4 hours for critical issues.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                  <div className="bg-[#F6F8FB] border border-[#BFBFBF]/40 rounded-xl p-6">
-                    <h4 className="text-xl font-semibold text-gray-900 mb-3">Emergency Contact</h4>
-                    <div className="space-y-2 text-gray-700">
-                      <div><strong>Phone:</strong> +91 9543910101, +91 8144418046</div>
-                      <div><strong>Address:</strong> 1/51, Barathiyar Street, Mundiyampakkam, TamilNadu, India - 605601</div>
-                    </div>
-                  </div>
-
-                  <div className="bg-[#F6F8FB] border border-[#BFBFBF]/40 rounded-xl p-6">
-                    <h4 className="text-xl font-semibold text-gray-900 mb-3">Email Emergency Support</h4>
-                    <div className="space-y-2 text-gray-700">
-                      <div><strong>Critical Issues:</strong></div>
-                      <div>sales@aurexbiotech.com</div>
-                      <div className="text-sm text-[#64748B] mt-2">
-                        Monitored 24/7 with 15-minute response time
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
             )}
+
           </motion.div>
         </div>
       </section>

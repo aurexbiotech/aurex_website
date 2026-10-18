@@ -14,15 +14,10 @@ import {
   Globe, 
   Users, 
   MessageCircle, 
-  CheckCircle, 
+  CheckCircle2, 
   AlertCircle,
-  ExternalLink,
   RotateCcw
 } from 'lucide-react'
-
-// Official AUREX Business Contact Details
-const AUREX_WHATSAPP_NUMBER = '919543910101'
-const AUREX_EMAIL = 'aurexbiotech@gmail.com'
 
 // Area of Interest dropdown options requested in specification
 const AREA_OF_INTEREST_OPTIONS = [
@@ -98,15 +93,15 @@ const HeroBanner = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1528]/95 via-[#133C99]/90 to-[#1646AF]/85 z-10" />
         <Image
           src="/images/background.jpg"
-          alt="Contact AUREX Biotech Automation"
+          alt="AUREX Biotech Laboratory Automation"
           fill
-          className="object-cover object-center"
           priority
-          quality={75}
+          sizes="100vw"
+          className="object-cover object-center"
         />
       </div>
 
-      {/* Hero Content */}
+      {/* Content */}
       <div className="relative z-20 container mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -114,9 +109,9 @@ const HeroBanner = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-white text-xs font-semibold tracking-widest uppercase mb-4 border border-white/20">
-            AUREX BIOTECH AUTOMATION
-          </div>
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold tracking-wider uppercase mb-6">
+            Get in Touch
+          </span>
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-white mb-6 tracking-tight">
             Contact Us
           </h1>
@@ -163,7 +158,6 @@ const SubNavigation = ({
                 <motion.div
                   layoutId="activeContactSection"
                   className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#1646AF] rounded-full"
-                  transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
                 />
               )}
             </button>
@@ -177,6 +171,8 @@ const SubNavigation = ({
 export default function ContactPage() {
   const [activeSection, setActiveSection] = useState('contact-form')
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
   
   // Form State
   const [formData, setFormData] = useState({
@@ -193,18 +189,6 @@ export default function ContactPage() {
   // Validation Error State
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [touched, setTouched] = useState<Record<string, boolean>>({})
-
-  // Submission Result State
-  const [submitResult, setSubmitResult] = useState<{
-    submitted: boolean
-    emailStatus: 'success' | 'requires_config' | 'failed' | 'idle'
-    emailMessage?: string
-    whatsappUrl?: string
-    whatsappOpened?: boolean
-  }>({
-    submitted: false,
-    emailStatus: 'idle'
-  })
 
   // Validation function
   const validateField = (field: string, value: string): string => {
@@ -292,92 +276,58 @@ export default function ContactPage() {
     return isValid
   }
 
-  // Build the standardized WhatsApp message format
-  const generateWhatsAppMessage = () => {
-    return (
-      `NEW AUREX WEBSITE ENQUIRY\n` +
-      `Full Name: ${formData.name.trim()}\n` +
-      `Email Address: ${formData.email.trim()}\n` +
-      `Company: ${formData.company.trim() || 'Not provided'}\n` +
-      `Phone Number: ${formData.phone.trim() || 'Not provided'}\n` +
-      `Area of Interest: ${formData.interest}\n` +
-      `Subject: ${formData.subject.trim()}\n` +
-      `Message:\n${formData.message.trim()}`
-    )
-  }
-
   // Submit Handler
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Clear previous error
+    setSubmitError(null)
 
     // 1. Client-side Validation
     if (!validateForm()) {
       return
     }
 
+    // Prevent duplicate submissions while in flight
     if (isSubmitting) return
     setIsSubmitting(true)
 
-    // 2. Prepare WhatsApp URL with complete field encoding
-    const waText = generateWhatsAppMessage()
-    const whatsappUrl = `https://wa.me/${AUREX_WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`
+    // Generate unique idempotency key for this submission attempt
+    const idempotencyKey = `${Date.now()}-${Math.random().toString(36).substring(2, 9)}`
 
-    // Open WhatsApp directly during the user click event to prevent browser popup blockers
-    let popupOpened = false
-    try {
-      const waWindow = window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
-      if (waWindow && !waWindow.closed && typeof waWindow.closed !== 'undefined') {
-        popupOpened = true
-      }
-    } catch {
-      popupOpened = false
-    }
-
-    // 3. Dispatch to Server-Side Email API
+    // 2. Dispatch to Server-Side API (handles both Email and WhatsApp delivery)
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        headers: { 
+          'Content-Type': 'application/json',
+          'Idempotency-Key': idempotencyKey
+        },
+        body: JSON.stringify({
+          ...formData,
+          idempotencyKey
+        })
       })
 
       const data = await res.json()
 
       if (res.ok && data.success) {
-        if (data.emailDelivered) {
-          setSubmitResult({
-            submitted: true,
-            emailStatus: 'success',
-            emailMessage: data.message || `Your enquiry has been delivered to ${AUREX_EMAIL}.`,
-            whatsappUrl,
-            whatsappOpened: popupOpened
-          })
-        } else if (data.requiresEmailConfig) {
-          setSubmitResult({
-            submitted: true,
-            emailStatus: 'requires_config',
-            emailMessage: 'Enquiry processed. Server-side email requires SMTP or Resend credentials in .env.local.',
-            whatsappUrl,
-            whatsappOpened: popupOpened
-          })
-        }
+        setIsSubmitted(true)
+        setSubmitError(null)
       } else {
-        setSubmitResult({
-          submitted: true,
-          emailStatus: 'failed',
-          emailMessage: data.error || 'Server email delivery failed. Please send your enquiry directly via WhatsApp.',
-          whatsappUrl,
-          whatsappOpened: popupOpened
-        })
+        // Neutral customer-facing message without exposing internal details
+        setSubmitError(
+          typeof data?.error === 'string' && 
+          !data.error.includes('credentials') && 
+          !data.error.includes('API') && 
+          !data.error.includes('HTTP')
+            ? data.error
+            : "We couldn't process your enquiry right now. Please try again shortly."
+        )
       }
     } catch {
-      setSubmitResult({
-        submitted: true,
-        emailStatus: 'failed',
-        emailMessage: 'Network error communicating with the email server. Please use WhatsApp to deliver your enquiry.',
-        whatsappUrl,
-        whatsappOpened: popupOpened
-      })
+      // Safe fallback error without exposing network or system specifics
+      setSubmitError("We couldn't process your enquiry right now. Please try again shortly.")
     } finally {
       setIsSubmitting(false)
     }
@@ -397,10 +347,8 @@ export default function ContactPage() {
     })
     setErrors({})
     setTouched({})
-    setSubmitResult({
-      submitted: false,
-      emailStatus: 'idle'
-    })
+    setSubmitError(null)
+    setIsSubmitted(false)
   }
 
   return (
@@ -435,362 +383,319 @@ export default function ContactPage() {
                     Send us a Message
                   </h2>
                   <p className="text-sm sm:text-base text-[#64748B] max-w-xl mx-auto">
-                    Submit your requirement below. Your enquiry will be prepared for WhatsApp and dispatched to our engineering team at <span className="font-semibold text-[#133C99]">{AUREX_EMAIL}</span>.
+                    Submit your requirement below. Our engineering team will review your enquiry and connect with you directly.
                   </p>
                 </div>
 
-                {/* Submission Dual-Delivery Status Card */}
-                {submitResult.submitted && (
+                {/* Success Screen: Replaces the form completely upon successful processing */}
+                {isSubmitted ? (
                   <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mb-8 p-6 rounded-2xl bg-white border border-[#BFBFBF]/40 shadow-sm space-y-4"
+                    initial={{ opacity: 0, scale: 0.98, y: 12 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ duration: 0.35 }}
+                    className="bg-white rounded-2xl shadow-sm border border-[#BFBFBF]/40 p-8 sm:p-14 text-center max-w-2xl mx-auto"
                   >
-                    {/* Status Header */}
-                    <div className="flex items-center justify-between pb-3 border-b border-[#BFBFBF]/25">
-                      <div className="flex items-center gap-2.5">
-                        <CheckCircle className="w-5 h-5 text-emerald-600 shrink-0" />
-                        <h3 className="text-base font-bold text-[#111827]">
-                          Enquiry Ready & Processed
-                        </h3>
-                      </div>
+                    {/* Subtle Success Icon */}
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6 rounded-full bg-[#133C99]/10 border border-[#133C99]/20 flex items-center justify-center">
+                      <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10 text-[#133C99]" strokeWidth={2.2} />
+                    </div>
+
+                    {/* Heading */}
+                    <h3 className="text-2xl sm:text-3xl font-bold text-[#111827] tracking-tight mb-3">
+                      Message Sent Successfully!
+                    </h3>
+
+                    {/* Message */}
+                    <p className="text-sm sm:text-base text-[#64748B] max-w-md mx-auto mb-8 leading-relaxed">
+                      Thank you for contacting AUREX. Our team will get back to you within 24 hours.
+                    </p>
+
+                    {/* Submit New Enquiry Button */}
+                    <div>
                       <button
                         onClick={handleResetForm}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#64748B] hover:text-[#1646AF] transition-colors cursor-pointer"
+                        className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2"
                       >
-                        <RotateCcw size={14} />
+                        <RotateCcw size={16} />
                         <span>Submit New Enquiry</span>
                       </button>
                     </div>
-
-                    {/* WhatsApp Status Section */}
-                    <div className="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                      <div>
-                        <div className="flex items-center gap-2 text-emerald-900 font-bold text-sm">
-                          <MessageCircle size={17} className="text-emerald-700" />
-                          <span>WhatsApp Channel (+91 {AUREX_WHATSAPP_NUMBER.slice(2)})</span>
-                        </div>
-                        <p className="text-xs text-emerald-800 mt-1 leading-relaxed">
-                          Your enquiry is ready in WhatsApp. Please press <strong>Send</strong> in WhatsApp to deliver it.
-                        </p>
-                      </div>
-
-                      {submitResult.whatsappUrl && (
-                        <a
-                          href={submitResult.whatsappUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition-colors shrink-0 shadow-xs"
-                        >
-                          <span>Open in WhatsApp</span>
-                          <ExternalLink size={14} />
-                        </a>
-                      )}
-                    </div>
-
-                    {/* Email Status Section */}
-                    <div className={`p-4 rounded-xl border ${
-                      submitResult.emailStatus === 'success'
-                        ? 'bg-blue-50/70 border-blue-200'
-                        : submitResult.emailStatus === 'requires_config'
-                        ? 'bg-amber-50/80 border-amber-200'
-                        : 'bg-rose-50/70 border-rose-200'
-                    }`}>
-                      <div className="flex items-center gap-2 font-bold text-sm">
-                        {submitResult.emailStatus === 'success' ? (
-                          <>
-                            <Mail size={16} className="text-blue-700" />
-                            <span className="text-blue-900">Email Dispatch: Sent Successfully</span>
-                          </>
-                        ) : submitResult.emailStatus === 'requires_config' ? (
-                          <>
-                            <AlertCircle size={16} className="text-amber-700" />
-                            <span className="text-amber-900">Email Dispatch: Environment Setup Required</span>
-                          </>
-                        ) : (
-                          <>
-                            <AlertCircle size={16} className="text-rose-700" />
-                            <span className="text-rose-900">Email Dispatch: Delivery Notice</span>
-                          </>
-                        )}
-                      </div>
-                      <p className={`text-xs mt-1 leading-relaxed ${
-                        submitResult.emailStatus === 'success'
-                          ? 'text-blue-800'
-                          : submitResult.emailStatus === 'requires_config'
-                          ? 'text-amber-800'
-                          : 'text-rose-800'
-                      }`}>
-                        {submitResult.emailMessage}
-                      </p>
-                    </div>
                   </motion.div>
-                )}
-
-                {/* Form Card */}
-                <div className="bg-white rounded-2xl shadow-sm border border-[#BFBFBF]/40 p-6 sm:p-10">
-                  <form onSubmit={handleSubmit} noValidate className="space-y-5 sm:space-y-6">
+                ) : (
+                  /* Form Card */
+                  <div className="bg-white rounded-2xl shadow-sm border border-[#BFBFBF]/40 p-6 sm:p-10">
                     
-                    {/* Anti-spam Honeypot Field (invisible to users) */}
-                    <div className="hidden" aria-hidden="true">
-                      <input
-                        type="text"
-                        name="website"
-                        value={formData.website}
-                        onChange={handleInputChange}
-                        tabIndex={-1}
-                        autoComplete="off"
-                      />
-                    </div>
+                    {/* Neutral Error Alert on submission failure */}
+                    {submitError && (
+                      <div className="mb-6 p-4 rounded-xl bg-rose-50 border border-rose-200 flex items-center gap-3 text-rose-800 text-sm font-medium">
+                        <AlertCircle size={18} className="text-rose-600 shrink-0" />
+                        <span>{submitError}</span>
+                      </div>
+                    )}
 
-                    {/* Row 1: Full Name & Email Address */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-                      {/* Full Name */}
-                      <div>
-                        <label 
-                          htmlFor="name" 
-                          className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
-                        >
-                          Full Name <span className="text-rose-600" aria-hidden="true">*</span>
-                        </label>
+                    <form onSubmit={handleSubmit} noValidate className="space-y-5 sm:space-y-6">
+                      
+                      {/* Anti-spam Honeypot Field (invisible to users) */}
+                      <div className="hidden" aria-hidden="true">
                         <input
-                          id="name"
                           type="text"
-                          name="name"
-                          value={formData.name}
+                          name="website"
+                          value={formData.website}
                           onChange={handleInputChange}
-                          onBlur={() => handleBlur('name')}
-                          placeholder="e.g. Dr. Rajesh Kumar"
+                          tabIndex={-1}
+                          autoComplete="off"
+                        />
+                      </div>
+
+                      {/* Row 1: Full Name & Email Address */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+                        {/* Full Name */}
+                        <div>
+                          <label 
+                            htmlFor="name" 
+                            className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
+                          >
+                            Full Name <span className="text-rose-600" aria-hidden="true">*</span>
+                          </label>
+                          <input
+                            id="name"
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            onBlur={() => handleBlur('name')}
+                            placeholder="e.g. Dr. Rajesh Kumar"
+                            aria-required="true"
+                            aria-invalid={Boolean(errors.name)}
+                            aria-describedby={errors.name ? 'name-error' : undefined}
+                            className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
+                              errors.name 
+                                ? 'border-rose-400 focus:ring-rose-200' 
+                                : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
+                            }`}
+                          />
+                          {errors.name && (
+                            <p id="name-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
+                              <AlertCircle size={12} />
+                              <span>{errors.name}</span>
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Email Address */}
+                        <div>
+                          <label 
+                            htmlFor="email" 
+                            className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
+                          >
+                            Email Address <span className="text-rose-600" aria-hidden="true">*</span>
+                          </label>
+                          <input
+                            id="email"
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                            onBlur={() => handleBlur('email')}
+                            placeholder="name@hospital.com"
+                            aria-required="true"
+                            aria-invalid={Boolean(errors.email)}
+                            aria-describedby={errors.email ? 'email-error' : undefined}
+                            className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
+                              errors.email 
+                                ? 'border-rose-400 focus:ring-rose-200' 
+                                : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
+                            }`}
+                          />
+                          {errors.email && (
+                            <p id="email-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
+                              <AlertCircle size={12} />
+                              <span>{errors.email}</span>
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Row 2: Company & Phone Number (Both Optional) */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+                        {/* Company */}
+                        <div>
+                          <label 
+                            htmlFor="company" 
+                            className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
+                          >
+                            Company / Institution <span className="text-[#64748B] font-normal text-xs">(optional)</span>
+                          </label>
+                          <input
+                            id="company"
+                            type="text"
+                            name="company"
+                            value={formData.company}
+                            onChange={handleInputChange}
+                            placeholder="e.g. Apollo Diagnostics"
+                            className="w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border border-[#BFBFBF]/50 text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:border-[#1646AF] focus:outline-none focus:ring-2 focus:ring-[#1646AF]/15"
+                          />
+                        </div>
+
+                        {/* Phone Number */}
+                        <div>
+                          <label 
+                            htmlFor="phone" 
+                            className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
+                          >
+                            Phone Number <span className="text-[#64748B] font-normal text-xs">(optional)</span>
+                          </label>
+                          <input
+                            id="phone"
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleInputChange}
+                            onBlur={() => handleBlur('phone')}
+                            placeholder="+91 98765 43210"
+                            aria-invalid={Boolean(errors.phone)}
+                            aria-describedby={errors.phone ? 'phone-error' : undefined}
+                            className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
+                              errors.phone 
+                                ? 'border-rose-400 focus:ring-rose-200' 
+                                : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
+                            }`}
+                          />
+                          {errors.phone && (
+                            <p id="phone-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
+                              <AlertCircle size={12} />
+                              <span>{errors.phone}</span>
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Row 3: Area of Interest */}
+                      <div>
+                        <label 
+                          htmlFor="interest" 
+                          className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
+                        >
+                          Area of Interest <span className="text-rose-600" aria-hidden="true">*</span>
+                        </label>
+                        <select
+                          id="interest"
+                          name="interest"
+                          value={formData.interest}
+                          onChange={handleInputChange}
+                          onBlur={() => handleBlur('interest')}
                           aria-required="true"
-                          aria-invalid={Boolean(errors.name)}
-                          aria-describedby={errors.name ? 'name-error' : undefined}
-                          className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
-                            errors.name 
+                          aria-invalid={Boolean(errors.interest)}
+                          aria-describedby={errors.interest ? 'interest-error' : undefined}
+                          className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm transition-colors focus:bg-white focus:outline-none focus:ring-2 cursor-pointer ${
+                            !formData.interest ? 'text-[#64748B]' : 'text-[#111827]'
+                          } ${
+                            errors.interest 
                               ? 'border-rose-400 focus:ring-rose-200' 
                               : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
                           }`}
-                        />
-                        {errors.name && (
-                          <p id="name-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
+                        >
+                          <option value="" disabled>Select an area of interest</option>
+                          {AREA_OF_INTEREST_OPTIONS.map((option, idx) => (
+                            <option key={idx} value={option} className="text-[#111827]">
+                              {option}
+                            </option>
+                          ))}
+                        </select>
+                        {errors.interest && (
+                          <p id="interest-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
                             <AlertCircle size={12} />
-                            <span>{errors.name}</span>
+                            <span>{errors.interest}</span>
                           </p>
                         )}
                       </div>
 
-                      {/* Email Address */}
+                      {/* Row 4: Subject */}
                       <div>
                         <label 
-                          htmlFor="email" 
+                          htmlFor="subject" 
                           className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
                         >
-                          Email Address <span className="text-rose-600" aria-hidden="true">*</span>
+                          Subject <span className="text-rose-600" aria-hidden="true">*</span>
                         </label>
                         <input
-                          id="email"
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          onBlur={() => handleBlur('email')}
-                          placeholder="name@hospital.com"
-                          aria-required="true"
-                          aria-invalid={Boolean(errors.email)}
-                          aria-describedby={errors.email ? 'email-error' : undefined}
-                          className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
-                            errors.email 
-                              ? 'border-rose-400 focus:ring-rose-200' 
-                              : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
-                          }`}
-                        />
-                        {errors.email && (
-                          <p id="email-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
-                            <AlertCircle size={12} />
-                            <span>{errors.email}</span>
-                          </p>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Row 2: Company & Phone Number (Both Optional) */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-                      {/* Company */}
-                      <div>
-                        <label 
-                          htmlFor="company" 
-                          className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
-                        >
-                          Company / Institution <span className="text-[#64748B] font-normal text-xs">(optional)</span>
-                        </label>
-                        <input
-                          id="company"
+                          id="subject"
                           type="text"
-                          name="company"
-                          value={formData.company}
+                          name="subject"
+                          value={formData.subject}
                           onChange={handleInputChange}
-                          placeholder="e.g. Apollo Diagnostics"
-                          className="w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border border-[#BFBFBF]/50 text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:border-[#1646AF] focus:outline-none focus:ring-2 focus:ring-[#1646AF]/15"
+                          onBlur={() => handleBlur('subject')}
+                          placeholder="e.g. Quotation Request for SmarLumi FC-2100"
+                          aria-required="true"
+                          aria-invalid={Boolean(errors.subject)}
+                          aria-describedby={errors.subject ? 'subject-error' : undefined}
+                          className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
+                            errors.subject 
+                              ? 'border-rose-400 focus:ring-rose-200' 
+                                : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
+                          }`}
                         />
+                        {errors.subject && (
+                          <p id="subject-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
+                            <AlertCircle size={12} />
+                            <span>{errors.subject}</span>
+                          </p>
+                        )}
                       </div>
 
-                      {/* Phone Number */}
+                      {/* Row 5: Message */}
                       <div>
                         <label 
-                          htmlFor="phone" 
+                          htmlFor="message" 
                           className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
                         >
-                          Phone Number <span className="text-[#64748B] font-normal text-xs">(optional)</span>
+                          Message <span className="text-rose-600" aria-hidden="true">*</span>
                         </label>
-                        <input
-                          id="phone"
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
+                        <textarea
+                          id="message"
+                          name="message"
+                          rows={5}
+                          value={formData.message}
                           onChange={handleInputChange}
-                          onBlur={() => handleBlur('phone')}
-                          placeholder="+91 98765 43210"
-                          aria-invalid={Boolean(errors.phone)}
-                          aria-describedby={errors.phone ? 'phone-error' : undefined}
-                          className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
-                            errors.phone 
+                          onBlur={() => handleBlur('message')}
+                          placeholder="Please describe your inquiry, instrument capacity requirements, or testing panel questions..."
+                          aria-required="true"
+                          aria-invalid={Boolean(errors.message)}
+                          aria-describedby={errors.message ? 'message-error' : undefined}
+                          className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 resize-y ${
+                            errors.message 
                               ? 'border-rose-400 focus:ring-rose-200' 
                               : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
                           }`}
                         />
-                        {errors.phone && (
-                          <p id="phone-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
+                        {errors.message && (
+                          <p id="message-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
                             <AlertCircle size={12} />
-                            <span>{errors.phone}</span>
+                            <span>{errors.message}</span>
                           </p>
                         )}
                       </div>
-                    </div>
 
-                    {/* Row 3: Area of Interest (Dropdown with exact specified options) */}
-                    <div>
-                      <label 
-                        htmlFor="interest" 
-                        className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
-                      >
-                        Area of Interest <span className="text-rose-600" aria-hidden="true">*</span>
-                      </label>
-                      <select
-                        id="interest"
-                        name="interest"
-                        value={formData.interest}
-                        onChange={handleInputChange}
-                        onBlur={() => handleBlur('interest')}
-                        aria-required="true"
-                        aria-invalid={Boolean(errors.interest)}
-                        aria-describedby={errors.interest ? 'interest-error' : undefined}
-                        className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm transition-colors focus:bg-white focus:outline-none focus:ring-2 cursor-pointer ${
-                          !formData.interest ? 'text-[#64748B]' : 'text-[#111827]'
-                        } ${
-                          errors.interest 
-                            ? 'border-rose-400 focus:ring-rose-200' 
-                            : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
-                        }`}
-                      >
-                        <option value="" disabled>Select an area of interest</option>
-                        {AREA_OF_INTEREST_OPTIONS.map((option, idx) => (
-                          <option key={idx} value={option} className="text-[#111827]">
-                            {option}
-                          </option>
-                        ))}
-                      </select>
-                      {errors.interest && (
-                        <p id="interest-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
-                          <AlertCircle size={12} />
-                          <span>{errors.interest}</span>
-                        </p>
-                      )}
-                    </div>
+                      {/* Submit Button */}
+                      <div className="pt-2">
+                        <button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#133C99] hover:bg-[#1646AF] text-white font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer"
+                        >
+                          <Send size={18} className={isSubmitting ? 'animate-pulse' : ''} />
+                          <span>{isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
+                        </button>
+                      </div>
 
-                    {/* Row 4: Subject */}
-                    <div>
-                      <label 
-                        htmlFor="subject" 
-                        className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
-                      >
-                        Subject <span className="text-rose-600" aria-hidden="true">*</span>
-                      </label>
-                      <input
-                        id="subject"
-                        type="text"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
-                        onBlur={() => handleBlur('subject')}
-                        placeholder="e.g. Quotation Request for SmarLumi FC-2100"
-                        aria-required="true"
-                        aria-invalid={Boolean(errors.subject)}
-                        aria-describedby={errors.subject ? 'subject-error' : undefined}
-                        className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 ${
-                          errors.subject 
-                            ? 'border-rose-400 focus:ring-rose-200' 
-                            : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
-                        }`}
-                      />
-                      {errors.subject && (
-                        <p id="subject-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
-                          <AlertCircle size={12} />
-                          <span>{errors.subject}</span>
-                        </p>
-                      )}
-                    </div>
+                      {/* Privacy Notice */}
+                      <p className="text-[11px] text-[#64748B] pt-2 border-t border-[#BFBFBF]/30 leading-relaxed">
+                        Your inquiry is transmitted securely with SSL encryption and processed directly by our biotechnology automation engineering team.
+                      </p>
 
-                    {/* Row 5: Message */}
-                    <div>
-                      <label 
-                        htmlFor="message" 
-                        className="block text-xs sm:text-sm font-bold text-[#111827] mb-1.5"
-                      >
-                        Message <span className="text-rose-600" aria-hidden="true">*</span>
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={5}
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        onBlur={() => handleBlur('message')}
-                        placeholder="Please describe your inquiry, instrument capacity requirements, or testing panel questions..."
-                        aria-required="true"
-                        aria-invalid={Boolean(errors.message)}
-                        aria-describedby={errors.message ? 'message-error' : undefined}
-                        className={`w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border text-sm text-[#111827] placeholder:text-[#64748B]/60 transition-colors focus:bg-white focus:outline-none focus:ring-2 resize-y ${
-                          errors.message 
-                            ? 'border-rose-400 focus:ring-rose-200' 
-                            : 'border-[#BFBFBF]/50 focus:border-[#1646AF] focus:ring-[#1646AF]/15'
-                        }`}
-                      />
-                      {errors.message && (
-                        <p id="message-error" className="mt-1.5 text-xs text-rose-600 flex items-center gap-1 font-medium">
-                          <AlertCircle size={12} />
-                          <span>{errors.message}</span>
-                        </p>
-                      )}
-                    </div>
-
-                    {/* Submit Button */}
-                    <div className="pt-2">
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#133C99] hover:bg-[#1646AF] text-white font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer"
-                      >
-                        <Send size={18} className={isSubmitting ? 'animate-pulse' : ''} />
-                        <span>{isSubmitting ? 'Sending Message...' : 'Send Message'}</span>
-                      </button>
-                    </div>
-
-                    {/* Privacy & WhatsApp Notice */}
-                    <p className="text-[11px] text-[#64748B] pt-2 border-t border-[#BFBFBF]/30 leading-relaxed">
-                      By submitting this form, your enquiry will be securely processed and dispatched to <span className="font-semibold text-[#111827]">{AUREX_EMAIL}</span>. Additionally, a pre-filled WhatsApp message will open for immediate direct conversation at <span className="font-semibold text-[#111827]">+91 9543910101</span>.
-                    </p>
-
-                  </form>
-                </div>
+                    </form>
+                  </div>
+                )}
 
               </div>
             )}

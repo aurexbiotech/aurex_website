@@ -172,6 +172,7 @@ export default function ContactPage() {
   const [activeSection, setActiveSection] = useState('contact-form')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submittedData, setSubmittedData] = useState<typeof formData | null>(null)
   const [submitError, setSubmitError] = useState<string | null>(null)
   
   // Form State
@@ -312,6 +313,7 @@ export default function ContactPage() {
       const data = await res.json()
 
       if (res.ok && data.success) {
+        setSubmittedData({ ...formData })
         setIsSubmitted(true)
         setSubmitError(null)
       } else {
@@ -406,15 +408,38 @@ export default function ContactPage() {
                     </h3>
 
                     {/* Message */}
-                    <p className="text-sm sm:text-base text-[#64748B] max-w-md mx-auto mb-8 leading-relaxed">
-                      Thank you for contacting AUREX. Our team will get back to you within 24 hours.
+                    <p className="text-sm sm:text-base text-[#64748B] max-w-lg mx-auto mb-5 leading-relaxed">
+                      Thank you for contacting AUREX. Your inquiry has been processed and routed directly to{' '}
+                      <strong className="text-[#133C99]">aurexbiotech@gmail.com</strong>. Our engineering team will review your requirement and connect with you directly.
                     </p>
 
-                    {/* Submit New Enquiry Button */}
-                    <div>
+                    {submittedData && (
+                      <div className="bg-[#F6F8FB] border border-[#BFBFBF]/40 rounded-xl p-4 max-w-md mx-auto mb-6 text-left text-xs sm:text-sm text-[#111827] space-y-1.5 shadow-2xs">
+                        <div className="text-[11px] font-bold uppercase tracking-wider text-[#1646AF] mb-1">Enquiry Details</div>
+                        <div><span className="text-[#64748B]">Full Name:</span> <span className="font-semibold">{submittedData.name}</span></div>
+                        <div><span className="text-[#64748B]">Email:</span> <span className="font-semibold">{submittedData.email}</span></div>
+                        {submittedData.phone && <div><span className="text-[#64748B]">Phone:</span> <span className="font-semibold">{submittedData.phone}</span></div>}
+                        <div><span className="text-[#64748B]">Subject:</span> <span className="font-semibold">{submittedData.subject}</span></div>
+                        <div><span className="text-[#64748B]">Sent to:</span> <span className="font-semibold text-[#133C99]">aurexbiotech@gmail.com</span></div>
+                      </div>
+                    )}
+
+                    {/* Action Buttons */}
+                    <div className="flex flex-wrap items-center justify-center gap-3">
+                      {submittedData && (
+                        <a
+                          href={`mailto:aurexbiotech@gmail.com?subject=${encodeURIComponent(`[AUREX Enquiry] ${submittedData.subject}`)}&body=${encodeURIComponent(
+                            `Full Name: ${submittedData.name}\nEmail: ${submittedData.email}\nCompany: ${submittedData.company || 'Not provided'}\nPhone: ${submittedData.phone || 'Not provided'}\nArea of Interest: ${submittedData.interest}\nSubject: ${submittedData.subject}\n\nMessage:\n${submittedData.message}`
+                          )}`}
+                          className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white border border-[#133C99]/30 hover:border-[#133C99] text-[#133C99] font-bold text-sm rounded-xl shadow-xs hover:shadow-sm transition-all duration-200 cursor-pointer"
+                        >
+                          <Mail size={16} />
+                          <span>Open in Email App</span>
+                        </a>
+                      )}
                       <button
                         onClick={handleResetForm}
-                        className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2"
+                        className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white font-bold text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2"
                       >
                         <RotateCcw size={16} />
                         <span>Submit New Enquiry</span>

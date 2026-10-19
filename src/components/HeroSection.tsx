@@ -10,11 +10,11 @@ import {
   Linkedin, 
   Youtube, 
   Facebook, 
-  Twitter,
   Cpu,
   Zap,
   Database
 } from 'lucide-react'
+import XIcon from './XIcon'
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(1)
@@ -66,8 +66,8 @@ const HeroSection = () => {
           <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors cursor-pointer">
             <Facebook className="text-white" size={20} />
           </div>
-          <div className="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors cursor-pointer">
-            <Twitter className="text-white" size={20} />
+          <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center hover:bg-gray-900 transition-colors cursor-pointer" title="X (formerly Twitter)">
+            <XIcon size={18} className="text-white" />
           </div>
         </motion.div>
       </div>

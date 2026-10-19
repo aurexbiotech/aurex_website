@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { Facebook, Twitter, Linkedin, Youtube, Phone, Mail, MapPin } from 'lucide-react';
+import { Facebook, Linkedin, Youtube, Phone, Mail, MapPin } from 'lucide-react';
+import XIcon from '@/components/XIcon';
 
 const AutobioFooter: React.FC = () => {
   return (
@@ -56,13 +56,13 @@ const AutobioFooter: React.FC = () => {
                 <Facebook className="w-4 h-4 text-white group-hover:text-blue-400" />
               </a>
               <a 
-                href="https://twitter.com" 
+                href="https://x.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                aria-label="Twitter"
+                aria-label="X (formerly Twitter)"
                 className="w-9 h-9 bg-white/10 hover:bg-white/25 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 group cursor-pointer"
               >
-                <Twitter className="w-4 h-4 text-white group-hover:text-blue-300" />
+                <XIcon size={14} className="text-white group-hover:text-blue-300" />
               </a>
             </div>
           </div>

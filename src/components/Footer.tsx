@@ -9,9 +9,9 @@ import {
   Linkedin, 
   Youtube, 
   Facebook, 
-  Twitter,
   ArrowRight
 } from 'lucide-react'
+import XIcon from './XIcon'
 
 const Footer = () => {
   return (
@@ -183,11 +183,13 @@ const Footer = () => {
                   <Facebook size={16} />
                 </a>
                 <a 
-                  href="#" 
-                  aria-label="Twitter"
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all"
+                  href="https://x.com" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="X (formerly Twitter)"
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all hover:scale-110"
                 >
-                  <Twitter size={16} />
+                  <XIcon size={14} />
                 </a>
               </div>
             </div>

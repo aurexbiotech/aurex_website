@@ -179,9 +179,9 @@ const FullPage: React.FC<FullPageProps> = ({
         </motion.div>
       )}
 
-      {/* Navigation Dots */}
-      <div className="fixed left-6 top-1/2 transform -translate-y-1/2 z-50">
-        <div className="flex flex-col space-y-4">
+      {/* Navigation Dots on Left */}
+      <div className="fixed left-4 sm:left-6 top-1/2 transform -translate-y-1/2 z-50">
+        <div className="flex flex-col space-y-3.5 items-center">
           {sections.map((_, index) => (
             <button
               key={index}
@@ -198,10 +198,13 @@ const FullPage: React.FC<FullPageProps> = ({
           ))}
         </div>
         
-        {/* Section Counter */}
-        <div className="mt-4 text-center">
-          <span className="text-xs font-semibold text-[#111827]">
+        {/* Section Counter & Label */}
+        <div className="mt-3.5 text-center flex flex-col items-center">
+          <span className="text-[11px] font-bold text-[#133C99]">
             {String(currentSectionIndex + 1).padStart(2, '0')}/{String(sections.length).padStart(2, '0')}
+          </span>
+          <span className="text-[9px] font-bold text-[#64748B] tracking-wider uppercase mt-0.5 max-w-[70px] truncate">
+            {sections[currentSectionIndex].name}
           </span>
         </div>
       </div>
@@ -229,24 +232,6 @@ const FullPage: React.FC<FullPageProps> = ({
           </motion.div>
         </AnimatePresence>
       </div>
-
-      {/* Progress Indicator */}
-      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-40">
-        <div className="bg-white/95 backdrop-blur-sm rounded-full px-4 py-1.5 shadow-md border border-[#BFBFBF]/40">
-          <div className="flex items-center space-x-2.5">
-            <span className="text-xs font-semibold text-[#111827]">
-              {sections[currentSectionIndex].name}
-            </span>
-            <div className="w-16 h-1 bg-slate-200 rounded-full overflow-hidden">
-              <div 
-                className="h-full bg-[#133C99] rounded-full transition-all duration-300 ease-out"
-                style={{ width: `${((currentSectionIndex + 1) / sections.length) * 100}%` }}
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   );
 };

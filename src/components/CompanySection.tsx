@@ -164,7 +164,7 @@ const CompanySection: React.FC = () => {
       {/* Main Content Container */}
       <div className="relative z-10 h-screen flex flex-col justify-between">
         {/* Top Section Label */}
-        <div className="pt-24 pl-8 sm:pl-16">
+        <div className="pt-20 sm:pt-22 px-8 sm:px-16 lg:px-20">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -176,11 +176,11 @@ const CompanySection: React.FC = () => {
         </div>
 
         {/* Main Content Area - Two Column Layout */}
-        <div className="flex-1 flex items-center px-8 sm:px-16 pb-24">
-          <div className="w-full grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex-1 flex items-center px-8 sm:px-16 lg:px-20 py-2 sm:py-4">
+          <div className="w-full grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             
             {/* Main Text Content - Left Side */}
-            <div className="space-y-6">
+            <div className="space-y-5">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
@@ -188,17 +188,17 @@ const CompanySection: React.FC = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20 }}
                   transition={{ duration: 0.35, ease: "easeInOut" }}
-                  className="space-y-6"
+                  className="space-y-4 sm:space-y-5"
                 >
-                  {/* Main Title */}
+                  {/* Main Title - Refined business-class sizing */}
                   <h2 
-                    className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111827] tracking-tight leading-tight"
+                    className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#111827] tracking-tight leading-snug"
                   >
                     {currentTopic.title}
                   </h2>
 
                   {/* Description Text */}
-                  <p className="text-base lg:text-lg text-[#64748B] leading-relaxed max-w-xl">
+                  <p className="text-sm sm:text-base text-[#64748B] leading-relaxed max-w-xl">
                     {currentTopic.description}
                   </p>
 
@@ -207,11 +207,11 @@ const CompanySection: React.FC = () => {
                     onClick={() => router.push(topicRoutes[activeTab])}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="group mt-4 inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#1646AF] hover:bg-[#133C99] text-white rounded-lg font-medium shadow-sm transition-all duration-300"
+                    className="group mt-2 inline-flex items-center gap-2.5 px-6 py-3 bg-[#1646AF] hover:bg-[#133C99] text-white rounded-lg font-medium shadow-sm transition-all duration-300 cursor-pointer text-sm"
                   >
                     <span>More Info</span>
                     <ArrowRight 
-                      size={18} 
+                      size={17} 
                       className="group-hover:translate-x-1 transition-transform duration-300" 
                     />
                   </motion.button>
@@ -227,7 +227,7 @@ const CompanySection: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
-                className="relative h-[340px] lg:h-[420px] rounded-2xl overflow-hidden shadow-md border border-[#BFBFBF]/40 bg-[#F6F8FB]"
+                className="relative h-[300px] sm:h-[340px] lg:h-[380px] rounded-2xl overflow-hidden shadow-md border border-[#BFBFBF]/40 bg-[#F6F8FB]"
               >
                 <Image
                   src={backgroundImages[activeTab]}

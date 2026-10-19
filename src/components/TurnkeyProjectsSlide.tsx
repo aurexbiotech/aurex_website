@@ -97,13 +97,13 @@ const TurnkeyProjectsSlide: React.FC = () => {
                 >
                   {/* Main Title */}
                   <h2 
-                    className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111827] tracking-tight leading-tight"
+                    className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#111827] tracking-tight leading-snug"
                   >
                     {currentTopic.title}
                   </h2>
 
                   {/* Description Text */}
-                  <p className="text-base lg:text-lg text-[#64748B] leading-relaxed max-w-xl">
+                  <p className="text-sm sm:text-base text-[#64748B] leading-relaxed max-w-xl">
                     {currentTopic.description}
                   </p>
 
@@ -112,11 +112,11 @@ const TurnkeyProjectsSlide: React.FC = () => {
                     onClick={() => router.push('/capabilities?section=turnkey-projects')}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="group mt-4 inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#1646AF] hover:bg-[#133C99] text-white rounded-lg font-medium shadow-sm transition-all duration-300"
+                    className="group mt-2 inline-flex items-center gap-2.5 px-6 py-3 bg-[#1646AF] hover:bg-[#133C99] text-white rounded-lg font-medium shadow-sm transition-all duration-300 cursor-pointer text-sm"
                   >
                     <span>Explore Solutions</span>
                     <ArrowRight 
-                      size={18} 
+                      size={17} 
                       className="group-hover:translate-x-1 transition-transform duration-300" 
                     />
                   </motion.button>

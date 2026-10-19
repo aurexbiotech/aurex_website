@@ -163,16 +163,16 @@ const RoyalProductsSection = () => {
                 </div>
 
                 {/* Main Section Title */}
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#111827] tracking-tight mb-3">
+                <h1 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-[#111827] tracking-tight mb-2 leading-snug">
                   Products
                 </h1>
 
                 {/* Current Product Category */}
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1646AF] tracking-tight mb-3">
+                <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-[#1646AF] tracking-tight mb-3">
                   {showSubdivisions ? activeModelData.fullName : currentProduct.name}
                 </h2>
 
-                <p className="text-base lg:text-lg text-[#64748B] leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-[#64748B] leading-relaxed mb-5">
                   {showSubdivisions ? activeModelData.description : currentProduct.description}
                 </p>
 

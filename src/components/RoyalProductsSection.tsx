@@ -234,16 +234,17 @@ const RoyalProductsSection = () => {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4 }}
-                className="relative flex items-center justify-center w-full max-w-md lg:max-w-lg"
+                className="relative flex items-center justify-center w-full max-w-[480px] sm:max-w-[540px] lg:max-w-[620px]"
               >
                 <div className="relative w-full flex items-center justify-center">
                   <Image 
                     src={showSubdivisions ? activeModelData.image : currentProduct.image}
                     alt={showSubdivisions ? activeModelData.name : currentProduct.name}
-                    width={520}
-                    height={380}
-                    className="max-h-[300px] sm:max-h-[330px] lg:max-h-[360px] w-auto object-contain transition-transform duration-300 hover:scale-105"
+                    width={720}
+                    height={540}
+                    className="max-h-[340px] sm:max-h-[420px] lg:max-h-[480px] w-auto h-auto object-contain transition-transform duration-300 hover:scale-102"
                     priority
+                    sizes="(max-width: 640px) 320px, (max-width: 1024px) 480px, 620px"
                   />
                 </div>
               </motion.div>

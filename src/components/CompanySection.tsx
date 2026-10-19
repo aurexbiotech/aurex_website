@@ -164,7 +164,7 @@ const CompanySection: React.FC = () => {
       {/* Main Content Container */}
       <div className="relative z-10 h-screen flex flex-col justify-between">
         {/* Top Section Label */}
-        <div className="pt-20 sm:pt-22 px-8 sm:px-16 lg:px-20">
+        <div className="pt-20 sm:pt-22 pl-20 sm:pl-28 lg:pl-36 xl:pl-44 pr-8 sm:pr-14 lg:pr-20">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -176,7 +176,7 @@ const CompanySection: React.FC = () => {
         </div>
 
         {/* Main Content Area - Two Column Layout */}
-        <div className="flex-1 flex items-center px-8 sm:px-16 lg:px-20 py-2 sm:py-4">
+        <div className="flex-1 flex items-center pl-20 sm:pl-28 lg:pl-36 xl:pl-44 pr-8 sm:pr-14 lg:pr-20 py-2 sm:py-4">
           <div className="w-full grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             
             {/* Main Text Content - Left Side */}
@@ -227,7 +227,7 @@ const CompanySection: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
-                className="relative h-[300px] sm:h-[340px] lg:h-[380px] rounded-2xl overflow-hidden shadow-md border border-[#BFBFBF]/40 bg-[#F6F8FB]"
+                className="relative h-[280px] sm:h-[320px] lg:h-[360px] rounded-2xl overflow-hidden shadow-md border border-[#BFBFBF]/40 bg-[#F6F8FB]"
               >
                 <Image
                   src={backgroundImages[activeTab]}
@@ -244,7 +244,7 @@ const CompanySection: React.FC = () => {
         </div>
 
         {/* Bottom Horizontal Navigation Bar */}
-        <div className="w-full z-20 pb-6 px-6 lg:px-16">
+        <div className="w-full z-20 pb-6 pl-20 sm:pl-28 lg:pl-36 xl:pl-44 pr-8 sm:pr-14 lg:pr-20">
           <div className="relative bg-white/95 backdrop-blur-md rounded-2xl border border-[#BFBFBF]/40 shadow-sm p-2">
             {/* Tabs Row */}
             <div className="flex items-center justify-between gap-1 overflow-x-auto scrollbar-none">

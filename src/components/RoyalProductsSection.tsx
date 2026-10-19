@@ -139,8 +139,8 @@ const RoyalProductsSection = () => {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#F1F5F9]">
-      {/* Main Content Container */}
-      <div className="relative z-10 h-screen flex items-center px-8 sm:px-16 pt-16 pb-24">
+      {/* Main Content Container - shifted right with generous clearance from left navigation indicator */}
+      <div className="relative z-10 h-screen flex items-center pl-20 sm:pl-28 lg:pl-36 xl:pl-44 pr-8 sm:pr-14 lg:pr-20 pt-16 pb-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -148,7 +148,7 @@ const RoyalProductsSection = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="w-full grid lg:grid-cols-2 gap-10 items-center"
+            className="w-full grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center"
           >
             {/* Left Column - Content */}
             <div className="flex flex-col justify-center max-w-xl">
@@ -158,7 +158,7 @@ const RoyalProductsSection = () => {
                 transition={{ duration: 0.5 }}
               >
                 {/* Eyebrow badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#BFBFBF]/50 text-[#1646AF] text-xs font-semibold tracking-wider uppercase mb-4 shadow-xs">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#BFBFBF]/50 text-[#1646AF] text-xs font-semibold tracking-wider uppercase mb-3 shadow-xs">
                   Diagnostic Systems
                 </div>
 
@@ -178,7 +178,7 @@ const RoyalProductsSection = () => {
 
                 {/* Clinical Diagnostics Subdivision Navigation */}
                 {showSubdivisions && (
-                  <div className="bg-white border border-[#BFBFBF]/40 rounded-xl p-1.5 shadow-xs mb-6 inline-flex flex-wrap gap-1">
+                  <div className="bg-white border border-[#BFBFBF]/40 rounded-xl p-1.5 shadow-xs mb-5 inline-flex flex-wrap gap-1">
                     {clinicalDiagnosticsModels.map((model) => (
                       <button
                         key={model.id}
@@ -187,7 +187,7 @@ const RoyalProductsSection = () => {
                           router.push(model.link)
                         }}
                         onMouseEnter={() => setSelectedModel(model.id)}
-                        className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
+                        className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
                           selectedModel === model.id
                             ? 'bg-[#1646AF] text-white shadow-xs'
                             : 'text-[#64748B] hover:text-[#111827] hover:bg-[#F1F5F9]'
@@ -234,15 +234,15 @@ const RoyalProductsSection = () => {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.4 }}
-                className="relative flex items-center justify-center w-full max-w-lg"
+                className="relative flex items-center justify-center w-full max-w-md lg:max-w-lg"
               >
                 <div className="relative w-full flex items-center justify-center">
                   <Image 
                     src={showSubdivisions ? activeModelData.image : currentProduct.image}
                     alt={showSubdivisions ? activeModelData.name : currentProduct.name}
-                    width={560}
-                    height={420}
-                    className="max-h-[360px] w-auto object-contain transition-transform duration-300 hover:scale-105"
+                    width={520}
+                    height={380}
+                    className="max-h-[300px] sm:max-h-[330px] lg:max-h-[360px] w-auto object-contain transition-transform duration-300 hover:scale-105"
                     priority
                   />
                 </div>

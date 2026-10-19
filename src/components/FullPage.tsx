@@ -180,7 +180,7 @@ const FullPage: React.FC<FullPageProps> = ({
       )}
 
       {/* Navigation Dots on Left */}
-      <div className="fixed left-4 sm:left-6 top-1/2 transform -translate-y-1/2 z-50">
+      <div className="fixed left-3 sm:left-5 top-1/2 transform -translate-y-1/2 z-50">
         <div className="flex flex-col space-y-3.5 items-center">
           {sections.map((_, index) => (
             <button
@@ -199,11 +199,11 @@ const FullPage: React.FC<FullPageProps> = ({
         </div>
         
         {/* Section Counter & Label */}
-        <div className="mt-3.5 text-center flex flex-col items-center">
+        <div className="mt-3 text-center flex flex-col items-center">
           <span className="text-[11px] font-bold text-[#133C99]">
             {String(currentSectionIndex + 1).padStart(2, '0')}/{String(sections.length).padStart(2, '0')}
           </span>
-          <span className="text-[9px] font-bold text-[#64748B] tracking-wider uppercase mt-0.5 max-w-[70px] truncate">
+          <span className="text-[8.5px] font-bold text-[#64748B] tracking-wider uppercase mt-0.5 max-w-[56px] truncate">
             {sections[currentSectionIndex].name}
           </span>
         </div>

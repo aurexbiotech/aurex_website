@@ -86,7 +86,7 @@ export const HeroSection: React.FC = () => {
 
   return (
     <section className="relative h-full flex items-center justify-center overflow-hidden bg-[#F6F8FB]">
-      <div className="w-full max-w-7xl mx-auto pl-20 sm:pl-28 lg:pl-36 xl:pl-44 pr-8 sm:pr-14 lg:pr-20 z-10 py-16 lg:py-0">
+      <div className="container max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 z-10 py-16 lg:py-0">
         {/* Animated Sub-Slide Content */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -166,17 +166,17 @@ export const HeroSection: React.FC = () => {
 
             {/* Right Product Column (~52% width) - Seamless display without artificial card */}
             <div className="lg:col-span-6 flex justify-center items-center order-1 lg:order-2">
-              <div className="relative w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[540px] flex items-center justify-center">
+              <div className="relative w-full max-w-[480px] sm:max-w-[540px] lg:max-w-[620px] flex items-center justify-center">
                 <Image
                   src={heroSlides[currentView].image}
                   alt={heroSlides[currentView].imageAlt}
-                  width={680}
-                  height={500}
-                  className="object-contain max-h-[300px] sm:max-h-[360px] lg:max-h-[420px] w-auto h-auto transition-transform duration-300 hover:scale-102"
+                  width={720}
+                  height={540}
+                  className="object-contain max-h-[340px] sm:max-h-[420px] lg:max-h-[480px] w-auto h-auto transition-transform duration-300 hover:scale-102"
                   priority={currentView === 0}
                   loading={currentView === 0 ? 'eager' : 'lazy'}
                   quality={90}
-                  sizes="(max-width: 640px) 300px, (max-width: 1024px) 440px, 540px"
+                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 480px, 620px"
                 />
               </div>
             </div>

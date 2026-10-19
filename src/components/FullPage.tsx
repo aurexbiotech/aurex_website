@@ -223,7 +223,7 @@ const FullPage: React.FC<FullPageProps> = ({
               duration: transitionDuration,
               ease: "easeInOut"
             }}
-            className="absolute inset-0 w-full h-full"
+            className="absolute inset-0 w-full h-full overflow-y-auto"
           >
             {(() => {
               const CurrentComponent = sections[currentSectionIndex].component;

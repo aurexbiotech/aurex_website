@@ -29,28 +29,29 @@ const FixedSideBar: React.FC = () => {
       aria-label="Quick contact and social channels" 
       className="fixed right-3 sm:right-6 top-1/2 transform -translate-y-1/2 z-40 hidden sm:block"
     >
-      <div className="bg-white rounded-xl shadow-md border border-[#BFBFBF]/40 overflow-hidden">
+      {/* Floating Media Bar without white background container */}
+      <div className="flex flex-col items-center space-y-2 bg-transparent">
         {/* Contact Tools Section */}
-        <div className="p-1.5 space-y-1">
+        <div className="flex flex-col items-center space-y-2">
           {/* Chat */}
           <a
             href="/contact"
             aria-label="Live Chat & Customer Inquiry"
-            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
+            className="group flex items-center justify-center w-10 h-10 transition-all duration-200 cursor-pointer"
           >
             <MessageCircle 
-              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] group-hover:scale-115 transition-all duration-200" 
             />
           </a>
 
-          {/* WhatsApp */}
+          {/* WhatsApp / Phone */}
           <a
             href="tel:+919543910101"
             aria-label="Call AUREX via Phone"
-            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
+            className="group flex items-center justify-center w-10 h-10 transition-all duration-200 cursor-pointer"
           >
             <Phone 
-              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] group-hover:scale-115 transition-all duration-200" 
             />
           </a>
 
@@ -58,66 +59,64 @@ const FixedSideBar: React.FC = () => {
           <a
             href="mailto:info@aurexbiotech.com"
             aria-label="Send Email to AUREX"
-            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
+            className="group flex items-center justify-center w-10 h-10 transition-all duration-200 cursor-pointer"
           >
             <Mail 
-              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] group-hover:scale-115 transition-all duration-200" 
             />
           </a>
 
-          {/* Phone */}
+          {/* Emergency Phone */}
           <a
             href="tel:+918144418046"
             aria-label="Emergency Call Support"
-            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
+            className="group flex items-center justify-center w-10 h-10 transition-all duration-200 cursor-pointer"
           >
             <PhoneCall 
-              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] group-hover:scale-115 transition-all duration-200" 
             />
           </a>
         </div>
 
-        {/* Separator Line */}
-        <div className="px-3">
-          <div className="h-px bg-[#BFBFBF]/40"></div>
-        </div>
+        {/* Subtle Separator Line */}
+        <div className="w-5 h-px bg-[#133C99]/30 my-0.5" />
 
         {/* Social Media Section */}
-        <div className="p-1.5 space-y-1">
+        <div className="flex flex-col items-center space-y-2">
           {/* LinkedIn */}
           <a
             href="#"
             aria-label="AUREX LinkedIn Profile"
-            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
+            className="group flex items-center justify-center w-10 h-10 transition-all duration-200 cursor-pointer"
           >
             <Linkedin 
-              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] group-hover:scale-115 transition-all duration-200" 
             />
           </a>
 
           {/* YouTube */}
           <a
-            href="https://www.youtube.com/@AnalyzeBiotechindia"
+            href="https://www.youtube.com/@aurexbiotech"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="AUREX YouTube Channel"
-            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
+            className="group flex items-center justify-center w-10 h-10 transition-all duration-200 cursor-pointer"
           >
             <Youtube 
-              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] group-hover:scale-115 transition-all duration-200" 
             />
           </a>
 
           {/* Facebook */}
           <a
-            href="https://www.facebook.com/AnalyzeBiotech/"
+            href="https://www.facebook.com/aurexbiotech/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="AUREX Facebook Page"
-            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
+            className="group flex items-center justify-center w-10 h-10 transition-all duration-200 cursor-pointer"
           >
             <Facebook 
-              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] group-hover:scale-115 transition-all duration-200" 
             />
           </a>
 
@@ -125,10 +124,10 @@ const FixedSideBar: React.FC = () => {
           <a
             href="#"
             aria-label="AUREX X Profile"
-            className="group flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-lg hover:bg-[#F6F8FB] transition-all duration-200"
+            className="group flex items-center justify-center w-10 h-10 transition-all duration-200 cursor-pointer"
           >
             <XIcon 
-              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] transition-colors duration-200" 
+              className="w-5 h-5 text-[#133C99] group-hover:text-[#1646AF] group-hover:scale-115 transition-all duration-200" 
             />
           </a>
         </div>

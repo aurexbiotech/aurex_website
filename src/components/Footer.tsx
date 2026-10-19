@@ -46,7 +46,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start space-x-2 sm:space-x-3">
                 <MapPin size={14} className="text-white/80 flex-shrink-0 mt-0.5" />
-                <span className="text-sm sm:text-base text-white/90 leading-relaxed">1/51, Barathiyar Street, Mundiyampakkam, TamilNadu, India - 605601</span>
+                <span className="text-sm sm:text-base text-white/90 leading-relaxed">163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, VILLUPURAM, TAMIL NADU, 605601</span>
               </div>
             </div>
           </div>
@@ -169,14 +169,14 @@ const Footer = () => {
                   <Linkedin size={16} />
                 </a>
                 <a 
-                  href="https://www.youtube.com/@AnalyzeBiotechindia" 
+                  href="https://www.youtube.com/@aurexbiotech" 
                   aria-label="YouTube"
                   className="w-8 h-8 rounded-full flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all"
                 >
                   <Youtube size={16} />
                 </a>
                 <a 
-                  href="https://www.facebook.com/AnalyzeBiotech/" 
+                  href="https://www.facebook.com/aurexbiotech/" 
                   aria-label="Facebook"
                   className="w-8 h-8 rounded-full flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all"
                 >

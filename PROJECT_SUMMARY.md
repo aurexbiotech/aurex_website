@@ -1,4 +1,4 @@
-# AnalyzeBiotech Website - Project Summary
+# AUREX Website - Project Summary
 
 ## 🎉 Project Completed Successfully!
 

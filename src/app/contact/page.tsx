@@ -42,7 +42,7 @@ const contactSubNavigation = [
 const offices = [
   {
     region: 'India Office',
-    address: '1/51, Barathiyar Street, Mundiyampakkam, TamilNadu, India - 605601',
+    address: '163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, VILLUPURAM, TAMIL NADU, 605601',
     phone: '+91 9543910101, +91 8144418046',
     email: 'aurexbiotech@gmail.com',
     hours: 'Mon-Fri: 9:00 AM - 6:00 PM IST'

@@ -169,7 +169,7 @@ const AutobioFooter: React.FC = () => {
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-white/80" />
-                <span className="text-sm text-gray-300">1/51, Barathiyar Street, Mundiyampakkam, TamilNadu, India - 605601</span>
+                <span className="text-sm text-gray-300">163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, VILLUPURAM, TAMIL NADU, 605601</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-white/80" />

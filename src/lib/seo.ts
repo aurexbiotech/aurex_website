@@ -63,14 +63,15 @@ export const organizationSchema = {
       telephone: '+91 9543910101',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '1/51, Barathiyar Street, Mundiyampakkam',
+        streetAddress: '163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram',
+        addressLocality: 'Villupuram',
         addressRegion: 'Tamil Nadu',
         postalCode: '605601',
         addressCountry: 'IN',
       },
       sameAs: [
-        'https://www.youtube.com/@AnalyzeBiotechindia',
-        'https://www.facebook.com/AnalyzeBiotech/',
+        'https://www.youtube.com/@aurexbiotech',
+        'https://www.facebook.com/aurexbiotech/',
       ],
     },
     {

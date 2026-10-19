@@ -1,4 +1,4 @@
-# AnalyzeBiotech Website
+# AUREX Website
 
 A modern, professional biotech company website built with Next.js 15, TypeScript, and Tailwind CSS.
 
@@ -40,7 +40,7 @@ A modern, professional biotech company website built with Next.js 15, TypeScript
 1. **Clone the repository**:
    ```bash
    git clone <your-repo-url>
-   cd analyzebiotech-website
+   cd aurex-website
    ```
 
 2. **Install dependencies**:
@@ -170,7 +170,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 For support and questions:
 - Create an issue in this repository
-- Email: info@analyzebiotech.in
+- Email: sales@aurexbiotech.com
 - Phone: +91 9543910101
 - Documentation: [Link to detailed docs]
 

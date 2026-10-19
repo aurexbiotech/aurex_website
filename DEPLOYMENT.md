@@ -1,4 +1,4 @@
-# Deployment Guide for AnalyzeBiotech Website
+# Deployment Guide for AUREX Website
 
 ## Quick Deployment Options
 
@@ -100,7 +100,7 @@ For VPS or dedicated servers:
 **Production with PM2:**
 ```bash
 npm install -g pm2
-pm2 start npm --name "analyzebiotech" -- start
+pm2 start npm --name "aurex" -- start
 pm2 save
 pm2 startup
 ```

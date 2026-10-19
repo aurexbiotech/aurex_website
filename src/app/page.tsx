@@ -220,7 +220,7 @@ export default function SmarLumiIntroductionPage() {
             {/* Eyebrow Label */}
             <motion.div variants={childItemVariants} className="inline-flex items-center gap-2">
               <span className="px-3 py-1 rounded-md bg-[#1646AF]/10 text-[#1646AF] text-xs font-bold tracking-[0.2em] uppercase border border-[#1646AF]/20">
-                AUREX PROUDLY INTRODUCES
+                AUREX PROUDLY INTRODUCES FLAGSHIP
               </span>
             </motion.div>
 

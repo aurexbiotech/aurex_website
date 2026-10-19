@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import DirectionalNavButtons from './DirectionalNavButtons'
 import { 
   Microscope, 
@@ -17,9 +18,30 @@ import {
 
 // Clinical Diagnostics subdivisions
 const clinicalDiagnosticsModels = [
-  { id: 'biochemistry', name: 'Biochemistry', fullName: 'Biochemistry Solutions' },
-  { id: 'haematology', name: 'Haematology', fullName: 'Haematology Systems' },
-  { id: 'electrolyte', name: 'Electrolyte', fullName: 'Electrolyte Analysis' }
+  { 
+    id: 'biochemistry', 
+    name: 'Biochemistry', 
+    fullName: 'Biochemistry Solutions',
+    description: 'Fully automated clinical chemistry analyzers delivering rapid, accurate results with minimal human intervention for enhanced laboratory efficiency.',
+    image: '/images/bc120-plus.png',
+    link: '/products?model=biochemistry#diagnostic-subdivisions'
+  },
+  { 
+    id: 'haematology', 
+    name: 'Haematology', 
+    fullName: 'Haematology Systems',
+    description: 'Advanced haematology analyzers engineered for precise 5-part WBC differentiation, smart flagging, and high-throughput CBC analysis.',
+    image: '/images/hemotxi5-main.png',
+    link: '/products?model=haematology#diagnostic-subdivisions'
+  },
+  { 
+    id: 'electrolyte', 
+    name: 'Electrolyte', 
+    fullName: 'Electrolyte Analysis',
+    description: 'Next-generation ELECTROSIS electrolyte analyzer utilizing advanced ISE technology for rapid, precise ion quantification.',
+    image: '/images/electrosis-banner.png',
+    link: '/products?model=electrolyte#diagnostic-subdivisions'
+  }
 ]
 
 const productSlides = [
@@ -99,11 +121,13 @@ const productSlides = [
 ]
 
 const RoyalProductsSection = () => {
+  const router = useRouter()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [selectedModel, setSelectedModel] = useState('biochemistry')
 
   const currentProduct = productSlides[currentSlide]
   const showSubdivisions = currentProduct.hasSubdivisions
+  const activeModelData = clinicalDiagnosticsModels.find(m => m.id === selectedModel) || clinicalDiagnosticsModels[0]
 
   const handlePrevious = () => {
     setCurrentSlide((prev) => (prev - 1 + productSlides.length) % productSlides.length)
@@ -145,11 +169,11 @@ const RoyalProductsSection = () => {
 
                 {/* Current Product Category */}
                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#1646AF] tracking-tight mb-3">
-                  {currentProduct.name}
+                  {showSubdivisions ? activeModelData.fullName : currentProduct.name}
                 </h2>
 
                 <p className="text-base lg:text-lg text-[#64748B] leading-relaxed mb-6">
-                  {currentProduct.description}
+                  {showSubdivisions ? activeModelData.description : currentProduct.description}
                 </p>
 
                 {/* Clinical Diagnostics Subdivision Navigation */}
@@ -158,8 +182,12 @@ const RoyalProductsSection = () => {
                     {clinicalDiagnosticsModels.map((model) => (
                       <button
                         key={model.id}
-                        onClick={() => setSelectedModel(model.id)}
-                        className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
+                        onClick={() => {
+                          setSelectedModel(model.id)
+                          router.push(model.link)
+                        }}
+                        onMouseEnter={() => setSelectedModel(model.id)}
+                        className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer ${
                           selectedModel === model.id
                             ? 'bg-[#1646AF] text-white shadow-xs'
                             : 'text-[#64748B] hover:text-[#111827] hover:bg-[#F1F5F9]'
@@ -176,14 +204,22 @@ const RoyalProductsSection = () => {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-6 py-3 bg-[#1646AF] hover:bg-[#133C99] text-white rounded-lg font-medium shadow-sm transition-all duration-200"
+                    onClick={() => {
+                      if (showSubdivisions) {
+                        router.push(activeModelData.link)
+                      } else {
+                        router.push(`/products?section=${currentProduct.id}#diagnostic-subdivisions`)
+                      }
+                    }}
+                    className="px-6 py-3 bg-[#1646AF] hover:bg-[#133C99] text-white rounded-lg font-medium shadow-sm transition-all duration-200 cursor-pointer"
                   >
                     Learn More
                   </motion.button>
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-6 py-3 bg-white hover:bg-[#F1F5F9] text-[#1646AF] border border-[#BFBFBF]/60 rounded-lg font-medium transition-all duration-200 shadow-xs"
+                    onClick={() => router.push('/contact?subject=' + encodeURIComponent(`Enquiry: ${showSubdivisions ? activeModelData.fullName : currentProduct.name}`))}
+                    className="px-6 py-3 bg-white hover:bg-[#F1F5F9] text-[#1646AF] border border-[#BFBFBF]/60 rounded-lg font-medium transition-all duration-200 shadow-xs cursor-pointer"
                   >
                     + Watch More
                   </motion.button>
@@ -194,15 +230,16 @@ const RoyalProductsSection = () => {
             {/* Right Column - Device Image */}
             <div className="flex flex-col justify-center items-center">
               <motion.div
+                key={showSubdivisions ? activeModelData.id : currentProduct.id}
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.15 }}
+                transition={{ duration: 0.4 }}
                 className="relative flex items-center justify-center w-full max-w-lg"
               >
                 <div className="relative w-full flex items-center justify-center">
                   <Image 
-                    src={currentProduct.image}
-                    alt={currentProduct.name}
+                    src={showSubdivisions ? activeModelData.image : currentProduct.image}
+                    alt={showSubdivisions ? activeModelData.name : currentProduct.name}
                     width={560}
                     height={420}
                     className="max-h-[360px] w-auto object-contain transition-transform duration-300 hover:scale-105"

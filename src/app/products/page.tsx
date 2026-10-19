@@ -1,10 +1,10 @@
 'use client'
 
-import React, { useState, memo } from 'react'
+import React, { useState, useEffect, memo, Suspense } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Footer from '@/components/Footer'
 import { Microscope, Settings, Cpu, Shield, Users, Award, Globe, TrendingUp, Beaker, TestTube, Activity, Zap, Droplet, Leaf, HeartPulse, BarChart3, FlaskRound } from 'lucide-react'
 
@@ -42,6 +42,7 @@ const productsSubNavigation = [
 const clinicalDiagnosticsModels = [
   { id: 'biochemistry', name: 'Biochemistry', fullName: 'Biochemistry Solutions' },
   { id: 'haematology', name: 'Haematology', fullName: 'Haematology Systems' },
+  { id: 'electrolyte', name: 'Electrolyte', fullName: 'Electrolyte Analysis' },
   { id: 'immunology-serology', name: 'Immunology and Serology', fullName: 'Immunology and Serology Testing' },
   { id: 'microbiology', name: 'Microbiology', fullName: 'Microbiology Diagnostics' },
   { id: 'molecular-diagnostics', name: 'Molecular Diagnostics', fullName: 'Molecular Diagnostics Technology' },
@@ -781,11 +782,35 @@ const TimelineContent = memo(({ timeline }: { timeline: TimelineItem[] }) => (
 
 TimelineContent.displayName = 'TimelineContent'
 
-export default function ProductsPage() {
+function ProductsPageContent() {
   const router = useRouter()
+  const searchParams = useSearchParams()
   const [activeSection, setActiveSection] = useState('clinical-diagnostics')
   const [selectedModel, setSelectedModel] = useState('biochemistry')
   const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    const modelParam = searchParams.get('model')
+    const sectionParam = searchParams.get('section')
+    if (modelParam) {
+      setActiveSection('clinical-diagnostics')
+      setSelectedModel(modelParam)
+      setTimeout(() => {
+        const el = document.getElementById('diagnostic-subdivisions')
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }, 150)
+    } else if (sectionParam) {
+      setActiveSection(sectionParam)
+      setTimeout(() => {
+        const el = document.getElementById('diagnostic-subdivisions')
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }, 150)
+    }
+  }, [searchParams])
 
   const currentContent = productsContent[activeSection as keyof typeof productsContent]
 
@@ -810,27 +835,29 @@ export default function ProductsPage() {
       <HeroSwiper currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />
       
       {/* Sub Navigation */}
-      <SubNavigation activeSection={activeSection} setActiveSection={setActiveSection} setCurrentSlide={setCurrentSlide} />
+      <div id="diagnostic-subdivisions" className="scroll-mt-16">
+        <SubNavigation activeSection={activeSection} setActiveSection={setActiveSection} setCurrentSlide={setCurrentSlide} />
+      </div>
       
       {/* Clinical Diagnostics Subdivision Navigation */}
       {activeSection === 'clinical-diagnostics' && (
-        <section className="bg-gradient-to-r from-[#133C99] to-[#1646AF] py-3">
+        <section className="bg-gradient-to-r from-[#133C99] to-[#1646AF] py-3 shadow-md sticky top-0 z-30">
           <div className="container mx-auto px-6">
-            <div className="flex items-center justify-center gap-4">
+            <div className="flex items-center justify-center gap-4 flex-wrap">
               {clinicalDiagnosticsModels.map((model) => (
                 <motion.button
                   key={model.id}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setSelectedModel(model.id)}
-                  className={`px-6 py-2 rounded-lg transition-all duration-300 ${
+                  className={`px-6 py-2 rounded-lg transition-all duration-300 cursor-pointer ${
                     selectedModel === model.id
                       ? 'bg-white/20 shadow-lg border-2 border-white/40'
                       : 'hover:bg-white/10 border-2 border-transparent'
                   }`}
                 >
                   <div 
-                    className="font-aboreto font-bold text-white"
+                    className="font-aboreto font-bold text-white tracking-wide"
                     style={{ fontFamily: 'var(--font-aboreto), cursive', fontSize: '14px' }}
                   >
                     {model.name}
@@ -1085,6 +1112,82 @@ export default function ProductsPage() {
                       title="Hemotx i"
                     >
                       <span className="text-[7px] text-center leading-tight">Hemotx<br/>i</span>
+                    </motion.button>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* Electrolyte Special Content */}
+      {activeSection === 'clinical-diagnostics' && selectedModel === 'electrolyte' && (
+        <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-gray-50 to-white relative overflow-visible">
+          <div className="container mx-auto px-4 sm:px-6 relative">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Electrolyte Solutions Section */}
+              <div className="grid md:grid-cols-2 gap-12 items-center relative">
+                {/* Left Side - Content */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="space-y-6"
+                >
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#0B1528] mb-6">
+                    ELECTROSIS Precision Electrolyte Analysis
+                  </h2>
+                  <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                    AUREX delivers the next-generation ELECTROSIS fully automated electrolyte analyzer, engineered for rapid, accurate quantification of key electrolytes (Na⁺, K⁺, Cl⁻, Ca⁺⁺, Li⁺) with minimal operator maintenance.
+                  </p>
+                  <p className="text-lg text-gray-700 leading-relaxed mb-8 font-semibold italic text-[#1646AF]">
+                    Advanced Ion-Selective Electrode (ISE) technology engineered for clinical accuracy, fast turnaround, and zero maintenance.
+                  </p>
+                  
+                  {/* Learn More Button */}
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => router.push('/products/biochemistry?model=electrosis')}
+                    className="px-8 py-4 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:from-[#0B1528] hover:to-[#133C99] transition-all duration-300 cursor-pointer"
+                  >
+                    Learn More
+                  </motion.button>
+                </motion.div>
+
+                {/* Right Side - Image with Navigation */}
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="relative flex items-center gap-8"
+                >
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white p-4 flex-1 flex items-center justify-center">
+                    <Image
+                      src="/images/electrosis-banner.png"
+                      alt="ELECTROSIS Electrolyte Analyzer"
+                      width={800}
+                      height={600}
+                      className="w-full h-auto object-contain max-h-[380px]"
+                    />
+                  </div>
+
+                  {/* Vertical Navigation next to image */}
+                  <div className="hidden xl:flex flex-col gap-2 ml-4">
+                    <motion.button
+                      onClick={() => router.push('/products/biochemistry?model=electrosis')}
+                      whileHover={{ scale: 1.1, x: -5 }}
+                      whileTap={{ scale: 0.95 }}
+                      style={{ backgroundColor: '#D3D3D3' }}
+                      className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center text-xs font-bold transition-all duration-300 text-[#1646AF] hover:bg-[#1646AF] hover:text-white cursor-pointer"
+                      title="ELECTROSIS"
+                    >
+                      <span className="text-[8px] text-center leading-tight font-bold">ELEC</span>
                     </motion.button>
                   </div>
                 </motion.div>
@@ -1629,6 +1732,7 @@ export default function ProductsPage() {
       {!(activeSection === 'clinical-diagnostics' && (
         selectedModel === 'biochemistry' || 
         selectedModel === 'haematology' || 
+        selectedModel === 'electrolyte' || 
         selectedModel === 'immunology-serology' || 
         selectedModel === 'microbiology' || 
         selectedModel === 'molecular-diagnostics' || 
@@ -1677,5 +1781,20 @@ export default function ProductsPage() {
       {/* Footer */}
       <Footer />
     </>
+  )
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-[#F6F8FB] flex items-center justify-center">
+        <div className="flex flex-col items-center gap-3">
+          <div className="w-10 h-10 border-4 border-[#1646AF] border-t-transparent rounded-full animate-spin"></div>
+          <span className="text-sm font-semibold text-[#1646AF] tracking-wide">Loading Diagnostic Systems...</span>
+        </div>
+      </div>
+    }>
+      <ProductsPageContent />
+    </Suspense>
   )
 }

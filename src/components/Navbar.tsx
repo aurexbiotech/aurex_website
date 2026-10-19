@@ -11,7 +11,8 @@ import {
   Sparkles, 
   Microscope, 
   PhoneCall,
-  ChevronRight
+  ChevronRight,
+  LogIn
 } from 'lucide-react'
 
 // Primary navigation items requested in reference
@@ -218,13 +219,29 @@ const Navbar: React.FC = () => {
                         )
                       })}
                     </div>
+
+                    {/* Portal Login Button in Mobile Dropdown */}
+                    <div className="pt-2 mt-2 border-t border-gray-100">
+                      <Link
+                        href="/login"
+                        role="menuitem"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex items-center justify-between p-2.5 rounded-xl bg-[#133C99] text-white hover:bg-[#1646AF] transition-colors"
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <LogIn size={16} />
+                          <span className="text-xs font-bold tracking-wide">Portal Login (HRM / CRM)</span>
+                        </div>
+                        <ChevronRight size={14} />
+                      </Link>
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
           </div>
 
-          {/* RIGHT: Display Four Navigation Options */}
+          {/* RIGHT: Display Navigation Options + Login Button */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navItems.map((item) => {
               const isActive = pathname === item.href
@@ -249,6 +266,15 @@ const Navbar: React.FC = () => {
                 </Link>
               )
             })}
+
+            {/* Login Button */}
+            <Link
+              href="/login"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#133C99] hover:bg-[#1646AF] text-white text-xs lg:text-sm font-semibold rounded-lg shadow-sm hover:shadow transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF]"
+            >
+              <LogIn size={15} />
+              <span>Login</span>
+            </Link>
           </div>
 
         </div>

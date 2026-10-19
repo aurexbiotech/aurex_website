@@ -19,11 +19,12 @@ export const HeroSection: React.FC = () => {
   const router = useRouter();
   const [currentView, setCurrentView] = useState(0);
 
-  // Three different hero sub-slides
+  // Four different hero sub-slides
   const heroSlides = [
     {
       id: 'innovation',
       branding: 'BIOTRA',
+      eyebrow: 'Diagnostic Automation',
       title: ['BC-310'],
       titleColors: ['text-white'],
       description: 'Revolutionizing healthcare through cutting-edge biotechnology solutions that deliver precision, efficiency, and breakthrough results.',
@@ -34,6 +35,7 @@ export const HeroSection: React.FC = () => {
     {
       id: 'precision',
       branding: 'BIOTRA',
+      eyebrow: 'Diagnostic Automation',
       title: ['BC-15'],
       titleColors: ['text-white'],
       description: 'Delivering up to 150 tests per hour, the BC15 offers high-precision results and unmatched operational efficiency. Compact, intuitive, and highly reliable - it\'s the smart solution for modern clinical diagnostics.',
@@ -44,12 +46,24 @@ export const HeroSection: React.FC = () => {
     {
       id: 'future',
       branding: 'BIOTRA',
+      eyebrow: 'Diagnostic Automation',
       title: ['BC-410'],
       titleColors: ['text-white'],
       description: 'Leading the transformation of medical diagnostics with innovative technologies, global expertise, and unwavering commitment to quality.',
       image: '/images/bc120-plus.png',
       imageAlt: 'BC410 - Future Technology',
       link: '/products/biochemistry?model=bc-410'
+    },
+    {
+      id: 'smarlumi',
+      branding: 'SmarLumi™',
+      eyebrow: 'Chemiluminescence Immunoassay',
+      title: ['FC-2100'],
+      titleColors: ['text-white'],
+      description: 'Fully automated benchtop chemiluminescence immunoassay analyzer delivering magnetic bead precision, rapid test turnaround, and streamlined laboratory automation.',
+      image: '/images/smarlumi-fc-2100.png',
+      imageAlt: 'SmarLumi™ FC-2100 - Automated Chemiluminescence Immunoassay Analyzer',
+      link: '/'
     }
   ];
 
@@ -93,7 +107,7 @@ export const HeroSection: React.FC = () => {
                 className="flex justify-center lg:justify-start"
               >
                 <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/80 border border-[#BFBFBF]/40 text-xs font-semibold uppercase tracking-wider text-[#1646AF] shadow-xs">
-                  Diagnostic Automation
+                  {heroSlides[currentView].eyebrow || 'Diagnostic Automation'}
                 </span>
               </motion.div>
 

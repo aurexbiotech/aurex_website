@@ -8,7 +8,8 @@ import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { 
   ArrowRight,
   Home,
-  MessageSquare
+  MessageSquare,
+  ChevronDown
 } from 'lucide-react'
 
 export default function SmarLumiIntroductionPage() {
@@ -268,20 +269,20 @@ export default function SmarLumiIntroductionPage() {
         </div>
 
         {/* ============================================================
-            BOTTOM CENTER: HOME ICON BUTTON (Navigates to Main BIOTRA Homepage)
+            BOTTOM CENTER: GO DOWN TO BIOTRA BUTTON
             ============================================================ */}
         <div className="w-full flex flex-col items-center justify-center pt-2 pb-1 relative z-30">
           <button
             onClick={handleExploreAurex}
-            aria-label="Go to homepage"
-            title="Go to homepage"
+            aria-label="Go down to BIOTRA"
+            title="Go down to BIOTRA"
             className="group flex flex-col items-center justify-center p-2 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133C99] cursor-pointer"
           >
             <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/90 border-2 border-[#133C99] text-[#133C99] group-hover:bg-[#133C99] group-hover:text-white flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
-              <Home size={22} className="stroke-[2.2] transition-colors" />
+              <ChevronDown size={22} className="stroke-[2.5] transition-transform duration-300 group-hover:translate-y-1" />
             </div>
             <span className="text-[11px] font-bold text-[#133C99] tracking-wider uppercase mt-1.5 group-hover:text-[#1646AF] transition-colors">
-              Home
+              BIOTRA
             </span>
           </button>
         </div>

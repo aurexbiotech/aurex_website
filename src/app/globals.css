@@ -23,8 +23,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-aboreto: var(--font-aboreto), cursive;
+  --font-sans: var(--font-plus-jakarta-sans), var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-plus-jakarta-sans), var(--font-inter), sans-serif;
+  --font-aboreto: var(--font-plus-jakarta-sans), sans-serif;
 
   /* AUREX Tailwind Color Utilities */
   --color-aurex-primary: #1646AF;

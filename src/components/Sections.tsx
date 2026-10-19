@@ -118,8 +118,8 @@ export const HeroSection: React.FC = () => {
                 transition={{ duration: 0.4, delay: 0.15, ease: "easeOut" }}
               >
                 <h1
-                  className="font-bold tracking-tight text-[#111827] leading-tight"
-                  style={{ fontSize: 'clamp(2.125rem, 4.5vw, 4rem)' }}
+                  className="font-extrabold tracking-tight text-[#111827] leading-tight"
+                  style={{ fontSize: 'clamp(1.75rem, 3.2vw, 2.5rem)' }}
                 >
                   {heroSlides[currentView].branding}
                 </h1>

@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation';
+import { ChevronUp } from 'lucide-react';
 
 interface FullPageSection {
   id: string;
@@ -24,11 +26,17 @@ const FullPage: React.FC<FullPageProps> = ({
   enableKeyboard = true,
   enableWheel = true,
 }) => {
+  const router = useRouter();
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Navigation handler
   const navigateToSection = useCallback((index: number) => {
+    if (index < 0) {
+      // Navigate UP from the very first section (Hero) back to SmarLumi™ FC-2100 introduction page
+      router.push('/');
+      return;
+    }
     if (index >= 0 && index < sections.length && index !== currentSectionIndex && !isTransitioning) {
       setIsTransitioning(true);
       setCurrentSectionIndex(index);
@@ -38,7 +46,7 @@ const FullPage: React.FC<FullPageProps> = ({
         setIsTransitioning(false);
       }, transitionDuration * 1000);
     }
-  }, [currentSectionIndex, sections.length, isTransitioning, transitionDuration]);
+  }, [currentSectionIndex, sections.length, isTransitioning, transitionDuration, router]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -96,6 +104,34 @@ const FullPage: React.FC<FullPageProps> = ({
     };
   }, [currentSectionIndex, navigateToSection, enableWheel]);
 
+  // Touch navigation for mobile swipe up/down
+  useEffect(() => {
+    let touchStartY = 0;
+    
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartY = e.touches[0].clientY;
+    };
+    
+    const handleTouchEnd = (e: TouchEvent) => {
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffY = touchStartY - touchEndY;
+      if (diffY > 60) {
+        // Swiped up -> go down to next section
+        navigateToSection(currentSectionIndex + 1);
+      } else if (diffY < -60) {
+        // Swiped down -> go up to previous section (or SmarLumi if at section 0)
+        navigateToSection(currentSectionIndex - 1);
+      }
+    };
+
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd, { passive: true });
+    return () => {
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [currentSectionIndex, navigateToSection]);
+
   // Animation variants
   const fadeVariants = {
     initial: { opacity: 0 },
@@ -122,6 +158,27 @@ const FullPage: React.FC<FullPageProps> = ({
 
   return (
     <div className="relative h-screen overflow-hidden">
+      {/* Up Button when at Section 0 (Hero): Goes back up to SmarLumi™ FC-2100 */}
+      {currentSectionIndex === 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3 }}
+          className="fixed top-20 sm:top-24 left-1/2 -translate-x-1/2 z-40"
+        >
+          <button
+            onClick={() => router.push('/')}
+            aria-label="Go up to SmarLumi™ FC-2100 page"
+            title="Go up to SmarLumi™ FC-2100"
+            className="group inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-white/95 hover:bg-white text-[#133C99] hover:text-[#1646AF] border border-[#133C99]/30 hover:border-[#1646AF] shadow-sm hover:shadow-md transition-all duration-300 text-xs sm:text-sm font-bold tracking-wide cursor-pointer hover:scale-105"
+          >
+            <ChevronUp size={16} className="transition-transform group-hover:-translate-y-1 text-[#133C99] stroke-[2.5]" />
+            <span>SmarLumi™ FC-2100</span>
+          </button>
+        </motion.div>
+      )}
+
       {/* Navigation Dots */}
       <div className="fixed left-6 top-1/2 transform -translate-y-1/2 z-50">
         <div className="flex flex-col space-y-4">

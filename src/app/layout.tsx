@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Aboreto } from "next/font/google";
+import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from '@/components/Navbar'
 import { defaultKeywords, organizationSchema, siteName, siteUrl } from '@/lib/seo'
 
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-plus-jakarta-sans",
+  display: "swap",
+});
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-});
-
-const aboreto = Aboreto({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-aboreto",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -50,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${aboreto.variable} font-sans antialiased bg-[#F6F8FB] text-[#111827]`}>
+      <body className={`${plusJakartaSans.variable} ${inter.variable} font-sans antialiased bg-[#F6F8FB] text-[#111827]`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

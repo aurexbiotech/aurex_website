@@ -150,13 +150,13 @@ const CompanySection: React.FC = () => {
   // Background images for each topic
   const backgroundImages: { [key: number]: string } = {
     0: '/images/3915891.jpg', // Company Profile
-    1: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80', // Investor Opportunity - business growth
-    2: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80', // Our Vision - future/technology
-    3: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1920&q=80', // Our Mission - healthcare/medical
-    4: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80', // Our Culture - teamwork
-    5: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80', // Our Integrity - quality/compliance
-    6: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1920&q=80', // Social Responsibilities - community
-    7: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=80'  // Testimonials - people/healthcare
+    1: '/images/investor-opportunity-banner.jpg', // Investor Opportunity - business growth
+    2: '/images/our-vision-banner.jpg', // Our Vision - future/technology
+    3: '/images/our-mission-banner.jpg', // Our Mission - healthcare/medical
+    4: '/images/our-culture-banner.jpg', // Our Culture - teamwork
+    5: '/images/our-integrity-banner.jpg', // Our Integrity - quality/compliance
+    6: '/images/social-responsibilities-banner.jpg', // Social Responsibilities - community
+    7: '/images/testimonials-banner.jpg'  // Testimonials - people/healthcare
   }
 
   return (

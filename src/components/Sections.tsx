@@ -175,7 +175,7 @@ export const HeroSection: React.FC = () => {
                   className="object-contain max-h-[340px] sm:max-h-[420px] lg:max-h-[480px] w-auto h-auto transition-transform duration-300 hover:scale-102"
                   priority={currentView === 0}
                   loading={currentView === 0 ? 'eager' : 'lazy'}
-                  quality={90}
+                  quality={85}
                   sizes="(max-width: 640px) 320px, (max-width: 1024px) 480px, 620px"
                 />
               </div>

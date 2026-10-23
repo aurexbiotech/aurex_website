@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation'
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { 
   ArrowRight,
-  Home,
   MessageSquare,
   ChevronDown
 } from 'lucide-react'
@@ -202,7 +201,7 @@ export default function SmarLumiIntroductionPage() {
                 height={1177}
                 className="w-full h-auto object-contain max-h-[380px] sm:max-h-[460px] lg:max-h-[520px] xl:max-h-[580px] select-none"
                 priority
-                quality={95}
+                quality={85}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 58vw"
               />
             </div>

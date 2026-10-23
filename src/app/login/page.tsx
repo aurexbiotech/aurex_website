@@ -24,10 +24,13 @@ import {
   FolderKanban,
   Briefcase,
   Layers,
-  ClipboardCheck
+  ClipboardCheck,
+  TrendingUp,
+  Landmark,
+  PieChart
 } from 'lucide-react'
 
-type PortalType = 'hrm' | 'crm' | 'projects'
+type PortalType = 'hrm' | 'crm' | 'projects' | 'investors'
 
 export default function LoginPage() {
   const [activePortal, setActivePortal] = useState<PortalType>('hrm')
@@ -55,6 +58,14 @@ export default function LoginPage() {
   const [projectsForm, setProjectsForm] = useState({
     projectId: '',
     projectCategory: 'Turnkey Diagnostic Laboratory Commissioning',
+    password: '',
+    remember: true
+  })
+
+  // Investors Form State
+  const [investorsForm, setInvestorsForm] = useState({
+    investorId: '',
+    shareholderCategory: 'Institutional / Venture Partner',
     password: '',
     remember: true
   })
@@ -92,6 +103,16 @@ export default function LoginPage() {
     setErrorMessage(null)
   }
 
+  const fillInvestorsDemo = () => {
+    setInvestorsForm({
+      investorId: 'INV-7020 (Aurex Healthcare Equity Partner)',
+      shareholderCategory: 'Institutional / Venture Partner',
+      password: '••••••••••••',
+      remember: true
+    })
+    setErrorMessage(null)
+  }
+
   // Handle Submit
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
@@ -101,12 +122,16 @@ export default function LoginPage() {
       ? hrmForm.employeeId 
       : activePortal === 'crm' 
         ? crmForm.clientId 
-        : projectsForm.projectId
+        : activePortal === 'projects'
+          ? projectsForm.projectId
+          : investorsForm.investorId
     const currentPass = activePortal === 'hrm' 
       ? hrmForm.password 
       : activePortal === 'crm' 
         ? crmForm.password 
-        : projectsForm.password
+        : activePortal === 'projects'
+          ? projectsForm.password
+          : investorsForm.password
 
     if (!currentId.trim() || !currentPass.trim()) {
       setErrorMessage(
@@ -114,7 +139,9 @@ export default function LoginPage() {
           ? 'Please enter your Employee ID or Corporate Email and Password.' 
           : activePortal === 'crm'
             ? 'Please enter your Partner Client ID or Email and Password.'
-            : 'Please enter your Project ID or Engineer Code and Password.'
+            : activePortal === 'projects'
+              ? 'Please enter your Project ID or Engineer Code and Password.'
+              : 'Please enter your Investor ID or Portfolio Email and Security Key.'
       )
       return
     }
@@ -143,6 +170,12 @@ export default function LoginPage() {
     setProjectsForm({
       projectId: '',
       projectCategory: 'Turnkey Diagnostic Laboratory Commissioning',
+      password: '',
+      remember: true
+    })
+    setInvestorsForm({
+      investorId: '',
+      shareholderCategory: 'Institutional / Venture Partner',
       password: '',
       remember: true
     })
@@ -194,8 +227,8 @@ export default function LoginPage() {
               Choose your dedicated workspace to access employee operations or clinical partner relations.
             </p>
 
-            {/* Portal Tab Switcher (HRM vs CRM vs Projects) */}
-            <div className="mt-6 inline-flex p-1.5 bg-white rounded-2xl border border-[#BFBFBF]/40 shadow-xs max-w-xl w-full">
+            {/* Portal Tab Switcher (HRM vs CRM vs Projects vs Investors Management) */}
+            <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 p-1.5 bg-white rounded-2xl border border-[#BFBFBF]/40 shadow-xs max-w-4xl w-full gap-1.5">
               <button
                 type="button"
                 onClick={() => {
@@ -203,7 +236,7 @@ export default function LoginPage() {
                   setIsAuthenticated(false)
                   setErrorMessage(null)
                 }}
-                className={`flex-1 flex items-center justify-center gap-2 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer ${
+                className={`flex items-center justify-center gap-2 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer ${
                   activePortal === 'hrm'
                     ? 'bg-[#133C99] text-white shadow-sm'
                     : 'text-[#64748B] hover:text-[#133C99] hover:bg-gray-50'
@@ -225,7 +258,7 @@ export default function LoginPage() {
                   setIsAuthenticated(false)
                   setErrorMessage(null)
                 }}
-                className={`flex-1 flex items-center justify-center gap-2 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer ${
+                className={`flex items-center justify-center gap-2 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer ${
                   activePortal === 'crm'
                     ? 'bg-[#1646AF] text-white shadow-sm'
                     : 'text-[#64748B] hover:text-[#1646AF] hover:bg-gray-50'
@@ -247,7 +280,7 @@ export default function LoginPage() {
                   setIsAuthenticated(false)
                   setErrorMessage(null)
                 }}
-                className={`flex-1 flex items-center justify-center gap-2 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer ${
+                className={`flex items-center justify-center gap-2 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer ${
                   activePortal === 'projects'
                     ? 'bg-[#0B1528] text-white shadow-sm'
                     : 'text-[#64748B] hover:text-[#0B1528] hover:bg-gray-50'
@@ -258,6 +291,28 @@ export default function LoginPage() {
                   <div className="leading-tight">Projects Portal</div>
                   <div className={`text-[10px] font-normal ${activePortal === 'projects' ? 'text-blue-200' : 'text-[#64748B]'}`}>
                     Turnkey & Lab PMS
+                  </div>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setActivePortal('investors')
+                  setIsAuthenticated(false)
+                  setErrorMessage(null)
+                }}
+                className={`flex items-center justify-center gap-2 py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all duration-200 cursor-pointer ${
+                  activePortal === 'investors'
+                    ? 'bg-[#0E2A6C] text-white shadow-sm'
+                    : 'text-[#64748B] hover:text-[#0E2A6C] hover:bg-gray-50'
+                }`}
+              >
+                <TrendingUp size={17} />
+                <div className="text-left">
+                  <div className="leading-tight">Investors Management</div>
+                  <div className={`text-[10px] font-normal ${activePortal === 'investors' ? 'text-blue-200' : 'text-[#64748B]'}`}>
+                    Equity & Portfolio
                   </div>
                 </div>
               </button>
@@ -279,7 +334,9 @@ export default function LoginPage() {
                   ? 'HRM Session Authenticated' 
                   : activePortal === 'crm' 
                     ? 'CRM Partner Workspace Connected' 
-                    : 'Projects & Turnkey PMS Connected'}
+                    : activePortal === 'projects'
+                      ? 'Projects & Turnkey PMS Connected'
+                      : 'Investors Management Terminal Connected'}
               </h2>
               <p className="text-sm text-[#64748B] mb-6 leading-relaxed">
                 Welcome back. You are authenticated under{' '}
@@ -288,9 +345,12 @@ export default function LoginPage() {
                     ? hrmForm.employeeId 
                     : activePortal === 'crm' 
                       ? crmForm.clientId 
-                      : projectsForm.projectId}
+                      : activePortal === 'projects'
+                        ? projectsForm.projectId
+                        : investorsForm.investorId}
                 </strong>
-                . Ready to manage clinical diagnostics and operational engineering workflows.
+                . Ready to manage clinical diagnostics, investments, and operational governance workflows.
+              </p>
               </p>
               
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -697,7 +757,7 @@ export default function LoginPage() {
                     </div>
                   </div>
                 </motion.div>
-              ) : (
+              ) : activePortal === 'projects' ? (
                 /* ============================================================
                    LAYOUT 3: PROJECTS (TURNKEY & ENGINEERING PMS) PORTAL
                    ============================================================ */
@@ -886,6 +946,198 @@ export default function LoginPage() {
                     <div className="pt-6 border-t border-white/15 text-[11px] text-blue-200/80 flex items-center justify-between">
                       <span>Turnkey Projects Division</span>
                       <span>PMO Engineering Gateway</span>
+                    </div>
+                  </div>
+                </motion.div>
+              ) : (
+                /* ============================================================
+                   LAYOUT 4: INVESTORS MANAGEMENT PORTAL
+                   ============================================================ */
+                <motion.div
+                  key="investors-layout"
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.3 }}
+                  className="grid grid-cols-1 lg:grid-cols-12 bg-white rounded-3xl border border-[#BFBFBF]/40 shadow-sm overflow-hidden"
+                >
+                  {/* Left Column: Form Section */}
+                  <div className="lg:col-span-7 p-6 sm:p-10">
+                    <div className="flex items-center justify-between mb-6">
+                      <div>
+                        <div className="text-xs font-bold uppercase tracking-wider text-[#0E2A6C] mb-1">
+                          Shareholder & Capital Relations
+                        </div>
+                        <h2 className="text-2xl font-bold text-[#111827]">
+                          Investors Management Sign In
+                        </h2>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={fillInvestorsDemo}
+                        className="text-xs font-semibold text-[#0E2A6C] hover:underline cursor-pointer bg-[#0E2A6C]/10 px-2.5 py-1.5 rounded-md"
+                      >
+                        Auto-fill Demo
+                      </button>
+                    </div>
+
+                    {errorMessage && (
+                      <div className="mb-5 p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-xs font-medium text-rose-700">
+                        {errorMessage}
+                      </div>
+                    )}
+
+                    <form onSubmit={handleLogin} className="space-y-4">
+                      {/* Shareholder Category / Investor Type */}
+                      <div>
+                        <label className="block text-xs font-bold text-[#111827] mb-1.5">
+                          Investor Category / Shareholder Classification
+                        </label>
+                        <select
+                          value={investorsForm.shareholderCategory}
+                          onChange={(e) => setInvestorsForm({ ...investorsForm, shareholderCategory: e.target.value })}
+                          className="w-full px-4 py-3 bg-[#F6F8FB] rounded-xl border border-[#BFBFBF]/50 text-sm text-[#111827] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0E2A6C]/20 focus:border-[#0E2A6C] cursor-pointer"
+                        >
+                          <option>Institutional / Venture Partner</option>
+                          <option>Private Equity & Healthcare Fund</option>
+                          <option>Equity Shareholder / Accredited Investor</option>
+                          <option>Angel Syndicate / Asset Management Group</option>
+                          <option>Financial Analyst / Statutory Auditor</option>
+                          <option>Strategic Corporate Investment Partner</option>
+                        </select>
+                      </div>
+
+                      {/* Investor ID / Work Email */}
+                      <div>
+                        <label className="block text-xs font-bold text-[#111827] mb-1.5">
+                          Investor ID or Registered Portfolio Email
+                        </label>
+                        <div className="relative">
+                          <input
+                            type="text"
+                            value={investorsForm.investorId}
+                            onChange={(e) => setInvestorsForm({ ...investorsForm, investorId: e.target.value })}
+                            placeholder="e.g. INV-7020 or partner@healthcarecapital.com"
+                            className="w-full pl-10 pr-4 py-3 bg-[#F6F8FB] rounded-xl border border-[#BFBFBF]/50 text-sm text-[#111827] placeholder:text-[#64748B]/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0E2A6C]/20 focus:border-[#0E2A6C]"
+                          />
+                          <Landmark className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748B]" size={16} />
+                        </div>
+                      </div>
+
+                      {/* Security Key / Password */}
+                      <div>
+                        <div className="flex items-center justify-between mb-1.5">
+                          <label className="block text-xs font-bold text-[#111827]">
+                            Security Token / Investor PIN
+                          </label>
+                          <a href="#" onClick={(e) => { e.preventDefault(); alert('Please contact AUREX Investor Relations Desk (investor.relations@aurexbiotech.com / +91 9543910101) for security token verification.') }} className="text-xs font-medium text-[#0E2A6C] hover:underline">
+                            Request Key Access?
+                          </a>
+                        </div>
+                        <div className="relative">
+                          <input
+                            type={showPassword ? 'text' : 'password'}
+                            value={investorsForm.password}
+                            onChange={(e) => setInvestorsForm({ ...investorsForm, password: e.target.value })}
+                            placeholder="Enter investor authorization key"
+                            className="w-full pl-10 pr-10 py-3 bg-[#F6F8FB] rounded-xl border border-[#BFBFBF]/50 text-sm text-[#111827] placeholder:text-[#64748B]/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0E2A6C]/20 focus:border-[#0E2A6C]"
+                          />
+                          <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748B]" size={16} />
+                          <button
+                            type="button"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#64748B] hover:text-[#111827] cursor-pointer"
+                          >
+                            {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Remember Checkbox */}
+                      <div className="flex items-center gap-2 pt-1">
+                        <input
+                          id="inv-remember"
+                          type="checkbox"
+                          checked={investorsForm.remember}
+                          onChange={(e) => setInvestorsForm({ ...investorsForm, remember: e.target.checked })}
+                          className="w-4 h-4 text-[#0E2A6C] rounded border-gray-300 focus:ring-[#0E2A6C]"
+                        />
+                        <label htmlFor="inv-remember" className="text-xs text-[#64748B] cursor-pointer">
+                          Keep this investor dashboard active on this authorized device
+                        </label>
+                      </div>
+
+                      {/* Sign In Button */}
+                      <button
+                        type="submit"
+                        disabled={isLoading}
+                        className="w-full py-3.5 px-6 rounded-xl bg-[#0E2A6C] hover:bg-[#133C99] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 disabled:opacity-60"
+                      >
+                        {isLoading ? (
+                          <>
+                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                            <span>Authenticating Investor Terminal...</span>
+                          </>
+                        ) : (
+                          <>
+                            <LogIn size={16} />
+                            <span>Sign In to Investors Management</span>
+                          </>
+                        )}
+                      </button>
+                    </form>
+                  </div>
+
+                  {/* Right Column: Investors Features & Notice Panel */}
+                  <div className="lg:col-span-5 bg-gradient-to-br from-[#0B1528] via-[#0E2A6C] to-[#1646AF] text-white p-6 sm:p-10 flex flex-col justify-between">
+                    <div>
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-blue-200 text-xs font-semibold mb-4 border border-white/15">
+                        <TrendingUp size={13} />
+                        <span>Investor Relations</span>
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-bold mb-3 text-white">
+                        Financial Governance & Investor Hub
+                      </h3>
+                      <p className="text-xs sm:text-sm text-blue-100/90 leading-relaxed mb-6">
+                        Direct oversight of capitalization metrics, R&D patent valuations, global diagnostic market revenue, and dividend records.
+                      </p>
+
+                      <div className="space-y-3.5">
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <BarChart3 size={16} className="text-blue-200" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white">Financial Reports & EBITDA</div>
+                            <div className="text-[11px] text-blue-100/80">Quarterly balance sheets, audited Capex/Opex statements, and revenue growth</div>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <PieChart size={16} className="text-blue-200" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white">Equity & Shareholding Records</div>
+                            <div className="text-[11px] text-blue-100/80">Cap table distributions, Series equity allocations, and share certificate ledgers</div>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <Landmark size={16} className="text-blue-200" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white">R&D Valuation & Global Pipeline</div>
+                            <div className="text-[11px] text-blue-100/80">Biotechnology diagnostic patents, international certifications, and ROI projections</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="pt-6 border-t border-white/15 text-[11px] text-blue-200/80 flex items-center justify-between">
+                      <span>AUREX Investor Network</span>
+                      <span>Institutional IR Gateway</span>
                     </div>
                   </div>
                 </motion.div>

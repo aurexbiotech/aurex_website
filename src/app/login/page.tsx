@@ -351,7 +351,6 @@ export default function LoginPage() {
                 </strong>
                 . Ready to manage clinical diagnostics, investments, and operational governance workflows.
               </p>
-              </p>
               
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <button

@@ -14,6 +14,8 @@ const publicRoutes = [
   '/products/biochemistry',
   '/products/biochemistry/details',
   '/products/haematology',
+  '/biotra',
+  '/solutions',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

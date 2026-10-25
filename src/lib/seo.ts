@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.aurexbiotech.com'
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://aurexbiotech.in').replace(/\/+$/, '')
 export const siteName = 'AUREX'
 
 export const defaultKeywords = [
   'AUREX',
+  'AUREX Biotech',
   'diagnostic equipment supplier',
   'laboratory equipment supplier',
   'medical diagnostic equipment',
@@ -12,6 +13,8 @@ export const defaultKeywords = [
   'biochemistry analyzer',
   'haematology analyzer',
   'laboratory diagnostic solutions',
+  'chemiluminescence immunoassay',
+  'diagnostic automation',
 ]
 
 type PageMetadataOptions = {
@@ -27,25 +30,34 @@ export function createPageMetadata({
   path,
   keywords = [],
 }: PageMetadataOptions): Metadata {
+  const cleanPath = path.startsWith('/') ? path : `/${path}`
+  const canonicalUrl = cleanPath === '/' ? siteUrl : `${siteUrl}${cleanPath}`
+
   return {
     title,
     description,
     keywords: [...keywords, ...defaultKeywords],
     alternates: {
-      canonical: path,
+      canonical: canonicalUrl,
     },
     openGraph: {
       title: `${title} | ${siteName}`,
       description,
-      url: path,
+      url: canonicalUrl,
       siteName,
       type: 'website',
       images: [
         {
-          url: '/images/company-logo.png',
+          url: `${siteUrl}/images/company-logo.png`,
           alt: `${siteName} logo`,
         },
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | ${siteName}`,
+      description,
+      images: [`${siteUrl}/images/company-logo.png`],
     },
   }
 }

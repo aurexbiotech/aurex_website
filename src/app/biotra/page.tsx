@@ -8,11 +8,6 @@ import {
   FooterSection 
 } from '@/components/Sections'
 
-export const metadata = {
-  title: 'BIOTRA Diagnostic Systems | AUREX',
-  description: 'Explore the BIOTRA clinical biochemistry and automated laboratory diagnostic series from AUREX.',
-}
-
 export default function BiotraPage() {
   const sections = [
     { id: 'hero', name: 'Hero', component: HeroSection },

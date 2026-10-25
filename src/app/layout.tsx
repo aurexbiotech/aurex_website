@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   keywords: defaultKeywords,
   authors: [{ name: siteName }],
   alternates: {
-    canonical: '/',
+    canonical: siteUrl,
   },
   openGraph: {
     title: `${siteName} | Diagnostic and Laboratory Equipment`,
@@ -38,10 +38,16 @@ export const metadata: Metadata = {
     locale: "en_IN",
     images: [
       {
-        url: "/images/company-logo.png",
+        url: `${siteUrl}/images/company-logo.png`,
         alt: `${siteName} logo`,
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteName} | Diagnostic and Laboratory Equipment`,
+    description: "Precision diagnostic equipment, laboratory instruments, biochemistry analyzers, and diagnostic solutions from AUREX.",
+    images: [`${siteUrl}/images/company-logo.png`],
   },
 };
 

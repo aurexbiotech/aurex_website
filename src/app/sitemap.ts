@@ -19,7 +19,10 @@ const publicRoutes = [
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date()
+
   return publicRoutes.map((path) => ({
-    url: `${siteUrl}${path}`,
+    url: path === '/' ? siteUrl : `${siteUrl}${path}`,
+    lastModified,
   }))
 }

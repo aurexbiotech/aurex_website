@@ -14,6 +14,9 @@ const publicRoutes = [
   '/products/biochemistry',
   '/products/biochemistry/details',
   '/products/haematology',
+  '/products/fc-2100',
+  '/products/dermatology',
+  '/products/pathology',
   '/biotra',
   '/solutions',
 ]

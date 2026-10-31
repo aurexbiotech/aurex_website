@@ -1098,7 +1098,7 @@ export default function LoginPage() {
                         Financial Governance & Investor Hub
                       </h3>
                       <p className="text-xs sm:text-sm text-blue-100/90 leading-relaxed mb-6">
-                        Direct oversight of capitalization metrics, R&D patent valuations, global diagnostic market revenue, and dividend records.
+                        Direct oversight of capitalization metrics, R&D patent valuations, clinical diagnostic market revenue, and dividend records.
                       </p>
 
                       <div className="space-y-3.5">
@@ -1127,7 +1127,7 @@ export default function LoginPage() {
                             <Landmark size={16} className="text-blue-200" />
                           </div>
                           <div>
-                            <div className="text-xs font-bold text-white">R&D Valuation & Global Pipeline</div>
+                            <div className="text-xs font-bold text-white">R&D Valuation & Strategic Pipeline</div>
                             <div className="text-[11px] text-blue-100/80">Biotechnology diagnostic patents, international certifications, and ROI projections</div>
                           </div>
                         </div>

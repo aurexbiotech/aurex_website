@@ -8,7 +8,7 @@ import { motion, useReducedMotion, type Variants } from 'framer-motion'
 import { 
   ArrowRight,
   MessageSquare,
-  ChevronDown
+  Home
 } from 'lucide-react'
 
 export default function SmarLumiIntroductionPage() {
@@ -244,12 +244,24 @@ export default function SmarLumiIntroductionPage() {
               SmarLumi™ FC-2100 is a compact, benchtop chemiluminescence immunoassay analyzer engineered for clinical laboratories, delivering rapid diagnostic results with uncompromised precision and automated workflow.
             </motion.p>
 
-            {/* Action Buttons: Talk to Us & Explore AUREX */}
+            {/* Action Buttons: Explore FC-2100, Talk to Us, Explore AUREX */}
             <motion.div variants={childItemVariants} className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 w-full sm:w-auto">
+              <Link
+                href="/products/fc-2100"
+                aria-label="Explore FC-2100"
+                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-[#1646AF] hover:bg-[#133C99] text-white font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer text-center"
+              >
+                <span>Explore FC-2100</span>
+                <ArrowRight 
+                  size={18} 
+                  className="transition-transform duration-300 group-hover:translate-x-1" 
+                />
+              </Link>
+
               <Link
                 href="/contact"
                 aria-label="Talk to Us - Contact AUREX"
-                className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 bg-white hover:bg-[#F6F8FB] text-[#133C99] hover:text-[#1646AF] font-bold text-sm sm:text-base rounded-xl border-2 border-[#133C99] hover:border-[#1646AF] shadow-xs hover:shadow-md transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer text-center"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-white hover:bg-[#F6F8FB] text-[#133C99] hover:text-[#1646AF] font-bold text-sm sm:text-base rounded-xl border-2 border-[#133C99] hover:border-[#1646AF] shadow-xs hover:shadow-md transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer text-center"
               >
                 <MessageSquare size={17} className="text-[#133C99]" />
                 <span>Talk to Us</span>
@@ -258,7 +270,7 @@ export default function SmarLumiIntroductionPage() {
               <button
                 onClick={handleExploreAurex}
                 aria-label="Explore AUREX main website"
-                className="group inline-flex items-center justify-center gap-2.5 px-6 sm:px-9 py-3 sm:py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer text-center"
+                className="group inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3 sm:py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer text-center"
               >
                 <span>Explore AUREX</span>
                 <ArrowRight 
@@ -273,20 +285,20 @@ export default function SmarLumiIntroductionPage() {
         </div>
 
         {/* ============================================================
-            BOTTOM CENTER: GO DOWN TO BIOTRA BUTTON
+            BOTTOM CENTER: HOME ICON BUTTON (Navigates to BIOTRA Homepage)
             ============================================================ */}
         <div className="w-full flex flex-col items-center justify-center pt-2 pb-1 relative z-30">
           <button
             onClick={handleExploreAurex}
-            aria-label="Go down to BIOTRA"
-            title="Go down to BIOTRA"
+            aria-label="Home"
+            title="Home"
             className="group flex flex-col items-center justify-center p-2 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#133C99] cursor-pointer"
           >
             <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/90 border-2 border-[#133C99] text-[#133C99] group-hover:bg-[#133C99] group-hover:text-white flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105">
-              <ChevronDown size={22} className="stroke-[2.5] transition-transform duration-300 group-hover:translate-y-1" />
+              <Home size={22} className="stroke-[2.2] transition-colors" />
             </div>
             <span className="text-[11px] font-bold text-[#133C99] tracking-wider uppercase mt-1.5 group-hover:text-[#1646AF] transition-colors">
-              BIOTRA
+              Home
             </span>
           </button>
         </div>

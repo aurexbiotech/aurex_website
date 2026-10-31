@@ -34,7 +34,7 @@ const AREA_OF_INTEREST_OPTIONS = [
 // Sub-navigation items for contact sections
 const contactSubNavigation = [
   { id: 'contact-form', name: 'Send Message' },
-  { id: 'global-offices', name: 'Global Offices' },
+  { id: 'global-offices', name: 'Offices & Facilities' },
   { id: 'support-channels', name: 'Support Channels' },
   { id: 'emergency-support', name: 'Emergency Support' }
 ]
@@ -731,9 +731,9 @@ export default function ContactPage() {
             {activeSection === 'global-offices' && (
               <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                  <h2 className="text-3xl sm:text-4xl font-bold text-[#111827] mb-3">Global Offices</h2>
+                  <h2 className="text-3xl sm:text-4xl font-bold text-[#111827] mb-3">Offices & Facilities</h2>
                   <p className="text-base text-[#64748B]">
-                    Visit us at one of our offices worldwide
+                    Visit us at our central office or partner facilities
                   </p>
                 </div>
 
@@ -788,7 +788,7 @@ export default function ContactPage() {
                 >
                   <div className="text-center">
                     <Globe className="text-[#1646AF]/40 mx-auto mb-3" size={56} />
-                    <h3 className="text-lg font-semibold text-[#111827] mb-1">Global Presence</h3>
+                    <h3 className="text-lg font-semibold text-[#111827] mb-1">Corporate & Regional Presence</h3>
                     <p className="text-xs text-[#64748B]">Headquartered in Tamil Nadu, India with pan-India distribution network</p>
                   </div>
                 </motion.div>

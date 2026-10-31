@@ -69,7 +69,7 @@ const FixedSideBar: React.FC = () => {
           {/* Email */}
           <div className="relative group flex items-center justify-center">
             <a
-              href="mailto:info@aurexbiotech.com"
+              href="mailto:salesrx@aurexbiotech.in"
               aria-label="Send Email to AUREX"
               className="flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 ease-out hover:bg-rose-500/15 cursor-pointer"
             >
@@ -78,7 +78,7 @@ const FixedSideBar: React.FC = () => {
               />
             </a>
             <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 pointer-events-none opacity-0 group-hover:opacity-100 translate-x-1 group-hover:translate-x-0 transition-all duration-200 z-50 whitespace-nowrap px-2.5 py-1 rounded-md bg-[#111827] text-white text-xs font-semibold shadow-lg">
-              sales@aurexbiotech.com
+              salesrx@aurexbiotech.in
             </div>
           </div>
 

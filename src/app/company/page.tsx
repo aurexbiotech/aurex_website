@@ -297,13 +297,13 @@ function CompanyPageContent() {
               <div className="md:col-start-2">
                 <h2 className="text-3xl font-bold text-[#0B1528] mb-4">Innovation and Partnerships</h2>
                 <p className="text-gray-700 leading-relaxed text-lg">
-                  Through strategic collaborations with globally renowned partners and manufacturers, we leverage world-class expertise in design and manufacturing to deliver reliable, innovative, and performance-driven solutions tailored for the Indian healthcare and research ecosystem.
+                  Through strategic collaborations with internationally renowned partners and manufacturers, we leverage world-class expertise in design and manufacturing to deliver reliable, innovative, and performance-driven solutions tailored for the Indian healthcare and research ecosystem.
                 </p>
               </div>
               <div className="relative h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-xl md:col-start-1 md:row-start-1">
                 <Image
                   src="/images/company-profile-2.jpg"
-                  alt="Innovation and Global Partnerships"
+                  alt="Innovation and Strategic Partnerships"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -748,7 +748,7 @@ function CompanyPageContent() {
                 <h3 className="text-3xl md:text-4xl font-bold">Impact</h3>
               </div>
               <p className="text-lg leading-relaxed">
-                This programme drives personal growth and organizational transformation, developing leaders who are ethical, adaptive, and forward-thinking. By nurturing capable decision-makers, it ensures that biotechnology and healthcare organizations remain competitive, innovative, and future-ready in the global market.
+                This programme drives personal growth and organizational transformation, developing leaders who are ethical, adaptive, and forward-thinking. By nurturing capable decision-makers, it ensures that biotechnology and healthcare organizations remain competitive, innovative, and future-ready across the healthcare market.
               </p>
             </div>
           </div>
@@ -761,7 +761,7 @@ function CompanyPageContent() {
             <div className="animate-on-scroll text-center">
               <h2 className="text-4xl md:text-5xl font-bold text-[#0B1528] mb-6">Investor Relations</h2>
               <p className="text-gray-700 leading-relaxed text-lg max-w-4xl mx-auto">
-                At AUREX, we believe that our mission to transform healthcare diagnostics represents not just a business — but a powerful, future-ready investment opportunity. By partnering with us, investors can help drive innovation, advance global health, and capture value in one of the world&apos;s most dynamic, fast-growing sectors.
+                At AUREX, we believe that our mission to transform healthcare diagnostics represents not just a business — but a powerful, future-ready investment opportunity. By partnering with us, investors can help drive innovation, advance patient health, and capture value in one of the world&apos;s most dynamic, fast-growing sectors.
               </p>
             </div>
 
@@ -779,7 +779,7 @@ function CompanyPageContent() {
                 <div className="text-center text-white px-6">
                   <TrendingUp className="w-20 h-20 mx-auto mb-4" />
                   <h3 className="text-4xl font-bold mb-2">Invest in the Future of Healthcare</h3>
-                  <p className="text-xl">Partner with Innovation, Drive Global Impact</p>
+                  <p className="text-xl">Partner with Innovation, Drive Significant Impact</p>
                 </div>
               </div>
             </div>
@@ -799,7 +799,7 @@ function CompanyPageContent() {
                   <h4 className="text-xl md:text-2xl font-semibold text-[#0B1528]">Thriving Market Landscape</h4>
                 </div>
                 <p className="text-gray-700 leading-relaxed text-lg">
-                  Global demand for diagnostics, laboratory automation, and healthcare technology is surging — fuelled by rising healthcare needs, precision medicine, and digital transformation.
+                  Rising demand for diagnostics, laboratory automation, and healthcare technology is surging — fuelled by increasing healthcare needs, precision medicine, and digital transformation.
                 </p>
               </div>
               <div className="relative h-[300px] rounded-xl overflow-hidden shadow-xl">
@@ -873,7 +873,7 @@ function CompanyPageContent() {
                   <h4 className="text-xl md:text-2xl font-semibold text-[#0B1528]">Proven, Scalable Business Model</h4>
                 </div>
                 <p className="text-gray-700 leading-relaxed text-lg">
-                  Since 2014, we have partnered with global OEM leaders with patented technologies — delivering globally competitive, quality-assured, and scalable solutions to the Indian and international markets.
+                  Since 2014, we have partnered with premier OEM leaders with patented technologies — delivering internationally competitive, quality-assured, and scalable solutions to the Indian and international markets.
                 </p>
               </div>
             </div>
@@ -882,7 +882,7 @@ function CompanyPageContent() {
             <div className="animate-on-scroll bg-[#F6F8FB] p-8 rounded-xl border-l-4 border-[#1646AF]">
               <div className="flex items-center mb-4">
                 <TrendingUp className="w-8 h-8 text-[#1646AF] mr-3" />
-                <h4 className="text-xl md:text-2xl font-semibold text-[#0B1528]">Strategic Global Growth Roadmap</h4>
+                <h4 className="text-xl md:text-2xl font-semibold text-[#0B1528]">Strategic Enterprise Growth Roadmap</h4>
               </div>
               <p className="text-gray-700 leading-relaxed text-lg">
                 Our expansion strategy includes building a strong international footprint, forming strategic alliances, and scaling exports — unlocking long-term, sustainable growth potential.
@@ -946,7 +946,7 @@ function CompanyPageContent() {
                   <div className="w-3 h-3 bg-[#1646AF] rounded-full mr-3"></div>
                   Infrastructure & Expansion Funding
                 </h5>
-                <p className="text-gray-700 text-lg">Scale manufacturing capacity, global distribution, and service networks.</p>
+                <p className="text-gray-700 text-lg">Scale manufacturing capacity, international distribution, and service networks.</p>
               </div>
             </div>
 
@@ -979,7 +979,7 @@ function CompanyPageContent() {
               <div className="bg-[#F6F8FB] p-6 rounded-xl shadow-md border border-gray-100">
                 <div className="flex items-start space-x-3 text-gray-700 text-lg">
                   <div className="w-2 h-2 bg-[#1646AF] rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Strong Leadership with global exposure and deep technical expertise.</span>
+                  <span>Strong Leadership with extensive industry exposure and deep technical expertise.</span>
                 </div>
               </div>
               <div className="bg-[#F6F8FB] p-6 rounded-xl shadow-md border border-gray-100">
@@ -1077,7 +1077,7 @@ function CompanyPageContent() {
               <div className="relative h-[300px] rounded-xl overflow-hidden shadow-xl md:col-start-1 md:row-start-1">
                 <Image
                   src="/images/vision-3.jpg"
-                  alt="Expanding Global Healthcare Presence"
+                  alt="Expanding Healthcare Presence"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -1086,7 +1086,7 @@ function CompanyPageContent() {
               <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl shadow-lg border-l-4 border-blue-600 md:col-start-2">
                 <div className="flex items-center mb-4">
                   <Globe className="w-8 h-8 text-blue-600 mr-3" />
-                  <h4 className="text-xl md:text-2xl font-semibold text-[#0B1528]">Expanding Global Presence</h4>
+                  <h4 className="text-xl md:text-2xl font-semibold text-[#0B1528]">Expanding Healthcare Presence</h4>
                 </div>
                 <p className="text-gray-700 leading-relaxed text-lg">
                   Strengthening our footprint across international markets through strategic partnerships, exports, and localized operations — making world-class diagnostics universally available.
@@ -1113,7 +1113,7 @@ function CompanyPageContent() {
                   <h4 className="text-xl md:text-2xl font-semibold text-[#0B1528]">Setting Industry Standards</h4>
                 </div>
                 <p className="text-gray-700 leading-relaxed text-lg">
-                  Collaborating with global health bodies to shape regulatory frameworks, elevate diagnostic accuracy, and ensure patient safety and data integrity.
+                  Collaborating with international health bodies to shape regulatory frameworks, elevate diagnostic accuracy, and ensure patient safety and data integrity.
                 </p>
               </div>
               <div className="relative h-[300px] rounded-xl overflow-hidden shadow-xl">
@@ -1167,7 +1167,7 @@ function CompanyPageContent() {
                 <h3 className="text-3xl md:text-4xl font-bold">Our Commitment</h3>
               </div>
               <p className="text-lg leading-relaxed">
-                Through these pillars, AUREX is committed to transforming diagnostics globally — delivering measurable impact, raising industry benchmarks, and improving lives worldwide.
+                Through these pillars, AUREX is committed to transforming diagnostics across healthcare systems — delivering measurable impact, raising industry benchmarks, and improving lives.
               </p>
             </div>
           </div>
@@ -1272,7 +1272,7 @@ function CompanyPageContent() {
                   <h4 className="text-xl md:text-2xl font-semibold text-[#0B1528]">Supporting Professionals</h4>
                 </div>
                 <p className="text-gray-700 leading-relaxed text-lg">
-                  Offering comprehensive training, technical support, and capacity-building to empower the global healthcare community.
+                  Offering comprehensive training, technical support, and capacity-building to empower the clinical healthcare community.
                 </p>
               </div>
               <div className="relative h-[300px] rounded-xl overflow-hidden shadow-xl">
@@ -1575,7 +1575,7 @@ function CompanyPageContent() {
                 <div className="space-y-4 text-lg text-gray-700">
                   <p className="flex items-start gap-3">
                     <span className="text-2xl mt-1" style={{ color: '#1646AF' }}>•</span>
-                    <span>Adhere strictly to global quality benchmarks, regulatory requirements, and industry best practices.</span>
+                    <span>Adhere strictly to international quality benchmarks, regulatory requirements, and industry best practices.</span>
                   </p>
                   <p className="flex items-start gap-3">
                     <span className="text-2xl mt-1" style={{ color: '#1646AF' }}>•</span>
@@ -1586,7 +1586,7 @@ function CompanyPageContent() {
               <div className="relative h-[400px] rounded-xl overflow-hidden">
                 <Image
                   src="/images/integrity-3.jpg"
-                  alt="Quality and Compliance - Adhering to global standards"
+                  alt="Quality and Compliance - Adhering to international standards"
                   fill
                   className="object-cover"
                 />

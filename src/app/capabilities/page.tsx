@@ -173,7 +173,7 @@ const capabilitiesContent = {
           'NABL (National Accreditation Board for Testing and Calibration Laboratories) - Guidance on implementing quality management systems (QMS) for laboratory accreditation, preparation of documentation, SOPs, and internal audits, pre-assessment readiness checks and gap analysis',
           'NABH (National Accreditation Board for Hospitals & Healthcare Providers) - Support for hospital quality and patient safety compliance, assistance in setting up procedures for infection control, staff training, and facility management',
           'ISO Certifications (ISO 9001, ISO 13485, ISO 15189, etc.) - Consulting for implementing internationally recognized standards for quality, safety, and efficiency, complete documentation, process alignment, and compliance tracking',
-          'CE, FDA, and Other Global Certifications - Assistance with CE marking, FDA clearance, and other global regulatory requirements for medical devices and diagnostics, coordination with authorized certification bodies for testing and approval',
+          'CE, FDA, and Other International Certifications - Assistance with CE marking, FDA clearance, and other international regulatory requirements for medical devices and diagnostics, coordination with authorized certification bodies for testing and approval',
           'Environmental, Health & Safety Certifications - Support in achieving ISO 14001 (Environmental Management) and ISO 45001 (Occupational Health & Safety) certifications, implementation of eco-friendly, safe, and sustainable lab practices'
         ]
       },
@@ -199,7 +199,7 @@ const capabilitiesContent = {
         type: 'benefits',
         data: [
           'Faster Certification Process – Streamlined approach saves time and reduces rework',
-          'Regulatory Confidence – Ensures compliance with local and global healthcare standards',
+          'Regulatory Confidence – Ensures compliance with local and international healthcare standards',
           'Enhanced Credibility – Strengthens market reputation and builds patient trust',
           'Business Growth Enablement – Opens doors to collaborations, funding, and new market opportunities'
         ]
@@ -226,7 +226,7 @@ const capabilitiesContent = {
           'Training & Education - Hands-on workshops, live product demos, and interactive webinars designed for laboratory professionals, clinicians, and biomedical engineers. E-learning modules, video tutorials, and troubleshooting guides to help users master new technologies and boost efficiency',
           'Expert Support & Consultation - Direct access to technical advisors and subject-matter experts for workflow optimization and application support. Guidance on automation integration, regulatory compliance, and technology adoption strategies',
           'Innovation & Collaboration Space - A platform for joint research projects, idea incubation, and innovation forums. Partnerships with academic institutions, industry leaders, and healthcare providers to co-create next-gen diagnostic solutions',
-          'Industry Insights & Updates - Regular newsletters, blogs, and bulletins featuring global diagnostic trends, regulatory changes, and clinical best practices. Early access to new product launches, upgrades, and innovations from AUREX'
+          'Industry Insights & Updates - Regular newsletters, blogs, and bulletins featuring clinical diagnostic trends, regulatory changes, and clinical best practices. Early access to new product launches, upgrades, and innovations from AUREX'
         ]
       },
       {
@@ -258,7 +258,7 @@ const capabilitiesContent = {
           'Cloud-Based Learning Management System (LMS) - Centralized LMS with structured learning paths, certification programs, and progress tracking. Features interactive modules, video tutorials, quizzes, and downloadable resources for all skill levels',
           'Virtual Product Simulators - Realistic digital simulators replicate instrument workflows for hands-on practice in a risk-free environment. Supports training in operation, calibration, and troubleshooting before using live equipment',
           'Live & On-Demand Webinars - Expert-led live sessions on emerging technologies, clinical applications, and compliance updates. On-demand library for anytime replay, ensuring flexible access to knowledge',
-          'Collaborative Knowledge Platforms - Secure discussion forums and knowledge boards for peer-to-peer learning and expert Q&A. Facilitates global collaboration, case study sharing, and problem-solving',
+          'Collaborative Knowledge Platforms - Secure discussion forums and knowledge boards for peer-to-peer learning and expert Q&A. Facilitates professional collaboration, case study sharing, and problem-solving',
           'Mobile-First Learning - Fully optimized for smartphones and tablets, allowing on-the-go training for field engineers and lab professionals',
           'Gamification & Professional Certification - Badges, leaderboards, and rewards drive engagement and motivation. Digital certificates of completion support compliance, skill validation, and career growth',
           'Feedback & Analytics Intelligence - Integrated analytics dashboards monitor learner progress and training impact. Continuous feedback loops ensure platform evolution in line with industry trends'
@@ -293,7 +293,7 @@ const capabilitiesContent = {
           'Hands-On Technical Training - Instructor-led, lab-based programs using advanced biotechnology equipment, Analyzers, and automation systems. Covers instrument setup, sample processing, QC, calibration, and troubleshooting with real-world case studies',
           'Industry-Driven Curriculum - Training designed to align with current and future industry demands. Focus areas include molecular biology, bioinformatics, genetic engineering, immunoassays, regulatory compliance, and data analytics',
           'Digital & Virtual Learning - Simulations, e-learning modules, and virtual labs for critical skills such as PCR setup, cell culture, and data management. Integrated assessments with real-time performance tracking and feedback',
-          'Certifications & Career Growth - Globally recognized certifications on completion of modules. Enhances employability and career prospects for lab professionals, researchers, and technologists',
+          'Certifications & Career Growth - Internationally recognized certifications on completion of modules. Enhances employability and career prospects for lab professionals, researchers, and technologists',
           'Mentorship, Internships & Placement - Structured mentorship programs and supervised internships in partner hospitals and diagnostic labs. Placement assistance with leading healthcare and biotech networks for top-performing candidates',
           'Soft Skills & Leadership Training - Programs in scientific communication, teamwork, project management, and bioethics. Prepares participants to become future-ready leaders in biotechnology and healthcare',
           'Exposure to Emerging Technologies - Hands-on access to AI-driven diagnostics, synthetic biology, automation platforms, and next-gen sequencing tools'
@@ -375,9 +375,9 @@ const capabilitiesContent = {
           'Hands-On Technical Training - Intensive lab sessions using state-of-the-art analyzers and automation systems. Practical experience in instrument setup, operation, troubleshooting, and preventive maintenance',
           'Expert-Led Learning - Conducted by industry veterans and domain experts. Deep dives into scientific principles, workflow optimization, and best practices',
           'Cutting-Edge Topics - Molecular biology techniques, immunoassays, clinical chemistry, haematology, and bioinformatics. Data analysis, quality control, and emerging fields such as AI-driven diagnostics and next-gen sequencing',
-          'Flexible Delivery Formats - In-person workshops for immersive, hands-on training. Live webinars and virtual sessions for remote participation and global access',
+          'Flexible Delivery Formats - In-person workshops for immersive, hands-on training. Live webinars and virtual sessions for remote participation and widespread access',
           'Certification & Continuing Education - Certificates of completion to boost professional credentials. Eligible for continuing education credits in select regions',
-          'Innovation & Research Orientation - Exposure to emerging technologies, global trends, and future-ready workflows. Encourages participants to adopt a forward-thinking approach to diagnostics'
+          'Innovation & Research Orientation - Exposure to emerging technologies, international trends, and future-ready workflows. Encourages participants to adopt a forward-thinking approach to diagnostics'
         ]
       },
       {
@@ -388,7 +388,7 @@ const capabilitiesContent = {
         type: 'benefits',
         data: [
           'Build job-ready technical skills for daily lab operations',
-          'Stay aligned with global scientific and technological trends',
+          'Stay aligned with advancing scientific and technological trends',
           'Network with peers, experts, and industry leaders',
           'Strengthen career growth with recognized certifications'
         ]
@@ -476,7 +476,7 @@ const capabilitiesContent = {
       {
         type: 'benefits',
         data: [
-          'Industry Insights - In-depth analysis of emerging trends in diagnostics, laboratory automation, and healthcare technologies. Articles on policy changes, regulatory updates, and global healthcare innovations',
+          'Industry Insights - In-depth analysis of emerging trends in diagnostics, laboratory automation, and healthcare technologies. Articles on policy changes, regulatory updates, and international healthcare innovations',
           'Scientific & Technical Knowledge - Step-by-step guides and tutorials on laboratory techniques, clinical workflows, and research methodologies. Updates on cutting-edge technologies including molecular diagnostics, AI-driven healthcare solutions, and next-generation sequencing',
           'Product & Solution Spotlights - Detailed explorations of AUREX instruments, automation solutions, and software innovations. Case studies demonstrating real-world applications, improved efficiency, and enhanced patient outcomes',
           'Thought Leadership & Expert Opinions - Perspectives from industry experts, researchers, and biotech professionals on healthcare challenges and innovations. Interviews, guest posts, and commentary on trends shaping the diagnostics ecosystem',
@@ -490,7 +490,7 @@ const capabilitiesContent = {
       {
         type: 'benefits',
         data: [
-          'Stay informed about global diagnostics and healthcare innovations',
+          'Stay informed about clinical diagnostics and healthcare innovations',
           'Gain practical knowledge to enhance lab operations and research practices',
           'Access expert perspectives that inspire innovation and problem-solving',
           'Connect with a community of professionals, researchers, and healthcare enthusiasts'
@@ -655,7 +655,7 @@ const TurnkeyContent = ({ data }: {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white">
               <Globe className="w-16 h-16 mx-auto mb-4" />
-              <p className="text-xl font-bold">Global Compliance & Reach</p>
+              <p className="text-xl font-bold">International Compliance & Reach</p>
             </div>
           </div>
         </div>
@@ -1114,12 +1114,12 @@ const ServiceContent = () => {
             >
               <h3 className="text-2xl font-bold text-[#0B1528] mb-4 flex items-center">
                 <Globe className="w-6 h-6 mr-3 text-[#4A90A4]" />
-                CE, FDA, and Other Global Certifications
+                CE, FDA, and Other International Certifications
               </h3>
               <ul className="space-y-3 text-[#2C3E50]">
                 <li className="flex items-start">
                   <span className="text-[#4A90A4] mr-3 mt-1 font-bold">•</span>
-                  <span>Assistance with CE marking, FDA clearance, and other global regulatory requirements for medical devices and diagnostics.</span>
+                  <span>Assistance with CE marking, FDA clearance, and other international regulatory requirements for medical devices and diagnostics.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#4A90A4] mr-3 mt-1 font-bold">•</span>
@@ -1337,7 +1337,7 @@ const ServiceContent = () => {
             <ul className="space-y-3 text-[#2C3E50]">
               <li className="flex items-start">
                 <span className="text-[#4A90A4] mr-3 mt-1 font-bold">•</span>
-                <span>Regular newsletters, blogs, and bulletins featuring global diagnostic trends.</span>
+                <span>Regular newsletters, blogs, and bulletins featuring clinical diagnostic trends.</span>
               </li>
               <li className="flex items-start">
                 <span className="text-[#4A90A4] mr-3 mt-1 font-bold">•</span>

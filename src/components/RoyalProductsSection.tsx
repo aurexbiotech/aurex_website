@@ -24,7 +24,7 @@ const clinicalDiagnosticsModels = [
     fullName: 'Biochemistry Solutions',
     description: 'Fully automated clinical chemistry analyzers delivering rapid, accurate results with minimal human intervention for enhanced laboratory efficiency.',
     image: '/images/bc120-plus.png',
-    link: '/products?model=biochemistry#diagnostic-subdivisions'
+    link: '/products/biochemistry'
   },
   { 
     id: 'haematology', 
@@ -32,7 +32,7 @@ const clinicalDiagnosticsModels = [
     fullName: 'Haematology Systems',
     description: 'Advanced haematology analyzers engineered for precise 5-part WBC differentiation, smart flagging, and high-throughput CBC analysis.',
     image: '/images/hemotxi5-main.png',
-    link: '/products?model=haematology#diagnostic-subdivisions'
+    link: '/products/haematology'
   },
   { 
     id: 'electrolyte', 
@@ -40,7 +40,23 @@ const clinicalDiagnosticsModels = [
     fullName: 'Electrolyte Analysis',
     description: 'Next-generation ELECTROSIS electrolyte analyzer utilizing advanced ISE technology for rapid, precise ion quantification.',
     image: '/images/electrosis-banner.png',
-    link: '/products?model=electrolyte#diagnostic-subdivisions'
+    link: '/products/biochemistry?model=electrosis'
+  },
+  { 
+    id: 'dermatology', 
+    name: 'Dermatology', 
+    fullName: 'Dermatology Solutions',
+    description: 'High-resolution digital dermoscopy, automated tissue section processing, and molecular skin lesion profiling.',
+    image: '/images/medical-imaging.webp',
+    link: '/products/dermatology'
+  },
+  { 
+    id: 'pathology', 
+    name: 'Pathology', 
+    fullName: 'Pathology Solutions',
+    description: 'Advanced histopathology and cytology automation transforming tissue specimens into reliable clinical insights.',
+    image: '/images/pathology.jpg',
+    link: '/products/pathology'
   }
 ]
 

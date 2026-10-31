@@ -40,14 +40,16 @@ const productsSubNavigation = [
 
 // Clinical Diagnostics subdivisions
 const clinicalDiagnosticsModels = [
-  { id: 'biochemistry', name: 'Biochemistry', fullName: 'Biochemistry Solutions' },
-  { id: 'haematology', name: 'Haematology', fullName: 'Haematology Systems' },
-  { id: 'electrolyte', name: 'Electrolyte', fullName: 'Electrolyte Analysis' },
+  { id: 'biochemistry', name: 'Biochemistry', fullName: 'Biochemistry Solutions', link: '/products/biochemistry' },
+  { id: 'dermatology', name: 'Dermatology', fullName: 'Dermatology Solutions', link: '/products/dermatology' },
+  { id: 'pathology', name: 'Pathology', fullName: 'Pathology Solutions', link: '/products/pathology' },
+  { id: 'haematology', name: 'Haematology', fullName: 'Haematology Systems', link: '/products/haematology' },
+  { id: 'electrolyte', name: 'Electrolyte', fullName: 'Electrolyte Analysis', link: '/products/biochemistry?model=electrosis' },
   { id: 'immunology-serology', name: 'Immunology and Serology', fullName: 'Immunology and Serology Testing' },
   { id: 'microbiology', name: 'Microbiology', fullName: 'Microbiology Diagnostics' },
   { id: 'molecular-diagnostics', name: 'Molecular Diagnostics', fullName: 'Molecular Diagnostics Technology' },
-  { id: 'pathology', name: 'Pathology', fullName: 'Pathology Solutions' },
-  { id: 'immunoassay', name: 'Immunoassay', fullName: 'Immunoassay Systems' },
+
+  { id: 'immunoassay', name: 'Immunoassay (FC-2100)', fullName: 'Chemiluminescence Immunoassay Systems', link: '/products/fc-2100' },
   { id: 'advanced', name: 'Advanced', fullName: 'Advanced Diagnostic Solutions' }
 ]
 
@@ -68,7 +70,7 @@ const productsContent = {
           { icon: Microscope, label: 'Automated Analyzers', value: '50+' },
           { icon: Settings, label: 'Tests per Hour', value: '1,000+' },
           { icon: Shield, label: 'Accuracy Rate', value: '99.9%' },
-          { icon: Globe, label: 'Global Installations', value: '5,000+' }
+          { icon: Globe, label: 'Total Installations', value: '5,000+' }
         ]
       },
       {
@@ -314,9 +316,11 @@ const HeroSwiper = memo(({ currentSlide, setCurrentSlide }: {
       background: '/images/diagnostic_lab.png',
       color: 'from-[#1646AF] to-[#133C99]',
       models: [
-        { id: 'biochemistry', name: 'Biochemistry' },
-        { id: 'haematology', name: 'Haematology' },
-        { id: 'electrolyte', name: 'Electrolyte' }
+        { id: 'biochemistry', name: 'Biochemistry', link: '/products/biochemistry' },
+        { id: 'dermatology', name: 'Dermatology', link: '/products/dermatology' },
+        { id: 'pathology', name: 'Pathology', link: '/products/pathology' },
+        { id: 'haematology', name: 'Haematology', link: '/products/haematology' },
+        { id: 'electrolyte', name: 'Electrolyte', link: '/products/biochemistry?model=electrosis' }
       ]
     },
     {
@@ -472,7 +476,13 @@ const HeroSwiper = memo(({ currentSlide, setCurrentSlide }: {
                     {currentCategory.models.map((model) => (
                       <button
                         key={model.id}
-                        className={`px-5 py-2.5 bg-gradient-to-r ${currentCategory.color} text-white rounded-xl font-semibold hover:scale-105 transition-transform shadow-lg`}
+                        onClick={() => {
+                          const targetModel = model as { id: string; link?: string }
+                          if (targetModel.link) {
+                            router.push(targetModel.link)
+                          }
+                        }}
+                        className={`px-5 py-2.5 bg-gradient-to-r ${currentCategory.color} text-white rounded-xl font-semibold hover:scale-105 transition-transform shadow-lg cursor-pointer`}
                       >
                         <span className="text-white font-bold">{model.name}</span>
                       </button>
@@ -849,7 +859,15 @@ function ProductsPageContent() {
                   key={model.id}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setSelectedModel(model.id)}
+                  onClick={() => {
+                    if (model.id === 'biochemistry') router.push('/products/biochemistry')
+                    else if (model.id === 'dermatology') router.push('/products/dermatology')
+                    else if (model.id === 'pathology') router.push('/products/pathology')
+                    else if (model.id === 'haematology') router.push('/products/haematology')
+                    else if (model.id === 'electrolyte') router.push('/products/biochemistry?model=electrosis')
+                    else if (model.id === 'immunoassay') router.push('/products/fc-2100')
+                    else setSelectedModel(model.id)
+                  }}
                   className={`px-6 py-2 rounded-lg transition-all duration-300 cursor-pointer ${
                     selectedModel === model.id
                       ? 'bg-white/20 shadow-lg border-2 border-white/40'

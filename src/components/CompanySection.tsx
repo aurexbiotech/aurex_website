@@ -57,7 +57,7 @@ const CompanySection: React.FC = () => {
       name: 'Investor Opportunity',
       icon: TrendingUp,
       title: 'Investor Opportunity',
-      description: 'Join us in revolutionizing global healthcare. AUREX offers strong growth potential with a commitment to continuous innovation, market expansion, and sustainable healthcare impact.',
+      description: 'Join us in revolutionizing modern healthcare. AUREX offers strong growth potential with a commitment to continuous innovation, market expansion, and sustainable healthcare impact.',
       image: '/images/investor.jpg',
       stats: [
         { label: 'Annual Growth', value: '18%' },
@@ -70,7 +70,7 @@ const CompanySection: React.FC = () => {
       name: 'Our Vision',
       icon: Eye,
       title: 'Our Vision',
-      description: 'To be the world\'s most trusted partner in diagnostic innovation, empowering healthcare professionals with cutting-edge technology that saves lives and improves patient outcomes globally.',
+      description: 'To be the world\'s most trusted partner in diagnostic innovation, empowering healthcare professionals with cutting-edge technology that saves lives and improves patient outcomes across clinical practice.',
       image: '/images/vision.jpg',
       stats: [
         { label: 'Innovation Focus', value: '100%' },
@@ -135,7 +135,7 @@ const CompanySection: React.FC = () => {
       name: 'Testimonials',
       icon: MessageSquare,
       title: 'Client Testimonials',
-      description: 'Hear from healthcare professionals worldwide who trust AUREX for their diagnostic needs. Our commitment to excellence has earned us partnerships with leading medical institutions globally.',
+      description: 'Hear from healthcare professionals who trust AUREX for their diagnostic needs. Our commitment to excellence has earned us partnerships with leading medical institutions nationwide and internationally.',
       image: '/images/testimonials.jpg',
       stats: [
         { label: 'Customer Rating', value: '4.9/5' },

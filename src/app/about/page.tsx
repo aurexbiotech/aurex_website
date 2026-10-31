@@ -89,7 +89,7 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-[#1646AF] rounded-full mt-2"></div>
-                    <p className="text-gray-600">Serve global healthcare needs</p>
+                    <p className="text-gray-600">Serve advancing healthcare needs</p>
                   </div>
                 </div>
               </motion.div>
@@ -103,7 +103,7 @@ export default function AboutPage() {
               >
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                  To be the global leader in diagnostic innovation, enabling healthcare professionals 
+                  To be the premier leader in diagnostic innovation, enabling healthcare professionals 
                   to make informed decisions that save lives and improve patient care worldwide.
                 </p>
                 <div className="grid grid-cols-2 gap-4">

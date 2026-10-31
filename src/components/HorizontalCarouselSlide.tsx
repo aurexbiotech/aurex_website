@@ -26,9 +26,9 @@ const HorizontalCarouselSlide: React.FC = () => {
   const pages = [
     {
       id: 'global',
-      title: 'Global Network & Support',
-      subtitle: 'Worldwide Presence & Service',
-      content: 'With operations spanning six continents, AUREX provides comprehensive support to healthcare facilities globally. Our network ensures rapid deployment, local expertise, and 24/7 technical assistance wherever you need us.',
+      title: 'Comprehensive Network & Support',
+      subtitle: 'Extensive Presence & Dedicated Service',
+      content: 'With widespread diagnostic installations and support capabilities, AUREX provides comprehensive assistance to healthcare facilities. Our network ensures rapid deployment, technical expertise, and 24/7 technical assistance wherever you need us.',
       icon: Globe,
       stats: [
         { label: 'Countries Served', value: '120+' },

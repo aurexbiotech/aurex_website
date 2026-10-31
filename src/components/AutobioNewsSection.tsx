@@ -68,7 +68,7 @@ const AutobioNewsSection: React.FC = () => {
     },
     {
       id: 2,
-      headline: 'Partnership with Global Health Initiative Expands Access',
+      headline: 'Partnership with Leading Health Initiatives Expands Access',
       description: 'Strategic alliance brings advanced diagnostic tools to underserved communities worldwide, supporting healthcare equity and improving patient outcomes in developing regions.',
       date: 'October 5, 2025',
       category: 'Partnership',
@@ -85,7 +85,7 @@ const AutobioNewsSection: React.FC = () => {
     {
       id: 4,
       headline: '$75M Series C Funding Round Successfully Completed',
-      description: 'Major funding milestone reached to accelerate R&D initiatives and global expansion, backed by leading healthcare investors and venture capital firms.',
+      description: 'Major funding milestone reached to accelerate R&D initiatives and strategic market expansion, backed by leading healthcare investors and venture capital firms.',
       date: 'September 28, 2025',
       category: 'Funding',
       readTime: '3 min read'

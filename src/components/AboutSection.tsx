@@ -15,7 +15,7 @@ const stats = [
     icon: Globe,
     number: '100+',
     label: 'Countries Served',
-    description: 'Global reach and presence'
+    description: 'Extensive international presence'
   },
   {
     icon: Building2,

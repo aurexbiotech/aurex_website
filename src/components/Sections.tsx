@@ -49,7 +49,7 @@ export const HeroSection: React.FC = () => {
       eyebrow: 'Diagnostic Automation',
       title: ['BC-410'],
       titleColors: ['text-white'],
-      description: 'Leading the transformation of medical diagnostics with innovative technologies, global expertise, and unwavering commitment to quality.',
+      description: 'Leading the transformation of medical diagnostics with innovative technologies, industry-leading expertise, and unwavering commitment to quality.',
       image: '/images/bc120-plus.png',
       imageAlt: 'BC410 - Future Technology',
       link: '/products/biochemistry?model=bc-410'
@@ -63,7 +63,7 @@ export const HeroSection: React.FC = () => {
       description: 'Fully automated benchtop chemiluminescence immunoassay analyzer delivering magnetic bead precision, rapid test turnaround, and streamlined laboratory automation.',
       image: '/images/smarlumi-fc-2100.png',
       imageAlt: 'SmarLumi™ FC-2100 - Automated Chemiluminescence Immunoassay Analyzer',
-      link: '/'
+      link: '/products/fc-2100'
     }
   ];
 

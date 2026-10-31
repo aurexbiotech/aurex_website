@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { 
@@ -8,137 +8,374 @@ import {
   CheckCircle2, 
   ShieldCheck, 
   Sparkles, 
-  Clock, 
   Layers, 
   MessageSquare,
   FileText,
   Sliders,
-  Cpu,
-  HeartPulse
+  HeartPulse,
+  Search,
+  Zap,
+  Activity,
+  Monitor,
+  RefreshCw,
+  Pipette,
+  Gauge
 } from 'lucide-react'
 import Footer from '@/components/Footer'
 
+interface TestCategory {
+  id: string
+  name: string
+  code: string
+  description: string
+  tests: string[]
+}
+
+const TEST_MENU: TestCategory[] = [
+  {
+    id: 'cardiac',
+    code: 'A',
+    name: 'Cardiac',
+    description: 'High-sensitivity myocardial infarction, heart failure & cardiovascular risk markers',
+    tests: ['cTnT', 'BNP', 'MYO', 'hs-cTnI', 'Lp-PLA2', 'CK-MB', 'NT-proBNP', 'ST2', 'HCY']
+  },
+  {
+    id: 'fertility',
+    code: 'B',
+    name: 'Fertility',
+    description: 'Reproductive endocrinology, ovarian reserve & hormone evaluation assays',
+    tests: ['AMH', 'β-HCG', 'TESTO', 'PROG', 'E2', 'PRL', 'LH', 'FSH', 'InhB', 'DHEA-S', '17-OH P', 'Free TESTO']
+  },
+  {
+    id: 'tumor-markers',
+    code: 'C',
+    name: 'Tumor Markers',
+    description: 'Comprehensive oncological monitoring, screening & therapeutic response markers',
+    tests: [
+      'CA50', 'CA242', 'CYFRA21-1', 'SCCA', 'HE4', 'NSE', 'CA72-4', 'CEA', 
+      'CA15-3', 'CA125', 'CA19-9', 'ProGRP', 'AFP', 'PIVKA-II', 'FPSA', 'TPSA'
+    ]
+  },
+  {
+    id: 'craniocerebral',
+    code: 'D',
+    name: 'Craniocerebral Injury',
+    description: 'Acute central nervous system & traumatic brain injury biomarkers',
+    tests: ['S100β']
+  },
+  {
+    id: 'gastric',
+    code: 'E',
+    name: 'Gastric Function',
+    description: 'Mucosal evaluation, atrophic gastritis screening & gastric cancer risk profiling',
+    tests: ['G-17', 'PGI', 'PGII', 'H.pylori Ab']
+  },
+  {
+    id: 'thrombus',
+    code: 'F',
+    name: 'Thrombus',
+    description: 'Active coagulation cascade, fibrinolysis & deep vein thrombosis evaluation',
+    tests: ['TM', 'TAT', 'FDP', 'PIC', 't-PAIC', 'D-Dimer']
+  },
+  {
+    id: 'thyroid',
+    code: 'G',
+    name: 'Thyroid',
+    description: 'Complete thyrometabolic axis, autoimmune thyroiditis & thyroid oncology assays',
+    tests: [
+      'TSH', 'FT3', 'FT4', 'TT3', 'TT4', 'Anti-TPO', 'Anti-Tg', 
+      'Tg', 'CT', 'T-Uptake', 'TBG', 'TRAb', 'TSAb', 'rT3'
+    ]
+  },
+  {
+    id: 'pre-eclampsia',
+    code: 'H',
+    name: 'Pre-Eclampsia',
+    description: 'Early gestational angiogenic balance & hypertensive pregnancy screening',
+    tests: ['PLGF', 'sFlt-1']
+  },
+  {
+    id: 'kidney',
+    code: 'I',
+    name: 'Kidney Function',
+    description: 'Early renal tubular injury & acute kidney injury (AKI) surveillance',
+    tests: ['NGAL']
+  },
+  {
+    id: 'bone-metabolism',
+    code: 'J',
+    name: 'Bone Metabolism',
+    description: 'Calcium homeostasis, parathyroid function & osteometabolic disorder markers',
+    tests: ['25-OH VD', 'PTH', 'Calcitionin']
+  },
+  {
+    id: 'anemia',
+    code: 'K',
+    name: 'Anemia',
+    description: 'Iron storage evaluation, erythropoiesis & nutritional megaloblastic profiling',
+    tests: ['Ferritin', 'Folate', 'VB12']
+  },
+  {
+    id: 'hypertension',
+    code: 'L',
+    name: 'Hypertension',
+    description: 'Renin-angiotensin-aldosterone axis & adrenal cortical endocrine diagnostics',
+    tests: ['REN', 'Cortisol', 'AI', 'A II', 'ACTH', 'ALD']
+  },
+  {
+    id: 'inflammation',
+    code: 'M',
+    name: 'Inflammation',
+    description: 'Acute phase response, severe bacterial infection & sepsis differentiation',
+    tests: ['IL-6', 'PCT', 'SAA', 'CRP']
+  },
+  {
+    id: 'infectious-disease',
+    code: 'N',
+    name: 'Infectious Disease',
+    description: 'Hepatitis viral markers, retroviral screening & atypical respiratory serology',
+    tests: [
+      'HBeAg', 'Anti-HBe', 'Anti-HBc', 'HBsAg', 'Anti-HBs', 'Anti-TP', 
+      'HIV Ag/Ab', 'Anti-HCV', 'M. Pneumonia IgG', 'M. Pneumonia IgM', 
+      'Chlamydia pn. IgG', 'Chlamydia pn. IgM'
+    ]
+  },
+  {
+    id: 'growth-hormone',
+    code: 'O',
+    name: 'Growth Hormone',
+    description: 'Somatotropic pituitary axis & developmental endocrine diagnostics',
+    tests: ['GH', 'IGF-1', 'IGFBP-3']
+  },
+  {
+    id: 'torch',
+    code: 'P',
+    name: 'TORCH',
+    description: 'Congenital & perinatal infectious antibody profiling (IgG/IgM)',
+    tests: [
+      'TOXO IgG', 'TOXO IgM', 'Rubella IgG', 'Rubella IgM', 
+      'CMV IgG', 'CMV IgM', 'HSV-1 IgG', 'HSV-1 IgM', 
+      'HSV-2 IgG', 'HSV-2 IgM'
+    ]
+  },
+  {
+    id: 'liver-fibrosis',
+    code: 'Q',
+    name: 'Liver Fibrosis',
+    description: 'Extracellular matrix turnover & chronic hepatic fibrogenesis assessment',
+    tests: ['HA', 'CIV', 'PIIINP', 'LN']
+  },
+  {
+    id: 'autoimmune',
+    code: 'R',
+    name: 'Autoimmune',
+    description: 'Systemic autoimmune screening, connective tissue & immune globulin panels',
+    tests: ['IgE', 'ANA Screen', 'Anti-CCP', 'Anti-ds DNA', 'IgA', 'IgG', 'IgM']
+  },
+  {
+    id: 'diabetes',
+    code: 'S',
+    name: 'Diabetes',
+    description: 'Endogenous pancreatic beta-cell reserve & insulin secretion quantification',
+    tests: ['Insulin', 'C-Peptide']
+  }
+]
+
 export default function FC2100ProductPage() {
-  const testMenuCategories = [
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState<string>('all')
+
+  // Total test count calculation across all 19 categories
+  const totalTestCount = useMemo(() => {
+    return TEST_MENU.reduce((sum, cat) => sum + cat.tests.length, 0)
+  }, [])
+
+  // Filtered categories based on search input & tab selection
+  const filteredCategories = useMemo(() => {
+    return TEST_MENU.filter((category) => {
+      const matchesCategory = selectedCategory === 'all' || category.id === selectedCategory
+      if (!matchesCategory) return false
+
+      if (!searchQuery.trim()) return true
+
+      const query = searchQuery.toLowerCase().trim()
+      const matchesCategoryName = category.name.toLowerCase().includes(query)
+      const matchesTest = category.tests.some(t => t.toLowerCase().includes(query))
+      return matchesCategoryName || matchesTest
+    }).map(category => {
+      if (!searchQuery.trim()) return category
+      const query = searchQuery.toLowerCase().trim()
+      // Highlight matching tests or retain all if category name matched
+      const matchingTests = category.tests.filter(t => t.toLowerCase().includes(query))
+      return {
+        ...category,
+        tests: matchingTests.length > 0 ? matchingTests : category.tests
+      }
+    })
+  }, [searchQuery, selectedCategory])
+
+  const technicalSpecifications = [
+    { parameter: 'Methodology', specification: 'Chemiluminescence Immunoassay (CLIA)' },
+    { parameter: 'Dimension', specification: '900 mm × 710 mm × 590 mm' },
+    { parameter: 'Weight', specification: '140 kg' },
+    { parameter: 'Throughput', specification: '200 T/h' },
+    { parameter: 'Time for first result', specification: 'Less than 12 minutes' },
+    { parameter: 'Reagent position', specification: '25' },
+    { parameter: 'Reagent specification', specification: '25 or 50 T/Bottle' },
+    { parameter: 'Reagent refrigeration', specification: '2–8°C on-board refrigeration' },
+    { parameter: 'Sample position', specification: '60' },
+    { parameter: 'Sample volume', specification: '5–150 μL' },
+    { parameter: 'Sample type', specification: 'Whole blood / Serum / Plasma / Urine / Cerebrospinal fluid' },
+    { parameter: 'Test mode', specification: 'Batch / STAT' },
+    { parameter: 'Probe system', specification: 'Liquid level detection / Block detection / Collision protection' },
+    { parameter: 'Storage capacity', specification: '≥ 60000 results' },
+    { parameter: 'Operation system', specification: '15.6-inch touch screen / Windows 10 / Bidirectional LIS compatible' }
+  ]
+
+  const featureGroups = [
     {
-      category: 'Cardiac Markers',
-      tests: ['Cardiac Troponin I (cTnI)', 'CK-MB', 'Myoglobin (Myo)', 'NT-proBNP', 'D-Dimer']
+      group: 'A. Flexibility & Efficiency',
+      tag: 'Peak Productivity',
+      icon: <Zap className="text-[#1646AF]" size={22} />,
+      points: [
+        'STAT mode supported for emergency clinical priority.',
+        'Only 0.64 m² footprint with 60 high-capacity sample positions.',
+        'Less than 12 minutes for the first diagnostic result.',
+        'High throughput delivering 200 tests per hour.',
+        'RFID management for effortless, contactless reagent loading.'
+      ]
     },
     {
-      category: 'Thyroid Function',
-      tests: ['TSH', 'Total T3 (TT3)', 'Total T4 (TT4)', 'Free T3 (FT3)', 'Free T4 (FT4)', 'Anti-TPO']
+      group: 'B. Better User Experience',
+      tag: 'Ergonomic Workflow',
+      icon: <Monitor className="text-[#1646AF]" size={22} />,
+      points: [
+        'Built-in touch screen operation for intuitive instrument handling.',
+        'Seamless bidirectional LIS communication with central laboratory servers.',
+        'Visual management of consumables and reagents with live status prompts.',
+        'Cuvettes loading by dumping — zero manual tube orientation required.',
+        'Continuous loading and offloading of reagents and samples during operation.'
+      ]
     },
     {
-      category: 'Fertility & Hormones',
-      tests: ['β-hCG', 'LH', 'FSH', 'Prolactin (PRL)', 'Progesterone (Prog)', 'Testosterone', 'Estradiol (E2)', 'AMH']
+      group: 'C. Fully Automatic Analyzer',
+      tag: 'Hands-Free Automation',
+      icon: <RefreshCw className="text-[#1646AF]" size={22} />,
+      points: [
+        'Primary tube sampling without secondary aliquoting.',
+        'Automatic barcode identification for both patient samples and reagent kits.',
+        'Automatic dilution function for concentrated and high-titer specimens.',
+        'Automatic rerun capability triggered by out-of-range clinical criteria.'
+      ]
     },
     {
-      category: 'Inflammation & Sepsis',
-      tests: ['Procalcitonin (PCT)', 'Interleukin-6 (IL-6)', 'hs-CRP + CRP', 'Serum Amyloid A (SAA)']
-    },
-    {
-      category: 'Tumor Markers',
-      tests: ['AFP', 'CEA', 'Total PSA', 'Free PSA', 'CA 125', 'CA 19-9', 'CA 15-3']
-    },
-    {
-      category: 'Bone & Metabolism',
-      tests: ['25-OH Vitamin D', 'Intact PTH', 'Ferritin', 'Folate', 'Vitamin B12']
+      group: 'D. Smart & Accurate Machine System',
+      tag: 'Analytical Precision',
+      icon: <ShieldCheck className="text-[#1646AF]" size={22} />,
+      points: [
+        'Negligible carry-over is ≤ 0.5 ppm for pristine analytical integrity.',
+        'Constant 2–8°C onboard reagent refrigeration guaranteeing active potency.',
+        'Needle collision protection and sensitive block/clot detection.',
+        'High-precision liquid level detection for micro-volume sample aspirating.',
+        'Automatic switching of double substrate bottles during uninterrupted runs.'
+      ]
     }
   ]
 
-  const technicalSpecifications = [
-    { label: 'Methodology', value: 'Enzymatic Chemiluminescence Immunoassay (CLIA), ALP-AMPPD system' },
-    { label: 'Separation Technology', value: 'Paramagnetic micron-sized microbeads with multistage magnetic capture' },
-    { label: 'Analytical Throughput', value: 'Up to 100 tests per hour' },
-    { label: 'Time to First Result', value: 'Approximately 10 to 15 minutes (assay-dependent)' },
-    { label: 'Sample Capacity', value: 'Multi-position continuous loading carousel with STAT emergency priority' },
-    { label: 'Sample Types', value: 'Serum, Plasma, Whole Blood (assay-dependent)' },
-    { label: 'Sample Pipetting Volume', value: '10 µL – 100 µL with liquid level and clot detection' },
-    { label: 'Reagent Positions', value: 'Dedicated refrigerated carousel with continuous 2°C – 8°C temperature control' },
-    { label: 'Reagent Management', value: 'Integrated RFID contactless identification with automatic tracking' },
-    { label: 'Incubation Temperature', value: 'Precision thermal chamber at 37.0°C ± 0.3°C' },
-    { label: 'Optical Detection', value: 'High-sensitivity low-noise Photomultiplier Tube (PMT)' },
-    { label: 'Sample Carryover', value: '< 10⁻⁵ (negligible carryover with coated probe & intensive wash)' },
-    { label: 'User Interface', value: 'Built-in industrial high-definition touchscreen with intuitive GUI' },
-    { label: 'Data Connectivity', value: 'Bidirectional LIS / HIS integration via RS-232, TCP/IP Ethernet & USB' },
-    { label: 'Dimensions & Footprint', value: 'Compact benchtop configuration engineered for space optimization' },
-    { label: 'Power Requirements', value: '100–240 V AC, 50/60 Hz, energy-efficient operational mode' }
-  ]
-
   return (
-    <div className="min-h-screen bg-white">
-      {/* Sub Header Navigation with Accessible Home Icon (Task 2) */}
-      <div className="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-[58px] sm:top-[68px] z-40 shadow-xs">
-        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-3.5 flex items-center justify-between">
-          <div className="flex items-center gap-2.5 text-xs sm:text-sm">
-            <Link 
-              href="/biotra" 
-              aria-label="Home"
-              title="Home"
-              className="inline-flex items-center justify-center p-1.5 sm:p-2 rounded-lg text-[#1646AF] hover:text-[#133C99] hover:bg-[#F6F8FB] transition-all duration-200 cursor-pointer"
-            >
-              <Home size={19} className="stroke-[2.2]" />
-            </Link>
-            <span className="text-gray-300">/</span>
-            <Link 
-              href="/products" 
-              className="font-medium text-[#64748B] hover:text-[#1646AF] transition-colors"
-            >
-              Products
-            </Link>
-            <span className="text-gray-300">/</span>
-            <span className="font-bold text-[#133C99]">
-              SmarLumi™ FC-2100
-            </span>
-          </div>
+    <div className="min-h-screen bg-[#F6F8FB] text-[#111827]">
+      {/* Top Breadcrumb Navigation with Accessible Home Icon */}
+      <nav 
+        aria-label="Breadcrumb"
+        className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-[58px] sm:top-[68px] z-40 shadow-xs"
+      >
+        <div className="container mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+          <ol className="flex items-center gap-2.5 text-xs sm:text-sm list-none p-0 m-0">
+            <li>
+              <Link 
+                href="/biotra" 
+                aria-label="Home"
+                title="Home"
+                className="inline-flex items-center justify-center p-1.5 rounded-lg text-[#1646AF] hover:text-[#133C99] hover:bg-[#F6F8FB] transition-all cursor-pointer"
+              >
+                <Home size={18} className="stroke-[2.2]" />
+              </Link>
+            </li>
+            <li className="text-gray-300">/</li>
+            <li>
+              <Link 
+                href="/products" 
+                className="font-medium text-[#64748B] hover:text-[#1646AF] transition-colors"
+              >
+                Products
+              </Link>
+            </li>
+            <li className="text-gray-300">/</li>
+            <li>
+              <span className="font-bold text-[#133C99]">
+                SmarLumi FC-2100
+              </span>
+            </li>
+          </ol>
           
-          <div className="text-xs font-semibold text-[#64748B] hidden sm:block">
-            Clinical Immunoassay • Chemiluminescence CLIA
+          <div className="text-xs font-semibold text-[#64748B] hidden md:flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>CLIA Immunoassay • 200 T/h • 19 Clinical Panels</span>
           </div>
         </div>
-      </div>
+      </nav>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#0B1528] via-[#133C99] to-[#1646AF] text-white py-14 sm:py-20 lg:py-24 overflow-hidden">
+      {/* SECTION 1: Product Hero */}
+      <header className="relative bg-gradient-to-br from-[#0B1528] via-[#133C99] to-[#1646AF] text-white py-12 sm:py-16 lg:py-20 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Column: Product Information */}
-            <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold uppercase tracking-wider text-cyan-300">
+            <div className="lg:col-span-7 space-y-4 sm:space-y-5 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold tracking-wide text-cyan-300">
                 <Sparkles size={14} />
-                <span>Advanced Automated CLIA Platform</span>
+                <span>Next-Generation Chemiluminescence Immunoassay (CLIA)</span>
               </div>
               
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-                SmarLumi™ FC-2100
-              </h1>
-              
-              <p className="text-lg sm:text-2xl text-cyan-200 font-semibold leading-snug">
-                Fully Automated Chemiluminescence Immunoassay Analyzer
-              </p>
+              <div className="space-y-1">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                  SmarLumi FC-2100
+                </h1>
+                <p className="text-lg sm:text-2xl text-cyan-200 font-semibold leading-snug">
+                  Automatic Chemiluminescence Immunoassay Analyzer
+                </p>
+              </div>
+
+              {/* Verified Source Documentation Attribution */}
+              <div className="inline-block p-2.5 rounded-xl bg-white/10 border border-white/15 text-xs text-blue-100 leading-relaxed text-left max-w-xl">
+                <p className="font-semibold text-white">Source Specifications:</p>
+                <p className="text-[11px] text-blue-200 mt-0.5">
+                  Manufactured by <strong>Guangzhou Wondfo Biotech Co., Ltd.</strong> • Distributed & Supported across Diagnostic Networks by <strong>AUREX Biotech</strong>
+                </p>
+              </div>
               
               <p className="text-sm sm:text-base text-gray-200 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Engineered for clinical laboratories and diagnostic healthcare centers, the SmarLumi™ FC-2100 combines high-affinity magnetic microbead separation with enzymatic chemiluminescence (ALP-AMPPD) to deliver ultra-sensitive, reliable diagnostic results in a space-saving benchtop architecture.
+                A benchtop immunoassay powerhouse combining enzymatic chemiluminescence (CLIA) with high-efficiency magnetic microbead technology. Delivering 200 tests per hour and first results in less than 12 minutes within an ultra-compact 0.64 m² footprint.
               </p>
 
-              {/* Feature Highlights Pills */}
-              <div className="flex flex-wrap gap-2.5 pt-1 justify-center lg:justify-start text-xs font-semibold text-white">
-                <span className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15">
-                  Up to 100 Tests/Hour
-                </span>
-                <span className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15">
-                  10–15 Min Rapid Result
-                </span>
-                <span className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15">
-                  Paramagnetic Microbead CLIA
-                </span>
-                <span className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15">
-                  2°C–8°C Onboard Refrigeration
-                </span>
-                <span className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15">
-                  STAT Emergency Priority
-                </span>
+              {/* Quick Specification Pills */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1 text-xs font-semibold text-white">
+                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-center">
+                  <div className="text-cyan-300 font-bold text-base sm:text-lg">200 T/h</div>
+                  <div className="text-[11px] text-gray-200">Throughput</div>
+                </div>
+                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-center">
+                  <div className="text-cyan-300 font-bold text-base sm:text-lg">&lt; 12 min</div>
+                  <div className="text-[11px] text-gray-200">First Result</div>
+                </div>
+                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-center">
+                  <div className="text-cyan-300 font-bold text-base sm:text-lg">0.64 m²</div>
+                  <div className="text-[11px] text-gray-200">Footprint</div>
+                </div>
+                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-center">
+                  <div className="text-cyan-300 font-bold text-base sm:text-lg">60 / 25</div>
+                  <div className="text-[11px] text-gray-200">Samples / Reagents</div>
+                </div>
               </div>
 
               {/* Action Buttons */}
@@ -151,25 +388,25 @@ export default function FC2100ProductPage() {
                   <span>Request Quotation</span>
                 </Link>
 
-                <Link
-                  href="/contact"
+                <a
+                  href="#test-menu"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/15 hover:bg-white/25 text-white font-bold text-sm sm:text-base rounded-xl border border-white/30 transition-all duration-300 text-center"
                 >
-                  <FileText size={17} />
-                  <span>Consult Technical Team</span>
-                </Link>
+                  <HeartPulse size={17} />
+                  <span>Explore Test Menu ({totalTestCount} Tests)</span>
+                </a>
               </div>
             </div>
 
             {/* Right Column: Instrument Display */}
             <div className="lg:col-span-5 flex justify-center items-center">
-              <div className="relative w-full max-w-[500px] flex items-center justify-center p-6 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-xs">
+              <div className="relative w-full max-w-[480px] flex items-center justify-center p-6 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-xs shadow-2xl">
                 <Image
                   src="/images/smarlumi-fc-2100.png"
-                  alt="SmarLumi™ FC-2100 Fully Automated Chemiluminescence Immunoassay Analyzer"
+                  alt="SmarLumi FC-2100 Automatic Chemiluminescence Immunoassay Analyzer"
                   width={900}
                   height={756}
-                  className="w-full h-auto object-contain max-h-[320px] sm:max-h-[420px] drop-shadow-2xl select-none"
+                  className="w-full h-auto object-contain max-h-[300px] sm:max-h-[380px] drop-shadow-2xl select-none"
                   priority
                   quality={90}
                 />
@@ -178,195 +415,353 @@ export default function FC2100ProductPage() {
 
           </div>
         </div>
-      </section>
+      </header>
 
-      {/* Core Architectural Pillars */}
-      <section className="py-16 sm:py-20 bg-[#F6F8FB] border-b border-gray-200">
+      {/* SECTION 2: Product Overview */}
+      <section className="py-12 sm:py-16 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1646AF]/10 text-[#1646AF] text-xs font-bold tracking-wider uppercase">
+              <Activity size={14} />
+              <span>Diagnostic Excellence</span>
+            </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111827] tracking-tight">
-              Engineered for High-Accuracy Clinical Chemistry
+              SmarLumi FC-2100 Product Overview
             </h2>
-            <p className="text-sm sm:text-base text-[#64748B] mt-3 leading-relaxed">
-              Designed with precision mechanics, intelligent sample detection, and advanced enzymatic chemiluminescence for comprehensive clinical reliability.
+            <p className="text-sm sm:text-base text-[#64748B] leading-relaxed">
+              The <strong>SmarLumi FC-2100</strong> is an advanced, fully automatic Chemiluminescence Immunoassay Analyzer manufactured by Guangzhou Wondfo Biotech Co., Ltd. and integrated into the comprehensive diagnostic portfolio of AUREX Biotech. 
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-xs hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-xl bg-[#1646AF]/10 text-[#1646AF] flex items-center justify-center mb-5">
-                <Sparkles size={24} />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 text-left">
+              <div className="p-5 rounded-2xl bg-[#F6F8FB] border border-gray-200">
+                <div className="w-10 h-10 rounded-xl bg-[#1646AF]/10 text-[#1646AF] flex items-center justify-center mb-3">
+                  <Gauge size={20} />
+                </div>
+                <h3 className="font-bold text-[#111827] text-base mb-1">Ultra-High Throughput</h3>
+                <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed">
+                  Generates up to <strong>200 tests per hour</strong> with first results ready in <strong>less than 12 minutes</strong>, ensuring rapid turnaround for hospital emergency departments and busy clinical laboratories.
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-[#111827] mb-2">
-                Enzymatic Chemiluminescence (ALP-AMPPD)
-              </h3>
-              <p className="text-sm text-[#64748B] leading-relaxed">
-                Utilizes alkaline phosphatase (ALP) catalysis with AMPPD substrate, providing sustained glow luminescence, ultra-high sensitivity, and an expansive linear dynamic range across all diagnostic assays.
-              </p>
-            </div>
 
-            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-xs hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-xl bg-[#1646AF]/10 text-[#1646AF] flex items-center justify-center mb-5">
-                <Layers size={24} />
+              <div className="p-5 rounded-2xl bg-[#F6F8FB] border border-gray-200">
+                <div className="w-10 h-10 rounded-xl bg-[#1646AF]/10 text-[#1646AF] flex items-center justify-center mb-3">
+                  <Layers size={20} />
+                </div>
+                <h3 className="font-bold text-[#111827] text-base mb-1">0.64 m² Minimal Footprint</h3>
+                <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed">
+                  Accommodates <strong>60 sample positions</strong> and <strong>25 refrigerated reagent positions</strong> within just <strong>0.64 m²</strong> of laboratory bench space, optimizing floor efficiency.
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-[#111827] mb-2">
-                Paramagnetic Microbead Separation
-              </h3>
-              <p className="text-sm text-[#64748B] leading-relaxed">
-                Superparamagnetic nanoparticles maximize surface area binding and reaction velocity. Rapid magnetic field isolation facilitates thorough wash cycles, eliminating non-specific binding and optical noise.
-              </p>
-            </div>
 
-            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-xs hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-xl bg-[#1646AF]/10 text-[#1646AF] flex items-center justify-center mb-5">
-                <Clock size={24} />
+              <div className="p-5 rounded-2xl bg-[#F6F8FB] border border-gray-200">
+                <div className="w-10 h-10 rounded-xl bg-[#1646AF]/10 text-[#1646AF] flex items-center justify-center mb-3">
+                  <ShieldCheck size={20} />
+                </div>
+                <h3 className="font-bold text-[#111827] text-base mb-1">Uncompromising Accuracy</h3>
+                <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed">
+                  Maintains analytical carry-over at <strong>≤ 0.5 ppm</strong> with 2–8°C constant reagent refrigeration, probe collision protection, liquid level detection, and intelligent auto-dilution.
+                </p>
               </div>
-              <h3 className="text-lg font-bold text-[#111827] mb-2">
-                Fast Turnaround & STAT Priority
-              </h3>
-              <p className="text-sm text-[#64748B] leading-relaxed">
-                Processes up to 100 tests per hour with emergency STAT sample insertion. Delivers first diagnostic results in just 10 to 15 minutes, accelerating clinical decision-making for acute patient care.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-xs hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-xl bg-[#1646AF]/10 text-[#1646AF] flex items-center justify-center mb-5">
-                <ShieldCheck size={24} />
-              </div>
-              <h3 className="text-lg font-bold text-[#111827] mb-2">
-                Smart Pipetting & Clot Protection
-              </h3>
-              <p className="text-sm text-[#64748B] leading-relaxed">
-                Precision Teflon-coated sampling needle incorporates real-time liquid level sensing, clot detection, and multi-axis anti-collision safeguarding, preventing probe damage and analytical contamination.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-xs hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-xl bg-[#1646AF]/10 text-[#1646AF] flex items-center justify-center mb-5">
-                <Sliders size={24} />
-              </div>
-              <h3 className="text-lg font-bold text-[#111827] mb-2">
-                Refrigerated Reagent & RFID Tracking
-              </h3>
-              <p className="text-sm text-[#64748B] leading-relaxed">
-                Onboard cooling system maintains reagent carousels at a constant 2°C – 8°C. Built-in RFID reader instantaneously imports calibration curves, lot numbers, test expiration, and remaining test quantities.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-xs hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-xl bg-[#1646AF]/10 text-[#1646AF] flex items-center justify-center mb-5">
-                <Cpu size={24} />
-              </div>
-              <h3 className="text-lg font-bold text-[#111827] mb-2">
-                Intuitive GUI & Bidirectional LIS
-              </h3>
-              <p className="text-sm text-[#64748B] leading-relaxed">
-                Full-color high-definition touchscreen interface simplifies test initiation, maintenance routines, and calibration tracking. Seamless bidirectional LIS/HIS connectivity automates laboratory workflow.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Comprehensive Test Menu */}
-      <section className="py-16 sm:py-20 bg-white">
+      {/* SECTION 3: Complete Product Features (All 4 Feature Groups from PDF) */}
+      <section className="py-14 sm:py-20 bg-[#F6F8FB] border-b border-gray-200">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1646AF]/10 text-[#1646AF] text-xs font-bold tracking-wider uppercase mb-3">
-              <HeartPulse size={14} />
-              <span>Extensive Diagnostic Repertoire</span>
+          <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1646AF]/10 text-[#1646AF] text-xs font-bold tracking-wider uppercase">
+              <Sparkles size={14} />
+              <span>Core Operational Capabilities</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111827] tracking-tight">
-              SmarLumi™ FC-2100 Test Menu
+              Complete Product Features
             </h2>
-            <p className="text-sm sm:text-base text-[#64748B] mt-3 leading-relaxed">
-              Supporting clinical decisions across multiple pathological disciplines with high precision and clinical sensitivity.
+            <p className="text-sm sm:text-base text-[#64748B] leading-relaxed">
+              Every feature group extracted verbatim from verified technical documentation to provide full operational visibility.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {testMenuCategories.map((cat, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {featureGroups.map((group, idx) => (
               <div 
                 key={idx}
-                className="rounded-2xl p-6 bg-gradient-to-b from-[#F6F8FB] to-white border border-gray-200 shadow-xs"
+                className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-200 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between"
               >
-                <div className="flex items-center gap-2.5 pb-4 mb-4 border-b border-gray-200">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#1646AF]" />
-                  <h3 className="text-base font-bold text-[#111827]">
-                    {cat.category}
-                  </h3>
+                <div>
+                  <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-100">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 rounded-xl bg-[#1646AF]/10">
+                        {group.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-[#111827]">
+                          {group.group}
+                        </h3>
+                        <span className="text-[11px] font-semibold text-[#1646AF] uppercase tracking-wider">
+                          {group.tag}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <ul className="space-y-3 mt-4">
+                    {group.points.map((pt, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#475569]">
+                        <CheckCircle2 size={17} className="text-[#1646AF] shrink-0 mt-0.5" />
+                        <span className="leading-relaxed font-medium">{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-2.5 text-xs sm:text-sm text-[#64748B]">
-                  {cat.tests.map((test, tIdx) => (
-                    <li key={tIdx} className="flex items-start gap-2">
-                      <CheckCircle2 size={16} className="text-emerald-600 shrink-0 mt-0.5" />
-                      <span className="font-medium text-gray-700">{test}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Technical Specifications Table */}
-      <section className="py-16 sm:py-20 bg-[#F6F8FB] border-t border-b border-gray-200">
+      {/* SECTION 4: Technical Specifications & Dilution System */}
+      <section className="py-14 sm:py-20 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center mb-12">
+          <div className="max-w-3xl mx-auto text-center mb-12 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1646AF]/10 text-[#1646AF] text-xs font-bold tracking-wider uppercase">
+              <Sliders size={14} />
+              <span>Verified Laboratory Data</span>
+            </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111827] tracking-tight">
               Technical Specifications
             </h2>
-            <p className="text-sm sm:text-base text-[#64748B] mt-2">
-              Verified instrument specifications engineered for high-performance laboratory operations.
+            <p className="text-sm sm:text-base text-[#64748B] leading-relaxed">
+              Complete parameter data exactly as certified in the official technical documentation.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
-            <div className="divide-y divide-gray-100">
-              {technicalSpecifications.map((spec, index) => (
-                <div 
-                  key={index}
-                  className={`grid grid-cols-1 sm:grid-cols-12 p-4 sm:p-4.5 gap-2 sm:gap-4 transition-colors ${
-                    index % 2 === 0 ? 'bg-white' : 'bg-gray-50/60'
-                  }`}
-                >
-                  <div className="sm:col-span-4 text-xs sm:text-sm font-bold text-[#111827] flex items-center">
-                    {spec.label}
+          <div className="max-w-4xl mx-auto space-y-6">
+            {/* Specifications Table */}
+            <div className="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
+              <div className="bg-[#133C99] text-white p-4 sm:p-5 flex items-center justify-between">
+                <span className="font-bold text-sm sm:text-base">Instrument Parameters</span>
+                <span className="text-xs text-blue-200">SmarLumi FC-2100 Verified Standards</span>
+              </div>
+              <div className="divide-y divide-gray-100">
+                {technicalSpecifications.map((spec, index) => (
+                  <div 
+                    key={index}
+                    className={`grid grid-cols-1 sm:grid-cols-12 p-3.5 sm:p-4 gap-1.5 sm:gap-4 transition-colors ${
+                      index % 2 === 0 ? 'bg-white' : 'bg-[#F6F8FB]/60'
+                    }`}
+                  >
+                    <div className="sm:col-span-5 text-xs sm:text-sm font-bold text-[#111827] flex items-center">
+                      {spec.parameter}
+                    </div>
+                    <div className="sm:col-span-7 text-xs sm:text-sm text-[#475569] font-medium leading-relaxed">
+                      {spec.specification}
+                    </div>
                   </div>
-                  <div className="sm:col-span-8 text-xs sm:text-sm text-[#64748B] font-medium leading-relaxed">
-                    {spec.value}
-                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* DILUTION FUNCTION Dedicated Highlight Box */}
+            <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-[#F6F8FB] to-white border border-[#1646AF]/30 shadow-xs">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-xl bg-[#1646AF] text-white">
+                  <Pipette size={20} />
                 </div>
-              ))}
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-[#111827]">
+                    Advanced Dilution Functionality
+                  </h3>
+                  <p className="text-xs text-[#64748B]">Integrated microfluidic sample handling capabilities</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 pt-2">
+                <div className="p-3.5 rounded-xl bg-white border border-gray-200 shadow-2xs">
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#133C99] mb-1">
+                    <span className="w-5 h-5 rounded-full bg-[#133C99]/10 flex items-center justify-center text-[11px]">1</span>
+                    <span>Support Automatic Dilution</span>
+                  </div>
+                  <p className="text-[12px] text-[#64748B] leading-relaxed">
+                    Automated onboard pre-dilution and onboard sample preparation without manual pipetting steps.
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white border border-gray-200 shadow-2xs">
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#133C99] mb-1">
+                    <span className="w-5 h-5 rounded-full bg-[#133C99]/10 flex items-center justify-center text-[11px]">2</span>
+                    <span>Fixed Multiple Dilution</span>
+                  </div>
+                  <p className="text-[12px] text-[#64748B] leading-relaxed">
+                    User-configured fixed dilution ratios for standardized high-concentration specimen protocols.
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white border border-gray-200 shadow-2xs">
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#133C99] mb-1">
+                    <span className="w-5 h-5 rounded-full bg-[#133C99]/10 flex items-center justify-center text-[11px]">3</span>
+                    <span>Exceeded Linearity Dilution</span>
+                  </div>
+                  <p className="text-[12px] text-[#64748B] leading-relaxed">
+                    Automatic remeasurement dilution whenever initial results exceed the analytical measurement range.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA Banner */}
-      <section className="py-14 sm:py-16 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white">
+      {/* SECTION 5: Complete Test Menu (All 19 Categories & All 119 Individual Tests) */}
+      <section id="test-menu" className="py-14 sm:py-20 bg-[#F6F8FB] scroll-mt-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center mb-10 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1646AF]/10 text-[#1646AF] text-xs font-bold tracking-wider uppercase">
+              <HeartPulse size={14} />
+              <span>Comprehensive Diagnostic Repertoire</span>
+            </div>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111827] tracking-tight">
+              Complete Test Menu
+            </h2>
+            <p className="text-sm sm:text-base text-[#64748B] leading-relaxed">
+              Featuring all <strong>19 clinical categories</strong> and <strong>{totalTestCount} individual diagnostic assays</strong> from the official SmarLumi FC-2100 technical specification.
+            </p>
+          </div>
+
+          {/* Search & Category Filter Bar */}
+          <div className="max-w-4xl mx-auto mb-8 space-y-4">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+              <input
+                type="text"
+                placeholder="Search specific test or panel (e.g. Troponin, TSH, CA125, NGAL, S100β, D-Dimer)..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-11 pr-4 py-3 sm:py-3.5 bg-white border border-gray-300 rounded-xl text-sm text-[#111827] placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1646AF] focus:border-transparent shadow-xs"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-semibold text-gray-400 hover:text-gray-600 px-2 py-1"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+
+            {/* Quick Category Jump Pills */}
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+              <button
+                onClick={() => setSelectedCategory('all')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  selectedCategory === 'all'
+                    ? 'bg-[#133C99] text-white shadow-xs'
+                    : 'bg-white text-[#64748B] hover:bg-gray-100 border border-gray-200'
+                }`}
+              >
+                All 19 Panels ({totalTestCount} Assays)
+              </button>
+              {TEST_MENU.map((c) => (
+                <button
+                  key={c.id}
+                  onClick={() => setSelectedCategory(c.id)}
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                    selectedCategory === c.id
+                      ? 'bg-[#133C99] text-white shadow-xs'
+                      : 'bg-white text-[#64748B] hover:bg-gray-100 border border-gray-200'
+                  }`}
+                >
+                  {c.code}. {c.name} ({c.tests.length})
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Test Menu Grid */}
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            {filteredCategories.length === 0 ? (
+              <div className="col-span-full py-12 text-center bg-white rounded-2xl border border-gray-200 p-8">
+                <Search size={32} className="mx-auto text-gray-300 mb-2" />
+                <p className="text-base font-bold text-gray-700">No tests matching &quot;{searchQuery}&quot;</p>
+                <p className="text-xs text-gray-500 mt-1">Try searching by abbreviation (e.g. PCT, cTnT, CEA, TSH) or reset the filter.</p>
+                <button
+                  onClick={() => { setSearchQuery(''); setSelectedCategory('all') }}
+                  className="mt-4 px-4 py-2 bg-[#1646AF] text-white text-xs font-semibold rounded-lg"
+                >
+                  Reset Search
+                </button>
+              </div>
+            ) : (
+              filteredCategories.map((cat) => (
+                <div 
+                  key={cat.id}
+                  className="bg-white rounded-2xl p-5 sm:p-6 border border-gray-200 shadow-xs hover:border-[#1646AF]/40 hover:shadow-md transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    {/* Header with Letter Code & Count Badge */}
+                    <div className="flex items-center justify-between pb-3 mb-3 border-b border-gray-100">
+                      <div className="flex items-center gap-2">
+                        <span className="w-6 h-6 rounded-md bg-[#133C99] text-white flex items-center justify-center text-xs font-bold">
+                          {cat.code}
+                        </span>
+                        <h3 className="text-base font-bold text-[#111827]">
+                          {cat.name}
+                        </h3>
+                      </div>
+                      <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#1646AF]/10 text-[#1646AF]">
+                        {cat.tests.length} {cat.tests.length === 1 ? 'Test' : 'Tests'}
+                      </span>
+                    </div>
+
+                    <p className="text-[12px] text-[#64748B] mb-4 line-clamp-2">
+                      {cat.description}
+                    </p>
+
+                    {/* Chips of Tests */}
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                      {cat.tests.map((testName, tIdx) => (
+                        <span 
+                          key={tIdx}
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#F6F8FB] hover:bg-blue-50 border border-gray-200 text-xs font-semibold text-[#1E293B] transition-colors"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#1646AF]"></span>
+                          <span>{testName}</span>
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: Product Enquiry & Consultation */}
+      <section className="py-14 sm:py-18 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white">
         <div className="container mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-2xl sm:text-3xl font-black mb-3">
-            Deploy SmarLumi™ FC-2100 in Your Diagnostic Laboratory
-          </h2>
-          <p className="text-sm sm:text-base text-blue-100 max-w-2xl mx-auto mb-8">
-            Contact our biomedical instrumentation specialists for product demonstrations, reagent packaging details, and institutional quotation requests.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3.5 justify-center">
-            <Link
-              href="/contact?subject=FC-2100%20Consultation"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-[#133C99] hover:bg-[#F6F8FB] hover:text-[#1646AF] font-bold text-sm sm:text-base rounded-xl shadow-md transition-all duration-300"
-            >
-              <MessageSquare size={17} />
-              <span>Contact Specialists</span>
-            </Link>
-            <Link
-              href="/products"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/15 hover:bg-white/25 text-white font-bold text-sm sm:text-base rounded-xl border border-white/30 transition-all duration-300"
-            >
-              <span>Explore All Products</span>
-            </Link>
+          <div className="max-w-3xl mx-auto space-y-4">
+            <h2 className="text-2xl sm:text-3xl font-black">
+              Integrate SmarLumi FC-2100 into Your Diagnostic Workflow
+            </h2>
+            <p className="text-sm sm:text-base text-blue-100 leading-relaxed">
+              Connect with AUREX Biotech clinical specialists to discuss instrument deployment, reagent logistics, LIS integration, and laboratory quotation packages.
+            </p>
+            <div className="pt-2 flex flex-col sm:flex-row gap-3.5 justify-center">
+              <Link
+                href="/contact?subject=Quotation%20Request%20for%20SmarLumi%20FC-2100"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white text-[#133C99] hover:bg-[#F6F8FB] hover:text-[#1646AF] font-bold text-sm sm:text-base rounded-xl shadow-md transition-all duration-300"
+              >
+                <MessageSquare size={17} />
+                <span>Request Quotation</span>
+              </Link>
+              <Link
+                href="/contact?subject=FC-2100%20Technical%20Consultation"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/15 hover:bg-white/25 text-white font-bold text-sm sm:text-base rounded-xl border border-white/30 transition-all duration-300"
+              >
+                <FileText size={17} />
+                <span>Contact Specialists</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

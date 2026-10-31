@@ -351,30 +351,30 @@ export default function FC2100ProductPage() {
       </nav>
 
       {/* SECTION 1: Product Hero (White Theme Redesign & Autoplay Video Integration) */}
-      <header className="relative bg-white text-[#111827] py-12 sm:py-16 lg:py-20 border-b border-gray-200 overflow-hidden">
+      <header className="relative bg-white text-[#111827] py-8 sm:py-12 lg:py-16 border-b border-gray-200 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
             
-            {/* Left Column: Product Information */}
-            <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
+            {/* Left Column: Product Information (Refined, Compact Font Sizes) */}
+            <div className="lg:col-span-5 space-y-4 text-center lg:text-left">
               {/* Product Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1646AF]/10 border border-[#1646AF]/20 text-xs font-bold tracking-wide text-[#1646AF]">
-                <Sparkles size={14} />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1646AF]/10 border border-[#1646AF]/20 text-[11px] sm:text-xs font-bold tracking-wide text-[#1646AF]">
+                <Sparkles size={13} />
                 <span>Next-Generation Chemiluminescence Immunoassay (CLIA)</span>
               </div>
               
               {/* Headings */}
-              <div className="space-y-1.5">
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-[#133C99]">
+              <div className="space-y-1">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight text-[#133C99]">
                   SmarLumi FC-2100
                 </h1>
-                <p className="text-lg sm:text-2xl text-[#1646AF] font-bold leading-snug">
+                <p className="text-sm sm:text-base lg:text-lg text-[#1646AF] font-bold leading-snug">
                   Automatic Chemiluminescence Immunoassay Analyzer
                 </p>
               </div>
 
               {/* Verified Source Documentation Attribution */}
-              <div className="p-3.5 rounded-xl bg-[#F6F8FB] border border-gray-200 text-xs text-[#64748B] leading-relaxed text-left max-w-xl mx-auto lg:mx-0">
+              <div className="p-3 rounded-xl bg-[#F6F8FB] border border-gray-200 text-[11px] sm:text-xs text-[#64748B] leading-relaxed text-left max-w-xl mx-auto lg:mx-0">
                 <p className="font-semibold text-[#111827]">Source Specifications:</p>
                 <p className="text-[11px] text-[#64748B] mt-0.5">
                   Manufactured by <strong className="text-[#133C99]">Guangzhou Wondfo Biotech Co., Ltd.</strong> • Distributed & Supported across Diagnostic Networks by <strong className="text-[#1646AF]">AUREX Biotech</strong>
@@ -382,61 +382,61 @@ export default function FC2100ProductPage() {
               </div>
               
               {/* Product Description */}
-              <p className="text-sm sm:text-base text-[#333333] leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="text-xs sm:text-sm text-[#475569] leading-relaxed max-w-xl mx-auto lg:mx-0">
                 A benchtop immunoassay powerhouse combining enzymatic chemiluminescence (CLIA) with high-efficiency magnetic microbead technology. Delivering 200 tests per hour and first results in less than 12 minutes within an ultra-compact 0.64 m² footprint.
               </p>
 
               {/* Quick Specification Highlights */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1 text-xs font-semibold">
-                <div className="p-3 rounded-xl bg-[#F6F8FB] border border-gray-200 text-center">
-                  <div className="text-[#133C99] font-black text-base sm:text-lg">200 T/h</div>
-                  <div className="text-[11px] text-[#64748B] font-medium">Throughput</div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-0.5 text-xs font-semibold">
+                <div className="p-2 sm:p-2.5 rounded-lg bg-[#F6F8FB] border border-gray-200 text-center">
+                  <div className="text-[#133C99] font-extrabold text-sm sm:text-base">200 T/h</div>
+                  <div className="text-[10px] text-[#64748B] font-medium">Throughput</div>
                 </div>
-                <div className="p-3 rounded-xl bg-[#F6F8FB] border border-gray-200 text-center">
-                  <div className="text-[#133C99] font-black text-base sm:text-lg">&lt; 12 min</div>
-                  <div className="text-[11px] text-[#64748B] font-medium">First Result</div>
+                <div className="p-2 sm:p-2.5 rounded-lg bg-[#F6F8FB] border border-gray-200 text-center">
+                  <div className="text-[#133C99] font-extrabold text-sm sm:text-base">&lt; 12 min</div>
+                  <div className="text-[10px] text-[#64748B] font-medium">First Result</div>
                 </div>
-                <div className="p-3 rounded-xl bg-[#F6F8FB] border border-gray-200 text-center">
-                  <div className="text-[#133C99] font-black text-base sm:text-lg">0.64 m²</div>
-                  <div className="text-[11px] text-[#64748B] font-medium">Footprint</div>
+                <div className="p-2 sm:p-2.5 rounded-lg bg-[#F6F8FB] border border-gray-200 text-center">
+                  <div className="text-[#133C99] font-extrabold text-sm sm:text-base">0.64 m²</div>
+                  <div className="text-[10px] text-[#64748B] font-medium">Footprint</div>
                 </div>
-                <div className="p-3 rounded-xl bg-[#F6F8FB] border border-gray-200 text-center">
-                  <div className="text-[#133C99] font-black text-base sm:text-lg">60 / 25</div>
-                  <div className="text-[11px] text-[#64748B] font-medium">Samples / Reagents</div>
+                <div className="p-2 sm:p-2.5 rounded-lg bg-[#F6F8FB] border border-gray-200 text-center">
+                  <div className="text-[#133C99] font-extrabold text-sm sm:text-base">60 / 25</div>
+                  <div className="text-[10px] text-[#64748B] font-medium">Samples / Reagents</div>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-2 flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start">
+              <div className="pt-1.5 flex flex-wrap gap-2.5 justify-center lg:justify-start">
                 <Link
                   href="/contact?subject=Quotation%20Request%20for%20SmarLumi%20FC-2100"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white font-bold text-sm sm:text-base rounded-xl shadow-sm hover:shadow-md transition-all duration-300 text-center"
+                  className="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 bg-[#133C99] hover:bg-[#1646AF] text-white font-semibold text-xs sm:text-sm rounded-lg shadow-2xs hover:shadow-xs transition-all duration-300 text-center"
                 >
-                  <MessageSquare size={17} />
+                  <MessageSquare size={15} />
                   <span>Request Quotation</span>
                 </Link>
 
                 <Link
                   href="/contact?subject=FC-2100%20Technical%20Consultation"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-[#F6F8FB] text-[#133C99] font-bold text-sm sm:text-base rounded-xl border border-gray-300 hover:border-[#133C99] transition-all duration-300 text-center"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-white hover:bg-[#F6F8FB] text-[#133C99] font-semibold text-xs sm:text-sm rounded-lg border border-gray-300 hover:border-[#133C99] transition-all duration-300 text-center"
                 >
-                  <FileText size={17} />
+                  <FileText size={15} />
                   <span>Consult Technical Team</span>
                 </Link>
 
                 <a
                   href="#test-menu"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-[#F6F8FB] hover:bg-gray-100 text-[#64748B] hover:text-[#133C99] font-semibold text-sm rounded-xl border border-gray-200 transition-all duration-300 text-center"
+                  className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 bg-[#F6F8FB] hover:bg-gray-100 text-[#64748B] hover:text-[#133C99] font-medium text-xs sm:text-sm rounded-lg border border-gray-200 transition-all duration-300 text-center"
                 >
-                  <HeartPulse size={16} />
+                  <HeartPulse size={14} />
                   <span>View 119 Tests</span>
                 </a>
               </div>
             </div>
 
-            {/* Right Column: Autoplay Demonstration Video (Replaces Old Image) */}
-            <div className="lg:col-span-5 flex justify-center items-center">
-              <div className="relative w-full max-w-[520px] rounded-2xl overflow-hidden bg-white flex items-center justify-center">
+            {/* Right Column: Autoplay Demonstration Video (Large Size Display) */}
+            <div className="lg:col-span-7 flex justify-center items-center">
+              <div className="relative w-full max-w-full lg:max-w-[700px] rounded-2xl overflow-hidden bg-white flex items-center justify-center">
                 <video
                   ref={videoRef}
                   autoPlay
@@ -444,7 +444,7 @@ export default function FC2100ProductPage() {
                   loop
                   playsInline
                   preload="auto"
-                  className="w-full h-auto max-h-[380px] sm:max-h-[460px] object-contain rounded-2xl mx-auto block"
+                  className="w-full h-auto max-h-[460px] sm:max-h-[540px] lg:max-h-[620px] object-contain rounded-2xl mx-auto block shadow-xs"
                   aria-label="SmarLumi FC-2100 Automatic Chemiluminescence Immunoassay Analyzer Demonstration Video"
                 >
                   <source src="/videos/fc-2100-demo.mp4" type="video/mp4" />

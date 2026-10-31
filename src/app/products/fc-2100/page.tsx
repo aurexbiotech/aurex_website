@@ -1,8 +1,7 @@
 'use client'
 
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { 
   Home, 
   CheckCircle2, 
@@ -19,7 +18,8 @@ import {
   Monitor,
   RefreshCw,
   Pipette,
-  Gauge
+  Gauge,
+  Play
 } from 'lucide-react'
 import Footer from '@/components/Footer'
 
@@ -184,6 +184,31 @@ const TEST_MENU: TestCategory[] = [
 export default function FC2100ProductPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true)
+
+  useEffect(() => {
+    if (videoRef.current) {
+      const playPromise = videoRef.current.play()
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsVideoPlaying(true)
+          })
+          .catch(() => {
+            // Autoplay was blocked by browser policy; user can tap manual play button
+            setIsVideoPlaying(false)
+          })
+      }
+    }
+  }, [])
+
+  const handlePlayVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.play()
+      setIsVideoPlaying(true)
+    }
+  }
 
   // Total test count calculation across all 19 categories
   const totalTestCount = useMemo(() => {
@@ -325,91 +350,118 @@ export default function FC2100ProductPage() {
         </div>
       </nav>
 
-      {/* SECTION 1: Product Hero */}
-      <header className="relative bg-gradient-to-br from-[#0B1528] via-[#133C99] to-[#1646AF] text-white py-12 sm:py-16 lg:py-20 overflow-hidden">
+      {/* SECTION 1: Product Hero (White Theme Redesign & Autoplay Video Integration) */}
+      <header className="relative bg-white text-[#111827] py-12 sm:py-16 lg:py-20 border-b border-gray-200 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Column: Product Information */}
-            <div className="lg:col-span-7 space-y-4 sm:space-y-5 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold tracking-wide text-cyan-300">
+            <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
+              {/* Product Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1646AF]/10 border border-[#1646AF]/20 text-xs font-bold tracking-wide text-[#1646AF]">
                 <Sparkles size={14} />
                 <span>Next-Generation Chemiluminescence Immunoassay (CLIA)</span>
               </div>
               
-              <div className="space-y-1">
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+              {/* Headings */}
+              <div className="space-y-1.5">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-[#133C99]">
                   SmarLumi FC-2100
                 </h1>
-                <p className="text-lg sm:text-2xl text-cyan-200 font-semibold leading-snug">
+                <p className="text-lg sm:text-2xl text-[#1646AF] font-bold leading-snug">
                   Automatic Chemiluminescence Immunoassay Analyzer
                 </p>
               </div>
 
               {/* Verified Source Documentation Attribution */}
-              <div className="inline-block p-2.5 rounded-xl bg-white/10 border border-white/15 text-xs text-blue-100 leading-relaxed text-left max-w-xl">
-                <p className="font-semibold text-white">Source Specifications:</p>
-                <p className="text-[11px] text-blue-200 mt-0.5">
-                  Manufactured by <strong>Guangzhou Wondfo Biotech Co., Ltd.</strong> • Distributed & Supported across Diagnostic Networks by <strong>AUREX Biotech</strong>
+              <div className="p-3.5 rounded-xl bg-[#F6F8FB] border border-gray-200 text-xs text-[#64748B] leading-relaxed text-left max-w-xl mx-auto lg:mx-0">
+                <p className="font-semibold text-[#111827]">Source Specifications:</p>
+                <p className="text-[11px] text-[#64748B] mt-0.5">
+                  Manufactured by <strong className="text-[#133C99]">Guangzhou Wondfo Biotech Co., Ltd.</strong> • Distributed & Supported across Diagnostic Networks by <strong className="text-[#1646AF]">AUREX Biotech</strong>
                 </p>
               </div>
               
-              <p className="text-sm sm:text-base text-gray-200 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              {/* Product Description */}
+              <p className="text-sm sm:text-base text-[#333333] leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 A benchtop immunoassay powerhouse combining enzymatic chemiluminescence (CLIA) with high-efficiency magnetic microbead technology. Delivering 200 tests per hour and first results in less than 12 minutes within an ultra-compact 0.64 m² footprint.
               </p>
 
-              {/* Quick Specification Pills */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1 text-xs font-semibold text-white">
-                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-center">
-                  <div className="text-cyan-300 font-bold text-base sm:text-lg">200 T/h</div>
-                  <div className="text-[11px] text-gray-200">Throughput</div>
+              {/* Quick Specification Highlights */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1 text-xs font-semibold">
+                <div className="p-3 rounded-xl bg-[#F6F8FB] border border-gray-200 text-center">
+                  <div className="text-[#133C99] font-black text-base sm:text-lg">200 T/h</div>
+                  <div className="text-[11px] text-[#64748B] font-medium">Throughput</div>
                 </div>
-                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-center">
-                  <div className="text-cyan-300 font-bold text-base sm:text-lg">&lt; 12 min</div>
-                  <div className="text-[11px] text-gray-200">First Result</div>
+                <div className="p-3 rounded-xl bg-[#F6F8FB] border border-gray-200 text-center">
+                  <div className="text-[#133C99] font-black text-base sm:text-lg">&lt; 12 min</div>
+                  <div className="text-[11px] text-[#64748B] font-medium">First Result</div>
                 </div>
-                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-center">
-                  <div className="text-cyan-300 font-bold text-base sm:text-lg">0.64 m²</div>
-                  <div className="text-[11px] text-gray-200">Footprint</div>
+                <div className="p-3 rounded-xl bg-[#F6F8FB] border border-gray-200 text-center">
+                  <div className="text-[#133C99] font-black text-base sm:text-lg">0.64 m²</div>
+                  <div className="text-[11px] text-[#64748B] font-medium">Footprint</div>
                 </div>
-                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-center">
-                  <div className="text-cyan-300 font-bold text-base sm:text-lg">60 / 25</div>
-                  <div className="text-[11px] text-gray-200">Samples / Reagents</div>
+                <div className="p-3 rounded-xl bg-[#F6F8FB] border border-gray-200 text-center">
+                  <div className="text-[#133C99] font-black text-base sm:text-lg">60 / 25</div>
+                  <div className="text-[11px] text-[#64748B] font-medium">Samples / Reagents</div>
                 </div>
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-3 flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start">
+              <div className="pt-2 flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start">
                 <Link
                   href="/contact?subject=Quotation%20Request%20for%20SmarLumi%20FC-2100"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-[#133C99] hover:bg-[#F6F8FB] hover:text-[#1646AF] font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-center"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white font-bold text-sm sm:text-base rounded-xl shadow-sm hover:shadow-md transition-all duration-300 text-center"
                 >
                   <MessageSquare size={17} />
                   <span>Request Quotation</span>
                 </Link>
 
+                <Link
+                  href="/contact?subject=FC-2100%20Technical%20Consultation"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-[#F6F8FB] text-[#133C99] font-bold text-sm sm:text-base rounded-xl border border-gray-300 hover:border-[#133C99] transition-all duration-300 text-center"
+                >
+                  <FileText size={17} />
+                  <span>Consult Technical Team</span>
+                </Link>
+
                 <a
                   href="#test-menu"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/15 hover:bg-white/25 text-white font-bold text-sm sm:text-base rounded-xl border border-white/30 transition-all duration-300 text-center"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-[#F6F8FB] hover:bg-gray-100 text-[#64748B] hover:text-[#133C99] font-semibold text-sm rounded-xl border border-gray-200 transition-all duration-300 text-center"
                 >
-                  <HeartPulse size={17} />
-                  <span>Explore Test Menu ({totalTestCount} Tests)</span>
+                  <HeartPulse size={16} />
+                  <span>View 119 Tests</span>
                 </a>
               </div>
             </div>
 
-            {/* Right Column: Instrument Display */}
+            {/* Right Column: Autoplay Demonstration Video (Replaces Old Image) */}
             <div className="lg:col-span-5 flex justify-center items-center">
-              <div className="relative w-full max-w-[480px] flex items-center justify-center p-6 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-xs shadow-2xl">
-                <Image
-                  src="/images/smarlumi-fc-2100.png"
-                  alt="SmarLumi FC-2100 Automatic Chemiluminescence Immunoassay Analyzer"
-                  width={900}
-                  height={756}
-                  className="w-full h-auto object-contain max-h-[300px] sm:max-h-[380px] drop-shadow-2xl select-none"
-                  priority
-                  quality={90}
-                />
+              <div className="relative w-full max-w-[520px] rounded-2xl overflow-hidden bg-white flex items-center justify-center">
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="w-full h-auto max-h-[380px] sm:max-h-[460px] object-contain rounded-2xl mx-auto block"
+                  aria-label="SmarLumi FC-2100 Automatic Chemiluminescence Immunoassay Analyzer Demonstration Video"
+                >
+                  <source src="/videos/fc-2100-demo.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+
+                {/* Manual Play Fallback in case browser prevents autoplay */}
+                {!isVideoPlaying && (
+                  <button
+                    type="button"
+                    onClick={handlePlayVideo}
+                    aria-label="Play Product Video"
+                    className="absolute inset-0 m-auto w-16 h-16 rounded-full bg-[#133C99]/90 hover:bg-[#1646AF] text-white flex items-center justify-center shadow-lg transition-transform hover:scale-105 z-20 cursor-pointer"
+                  >
+                    <Play size={28} className="translate-x-0.5 fill-current" />
+                  </button>
+                )}
               </div>
             </div>
 

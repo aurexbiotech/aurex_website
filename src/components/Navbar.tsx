@@ -128,8 +128,8 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
 
-  // Completely hide header on the root SmarLumi introduction page
-  if (pathname === '/') {
+  // Completely hide header on the root SmarLumi introduction page and dedicated login page
+  if (pathname === '/' || pathname === '/login') {
     return null
   }
 
@@ -224,29 +224,29 @@ const Navbar: React.FC = () => {
             <div className="relative w-full h-full flex flex-col backdrop-blur-md overflow-hidden">
               
               {/* Menu Header */}
-              <div className="flex justify-between items-center p-4 sm:p-6 md:p-8 border-b border-white/15 shrink-0">
+              <div className="flex justify-between items-center p-3 sm:p-6 md:p-8 border-b border-white/15 shrink-0 gap-2">
                 {/* Branding */}
-                <div className="flex flex-col items-start">
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-wider leading-none">AUREX</h1>
-                  <span className="text-[10px] sm:text-xs text-blue-200 tracking-[0.24em] uppercase font-semibold mt-1.5 leading-none">BIOTECH AUTOMATION</span>
+                <div className="flex flex-col items-start min-w-0">
+                  <h1 className="text-xl sm:text-3xl md:text-4xl font-black text-white tracking-wider leading-none">AUREX</h1>
+                  <span className="text-[8px] sm:text-xs text-blue-200 tracking-[0.2em] sm:tracking-[0.24em] uppercase font-semibold mt-1 leading-none truncate">BIOTECH AUTOMATION</span>
                 </div>
 
                 {/* Right Header: Portal Login & Prominent Close Button */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3 shrink-0">
                   <Link
                     href="/login"
                     onClick={() => setIsFullScreenMenuOpen(false)}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 bg-white/15 hover:bg-white text-white hover:text-[#133C99] rounded-xl text-xs sm:text-sm font-bold transition-all duration-200"
+                    className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 bg-white/15 hover:bg-white text-white hover:text-[#133C99] rounded-xl text-xs sm:text-sm font-bold transition-all duration-200"
                   >
-                    <LogIn size={16} />
+                    <LogIn size={15} />
                     <span>Portal Login</span>
                   </Link>
                   <button
                     onClick={toggleFullScreenMenu}
                     aria-label="Close navigation menu"
-                    className="w-10 h-10 sm:w-12 sm:h-12 bg-white text-[#1646AF] hover:bg-[#F6F8FB] hover:text-[#133C99] rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-lg shadow-black/10 cursor-pointer"
+                    className="w-9 h-9 sm:w-12 sm:h-12 bg-white text-[#1646AF] hover:bg-[#F6F8FB] hover:text-[#133C99] rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-lg shadow-black/10 cursor-pointer"
                   >
-                    <X size={22} className="font-bold stroke-[2.5]" />
+                    <X size={20} className="font-bold stroke-[2.5]" />
                   </button>
                 </div>
               </div>

@@ -69,7 +69,7 @@ const TurnkeyProjectsSlide: React.FC = () => {
       <div className="relative z-10 h-screen flex flex-col justify-between">
         
         {/* Top Context Label - "CAPABILITIES" */}
-        <div className="pt-24 pl-20 sm:pl-28 lg:pl-36 xl:pl-44 pr-8 sm:pr-14 lg:pr-20">
+        <div className="pt-16 sm:pt-20 pl-10 sm:pl-16 md:pl-24 lg:pl-36 xl:pl-44 pr-4 sm:pr-8 lg:pr-20">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ const TurnkeyProjectsSlide: React.FC = () => {
         </div>
 
         {/* Main Content Area - Two Column Layout */}
-        <div className="flex-1 flex items-center pl-20 sm:pl-28 lg:pl-36 xl:pl-44 pr-8 sm:pr-14 lg:pr-20 pb-24">
+        <div className="flex-1 flex items-center pl-10 sm:pl-16 md:pl-24 lg:pl-36 xl:pl-44 pr-4 sm:pr-8 lg:pr-20 pb-20 sm:pb-24">
           <div className="w-full grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             
             {/* Left Column - Main Text Content */}
@@ -103,7 +103,7 @@ const TurnkeyProjectsSlide: React.FC = () => {
                   </h2>
 
                   {/* Description Text */}
-                  <p className="text-sm sm:text-base text-[#64748B] leading-relaxed max-w-xl">
+                  <p className="text-xs sm:text-base text-[#64748B] leading-relaxed max-w-xl line-clamp-3 sm:line-clamp-none">
                     {currentTopic.description}
                   </p>
 
@@ -132,7 +132,7 @@ const TurnkeyProjectsSlide: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
-                className="relative h-[280px] sm:h-[320px] lg:h-[360px] rounded-2xl overflow-hidden shadow-md border border-[#BFBFBF]/40 bg-[#F6F8FB]"
+                className="relative h-[160px] sm:h-[240px] lg:h-[360px] rounded-2xl overflow-hidden shadow-md border border-[#BFBFBF]/40 bg-[#F6F8FB]"
               >
                 <Image 
                   src={topicImages[activeTab]}
@@ -147,7 +147,7 @@ const TurnkeyProjectsSlide: React.FC = () => {
         </div>
 
         {/* Bottom Horizontal Navigation Bar */}
-        <div className="w-full z-20 pb-6 pl-20 sm:pl-28 lg:pl-36 xl:pl-44 pr-8 sm:pr-14 lg:pr-20">
+        <div className="w-full z-20 pb-4 sm:pb-6 pl-10 sm:pl-16 md:pl-24 lg:pl-36 xl:pl-44 pr-4 sm:pr-8 lg:pr-20">
           <div className="relative bg-white/95 backdrop-blur-md rounded-2xl border border-[#BFBFBF]/40 shadow-sm p-2">
             {/* Tabs Row */}
             <div className="flex items-center justify-between gap-2 overflow-x-auto scrollbar-none">
@@ -168,7 +168,7 @@ const TurnkeyProjectsSlide: React.FC = () => {
                   >
                     <div className="flex items-center justify-center gap-2">
                       <TabIcon size={16} className={isActive ? 'text-white' : 'text-[#133C99]'} />
-                      <span>{topic.name}</span>
+                      <span className="hidden sm:inline">{topic.name}</span>
                     </div>
                   </button>
                 );

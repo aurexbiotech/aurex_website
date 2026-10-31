@@ -21,7 +21,7 @@ const AutobioFooter: React.FC = () => {
       </div>
       
       {/* Main footer content - Shifted right to cleanly clear left navigation indicator */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto pl-20 sm:pl-28 lg:pl-32 xl:pl-36 pr-6 sm:pr-10 lg:pr-14 pt-16 sm:pt-20 pb-8 flex-1 flex flex-col justify-between">
+      <div className="relative z-10 w-full max-w-7xl mx-auto pl-10 sm:pl-16 md:pl-24 lg:pl-32 xl:pl-36 pr-4 sm:pr-8 lg:pr-14 pt-16 sm:pt-20 pb-8 flex-1 flex flex-col justify-between">
         
         {/* Top bar with Follow Us */}
         <div className="flex justify-end items-center mb-4 sm:mb-6">
@@ -71,8 +71,8 @@ const AutobioFooter: React.FC = () => {
         {/* Divider */}
         <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6"></div>
 
-        {/* Six column layout */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 mb-6">
+        {/* Responsive column layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 mb-6">
           
           {/* Company Column */}
           <div>
@@ -184,7 +184,7 @@ const AutobioFooter: React.FC = () => {
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-[13px]">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-blue-300 shrink-0" />
-                <span className="text-white/90">163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, VILLUPURAM, TAMIL NADU, 605601</span>
+                <span className="text-white/90 break-words">163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, VILLUPURAM, TAMIL NADU, 605601</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-blue-300 shrink-0" />
@@ -201,7 +201,7 @@ const AutobioFooter: React.FC = () => {
             </div>
 
             {/* Copyright */}
-            <div className="text-xs sm:text-[13px] text-white/80 whitespace-nowrap">
+            <div className="text-xs sm:text-[13px] text-white/80">
               © 2026 AUREX. All rights reserved.
             </div>
 

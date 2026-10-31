@@ -1558,9 +1558,9 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
   setActiveSection: (section: string) => void 
 }) => {
   return (
-    <section className="sticky top-0 z-40 bg-gray-50/95 backdrop-blur-md border-b-2 border-gray-200 shadow-sm">
+    <section className="sticky top-[58px] sm:top-[68px] z-40 bg-gray-50/95 backdrop-blur-md border-b-2 border-gray-200 shadow-sm">
       <div className="container mx-auto px-2 sm:px-4 md:px-6 py-3 md:py-4">
-        <nav className="flex flex-wrap justify-center gap-1 sm:gap-2 max-w-full overflow-x-auto scrollbar-hide">
+        <nav className="flex overflow-x-auto scrollbar-none justify-start sm:justify-center gap-1 sm:gap-2 px-1 whitespace-nowrap">
           {capabilitiesSubNavigation.map((item) => (
             <motion.button
               key={item.id}

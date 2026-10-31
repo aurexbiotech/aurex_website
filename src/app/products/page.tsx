@@ -651,9 +651,9 @@ const SubNavigation = memo(({ activeSection, setActiveSection, setCurrentSlide }
   }
 
   return (
-    <section className="sticky top-0 z-40 bg-gray-50/95 backdrop-blur-md border-b-2 border-gray-200 shadow-sm">
+    <section className="sticky top-[58px] sm:top-[68px] z-40 bg-gray-50/95 backdrop-blur-md border-b-2 border-gray-200 shadow-sm">
       <div className="container mx-auto px-2 sm:px-4 md:px-6 py-3 md:py-4">
-        <nav className="flex flex-wrap justify-center gap-1 sm:gap-2 overflow-x-auto scrollbar-hide">
+        <nav className="flex overflow-x-auto scrollbar-none justify-start sm:justify-center gap-1 sm:gap-2 px-1 whitespace-nowrap">
           {productsSubNavigation.map((item, index) => (
             <motion.button
               key={item.id}
@@ -841,7 +841,7 @@ function ProductsPageContent() {
       
       {/* Clinical Diagnostics Subdivision Navigation */}
       {activeSection === 'clinical-diagnostics' && (
-        <section className="bg-gradient-to-r from-[#133C99] to-[#1646AF] py-3 shadow-md sticky top-0 z-30">
+        <section className="bg-gradient-to-r from-[#133C99] to-[#1646AF] py-3 shadow-md">
           <div className="container mx-auto px-6">
             <div className="flex items-center justify-center gap-4 flex-wrap">
               {clinicalDiagnosticsModels.map((model) => (

@@ -140,7 +140,7 @@ const RoyalProductsSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#F1F5F9]">
       {/* Main Content Container - shifted right with generous clearance from left navigation indicator */}
-      <div className="relative z-10 h-screen flex items-center pl-20 sm:pl-28 lg:pl-36 xl:pl-44 pr-8 sm:pr-14 lg:pr-20 pt-16 pb-24">
+      <div className="relative z-10 h-screen flex items-center pl-10 sm:pl-16 md:pl-24 lg:pl-36 xl:pl-44 pr-4 sm:pr-8 lg:pr-20 pt-14 pb-20 sm:pb-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -172,7 +172,7 @@ const RoyalProductsSection = () => {
                   {showSubdivisions ? activeModelData.fullName : currentProduct.name}
                 </h2>
 
-                <p className="text-sm sm:text-base text-[#64748B] leading-relaxed mb-5">
+                <p className="text-xs sm:text-base text-[#64748B] leading-relaxed mb-3 sm:mb-5 line-clamp-3 sm:line-clamp-none">
                   {showSubdivisions ? activeModelData.description : currentProduct.description}
                 </p>
 
@@ -242,7 +242,7 @@ const RoyalProductsSection = () => {
                     alt={showSubdivisions ? activeModelData.name : currentProduct.name}
                     width={720}
                     height={540}
-                    className="max-h-[340px] sm:max-h-[420px] lg:max-h-[480px] w-auto h-auto object-contain transition-transform duration-300 hover:scale-102"
+                    className="max-h-[180px] sm:max-h-[340px] lg:max-h-[480px] w-auto h-auto object-contain transition-transform duration-300 hover:scale-102"
                     priority
                     sizes="(max-width: 640px) 320px, (max-width: 1024px) 480px, 620px"
                   />

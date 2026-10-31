@@ -151,9 +151,9 @@ const BiochemistryPageContent = () => {
             >
               {/* Left - Product Info */}
               <div>
-                <h1 className="text-6xl font-bold mb-4">{currentBanner.title}</h1>
-                <p className="text-2xl text-cyan-300 mb-6">{currentBanner.subtitle}</p>
-                <p className="text-xl text-gray-200 mb-8">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">{currentBanner.title}</h1>
+                <p className="text-lg sm:text-2xl text-cyan-300 mb-4 sm:mb-6">{currentBanner.subtitle}</p>
+                <p className="text-sm sm:text-xl text-gray-200 mb-6 sm:mb-8">
                   {currentBanner.description}
                 </p>
                 
@@ -168,13 +168,13 @@ const BiochemistryPageContent = () => {
               </div>
 
               {/* Right - Product Image */}
-              <div className={`relative flex items-center justify-center ${selectedModel === 'electrosis' ? 'h-[700px]' : 'h-[500px]'}`}>
+              <div className={`relative flex items-center justify-center ${selectedModel === 'electrosis' ? 'h-[300px] sm:h-[480px] lg:h-[650px]' : 'h-[240px] sm:h-[380px] lg:h-[500px]'}`}>
                 <Image
                   src={currentBanner.image}
                   alt={`${currentBanner.title} Analyzer`}
                   width={selectedModel === 'electrosis' ? 1000 : 600}
                   height={selectedModel === 'electrosis' ? 1000 : 600}
-                  className={`w-auto h-auto object-contain ${selectedModel === 'electrosis' ? 'max-h-[700px] scale-110' : 'max-h-[500px]'}`}
+                  className={`w-auto h-auto object-contain ${selectedModel === 'electrosis' ? 'max-h-[300px] sm:max-h-[480px] lg:max-h-[650px] scale-105' : 'max-h-[240px] sm:max-h-[380px] lg:max-h-[500px]'}`}
                   priority
                 />
               </div>
@@ -184,9 +184,9 @@ const BiochemistryPageContent = () => {
       </section>
 
       {/* Secondary Navigation Bar */}
-      <section className="bg-gradient-to-r from-blue-600 to-cyan-600 sticky top-16 z-40 shadow-lg">
-        <div className="container mx-auto px-6 py-4">
-          <nav className="flex justify-center gap-8 text-white font-medium">
+      <section className="bg-gradient-to-r from-blue-600 to-cyan-600 sticky top-[58px] sm:top-[68px] z-40 shadow-lg">
+        <div className="container mx-auto px-3 sm:px-6 py-3 sm:py-4">
+          <nav className="flex overflow-x-auto scrollbar-none justify-start sm:justify-center gap-4 sm:gap-8 text-white font-medium whitespace-nowrap">
             <button onClick={() => setSelectedModel('bc-15')} className={`hover:text-blue-200 transition-colors ${selectedModel === 'bc-15' ? 'border-b-2 border-white' : ''}`}>BC-15</button>
             <button onClick={() => setSelectedModel('bc-310')} className={`hover:text-blue-200 transition-colors ${selectedModel === 'bc-310' ? 'border-b-2 border-white' : ''}`}>BC-310</button>
             <button onClick={() => setSelectedModel('bc-410')} className={`hover:text-blue-200 transition-colors ${selectedModel === 'bc-410' ? 'border-b-2 border-white' : ''}`}>BC-410</button>

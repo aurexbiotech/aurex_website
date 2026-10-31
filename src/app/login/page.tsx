@@ -228,7 +228,7 @@ export default function LoginPage() {
             </p>
 
             {/* Portal Tab Switcher (HRM vs CRM vs Projects vs Investors Management) */}
-            <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 p-1.5 bg-white rounded-2xl border border-[#BFBFBF]/40 shadow-xs max-w-4xl w-full gap-1.5">
+            <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 p-1 sm:p-1.5 bg-white rounded-2xl border border-[#BFBFBF]/40 shadow-xs max-w-4xl w-full gap-1 sm:gap-1.5">
               <button
                 type="button"
                 onClick={() => {
@@ -310,7 +310,7 @@ export default function LoginPage() {
               >
                 <TrendingUp size={17} />
                 <div className="text-left">
-                  <div className="leading-tight">Investors Management</div>
+                  <div className="leading-tight">Investors Portal</div>
                   <div className={`text-[10px] font-normal ${activePortal === 'investors' ? 'text-blue-200' : 'text-[#64748B]'}`}>
                     Equity & Portfolio
                   </div>

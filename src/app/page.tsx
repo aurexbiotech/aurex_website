@@ -75,7 +75,12 @@ export default function SmarLumiIntroductionPage() {
       if (touchStartY.current === null) return
       const touchEndY = e.changedTouches[0].clientY
       const diffY = touchStartY.current - touchEndY
-      if (diffY > 60) {
+
+      // On mobile, only navigate if user is scrolled near the bottom of the page
+      const isAtBottom = typeof window !== 'undefined' && 
+        (window.innerHeight + window.scrollY >= (document.documentElement.scrollHeight || document.body.scrollHeight) - 40)
+
+      if (diffY > 90 && isAtBottom) {
         handleExploreAurex()
       }
       touchStartY.current = null
@@ -199,7 +204,7 @@ export default function SmarLumiIntroductionPage() {
                 alt="SmarLumi™ FC-2100 Fully Automated Chemiluminescence Immunoassay Analyzer"
                 width={1400}
                 height={1177}
-                className="w-full h-auto object-contain max-h-[380px] sm:max-h-[460px] lg:max-h-[520px] xl:max-h-[580px] select-none"
+                className="w-full h-auto object-contain max-h-[220px] sm:max-h-[340px] lg:max-h-[520px] xl:max-h-[580px] select-none"
                 priority
                 quality={85}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 58vw"
@@ -240,11 +245,11 @@ export default function SmarLumiIntroductionPage() {
             </motion.p>
 
             {/* Action Buttons: Talk to Us & Explore AUREX */}
-            <motion.div variants={childItemVariants} className="pt-2 flex flex-wrap items-center gap-3.5">
+            <motion.div variants={childItemVariants} className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 w-full sm:w-auto">
               <Link
                 href="/contact"
                 aria-label="Talk to Us - Contact AUREX"
-                className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 bg-white hover:bg-[#F6F8FB] text-[#133C99] hover:text-[#1646AF] font-bold text-sm sm:text-base rounded-xl border-2 border-[#133C99] hover:border-[#1646AF] shadow-xs hover:shadow-md transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 bg-white hover:bg-[#F6F8FB] text-[#133C99] hover:text-[#1646AF] font-bold text-sm sm:text-base rounded-xl border-2 border-[#133C99] hover:border-[#1646AF] shadow-xs hover:shadow-md transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer text-center"
               >
                 <MessageSquare size={17} className="text-[#133C99]" />
                 <span>Talk to Us</span>
@@ -253,7 +258,7 @@ export default function SmarLumiIntroductionPage() {
               <button
                 onClick={handleExploreAurex}
                 aria-label="Explore AUREX main website"
-                className="group inline-flex items-center justify-center gap-2.5 px-7 sm:px-9 py-3 sm:py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer"
+                className="group inline-flex items-center justify-center gap-2.5 px-6 sm:px-9 py-3 sm:py-3.5 bg-[#133C99] hover:bg-[#1646AF] text-white font-bold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1646AF] focus-visible:ring-offset-2 cursor-pointer text-center"
               >
                 <span>Explore AUREX</span>
                 <ArrowRight 

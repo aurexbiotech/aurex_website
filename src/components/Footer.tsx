@@ -200,7 +200,7 @@ const Footer = () => {
       {/* Newsletter Signup */}
       <div className="py-8 bg-[#1646AF] border-t border-b border-white/10">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <div>
               <h3 className="text-lg font-semibold text-white">Stay Updated with AUREX</h3>
               <p className="text-white/80">Get the latest diagnostic advancements, product releases, and technical insights.</p>
@@ -222,11 +222,11 @@ const Footer = () => {
       {/* Bottom Footer */}
       <div className="py-6 bg-[#0E2A6C]">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <div className="text-white/90 text-sm">
               © 2026 AUREX. All Rights Reserved.
             </div>
-            <div className="flex space-x-6 text-sm text-white/80">
+            <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center md:justify-end text-sm text-white/80">
               <Link href="/legal" className="hover:text-white transition-colors">
                 Sales Policy
               </Link>

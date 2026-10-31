@@ -95,9 +95,9 @@ const HaematologyPageContent = () => {
             >
               {/* Left - Product Info */}
               <div>
-                <h1 className="text-6xl font-bold mb-4 text-[#0B1528]">{currentBanner.title}</h1>
-                <p className="text-2xl text-[#1646AF] mb-6 font-bold">{currentBanner.subtitle}</p>
-                <p className="text-xl text-slate-600 mb-8">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 text-[#0B1528]">{currentBanner.title}</h1>
+                <p className="text-lg sm:text-2xl text-[#1646AF] mb-4 sm:mb-6 font-bold">{currentBanner.subtitle}</p>
+                <p className="text-sm sm:text-xl text-slate-600 mb-6 sm:mb-8">
                   {currentBanner.description}
                 </p>
                 
@@ -112,13 +112,13 @@ const HaematologyPageContent = () => {
               </div>
 
               {/* Right - Product Image */}
-              <div className="relative flex items-center justify-center h-[500px]">
+              <div className="relative flex items-center justify-center h-[240px] sm:h-[380px] lg:h-[500px]">
                 <Image
                   src={currentBanner.image}
                   alt={`${currentBanner.title} Analyzer`}
                   width={600}
                   height={600}
-                  className="w-auto h-auto object-contain max-h-[500px]"
+                  className="w-auto h-auto object-contain max-h-[240px] sm:max-h-[380px] lg:max-h-[500px]"
                   priority
                 />
               </div>
@@ -128,9 +128,9 @@ const HaematologyPageContent = () => {
       </section>
 
       {/* Secondary Navigation Bar */}
-      <section className="sticky top-16 z-40 shadow-sm bg-[#F6F8FB] border-b border-[#BFBFBF]/40">
-        <div className="container mx-auto px-6 py-4">
-          <nav className="flex justify-center gap-8 text-slate-700 font-medium">
+      <section className="sticky top-[58px] sm:top-[68px] z-40 shadow-sm bg-[#F6F8FB] border-b border-[#BFBFBF]/40">
+        <div className="container mx-auto px-3 sm:px-6 py-3 sm:py-4">
+          <nav className="flex overflow-x-auto scrollbar-none justify-start sm:justify-center gap-4 sm:gap-8 text-slate-700 font-medium whitespace-nowrap">
             <button onClick={() => setSelectedModel('hemotxpro')} className={`transition-colors py-1 ${selectedModel === 'hemotxpro' ? 'text-[#1646AF] border-b-2 border-[#1646AF] font-bold' : 'text-slate-600 hover:text-[#1646AF]'}`}>Hemotx Pro</button>
             <button onClick={() => setSelectedModel('hemotxi5')} className={`transition-colors py-1 ${selectedModel === 'hemotxi5' ? 'text-[#1646AF] border-b-2 border-[#1646AF] font-bold' : 'text-slate-600 hover:text-[#1646AF]'}`}>Hemotx i5</button>
             <button onClick={() => setSelectedModel('hemotxi')} className={`transition-colors py-1 ${selectedModel === 'hemotxi' ? 'text-[#1646AF] border-b-2 border-[#1646AF] font-bold' : 'text-slate-600 hover:text-[#1646AF]'}`}>Hemotx i</button>

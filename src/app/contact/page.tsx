@@ -112,7 +112,7 @@ const HeroBanner = () => {
           <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold tracking-wider uppercase mb-6">
             Get in Touch
           </span>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-white mb-6 tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-bold text-white mb-4 sm:mb-6 tracking-tight">
             Contact Us
           </h1>
           <p className="text-base sm:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
@@ -140,9 +140,9 @@ const SubNavigation = ({
   setActiveSection: (section: string) => void 
 }) => {
   return (
-    <section className="sticky top-0 z-40 bg-[#F6F8FB]/95 backdrop-blur-md border-b border-[#BFBFBF]/30 shadow-xs">
-      <div className="container mx-auto px-6 py-3.5">
-        <nav className="flex flex-wrap justify-center gap-2" aria-label="Contact Section Navigation">
+    <section className="sticky top-[58px] sm:top-[68px] z-40 bg-[#F6F8FB]/95 backdrop-blur-md border-b border-[#BFBFBF]/30 shadow-xs">
+      <div className="container mx-auto px-2 sm:px-6 py-2.5 sm:py-3.5">
+        <nav className="flex overflow-x-auto scrollbar-none justify-start sm:justify-center gap-1.5 sm:gap-2 px-1 whitespace-nowrap" aria-label="Contact Section Navigation">
           {contactSubNavigation.map((item) => (
             <button
               key={item.id}

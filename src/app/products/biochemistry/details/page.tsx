@@ -10,14 +10,14 @@ const BiochemistryDetailsPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Navigation */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
+      <div className="bg-white/95 backdrop-blur-md border-b border-gray-100 sticky top-[58px] sm:top-[68px] z-40 shadow-xs">
         <div className="container mx-auto px-6 py-4">
           <Link href="/products/biochemistry" className="inline-flex items-center text-gray-600 hover:text-blue-600 transition-colors">
             <ArrowLeft className="mr-2" size={20} />
             Back to Biochemistry
           </Link>
         </div>
-      </header>
+      </div>
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#133C99] to-[#1646AF] text-white py-20">
@@ -27,7 +27,7 @@ const BiochemistryDetailsPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-5xl font-bold mb-6"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6"
             >
               Precision Chemistry Solutions
             </motion.h1>

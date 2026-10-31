@@ -34,7 +34,7 @@ const HeroBanner = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-gray-100 mb-8 tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-gray-100 mb-4 sm:mb-8 tracking-tight">
             IT Solutions
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
@@ -52,9 +52,9 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
   setActiveSection: (section: string) => void 
 }) => {
   return (
-    <section className="sticky top-0 z-40 bg-gray-50/95 backdrop-blur-md border-b-2 border-gray-200">
-      <div className="container mx-auto px-6 py-4">
-        <nav className="flex flex-wrap justify-center gap-1">
+    <section className="sticky top-[58px] sm:top-[68px] z-40 bg-gray-50/95 backdrop-blur-md border-b-2 border-gray-200">
+      <div className="container mx-auto px-2 sm:px-6 py-2 sm:py-4">
+        <nav className="flex overflow-x-auto scrollbar-none justify-start sm:justify-center gap-1 px-1 whitespace-nowrap">
           {itSolutionsSubNavigation.map((item) => (
             <motion.button
               key={item.id}

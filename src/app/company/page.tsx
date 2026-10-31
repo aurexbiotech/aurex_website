@@ -169,9 +169,9 @@ const SubNavigation = ({ activeSection, setActiveSection }: {
   setActiveSection: (section: string) => void 
 }) => {
   return (
-    <section className="sticky top-0 z-40 bg-gray-50/95 backdrop-blur-md border-b-2 border-gray-200 shadow-sm">
-      <div className="container mx-auto px-6 py-4">
-        <nav className="flex flex-wrap justify-center gap-2">
+    <section className="sticky top-[58px] sm:top-[68px] z-40 bg-gray-50/95 backdrop-blur-md border-b-2 border-gray-200 shadow-sm">
+      <div className="container mx-auto px-2 sm:px-6 py-2 sm:py-3">
+        <nav className="flex overflow-x-auto scrollbar-none justify-start sm:justify-center gap-1.5 sm:gap-2 px-1 whitespace-nowrap">
           {companySubNavigation.map((item) => (
             <motion.button
               key={item.id}

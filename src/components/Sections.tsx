@@ -86,7 +86,7 @@ export const HeroSection: React.FC = () => {
 
   return (
     <section className="relative h-full flex items-center justify-center overflow-hidden bg-[#F6F8FB]">
-      <div className="container max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 z-10 py-16 lg:py-0">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 z-10 py-10 sm:py-14 lg:py-0">
         {/* Animated Sub-Slide Content */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -141,7 +141,7 @@ export const HeroSection: React.FC = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.25, ease: "easeOut" }}
-                className="text-base sm:text-lg text-[#64748B] leading-relaxed max-w-xl mx-auto lg:mx-0"
+                className="text-sm sm:text-lg text-[#64748B] leading-relaxed max-w-xl mx-auto lg:mx-0 line-clamp-3 sm:line-clamp-none"
               >
                 {heroSlides[currentView].description}
               </motion.p>
@@ -157,7 +157,7 @@ export const HeroSection: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => router.push(heroSlides[currentView].link)}
-                  className="px-8 py-3.5 bg-[#1646AF] hover:bg-[#133C99] text-white font-medium rounded-lg shadow-sm hover:shadow transition-all duration-200 cursor-pointer text-base"
+                  className="px-6 py-2.5 sm:px-8 sm:py-3.5 bg-[#1646AF] hover:bg-[#133C99] text-white font-medium rounded-lg shadow-sm hover:shadow transition-all duration-200 cursor-pointer text-sm sm:text-base"
                 >
                   Learn More
                 </motion.button>
@@ -172,7 +172,7 @@ export const HeroSection: React.FC = () => {
                   alt={heroSlides[currentView].imageAlt}
                   width={720}
                   height={540}
-                  className="object-contain max-h-[340px] sm:max-h-[420px] lg:max-h-[480px] w-auto h-auto transition-transform duration-300 hover:scale-102"
+                  className="object-contain max-h-[190px] sm:max-h-[340px] lg:max-h-[480px] w-auto h-auto transition-transform duration-300 hover:scale-102"
                   priority={currentView === 0}
                   loading={currentView === 0 ? 'eager' : 'lazy'}
                   quality={85}
@@ -185,7 +185,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* Bottom Center - Slide Indicator and Navigation */}
-      <div className="absolute bottom-6 sm:bottom-10 lg:bottom-12 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2">
+      <div className="absolute bottom-3 sm:bottom-6 lg:bottom-12 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 sm:gap-2">
         {/* Page Indicator */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}

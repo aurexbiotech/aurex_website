@@ -85,7 +85,7 @@ const FixedSideBar: React.FC = () => {
           {/* Emergency Hotline */}
           <div className="relative group flex items-center justify-center">
             <a
-              href="tel:+918144418046"
+              href="tel:+919543910101"
               aria-label="Emergency Call Support"
               className="flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 ease-out hover:bg-sky-500/15 cursor-pointer"
             >
@@ -94,7 +94,7 @@ const FixedSideBar: React.FC = () => {
               />
             </a>
             <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 pointer-events-none opacity-0 group-hover:opacity-100 translate-x-1 group-hover:translate-x-0 transition-all duration-200 z-50 whitespace-nowrap px-2.5 py-1 rounded-md bg-[#111827] text-white text-xs font-semibold shadow-lg">
-              24/7 Hotline: +91 8144418046
+              24/7 Hotline: +91 95439 10101
             </div>
           </div>
         </div>
@@ -107,7 +107,9 @@ const FixedSideBar: React.FC = () => {
           {/* LinkedIn */}
           <div className="relative group flex items-center justify-center">
             <a
-              href="#"
+              href="https://www.linkedin.com/company/144084010/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="AUREX LinkedIn Profile"
               className="flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 ease-out hover:bg-blue-600/15 cursor-pointer"
             >
@@ -123,7 +125,7 @@ const FixedSideBar: React.FC = () => {
           {/* YouTube (Highlights Red and Scales Up) */}
           <div className="relative group flex items-center justify-center">
             <a
-              href="https://www.youtube.com/@aurexbiotech"
+              href="https://www.youtube.com/channel/UCUn39KHl60KEEh9qQM6Gyiw"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="AUREX YouTube Channel"
@@ -159,7 +161,9 @@ const FixedSideBar: React.FC = () => {
           {/* X (Twitter) */}
           <div className="relative group flex items-center justify-center">
             <a
-              href="#"
+              href="https://x.com/Aurexbiotech"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="AUREX X Profile"
               className="flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 ease-out hover:bg-gray-900/15 cursor-pointer"
             >

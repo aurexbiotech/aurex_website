@@ -43,7 +43,7 @@ const offices = [
   {
     region: 'India Office',
     address: '163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, VILLUPURAM, TAMIL NADU, 605601',
-    phone: '+91 9543910101, +91 8144418046',
+    phone: '+91 9543910101',
     email: 'aurexbiotech@gmail.com',
     hours: 'Mon-Fri: 9:00 AM - 6:00 PM IST'
   }
@@ -62,7 +62,7 @@ const contactMethods = [
     icon: Phone,
     title: 'Phone Support',
     description: '24/7 technical assistance available',
-    contact: '+91 9543910101, +91 8144418046',
+    contact: '+91 9543910101',
     action: 'Call Now',
     href: 'tel:+919543910101'
   },
@@ -856,8 +856,7 @@ export default function ContactPage() {
                     <p className="text-sm sm:text-base text-white/80 mb-6 max-w-xl mx-auto">
                       For critical diagnostic instrument failures or urgent laboratory workflow needs, our emergency engineering team is available 24/7.
                     </p>
-                    <div className="text-2xl sm:text-3xl font-bold mb-1 text-white">+91 9543910101</div>
-                    <div className="text-2xl sm:text-3xl font-bold mb-6 text-white">+91 8144418046</div>
+                    <div className="text-2xl sm:text-3xl font-bold mb-6 text-white">+91 9543910101</div>
                     <a 
                       href="tel:+919543910101" 
                       className="inline-block bg-white text-[#1646AF] hover:bg-[#F6F8FB] hover:text-[#133C99] px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base transition-colors shadow-md"

@@ -45,30 +45,73 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 1 }}
           className="flex flex-col space-y-4 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg"
         >
-          <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors cursor-pointer">
+          <a
+            href="https://wa.me/919543910101"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp Support"
+            className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-transform hover:scale-110 cursor-pointer shadow-md"
+          >
             <MessageCircle className="text-white" size={20} />
-          </div>
-          <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors cursor-pointer">
+          </a>
+          <a
+            href="tel:+919543910101"
+            aria-label="Call Support"
+            className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center hover:bg-emerald-700 transition-transform hover:scale-110 cursor-pointer shadow-md"
+          >
             <Phone className="text-white" size={20} />
-          </div>
-          <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors cursor-pointer">
+          </a>
+          <a
+            href="mailto:sales@aurexbiotech.com"
+            aria-label="Send Email"
+            className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-transform hover:scale-110 cursor-pointer shadow-md"
+          >
             <Mail className="text-white" size={20} />
-          </div>
-          <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors cursor-pointer">
+          </a>
+          <a
+            href="/products"
+            aria-label="View Products"
+            className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-700 transition-transform hover:scale-110 cursor-pointer shadow-md"
+          >
             <Camera className="text-white" size={20} />
-          </div>
-          <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
+          </a>
+          <a
+            href="https://www.linkedin.com/company/144084010/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="AUREX LinkedIn"
+            className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-transform hover:scale-110 cursor-pointer shadow-md"
+          >
             <Linkedin className="text-white" size={20} />
-          </div>
-          <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors cursor-pointer">
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCUn39KHl60KEEh9qQM6Gyiw"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="AUREX YouTube"
+            className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-transform hover:scale-110 cursor-pointer shadow-md"
+          >
             <Youtube className="text-white" size={20} />
-          </div>
-          <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors cursor-pointer">
+          </a>
+          <a
+            href="https://www.facebook.com/aurexbiotech/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="AUREX Facebook"
+            className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-transform hover:scale-110 cursor-pointer shadow-md"
+          >
             <Facebook className="text-white" size={20} />
-          </div>
-          <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center hover:bg-gray-900 transition-colors cursor-pointer" title="X (formerly Twitter)">
+          </a>
+          <a
+            href="https://x.com/Aurexbiotech"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="AUREX X Profile"
+            className="w-12 h-12 bg-black rounded-full flex items-center justify-center hover:bg-gray-900 transition-transform hover:scale-110 cursor-pointer shadow-md"
+            title="X (formerly Twitter)"
+          >
             <XIcon size={18} className="text-white" />
-          </div>
+          </a>
         </motion.div>
       </div>
 

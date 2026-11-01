@@ -312,10 +312,6 @@ const Navbar: React.FC = () => {
                           <Phone className="text-blue-300 shrink-0" size={16} />
                           <span className="text-white/90 font-medium text-xs sm:text-sm">+91 9543910101</span>
                         </div>
-                        <div className="flex items-center space-x-2">
-                          <Phone className="text-blue-300 shrink-0" size={16} />
-                          <span className="text-white/90 font-medium text-xs sm:text-sm">+91 8144418046</span>
-                        </div>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Mail className="text-blue-300 shrink-0" size={16} />

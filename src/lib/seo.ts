@@ -82,7 +82,9 @@ export const organizationSchema = {
         addressCountry: 'IN',
       },
       sameAs: [
-        'https://www.youtube.com/@aurexbiotech',
+        'https://www.youtube.com/channel/UCUn39KHl60KEEh9qQM6Gyiw',
+        'https://www.linkedin.com/company/144084010/',
+        'https://x.com/Aurexbiotech',
         'https://www.facebook.com/aurexbiotech/',
       ],
     },

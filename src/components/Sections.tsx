@@ -167,17 +167,34 @@ export const HeroSection: React.FC = () => {
             {/* Right Product Column (~52% width) - Seamless display without artificial card */}
             <div className="lg:col-span-6 flex justify-center items-center order-1 lg:order-2">
               <div className="relative w-full max-w-[480px] sm:max-w-[540px] lg:max-w-[620px] flex items-center justify-center">
-                <Image
-                  src={heroSlides[currentView].image}
-                  alt={heroSlides[currentView].imageAlt}
-                  width={720}
-                  height={540}
-                  className="object-contain max-h-[190px] sm:max-h-[340px] lg:max-h-[480px] w-auto h-auto transition-transform duration-300 hover:scale-102"
-                  priority={currentView === 0}
-                  loading={currentView === 0 ? 'eager' : 'lazy'}
-                  quality={85}
-                  sizes="(max-width: 640px) 320px, (max-width: 1024px) 480px, 620px"
-                />
+                {heroSlides[currentView].id === 'smarlumi' ? (
+                  <div className="w-full rounded-2xl overflow-hidden shadow-xl border border-gray-200 bg-white">
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      controls
+                      poster="/images/smarlumi-fc-2100.png"
+                      className="w-full h-auto aspect-[16/10] object-cover rounded-2xl block"
+                      aria-label="SmarLumi FC-2100 Video"
+                    >
+                      <source src="/videos/fc-2100-demo.mp4" type="video/mp4" />
+                    </video>
+                  </div>
+                ) : (
+                  <Image
+                    src={heroSlides[currentView].image}
+                    alt={heroSlides[currentView].imageAlt}
+                    width={720}
+                    height={540}
+                    className="object-contain max-h-[190px] sm:max-h-[340px] lg:max-h-[480px] w-auto h-auto transition-transform duration-300 hover:scale-102"
+                    priority={currentView === 0}
+                    loading={currentView === 0 ? 'eager' : 'lazy'}
+                    quality={85}
+                    sizes="(max-width: 640px) 320px, (max-width: 1024px) 480px, 620px"
+                  />
+                )}
               </div>
             </div>
           </motion.div>

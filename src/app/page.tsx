@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState, useEffect, useRef, useCallback } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { motion, useReducedMotion, type Variants } from 'framer-motion'
@@ -197,18 +196,22 @@ export default function SmarLumiIntroductionPage() {
             }}
             className="lg:col-span-7 flex justify-center items-center relative order-1 z-20"
           >
-            {/* The Machine Image is displayed DIRECTLY against the #F6F8FB background with true alpha transparency */}
-            <div className="relative w-full max-w-[620px] lg:max-w-[720px] xl:max-w-[800px] flex items-center justify-center">
-              <Image
-                src="/images/smarlumi-fc-2100.png"
-                alt="SmarLumi™ FC-2100 Fully Automated Chemiluminescence Immunoassay Analyzer"
-                width={1400}
-                height={1177}
-                className="w-full h-auto object-contain max-h-[220px] sm:max-h-[340px] lg:max-h-[520px] xl:max-h-[580px] select-none"
-                priority
-                quality={85}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 75vw, 58vw"
-              />
+            {/* The Machine Video is displayed in a clean, modern frame with autoplay, loop, and mute */}
+            <div className="relative w-full max-w-[640px] lg:max-w-[720px] xl:max-w-[780px] rounded-2xl overflow-hidden shadow-2xl border border-gray-200/80 bg-white">
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+                preload="auto"
+                poster="/images/smarlumi-fc-2100.png"
+                className="w-full h-auto aspect-[16/10] object-cover rounded-2xl block"
+                aria-label="SmarLumi FC-2100 Fully Automated Chemiluminescence Immunoassay Analyzer Demo"
+              >
+                <source src="/videos/fc-2100-demo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </motion.div>
 

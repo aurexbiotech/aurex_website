@@ -29,7 +29,7 @@ const AutobioFooter: React.FC = () => {
             <span className="text-xs font-semibold uppercase tracking-wider text-blue-200">Follow Us</span>
             <div className="flex space-x-2">
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/company/144084010/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="LinkedIn"
@@ -38,7 +38,7 @@ const AutobioFooter: React.FC = () => {
                 <Linkedin className="w-4 h-4 text-white group-hover:text-blue-200" />
               </a>
               <a 
-                href="https://youtube.com" 
+                href="https://www.youtube.com/channel/UCUn39KHl60KEEh9qQM6Gyiw" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="YouTube"
@@ -47,7 +47,7 @@ const AutobioFooter: React.FC = () => {
                 <Youtube className="w-4 h-4 text-white group-hover:text-red-400" />
               </a>
               <a 
-                href="https://facebook.com" 
+                href="https://www.facebook.com/aurexbiotech/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="Facebook"
@@ -56,7 +56,7 @@ const AutobioFooter: React.FC = () => {
                 <Facebook className="w-4 h-4 text-white group-hover:text-blue-400" />
               </a>
               <a 
-                href="https://x.com" 
+                href="https://x.com/Aurexbiotech" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="X (formerly Twitter)"
@@ -189,10 +189,6 @@ const AutobioFooter: React.FC = () => {
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-blue-300 shrink-0" />
                 <span className="text-white/90">+91 9543910101</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-blue-300 shrink-0" />
-                <span className="text-white/90">+91 8144418046</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-blue-300 shrink-0" />

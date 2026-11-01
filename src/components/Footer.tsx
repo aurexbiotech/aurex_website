@@ -37,10 +37,6 @@ const Footer = () => {
                 <span className="text-sm sm:text-base text-white/90">+91 9543910101</span>
               </div>
               <div className="flex items-center space-x-2 sm:space-x-3">
-                <Phone size={14} className="text-white/80 flex-shrink-0" />
-                <span className="text-sm sm:text-base text-white/90">+91 8144418046</span>
-              </div>
-              <div className="flex items-center space-x-2 sm:space-x-3">
                 <Mail size={14} className="text-white/80 flex-shrink-0" />
                 <span className="text-sm sm:text-base text-white/90 break-all">sales@aurexbiotech.com</span>
               </div>
@@ -162,28 +158,34 @@ const Footer = () => {
               <h5 className="text-sm font-semibold text-white mb-3">Follow Us</h5>
               <div className="flex space-x-3">
                 <a 
-                  href="#" 
+                  href="https://www.linkedin.com/company/144084010/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all"
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all hover:scale-110"
                 >
                   <Linkedin size={16} />
                 </a>
                 <a 
-                  href="https://www.youtube.com/@aurexbiotech" 
+                  href="https://www.youtube.com/channel/UCUn39KHl60KEEh9qQM6Gyiw" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="YouTube"
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all"
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all hover:scale-110"
                 >
                   <Youtube size={16} />
                 </a>
                 <a 
                   href="https://www.facebook.com/aurexbiotech/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Facebook"
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all"
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-white bg-white/10 hover:bg-white/20 transition-all hover:scale-110"
                 >
                   <Facebook size={16} />
                 </a>
                 <a 
-                  href="https://x.com" 
+                  href="https://x.com/Aurexbiotech" 
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="X (formerly Twitter)"

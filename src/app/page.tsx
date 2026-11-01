@@ -203,7 +203,6 @@ export default function SmarLumiIntroductionPage() {
                 loop
                 muted
                 playsInline
-                controls
                 preload="auto"
                 poster="/images/smarlumi-fc-2100.png"
                 className="w-full h-auto aspect-[16/10] object-cover rounded-2xl block"

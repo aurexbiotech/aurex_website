@@ -174,7 +174,6 @@ export const HeroSection: React.FC = () => {
                       loop
                       muted
                       playsInline
-                      controls
                       poster="/images/smarlumi-fc-2100.png"
                       className="w-full h-auto aspect-[16/10] object-cover rounded-2xl block"
                       aria-label="SmarLumi FC-2100 Video"

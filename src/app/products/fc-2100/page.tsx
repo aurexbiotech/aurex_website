@@ -344,28 +344,49 @@ export default function FC2100ProductPage() {
     return TEST_MENU.reduce((sum, cat) => sum + cat.tests.length, 0)
   }, [])
 
+  // In development and available counts
+  const inDevelopmentCount = useMemo(() => {
+    return TEST_MENU.reduce((sum, cat) => sum + cat.tests.filter(t => !t.available).length, 0)
+  }, [])
+
+  const availableCount = useMemo(() => {
+    return TEST_MENU.reduce((sum, cat) => sum + cat.tests.filter(t => t.available).length, 0)
+  }, [])
+
   // Filtered categories based on search input & tab selection
   const filteredCategories = useMemo(() => {
-    return TEST_MENU.filter((category) => {
-      const matchesCategory = selectedCategory === 'all' || category.id === selectedCategory
-      if (!matchesCategory) return false
+    return TEST_MENU.map((category) => {
+      // If a specific category is selected, match it
+      if (selectedCategory !== 'all' && selectedCategory !== 'in-development' && selectedCategory !== 'available') {
+        if (category.id !== selectedCategory) return null
+      }
 
-      if (!searchQuery.trim()) return true
+      let tests = category.tests
 
-      const query = searchQuery.toLowerCase().trim()
-      const matchesCategoryName = category.name.toLowerCase().includes(query)
-      const matchesTest = category.tests.some(t => t.name.toLowerCase().includes(query))
-      return matchesCategoryName || matchesTest
-    }).map(category => {
-      if (!searchQuery.trim()) return category
-      const query = searchQuery.toLowerCase().trim()
-      // Highlight matching tests or retain all if category name matched
-      const matchingTests = category.tests.filter(t => t.name.toLowerCase().includes(query))
+      // Filter by development status if active
+      if (selectedCategory === 'in-development') {
+        tests = tests.filter(t => !t.available)
+      } else if (selectedCategory === 'available') {
+        tests = tests.filter(t => t.available)
+      }
+
+      // Filter by search query if typed
+      if (searchQuery.trim()) {
+        const query = searchQuery.toLowerCase().trim()
+        const matchesCategoryName = category.name.toLowerCase().includes(query)
+        if (!matchesCategoryName) {
+          tests = tests.filter(t => t.name.toLowerCase().includes(query))
+        }
+      }
+
+      // If no tests remain in this category after filtering, exclude it
+      if (tests.length === 0) return null
+
       return {
         ...category,
-        tests: matchingTests.length > 0 ? matchingTests : category.tests
+        tests
       }
-    })
+    }).filter((c): c is TestCategory => c !== null)
   }, [searchQuery, selectedCategory])
 
   const technicalSpecifications = [
@@ -808,15 +829,31 @@ export default function FC2100ProductPage() {
             </p>
 
             {/* Test Status Legend (Matching Official Brochure) */}
-            <div className="flex flex-wrap items-center justify-center gap-6 pt-3 pb-1 text-xs sm:text-sm font-semibold">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/80 border border-blue-200/80 text-[#133C99]">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#1646AF] shadow-2xs" />
-                <span>Available</span>
-              </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 border border-gray-300/80 text-[#1E293B]">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#1E293B] shadow-2xs" />
-                <span>In Development</span>
-              </div>
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 pt-3 pb-1 text-xs sm:text-sm font-semibold">
+              <button
+                type="button"
+                onClick={() => setSelectedCategory(selectedCategory === 'available' ? 'all' : 'available')}
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
+                  selectedCategory === 'available'
+                    ? 'bg-[#1646AF] text-white ring-2 ring-[#1646AF]/30 shadow-xs'
+                    : 'bg-blue-50/80 hover:bg-blue-100/80 border border-blue-200/80 text-[#133C99]'
+                }`}
+              >
+                <span className={`w-2.5 h-2.5 rounded-full ${selectedCategory === 'available' ? 'bg-white' : 'bg-[#1646AF]'} shadow-2xs`} />
+                <span>Available ({availableCount})</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setSelectedCategory(selectedCategory === 'in-development' ? 'all' : 'in-development')}
+                className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full transition-all cursor-pointer ${
+                  selectedCategory === 'in-development'
+                    ? 'bg-[#1E293B] text-white ring-2 ring-[#1E293B]/30 shadow-xs'
+                    : 'bg-gray-100 hover:bg-gray-200 border border-gray-300/80 text-[#1E293B]'
+                }`}
+              >
+                <span className={`w-2.5 h-2.5 rounded-full ${selectedCategory === 'in-development' ? 'bg-white' : 'bg-[#1E293B]'} shadow-2xs`} />
+                <span>In Development ({inDevelopmentCount})</span>
+              </button>
             </div>
           </div>
 
@@ -845,7 +882,7 @@ export default function FC2100ProductPage() {
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
               <button
                 onClick={() => setSelectedCategory('all')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                   selectedCategory === 'all'
                     ? 'bg-[#133C99] text-white shadow-xs'
                     : 'bg-white text-[#64748B] hover:bg-gray-100 border border-gray-200'
@@ -853,11 +890,38 @@ export default function FC2100ProductPage() {
               >
                 All 19 Panels ({totalTestCount} Assays)
               </button>
+
+              {/* In Development Filter Pill */}
+              <button
+                onClick={() => setSelectedCategory(selectedCategory === 'in-development' ? 'all' : 'in-development')}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  selectedCategory === 'in-development'
+                    ? 'bg-[#1E293B] text-white shadow-xs'
+                    : 'bg-white text-[#1E293B] hover:bg-gray-100 border border-gray-300'
+                }`}
+              >
+                <span className={`w-2 h-2 rounded-full ${selectedCategory === 'in-development' ? 'bg-white' : 'bg-[#1E293B]'}`} />
+                <span>In Development ({inDevelopmentCount})</span>
+              </button>
+
+              {/* Available Filter Pill */}
+              <button
+                onClick={() => setSelectedCategory(selectedCategory === 'available' ? 'all' : 'available')}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  selectedCategory === 'available'
+                    ? 'bg-[#1646AF] text-white shadow-xs'
+                    : 'bg-white text-[#133C99] hover:bg-gray-100 border border-blue-200'
+                }`}
+              >
+                <span className={`w-2 h-2 rounded-full ${selectedCategory === 'available' ? 'bg-white' : 'bg-[#1646AF]'}`} />
+                <span>Available ({availableCount})</span>
+              </button>
+
               {TEST_MENU.map((c) => (
                 <button
                   key={c.id}
                   onClick={() => setSelectedCategory(c.id)}
-                  className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
                     selectedCategory === c.id
                       ? 'bg-[#133C99] text-white shadow-xs'
                       : 'bg-white text-[#64748B] hover:bg-gray-100 border border-gray-200'

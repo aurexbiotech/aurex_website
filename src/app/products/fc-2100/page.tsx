@@ -23,12 +23,17 @@ import {
 } from 'lucide-react'
 import Footer from '@/components/Footer'
 
+interface TestItem {
+  name: string
+  available: boolean
+}
+
 interface TestCategory {
   id: string
   name: string
   code: string
   description: string
-  tests: string[]
+  tests: TestItem[]
 }
 
 const TEST_MENU: TestCategory[] = [
@@ -37,14 +42,37 @@ const TEST_MENU: TestCategory[] = [
     code: 'A',
     name: 'Cardiac',
     description: 'High-sensitivity myocardial infarction, heart failure & cardiovascular risk markers',
-    tests: ['cTnT', 'BNP', 'MYO', 'hs-cTnI', 'Lp-PLA2', 'CK-MB', 'NT-proBNP', 'ST2', 'HCY']
+    tests: [
+      { name: 'cTnT', available: true },
+      { name: 'BNP', available: true },
+      { name: 'MYO', available: true },
+      { name: 'hs-cTnI', available: true },
+      { name: 'Lp-PLA2', available: true },
+      { name: 'CK-MB', available: true },
+      { name: 'NT-proBNP', available: true },
+      { name: 'ST2', available: true },
+      { name: 'HCY', available: false }
+    ]
   },
   {
     id: 'fertility',
     code: 'B',
     name: 'Fertility',
     description: 'Reproductive endocrinology, ovarian reserve & hormone evaluation assays',
-    tests: ['AMH', 'β-HCG', 'TESTO', 'PROG', 'E2', 'PRL', 'LH', 'FSH', 'InhB', 'DHEA-S', '17-OH P', 'Free TESTO']
+    tests: [
+      { name: 'AMH', available: true },
+      { name: 'β-HCG', available: true },
+      { name: 'TESTO', available: true },
+      { name: 'PROG', available: true },
+      { name: 'E2', available: true },
+      { name: 'PRL', available: true },
+      { name: 'LH', available: true },
+      { name: 'FSH', available: true },
+      { name: 'InhB', available: true },
+      { name: 'DHEA-S', available: true },
+      { name: '17-OH P', available: true },
+      { name: 'Free TESTO', available: true }
+    ]
   },
   {
     id: 'tumor-markers',
@@ -52,8 +80,22 @@ const TEST_MENU: TestCategory[] = [
     name: 'Tumor Markers',
     description: 'Comprehensive oncological monitoring, screening & therapeutic response markers',
     tests: [
-      'CA50', 'CA242', 'CYFRA21-1', 'SCCA', 'HE4', 'NSE', 'CA72-4', 'CEA', 
-      'CA15-3', 'CA125', 'CA19-9', 'ProGRP', 'AFP', 'PIVKA-II', 'FPSA', 'TPSA'
+      { name: 'CA50', available: true },
+      { name: 'CA242', available: true },
+      { name: 'CYFRA21-1', available: true },
+      { name: 'SCCA', available: true },
+      { name: 'HE4', available: true },
+      { name: 'NSE', available: true },
+      { name: 'CA72-4', available: true },
+      { name: 'CEA', available: true },
+      { name: 'CA15-3', available: true },
+      { name: 'CA125', available: true },
+      { name: 'CA19-9', available: true },
+      { name: 'ProGRP', available: true },
+      { name: 'AFP', available: true },
+      { name: 'PIVKA-II', available: true },
+      { name: 'FPSA', available: true },
+      { name: 'TPSA', available: true }
     ]
   },
   {
@@ -61,21 +103,35 @@ const TEST_MENU: TestCategory[] = [
     code: 'D',
     name: 'Craniocerebral Injury',
     description: 'Acute central nervous system & traumatic brain injury biomarkers',
-    tests: ['S100β']
+    tests: [
+      { name: 'S100β', available: true }
+    ]
   },
   {
     id: 'gastric',
     code: 'E',
     name: 'Gastric Function',
     description: 'Mucosal evaluation, atrophic gastritis screening & gastric cancer risk profiling',
-    tests: ['G-17', 'PGI', 'PGII', 'H.pylori Ab']
+    tests: [
+      { name: 'G-17', available: true },
+      { name: 'PGI', available: true },
+      { name: 'PGII', available: true },
+      { name: 'H.pylori Ab', available: true }
+    ]
   },
   {
     id: 'thrombus',
     code: 'F',
     name: 'Thrombus',
     description: 'Active coagulation cascade, fibrinolysis & deep vein thrombosis evaluation',
-    tests: ['TM', 'TAT', 'FDP', 'PIC', 't-PAIC', 'D-Dimer']
+    tests: [
+      { name: 'TM', available: true },
+      { name: 'TAT', available: true },
+      { name: 'FDP', available: true },
+      { name: 'PIC', available: true },
+      { name: 't-PAIC', available: true },
+      { name: 'D-Dimer', available: true }
+    ]
   },
   {
     id: 'thyroid',
@@ -83,8 +139,20 @@ const TEST_MENU: TestCategory[] = [
     name: 'Thyroid',
     description: 'Complete thyrometabolic axis, autoimmune thyroiditis & thyroid oncology assays',
     tests: [
-      'TSH', 'FT3', 'FT4', 'TT3', 'TT4', 'Anti-TPO', 'Anti-Tg', 
-      'Tg', 'CT', 'T-Uptake', 'TBG', 'TRAb', 'TSAb', 'rT3'
+      { name: 'TSH', available: true },
+      { name: 'FT3', available: true },
+      { name: 'FT4', available: true },
+      { name: 'TT3', available: true },
+      { name: 'TT4', available: true },
+      { name: 'Anti-TPO', available: true },
+      { name: 'Anti-Tg', available: true },
+      { name: 'Tg', available: true },
+      { name: 'CT', available: false },
+      { name: 'T-Uptake', available: false },
+      { name: 'TBG', available: false },
+      { name: 'TRAb', available: false },
+      { name: 'TSAb', available: false },
+      { name: 'rT3', available: false }
     ]
   },
   {
@@ -92,42 +160,67 @@ const TEST_MENU: TestCategory[] = [
     code: 'H',
     name: 'Pre-Eclampsia',
     description: 'Early gestational angiogenic balance & hypertensive pregnancy screening',
-    tests: ['PLGF', 'sFlt-1']
+    tests: [
+      { name: 'PLGF', available: true },
+      { name: 'sFlt-1', available: true }
+    ]
   },
   {
     id: 'kidney',
     code: 'I',
     name: 'Kidney Function',
     description: 'Early renal tubular injury & acute kidney injury (AKI) surveillance',
-    tests: ['NGAL']
+    tests: [
+      { name: 'NGAL', available: true }
+    ]
   },
   {
     id: 'bone-metabolism',
     code: 'J',
     name: 'Bone Metabolism',
     description: 'Calcium homeostasis, parathyroid function & osteometabolic disorder markers',
-    tests: ['25-OH VD', 'PTH', 'Calcitionin']
+    tests: [
+      { name: '25-OH VD', available: true },
+      { name: 'PTH', available: true },
+      { name: 'Calcitionin', available: false }
+    ]
   },
   {
     id: 'anemia',
     code: 'K',
     name: 'Anemia',
     description: 'Iron storage evaluation, erythropoiesis & nutritional megaloblastic profiling',
-    tests: ['Ferritin', 'Folate', 'VB12']
+    tests: [
+      { name: 'Ferritin', available: true },
+      { name: 'Folate', available: true },
+      { name: 'VB12', available: true }
+    ]
   },
   {
     id: 'hypertension',
     code: 'L',
     name: 'Hypertension',
     description: 'Renin-angiotensin-aldosterone axis & adrenal cortical endocrine diagnostics',
-    tests: ['REN', 'Cortisol', 'AI', 'A II', 'ACTH', 'ALD']
+    tests: [
+      { name: 'REN', available: true },
+      { name: 'Cortisol', available: true },
+      { name: 'AI', available: true },
+      { name: 'A II', available: true },
+      { name: 'ACTH', available: true },
+      { name: 'ALD', available: true }
+    ]
   },
   {
     id: 'inflammation',
     code: 'M',
     name: 'Inflammation',
     description: 'Acute phase response, severe bacterial infection & sepsis differentiation',
-    tests: ['IL-6', 'PCT', 'SAA', 'CRP']
+    tests: [
+      { name: 'IL-6', available: true },
+      { name: 'PCT', available: true },
+      { name: 'SAA', available: true },
+      { name: 'CRP', available: false }
+    ]
   },
   {
     id: 'infectious-disease',
@@ -135,9 +228,18 @@ const TEST_MENU: TestCategory[] = [
     name: 'Infectious Disease',
     description: 'Hepatitis viral markers, retroviral screening & atypical respiratory serology',
     tests: [
-      'HBeAg', 'Anti-HBe', 'Anti-HBc', 'HBsAg', 'Anti-HBs', 'Anti-TP', 
-      'HIV Ag/Ab', 'Anti-HCV', 'M. Pneumonia IgG', 'M. Pneumonia IgM', 
-      'Chlamydia pn. IgG', 'Chlamydia pn. IgM'
+      { name: 'HBeAg', available: true },
+      { name: 'Anti-HBe', available: true },
+      { name: 'Anti-HBc', available: true },
+      { name: 'HBsAg', available: true },
+      { name: 'Anti-HBs', available: true },
+      { name: 'Anti-TP', available: true },
+      { name: 'HIV Ag/Ab', available: true },
+      { name: 'Anti-HCV', available: true },
+      { name: 'M. Pneumonia IgG', available: true },
+      { name: 'M. Pneumonia IgM', available: true },
+      { name: 'Chlamydia pn. IgG', available: false },
+      { name: 'Chlamydia pn. IgM', available: false }
     ]
   },
   {
@@ -145,7 +247,11 @@ const TEST_MENU: TestCategory[] = [
     code: 'O',
     name: 'Growth Hormone',
     description: 'Somatotropic pituitary axis & developmental endocrine diagnostics',
-    tests: ['GH', 'IGF-1', 'IGFBP-3']
+    tests: [
+      { name: 'GH', available: false },
+      { name: 'IGF-1', available: false },
+      { name: 'IGFBP-3', available: false }
+    ]
   },
   {
     id: 'torch',
@@ -153,9 +259,16 @@ const TEST_MENU: TestCategory[] = [
     name: 'TORCH',
     description: 'Congenital & perinatal infectious antibody profiling (IgG/IgM)',
     tests: [
-      'TOXO IgG', 'TOXO IgM', 'Rubella IgG', 'Rubella IgM', 
-      'CMV IgG', 'CMV IgM', 'HSV-1 IgG', 'HSV-1 IgM', 
-      'HSV-2 IgG', 'HSV-2 IgM'
+      { name: 'TOXO IgG', available: true },
+      { name: 'TOXO IgM', available: true },
+      { name: 'Rubella IgG', available: true },
+      { name: 'Rubella IgM', available: true },
+      { name: 'CMV IgG', available: true },
+      { name: 'CMV IgM', available: true },
+      { name: 'HSV-1 IgG', available: true },
+      { name: 'HSV-1 IgM', available: true },
+      { name: 'HSV-2 IgG', available: true },
+      { name: 'HSV-2 IgM', available: true }
     ]
   },
   {
@@ -163,21 +276,37 @@ const TEST_MENU: TestCategory[] = [
     code: 'Q',
     name: 'Liver Fibrosis',
     description: 'Extracellular matrix turnover & chronic hepatic fibrogenesis assessment',
-    tests: ['HA', 'CIV', 'PIIINP', 'LN']
+    tests: [
+      { name: 'HA', available: false },
+      { name: 'CIV', available: false },
+      { name: 'PIIINP', available: false },
+      { name: 'LN', available: false }
+    ]
   },
   {
     id: 'autoimmune',
     code: 'R',
     name: 'Autoimmune',
     description: 'Systemic autoimmune screening, connective tissue & immune globulin panels',
-    tests: ['IgE', 'ANA Screen', 'Anti-CCP', 'Anti-ds DNA', 'IgA', 'IgG', 'IgM']
+    tests: [
+      { name: 'IgE', available: true },
+      { name: 'ANA Screen', available: true },
+      { name: 'Anti-CCP', available: true },
+      { name: 'Anti-ds DNA', available: true },
+      { name: 'IgA', available: false },
+      { name: 'IgG', available: false },
+      { name: 'IgM', available: false }
+    ]
   },
   {
     id: 'diabetes',
     code: 'S',
     name: 'Diabetes',
     description: 'Endogenous pancreatic beta-cell reserve & insulin secretion quantification',
-    tests: ['Insulin', 'C-Peptide']
+    tests: [
+      { name: 'Insulin', available: true },
+      { name: 'C-Peptide', available: true }
+    ]
   }
 ]
 
@@ -225,13 +354,13 @@ export default function FC2100ProductPage() {
 
       const query = searchQuery.toLowerCase().trim()
       const matchesCategoryName = category.name.toLowerCase().includes(query)
-      const matchesTest = category.tests.some(t => t.toLowerCase().includes(query))
+      const matchesTest = category.tests.some(t => t.name.toLowerCase().includes(query))
       return matchesCategoryName || matchesTest
     }).map(category => {
       if (!searchQuery.trim()) return category
       const query = searchQuery.toLowerCase().trim()
       // Highlight matching tests or retain all if category name matched
-      const matchingTests = category.tests.filter(t => t.toLowerCase().includes(query))
+      const matchingTests = category.tests.filter(t => t.name.toLowerCase().includes(query))
       return {
         ...category,
         tests: matchingTests.length > 0 ? matchingTests : category.tests
@@ -677,6 +806,18 @@ export default function FC2100ProductPage() {
             <p className="text-sm sm:text-base text-[#64748B] leading-relaxed">
               Featuring all <strong>19 clinical categories</strong> and <strong>{totalTestCount} individual diagnostic assays</strong> from the official SmarLumi FC-2100 technical specification.
             </p>
+
+            {/* Test Status Legend (Matching Official Brochure) */}
+            <div className="flex flex-wrap items-center justify-center gap-6 pt-3 pb-1 text-xs sm:text-sm font-semibold">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/80 border border-blue-200/80 text-[#133C99]">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#1646AF] shadow-2xs" />
+                <span>Available</span>
+              </div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 border border-gray-300/80 text-[#1E293B]">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#1E293B] shadow-2xs" />
+                <span>In Development</span>
+              </div>
+            </div>
           </div>
 
           {/* Search & Category Filter Bar */}
@@ -770,13 +911,24 @@ export default function FC2100ProductPage() {
 
                     {/* Chips of Tests */}
                     <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                      {cat.tests.map((testName, tIdx) => (
+                      {cat.tests.map((test, tIdx) => (
                         <span 
                           key={tIdx}
-                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#F6F8FB] hover:bg-blue-50 border border-gray-200 text-xs font-semibold text-[#1E293B] transition-colors"
+                          title={test.available ? 'Available' : 'In Development'}
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs transition-colors ${
+                            test.available
+                              ? 'bg-[#F6F8FB] hover:bg-blue-50 border border-gray-200 font-semibold text-[#1E293B]'
+                              : 'bg-gray-100/75 hover:bg-gray-100 border border-gray-300/80 font-medium text-[#475569]'
+                          }`}
                         >
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#1646AF]"></span>
-                          <span>{testName}</span>
+                          <span 
+                            className={`w-2 h-2 rounded-full shrink-0 ${
+                              test.available 
+                                ? 'bg-[#1646AF] shadow-2xs' 
+                                : 'bg-[#1E293B]'
+                            }`}
+                          />
+                          <span>{test.name}</span>
                         </span>
                       ))}
                     </div>

@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   description: "AUREX supplies precision diagnostic equipment, clinical laboratory instrumentation, biochemistry analyzers, and diagnostic automation solutions.",
   keywords: defaultKeywords,
   authors: [{ name: siteName }],
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
   alternates: {
     canonical: siteUrl,
   },

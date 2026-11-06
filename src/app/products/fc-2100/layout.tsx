@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { createPageMetadata } from '@/lib/seo'
+import { createPageMetadata, fc2100ProductSchema, fc2100VideoSchema } from '@/lib/seo'
 
 export const metadata: Metadata = createPageMetadata({
   title: 'SmarLumi FC-2100 Automatic Chemiluminescence Immunoassay Analyzer (200 T/h)',
@@ -27,5 +27,15 @@ export default function FC2100Layout({
 }: {
   children: React.ReactNode
 }) {
-  return <>{children}</>
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([fc2100ProductSchema, fc2100VideoSchema])
+        }}
+      />
+      {children}
+    </>
+  )
 }

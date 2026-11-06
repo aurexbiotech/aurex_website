@@ -1,14 +1,17 @@
 import type { Metadata } from 'next'
 
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://aurexbiotech.in').replace(/\/+$/, '')
-export const siteName = 'AUREX'
+export const siteName = 'AUREX Biotech'
 
 export const defaultKeywords = [
-  'AUREX',
   'AUREX Biotech',
+  'AUREX',
+  'Aurex Biotech India',
+  'Aurex diagnostic equipment',
+  'Aurex laboratory equipment',
   'diagnostic equipment supplier',
   'laboratory equipment supplier',
-  'medical diagnostic equipment',
+  'medical diagnostic equipment India',
   'clinical laboratory equipment',
   'biochemistry analyzer',
   'haematology analyzer',
@@ -69,10 +72,13 @@ export const organizationSchema = {
       '@type': 'Organization',
       '@id': `${siteUrl}/#organization`,
       name: siteName,
+      alternateName: ['AUREX', 'Aurex Biotech India', 'Aurex Diagnostics', 'Aurex Healthcare'],
+      legalName: 'AUREX Biotech',
       url: siteUrl,
       logo: `${siteUrl}/images/company-logo.png`,
       email: 'sales@aurexbiotech.in',
       telephone: '+91 9543910101',
+      description: 'AUREX Biotech is a premier diagnostic equipment supplier in India, providing precision laboratory analyzers, chemiluminescence immunoassay (CLIA) systems, biochemistry solutions, and healthcare IT automation.',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam',
@@ -81,6 +87,22 @@ export const organizationSchema = {
         postalCode: '605601',
         addressCountry: 'IN',
       },
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: '+91 9543910101',
+          contactType: 'sales',
+          areaServed: 'IN',
+          availableLanguage: ['en', 'ta', 'hi'],
+        },
+        {
+          '@type': 'ContactPoint',
+          telephone: '+91 9543910101',
+          contactType: 'customer support',
+          areaServed: 'IN',
+          availableLanguage: ['en', 'ta', 'hi'],
+        },
+      ],
       sameAs: [
         'https://www.youtube.com/channel/UCUn39KHl60KEEh9qQM6Gyiw',
         'https://www.linkedin.com/company/144084010/',
@@ -92,6 +114,7 @@ export const organizationSchema = {
       '@type': 'WebSite',
       '@id': `${siteUrl}/#website`,
       name: siteName,
+      alternateName: ['AUREX', 'Aurex Biotech Official Website'],
       url: siteUrl,
       publisher: {
         '@id': `${siteUrl}/#organization`,

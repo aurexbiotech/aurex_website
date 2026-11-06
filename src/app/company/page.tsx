@@ -1005,7 +1005,7 @@ function CompanyPageContent() {
                   <a href="/contact" className="bg-white text-[#1646AF] px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors text-center shadow-lg">
                     Get in Touch
                   </a>
-                  <a href="mailto:investors@aurexbiotech.com" className="bg-[#0B1528] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#0B1528]/80 transition-colors text-center border border-white/20">
+                  <a href="mailto:investors@aurexbiotech.in" className="bg-[#0B1528] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#0B1528]/80 transition-colors text-center border border-white/20">
                     Email Investor Relations
                   </a>
                 </div>

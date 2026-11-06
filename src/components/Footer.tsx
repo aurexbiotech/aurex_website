@@ -38,11 +38,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-2 sm:space-x-3">
                 <Mail size={14} className="text-white/80 flex-shrink-0" />
-                <span className="text-sm sm:text-base text-white/90 break-all">sales@aurexbiotech.com</span>
+                <span className="text-sm sm:text-base text-white/90 break-all">sales@aurexbiotech.in</span>
               </div>
               <div className="flex items-start space-x-2 sm:space-x-3">
                 <MapPin size={14} className="text-white/80 flex-shrink-0 mt-0.5" />
-                <span className="text-sm sm:text-base text-white/90 leading-relaxed">163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, VILLUPURAM, TAMIL NADU, 605601</span>
+                <span className="text-sm sm:text-base text-white/90 leading-relaxed">163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, TAMIL NADU, 605601</span>
               </div>
             </div>
           </div>

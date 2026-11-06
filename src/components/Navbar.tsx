@@ -315,12 +315,12 @@ const Navbar: React.FC = () => {
                       </div>
                       <div className="flex items-center space-x-2">
                         <Mail className="text-blue-300 shrink-0" size={16} />
-                        <span className="text-white/90 font-medium text-xs sm:text-sm">sales@aurexbiotech.com</span>
+                        <span className="text-white/90 font-medium text-xs sm:text-sm">sales@aurexbiotech.in</span>
                       </div>
                       <div className="flex items-start space-x-2">
                         <MapPin className="text-blue-300 shrink-0 mt-0.5" size={16} />
                         <span className="text-white/90 font-medium text-xs sm:text-sm leading-relaxed">
-                          163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, VILLUPURAM, TAMIL NADU, 605601
+                          163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, TAMIL NADU, 605601
                         </span>
                       </div>
                     </div>

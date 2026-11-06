@@ -71,11 +71,11 @@ export const organizationSchema = {
       name: siteName,
       url: siteUrl,
       logo: `${siteUrl}/images/company-logo.png`,
-      email: 'sales@aurexbiotech.com',
+      email: 'sales@aurexbiotech.in',
       telephone: '+91 9543910101',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram',
+        streetAddress: '163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam',
         addressLocality: 'Villupuram',
         addressRegion: 'Tamil Nadu',
         postalCode: '605601',

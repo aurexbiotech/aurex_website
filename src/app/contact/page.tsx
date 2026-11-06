@@ -42,9 +42,9 @@ const contactSubNavigation = [
 const offices = [
   {
     region: 'India Office',
-    address: '163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, VILLUPURAM, TAMIL NADU, 605601',
+    address: '163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, TAMIL NADU, 605601',
     phone: '+91 9543910101',
-    email: 'aurexbiotech@gmail.com',
+    email: 'sales@aurexbiotech.in',
     hours: 'Mon-Fri: 9:00 AM - 6:00 PM IST'
   }
 ]
@@ -70,9 +70,9 @@ const contactMethods = [
     icon: Mail,
     title: 'Email Inquiries',
     description: 'Send detailed requirements directly',
-    contact: 'aurexbiotech@gmail.com',
+    contact: 'sales@aurexbiotech.in',
     action: 'Send Email',
-    href: 'mailto:aurexbiotech@gmail.com'
+    href: 'mailto:sales@aurexbiotech.in'
   },
   {
     icon: Users,
@@ -410,7 +410,7 @@ export default function ContactPage() {
                     {/* Message */}
                     <p className="text-sm sm:text-base text-[#64748B] max-w-lg mx-auto mb-5 leading-relaxed">
                       Thank you for contacting AUREX. Your inquiry has been processed and routed directly to{' '}
-                      <strong className="text-[#133C99]">aurexbiotech@gmail.com</strong>. Our engineering team will review your requirement and connect with you directly.
+                      <strong className="text-[#133C99]">sales@aurexbiotech.in</strong>. Our engineering team will review your requirement and connect with you directly.
                     </p>
 
                     {submittedData && (
@@ -420,7 +420,7 @@ export default function ContactPage() {
                         <div><span className="text-[#64748B]">Email:</span> <span className="font-semibold">{submittedData.email}</span></div>
                         {submittedData.phone && <div><span className="text-[#64748B]">Phone:</span> <span className="font-semibold">{submittedData.phone}</span></div>}
                         <div><span className="text-[#64748B]">Subject:</span> <span className="font-semibold">{submittedData.subject}</span></div>
-                        <div><span className="text-[#64748B]">Sent to:</span> <span className="font-semibold text-[#133C99]">aurexbiotech@gmail.com</span></div>
+                        <div><span className="text-[#64748B]">Sent to:</span> <span className="font-semibold text-[#133C99]">sales@aurexbiotech.in</span></div>
                       </div>
                     )}
 
@@ -428,7 +428,7 @@ export default function ContactPage() {
                     <div className="flex flex-wrap items-center justify-center gap-3">
                       {submittedData && (
                         <a
-                          href={`mailto:aurexbiotech@gmail.com?subject=${encodeURIComponent(`[AUREX Enquiry] ${submittedData.subject}`)}&body=${encodeURIComponent(
+                          href={`mailto:sales@aurexbiotech.in?subject=${encodeURIComponent(`[AUREX Enquiry] ${submittedData.subject}`)}&body=${encodeURIComponent(
                             `Full Name: ${submittedData.name}\nEmail: ${submittedData.email}\nCompany: ${submittedData.company || 'Not provided'}\nPhone: ${submittedData.phone || 'Not provided'}\nArea of Interest: ${submittedData.interest}\nSubject: ${submittedData.subject}\n\nMessage:\n${submittedData.message}`
                           )}`}
                           className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white border border-[#133C99]/30 hover:border-[#133C99] text-[#133C99] font-bold text-sm rounded-xl shadow-xs hover:shadow-sm transition-all duration-200 cursor-pointer"

@@ -9,6 +9,7 @@ import {
   Building2, 
   Database, 
   LineChart, 
+  Sliders, 
   CheckCircle2, 
   ArrowRight, 
   ShieldCheck, 
@@ -132,6 +133,37 @@ const IT_SOLUTIONS: ITSolutionItem[] = [
       'Predictive Reagent Forecasting',
       'NABL / ISO Compliance Reporting'
     ]
+  },
+  {
+    id: 'customized-solution',
+    code: '04',
+    badge: 'Tailored Enterprise Engineering',
+    name: 'Customized Healthcare & Diagnostic IT Solutions',
+    shortName: 'Customized Solutions',
+    tagline: 'Tailored clinical architectures, proprietary analyzer interfacing, and bespoke institutional workflow design.',
+    definition: 'Flexible, full-stack customized healthcare software engineering designed to fit unique laboratory networks, specialized hospital workflows, proprietary analyzer driver protocols, third-party EHR/PACS/billing bridges, and dedicated multi-tier diagnostic portals.',
+    icon: Sliders,
+    accentColor: '#0D9488',
+    bgLight: 'from-teal-50/70 to-white',
+    borderAccent: 'border-teal-200/80',
+    badgeBg: 'bg-teal-100 text-[#0F766E] border-teal-200',
+    badgeText: 'text-[#0F766E]',
+    metricLabel: 'System Architecture',
+    metricValue: '100% Tailored to Client Specs',
+    features: [
+      'Bespoke Diagnostic & Clinical Workflow Customization',
+      'Proprietary Instrument Drivers & Custom Middleware Development',
+      'Third-Party Hospital EHR, PACS & Billing System API Bridges',
+      'Tailored Patient Self-Service Portals & Branded Mobile Apps',
+      'Hybrid Cloud or Secure Air-Gapped On-Premise Deployments',
+      'Dedicated Custom Engineering Support with 24/7 Guaranteed SLA'
+    ],
+    architecture: [
+      'Custom HL7 / FHIR Middleware',
+      'Proprietary Device Interfacing',
+      'Tailored REST & GraphQL APIs',
+      'Dedicated Enterprise SLA'
+    ]
   }
 ]
 
@@ -205,10 +237,11 @@ const SubNavigation = ({
   setActiveFilter: (id: string) => void 
 }) => {
   const tabs = [
-    { id: 'all', name: 'All 3 Solutions' },
+    { id: 'all', name: 'All Solutions' },
     { id: 'hospital-management', name: '1. Hospital Management' },
     { id: 'laboratory-management', name: '2. Lab Information System (LIS)' },
-    { id: 'business-analytics', name: '3. Business Analytics' }
+    { id: 'business-analytics', name: '3. Business Analytics' },
+    { id: 'customized-solution', name: '4. Customized Solutions' }
   ]
 
   return (
@@ -259,7 +292,7 @@ export default function ITSolutionsPage() {
               Enterprise Software Suite
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111827] tracking-tight mb-4">
-              3 Specialized Healthcare IT Solutions
+              Specialized Healthcare IT Solutions
             </h2>
             <p className="text-sm sm:text-base text-[#64748B] leading-relaxed">
               Purpose-built architectures designed to eliminate manual bottlenecks, secure patient records, automate laboratory analyzer data flows, and furnish executive leaders with actionable intelligence.
@@ -459,7 +492,7 @@ export default function ITSolutionsPage() {
                 Modernize Your Hospital or Diagnostic Laboratory
               </h3>
               <p className="text-xs sm:text-sm text-blue-100 leading-relaxed font-light">
-                Consult with our senior healthcare IT specialists for workflow evaluation, bidirectional instrument connectivity, or an interactive demonstration of our 3 core solutions.
+                Consult with our senior healthcare IT specialists for workflow evaluation, bidirectional instrument connectivity, or an interactive demonstration of our specialized solutions.
               </p>
               <div className="pt-2 flex flex-wrap items-center gap-3">
                 <Link

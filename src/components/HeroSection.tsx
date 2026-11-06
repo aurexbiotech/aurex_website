@@ -62,7 +62,7 @@ const HeroSection = () => {
             <Phone className="text-white" size={20} />
           </a>
           <a
-            href="mailto:sales@aurexbiotech.com"
+            href="mailto:sales@aurexbiotech.in"
             aria-label="Send Email"
             className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-transform hover:scale-110 cursor-pointer shadow-md"
           >

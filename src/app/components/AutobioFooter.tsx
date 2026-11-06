@@ -184,7 +184,7 @@ const AutobioFooter: React.FC = () => {
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs sm:text-[13px]">
               <div className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-blue-300 shrink-0" />
-                <span className="text-white/90 break-words">163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, VILLUPURAM, TAMIL NADU, 605601</span>
+                <span className="text-white/90 break-words">163B/98, 163/BG,163B/h Chennai Main Road, Mundiyambakkam, Villupuram, TAMIL NADU, 605601</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-blue-300 shrink-0" />
@@ -192,7 +192,7 @@ const AutobioFooter: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-blue-300 shrink-0" />
-                <span className="text-white/90">sales@aurexbiotech.com</span>
+                <span className="text-white/90">sales@aurexbiotech.in</span>
               </div>
             </div>
 

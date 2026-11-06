@@ -440,7 +440,7 @@ export default function LoginPage() {
                             type="text"
                             value={hrmForm.employeeId}
                             onChange={(e) => setHrmForm({ ...hrmForm, employeeId: e.target.value })}
-                            placeholder="e.g. EMP-4081 or user@aurexbiotech.com"
+                            placeholder="e.g. EMP-4081 or user@aurexbiotech.in"
                             className="w-full pl-10 pr-4 py-3 bg-[#F6F8FB] rounded-xl border border-[#BFBFBF]/50 text-sm text-[#111827] placeholder:text-[#64748B]/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1646AF]/20 focus:border-[#1646AF]"
                           />
                           <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748B]" size={16} />
@@ -645,7 +645,7 @@ export default function LoginPage() {
                           <label className="block text-xs font-bold text-[#111827]">
                             Password
                           </label>
-                          <a href="#" onClick={(e) => { e.preventDefault(); alert('Please contact AUREX Institutional Client Support (sales@aurexbiotech.com) for password recovery.') }} className="text-xs font-medium text-[#1646AF] hover:underline">
+                          <a href="#" onClick={(e) => { e.preventDefault(); alert('Please contact AUREX Institutional Client Support (sales@aurexbiotech.in) for password recovery.') }} className="text-xs font-medium text-[#1646AF] hover:underline">
                             Forgot Credentials?
                           </a>
                         </div>
@@ -824,7 +824,7 @@ export default function LoginPage() {
                             type="text"
                             value={projectsForm.projectId}
                             onChange={(e) => setProjectsForm({ ...projectsForm, projectId: e.target.value })}
-                            placeholder="e.g. PRJ-9040 or engineer@aurexbiotech.com"
+                            placeholder="e.g. PRJ-9040 or engineer@aurexbiotech.in"
                             className="w-full pl-10 pr-4 py-3 bg-[#F6F8FB] rounded-xl border border-[#BFBFBF]/50 text-sm text-[#111827] placeholder:text-[#64748B]/60 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#133C99]/20 focus:border-[#133C99]"
                           />
                           <FolderKanban className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748B]" size={16} />
@@ -837,7 +837,7 @@ export default function LoginPage() {
                           <label className="block text-xs font-bold text-[#111827]">
                             Security Key / Project PIN
                           </label>
-                          <a href="#" onClick={(e) => { e.preventDefault(); alert('Please contact the AUREX Project Management Office (projects@aurexbiotech.com) for authorization tokens.') }} className="text-xs font-medium text-[#133C99] hover:underline">
+                          <a href="#" onClick={(e) => { e.preventDefault(); alert('Please contact the AUREX Project Management Office (projects@aurexbiotech.in) for authorization tokens.') }} className="text-xs font-medium text-[#133C99] hover:underline">
                             Request Key Access?
                           </a>
                         </div>
@@ -1029,7 +1029,7 @@ export default function LoginPage() {
                           <label className="block text-xs font-bold text-[#111827]">
                             Security Token / Investor PIN
                           </label>
-                          <a href="#" onClick={(e) => { e.preventDefault(); alert('Please contact AUREX Investor Relations Desk (investor.relations@aurexbiotech.com / +91 9543910101) for security token verification.') }} className="text-xs font-medium text-[#0E2A6C] hover:underline">
+                          <a href="#" onClick={(e) => { e.preventDefault(); alert('Please contact AUREX Investor Relations Desk (investor.relations@aurexbiotech.in / +91 9543910101) for security token verification.') }} className="text-xs font-medium text-[#0E2A6C] hover:underline">
                             Request Key Access?
                           </a>
                         </div>

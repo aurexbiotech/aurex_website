@@ -264,3 +264,50 @@ export const itSolutionsSchema = {
     ]
   }
 }
+
+export const fc2100FaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the throughput of the SmarLumi FC-2100 analyzer?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The SmarLumi FC-2100 delivers a high throughput of 200 tests per hour (T/h) with time to first diagnostic result in less than 12 minutes within an ultra-compact 0.64 m² footprint.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How many diagnostic tests are available on the FC-2100?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The FC-2100 features a comprehensive 119-test menu spanning 19 clinical categories including high-sensitivity Cardiac markers (hs-cTnI, NT-proBNP), Thyroid, Fertility, Tumor Markers (CA125, CEA, AFP), Thrombus (D-Dimer), Inflammation (PCT, IL-6), Hypertension, TORCH, and Infectious Diseases.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Does the SmarLumi FC-2100 support STAT emergency samples?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, the FC-2100 features dedicated STAT priority processing with continuous sample loading across 60 sample positions and 25 refrigerated reagent positions.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Does the FC-2100 support bidirectional LIS connectivity?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, the FC-2100 features bidirectional LIS communication supporting ASTM and HL7 protocols for automated worklist downloads, barcode scanning, and direct diagnostic report transmission.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Does AUREX Biotech provide on-site installation and support in India?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, AUREX Biotech provides nationwide on-site installation, clinical application training, preventive maintenance, and 24/7 technical hotline support (+91 95439 10101 / sales@aurexbiotech.in).'
+      }
+    }
+  ]
+}

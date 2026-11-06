@@ -19,7 +19,10 @@ import {
   RefreshCw,
   Pipette,
   Gauge,
-  Play
+  Play,
+  FileDown,
+  ChevronDown,
+  HelpCircle
 } from 'lucide-react'
 import Footer from '@/components/Footer'
 
@@ -35,6 +38,29 @@ interface TestCategory {
   description: string
   tests: TestItem[]
 }
+
+const FC2100_FAQS = [
+  {
+    question: 'What is the throughput and speed of the SmarLumi FC-2100?',
+    answer: 'The SmarLumi FC-2100 delivers a high throughput of 200 tests per hour (T/h) with time to first diagnostic result in less than 12 minutes within an ultra-compact 0.64 m² footprint.'
+  },
+  {
+    question: 'How many diagnostic tests are available on the FC-2100 analyzer?',
+    answer: 'The FC-2100 features a comprehensive 119-test menu spanning 19 clinical categories including high-sensitivity Cardiac markers (hs-cTnI, NT-proBNP), Thyroid, Fertility, Tumor Markers (CA125, CEA, AFP), Thrombus (D-Dimer), Inflammation (PCT, IL-6), Hypertension, TORCH, and Infectious Diseases.'
+  },
+  {
+    question: 'Does the SmarLumi FC-2100 support STAT emergency samples?',
+    answer: 'Yes, the FC-2100 features dedicated STAT priority processing with continuous sample loading across 60 sample positions and 25 refrigerated reagent positions.'
+  },
+  {
+    question: 'Does the FC-2100 support bidirectional LIS connectivity?',
+    answer: 'Yes, the FC-2100 features bidirectional LIS communication supporting ASTM and HL7 protocols for automated worklist downloads, barcode scanning, and direct diagnostic report transmission.'
+  },
+  {
+    question: 'Does AUREX Biotech provide on-site installation, calibration, and support in India?',
+    answer: 'Yes, AUREX Biotech provides nationwide on-site installation, clinical application training, preventive maintenance, and 24/7 technical hotline support (+91 95439 10101 / sales@aurexbiotech.in).'
+  }
+]
 
 const TEST_MENU: TestCategory[] = [
   {
@@ -313,6 +339,7 @@ const TEST_MENU: TestCategory[] = [
 export default function FC2100ProductPage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
+  const [openFaq, setOpenFaq] = useState<number | null>(0)
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isVideoPlaying, setIsVideoPlaying] = useState(true)
 
@@ -565,6 +592,17 @@ export default function FC2100ProductPage() {
                   <MessageSquare size={15} />
                   <span>Request Quotation</span>
                 </Link>
+
+                <a
+                  href="/documents/smarlumi-fc-2100-brochure.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="SmarLumi-FC-2100-Brochure-AUREX.pdf"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm rounded-lg shadow-2xs hover:shadow-xs transition-all duration-300 text-center cursor-pointer"
+                >
+                  <FileDown size={15} />
+                  <span>Download Brochure (PDF)</span>
+                </a>
 
                 <Link
                   href="/contact?subject=FC-2100%20Technical%20Consultation"
@@ -1004,6 +1042,50 @@ export default function FC2100ProductPage() {
         </div>
       </section>
 
+      {/* SECTION: Frequently Asked Questions (FAQ) with Accordion */}
+      <section className="py-14 sm:py-18 bg-[#F6F8FB] border-t border-gray-200">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-100 text-[#133C99] text-xs font-bold uppercase tracking-wider mb-2 border border-blue-200/80">
+              <HelpCircle size={14} />
+              <span>Diagnostic Technical Support & Guidance</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#111827]">
+              Frequently Asked Questions (FAQ)
+            </h2>
+            <p className="text-xs sm:text-sm text-[#64748B] mt-1">
+              Common questions from laboratory directors and clinical pathologists regarding SmarLumi FC-2100 deployment.
+            </p>
+          </div>
+
+          <div className="space-y-3.5">
+            {FC2100_FAQS.map((faq, idx) => (
+              <div 
+                key={idx}
+                className="bg-white rounded-2xl border border-gray-200/90 shadow-2xs overflow-hidden transition-all"
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="w-full px-5 sm:px-6 py-4 sm:py-4.5 text-left flex items-center justify-between gap-4 font-bold text-sm sm:text-base text-[#111827] hover:text-[#1646AF] transition-colors cursor-pointer"
+                >
+                  <span>{faq.question}</span>
+                  <ChevronDown 
+                    size={18} 
+                    className={`text-[#133C99] shrink-0 transition-transform duration-300 ${openFaq === idx ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {openFaq === idx && (
+                  <div className="px-5 sm:px-6 pb-4 sm:pb-5 pt-1 text-xs sm:text-sm text-[#475569] leading-relaxed border-t border-gray-100">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 6: Product Enquiry & Consultation */}
       <section className="py-14 sm:py-18 bg-gradient-to-r from-[#133C99] to-[#1646AF] text-white">
         <div className="container mx-auto px-4 sm:px-6 text-center">
@@ -1022,6 +1104,16 @@ export default function FC2100ProductPage() {
                 <MessageSquare size={17} />
                 <span>Request Quotation</span>
               </Link>
+              <a
+                href="/documents/smarlumi-fc-2100-brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download="SmarLumi-FC-2100-Brochure-AUREX.pdf"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base rounded-xl shadow-md transition-all duration-300 cursor-pointer"
+              >
+                <FileDown size={17} />
+                <span>Download Brochure (PDF)</span>
+              </a>
               <Link
                 href="/contact?subject=FC-2100%20Technical%20Consultation"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/15 hover:bg-white/25 text-white font-bold text-sm sm:text-base rounded-xl border border-white/30 transition-all duration-300"
